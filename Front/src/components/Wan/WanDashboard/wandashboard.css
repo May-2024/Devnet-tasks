@@ -1,0 +1,21 @@
+.wan-kpi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 20px;
+    width: 20rem;
+    height: 4rem;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wan-kpi-container span {
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 10px;
+    display: inline-block;
+    width:7rem;
+
+}
