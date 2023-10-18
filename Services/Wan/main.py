@@ -69,9 +69,14 @@ def get_uptime():
                 save_bd(data_wan)
             else:
                 device_id = device_data[0].get('objid')
-                get_id_ping_url = os.getenv('URL_PRTG_GET_ID_PING_WITH_ID').format(id_device=device_id)
-                response_2 = requests.get(get_id_ping_url, verify=False).json()
                 
+                if ip_wan.startswith('10.224.126'):
+                    get_id_ping_url = os.getenv('URL_PRTG_GET_ID_PING_WITH_ID_SNMP').format(id_device=device_id)
+
+                else:
+                    get_id_ping_url = os.getenv('URL_PRTG_GET_ID_PING_WITH_ID').format(id_device=device_id)
+                    
+                response_2 = requests.get(get_id_ping_url, verify=False).json()
                 sensor_ping_id = response_2.get('sensors', [{}])[0].get('objid', 'Not Found')
                 sensor_name = response_2.get('sensors', [{}])[0].get('device', 'Not Found')
                 if sensor_ping_id == 'Not Found' or sensor_ping_id == []:
@@ -178,16 +183,17 @@ def dates():
     if mes_actual == 1:  # Si es enero, restamos un mes y ajustamos el año
         mes_anterior = 12
         ano_actual = ano_actual - 1
-
     else:
         mes_anterior = mes_actual - 1
-    _, num_days = calendar.monthrange(ano_actual, mes_actual)
+
+    _, num_days_anterior = calendar.monthrange(ano_actual, mes_anterior)
+    _, num_days_actual = calendar.monthrange(ano_actual, mes_actual)
 
     sdate_anterior = f"{ano_actual}-{mes_anterior:02d}-01-00-00-00"
-    edate_anterior = f"{ano_actual}-{mes_anterior:02d}-{num_days}-23-59-59"
+    edate_anterior = f"{ano_actual}-{mes_anterior:02d}-{num_days_anterior}-23-59-59"
 
     sdate_actual = f"{ano_actual}-{mes_actual:02d}-01-00-00-00"
-    edate_actual = f"{ano_actual}-{mes_actual:02d}-{num_days}-23-59-59"
+    edate_actual = f"{ano_actual}-{mes_actual:02d}-{num_days_actual}-23-59-59"
 
     sdate_hoy = f"{ano_actual}-{mes_actual:02d}-{now.day:02d}-00-00-00"
     edate_hoy = f"{ano_actual}-{mes_actual:02d}-{now.day:02d}-23-59-59"

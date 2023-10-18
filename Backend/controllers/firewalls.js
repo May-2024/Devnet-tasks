@@ -13,13 +13,14 @@ async function getFirewalls() {
 
 async function getNumberFw() {
   const listFw = await DataFirewalls.findAll();
-  console.log(listFw);
   const numFw = listFw.length;
   return numFw;
 }
 
-async function getOneFirewall(ip) {
-  const firewall = await DataFirewalls.findOne({ where: { ip: ip } });
+async function getOneFirewall(ip, ubication) {
+  const firewall = await DataFirewalls.findOne({
+    where: { ip: ip, ubication: ubication },
+  });
   if (firewall !== null) {
     return {
       status: 200,
@@ -34,29 +35,20 @@ async function getOneFirewall(ip) {
 
 async function createFirewall(data) {
   try {
-    const firewallDoesExist = await DataFirewalls.findOne({
-      where: { ip: data.ip },
+    const newFirewall = await DataFirewalls.create({
+      name: data.name,
+      channel: data.channel,
+      ip: data.ip,
+      link: data.link,
+      vdom: data.vdom,
+      gateway: data.gateway,
+      ubication: data.ubication,
     });
-    if (firewallDoesExist === null) {
-      const newFirewall = await DataFirewalls.create({
-        name: data.name,
-        channel: data.channel,
-        ip: data.ip,
-        link: data.link,
-        vdom: data.vdom,
-        gateway: data.gateway,
-        ubication: data.ubication,
-      });
-      return {
-        status: 201,
-        message:
-          "El Firewall - Canal de Internet ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
-        data: newFirewall,
-      };
-    }
     return {
-      status: 409,
-      message: "El Firewall - Canal de Internet ya existe en la base de datos.",
+      status: 201,
+      message:
+        "El Firewall - Canal de Internet ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
+      data: newFirewall,
     };
   } catch (error) {
     console.error(error);
@@ -98,9 +90,11 @@ async function editOneFirewall(id, changes) {
   }
 }
 
-async function deleteFirewall(ip) {
+async function deleteFirewall(ip, ubication) {
   try {
-    const firewall = await DataFirewalls.findOne({ where: { ip: ip } });
+    const firewall = await DataFirewalls.findOne({
+      where: { ip: ip, ubication: ubication },
+    });
     if (firewall !== null) {
       await DataFirewalls.destroy({ where: { id: firewall.id } });
       const checkFirewallIsDeleted = await DataFirewalls.findByPk(firewall.id);

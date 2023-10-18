@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import { getIndicators } from "../../../utils/Api-candelaria/api";
+import { getWanIndicators } from "../../../utils/Api-candelaria/api";
 import "./wandashboard.css";
 
-export function WanDashboard({ nombreMesAnterior, nombreMesActual }) {
-  const [wanKpi, setWanKpi] = useState(0.0);
+export function WanDashboard({ previousMonthName }) {
+  const [wanKpi, setWanKpi] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const kpi = await getIndicators();
-        setWanKpi(kpi);
+        const kpi = await getWanIndicators();
+        setWanKpi(kpi.kpiWan);
       } catch (error) {
         console.error("Error al obtener el listado de firewalls:", error);
         return error;
@@ -18,19 +18,39 @@ export function WanDashboard({ nombreMesAnterior, nombreMesActual }) {
     fetchData();
   }, []);
 
-  const kpiMesAnterior = wanKpi ? wanKpi.wan.kpiWan : "0.0";
-  const claassNameKpi = wanKpi
-    ? kpiMesAnterior >= 99.85
-      ? "kpi-green"
-      : "kpi-red"
-    : "kpi-red";
+  const kpiRemoteSites = wanKpi.kpiOtherWans || "Cargando...";
+  const kpiCandelaria = wanKpi.kpiAdminWans || "Cargando...";
 
   return (
     <div className="wan-kpi-container">
-      <h2>
-        KPI {nombreMesAnterior}:{" "}
-        <span className={claassNameKpi}>{kpiMesAnterior}%</span>
-      </h2>
+      <table className="table-dashboard-wan">
+        <tbody>
+          <tr>
+            <td className="left-td-wan-dash">KPI {previousMonthName} Sitios remotos:</td>
+            <td
+              className={
+                kpiRemoteSites >= 99.85
+                  ? "kpi-green td-wan-dash"
+                  : "kpi-red td-wan-dash"
+              }
+            >
+              {kpiRemoteSites}%
+            </td>
+          </tr>
+          <tr>
+            <td className="left-td-wan-dash">KPI {previousMonthName} Candelaria:</td>
+            <td
+              className={
+                kpiCandelaria >= 99.85
+                  ? "kpi-green td-wan-dash"
+                  : "kpi-red td-wan-dash"
+              }
+            >
+              {kpiCandelaria}%
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
