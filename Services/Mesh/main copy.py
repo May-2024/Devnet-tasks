@@ -84,18 +84,15 @@ def prtg_data():
             last_down_ping =  re.sub(patron, '', last_down_ping)
 
             edate = datetime.datetime.today()
-            sdate = datetime.datetime.today() - timedelta(minutes=360) #! Se cambia de 30 a 360
+            sdate = datetime.datetime.today() - timedelta(minutes=30)
             edate = edate.strftime("%Y-%m-%d-%H-%M-%S")
             sdate = sdate.strftime("%Y-%m-%d-%H-%M-%S")
                     
             URL_GET_DATA_PING = os.getenv('URL_GET_DATA_PING').format(objid=objid, sdate=sdate, edate=edate)
             try:
                 data_ping = requests.get(URL_GET_DATA_PING, verify=False)
-                # print(data_ping.content)
                 data_ping = xmltodict.parse(data_ping.text)
-                print(data_ping)
-                data_ping = data_ping["histdata"]['item'][0]['value'] #! Se agrega la posicion [0]
-                # print(f"Toda la info {data_ping}")
+                data_ping = data_ping["histdata"]['item']['value']
                 avg_ping = data_ping[0]['#text']
                 min_ping = data_ping[1]['#text']
                 max_ping = data_ping[2]['#text']
