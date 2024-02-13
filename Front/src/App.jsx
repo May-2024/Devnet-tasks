@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation, useNavigate  } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
@@ -26,13 +26,23 @@ import { AdminSwitches } from "./components/AdminPanel/AdminViews/AdminSwitches"
 import { AdminMesh } from "./components/AdminPanel/AdminViews/AdminMesh";
 import { AdminFirewalls } from "./components/AdminPanel/AdminViews/AdminFirewalls";
 import { AdminUsers } from "./components/AdminPanel/AdminViews/AdminUsers";
+import { AdminAp } from "./components/AdminPanel/AdminViews/AdminAp";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import { Login } from "./components/Login/Logins";
+import { InfraGeneral } from "./components/InfraGeneral/InfraGeneral";
+import { DetailsCore } from "./components/InfraGeneral/DetailsCore/DetailsCore";
+import { Map } from "./components/InfraGeneral/Map/Map";
+import { MainTopology } from "./components/InfraGeneral/MainTopology/MainTopology";
+import { Categories } from "./components/InfraGeneral/Categories/Categories";
+import { ApNegocio } from "./components/InfraGeneral/Ap/ApNegocio";
+import { ApMesh } from "./components/InfraGeneral/Ap/ApMesh";
+import { DcsPac } from "./components/DcsPac/DcsPac";
+import { DcsOjos } from "./components/DcsOjos/DcsOjos";
 import "./app.css";
 
 function App() {
   const location = useLocation();
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   const { timerActive, toggleTimer } = useAutoRefresh();
   const pageTitle = useTabsName(location.pathname);
 
@@ -78,8 +88,33 @@ function App() {
         <Route path="/admin/mesh" element={<AdminMesh />} />
         <Route path="/admin/firewalls" element={<AdminFirewalls />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/infrageneral/ap" element={<AdminAp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/monitoreo/pac/clientes" element={<DcsPac />} />
+        <Route path="/monitoreo/ojos/clientes" element={<DcsOjos />} />
+        <Route
+          path="/monitoreo/infraestrucura-general"
+          element={<MainTopology />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/categorias"
+          element={<Categories />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/detalles/ap/negocio"
+          element={<ApNegocio />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/detalles/ap/mesh"
+          element={<ApMesh />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/detalles"
+          element={<DetailsCore />}
+        />
+        <Route path="/monitoreo/infraestrucura-general/map" element={<Map />} />
       </Routes>
+
       <div className="refresh-button-container">
         <button
           className="refresh-button"

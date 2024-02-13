@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
 import { DashFirewalls } from "./DashFirewalls/DashFirewalls";
+import { Spinner } from "../Spinner/Spinner";
 import "./firewalls.css";
 
 export function Firewalls() {
@@ -11,6 +12,7 @@ export function Firewalls() {
   const [filterDownPaused, setFilterDownPaused] = useState(true);
   const [fwCommunity, setFwCommunity] = useState([]);
   const [fwCorporate, setFwCorporate] = useState([]);
+  const [showSpinner, setShowSpinner] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +29,7 @@ export function Firewalls() {
         );
         setFwCorporate(corporateFirewalls);
         setFwCommunity(communityFirewalls);
+        setShowSpinner(false);
       } catch (error) {
         console.error("Error al obtener el listado de firewalls:", error);
         return error;
@@ -34,6 +37,15 @@ export function Firewalls() {
     };
     fetchData();
   }, []);
+
+  if (showSpinner) {
+    return (
+      <div>
+        <Navbar title={"Firewalls - Canales Internet"} />
+        <Spinner />
+      </div>
+    );
+  }
 
   // Función para renderizar el cuerpo de la tabla
   const renderTableBody = (firewallsArray) => {
@@ -100,7 +112,7 @@ export function Firewalls() {
             fw.status_gateway.includes("Up")
               ? "kpi-green"
               : fw.status_gateway.includes("Paused")
-              ? "kpi-yellow"
+              ? "kpi-blue"
               : fw.status_gateway.includes("Down")
               ? "kpi-red"
               : fw.status_gateway.includes("Not Found") && fw.gateway.includes("100.64.0.1")
@@ -180,9 +192,9 @@ export function Firewalls() {
           className={
             fw.status_gateway.includes("Up")
               ? "kpi-green"
-              : fw.gateway.includes("Paused")
-              ? "kpi-yellow"
-              : fw.gateway.includes("Down")
+              : fw.status_gateway.includes("Paused")
+              ? "kpi-blue"
+              : fw.status_gateway.includes("Down")
               ? "kpi-red"
               : ""
           }

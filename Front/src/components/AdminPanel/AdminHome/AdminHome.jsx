@@ -11,7 +11,7 @@ export const AdminHome = () => {
     "/admin/wan",
     "/admin/mesh",
     "/admin/firewalls",
-    "/admin/users"
+    "/admin/users",
   ];
   const titles = [
     "DCS Clientes Candelaria",
@@ -21,7 +21,7 @@ export const AdminHome = () => {
     "WAN",
     "MESH",
     "Firewalls - Canales Internet",
-    "Usuarios"
+    "Usuarios",
   ];
 
   return (
@@ -34,7 +34,11 @@ export const AdminHome = () => {
         <div className="admin-panel">
           <div className="buttons-admin-home-container">
             {titles.map((title, index) => (
-              <Link to={linksTables[index]} style={{ textDecoration: "none" }} key={index}>
+              <Link
+                to={linksTables[index]}
+                style={{ textDecoration: "none" }}
+                key={index}
+              >
                 <div className="buttons-admin-home">
                   <h2>{title}</h2>
                 </div>

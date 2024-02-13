@@ -17,12 +17,14 @@ def get_data_dispatch(eqmt):
 
         cursor = conn.cursor()
         cursor.execute("SELECT TOP (1000) [shiftdate],[shift#] ,[endtime] ,[unit] ,[eqmt] ,[status] ,[name] ,[hora] ,[operatorname] FROM [MLCOperational].[dbo].[status_equipos]")
+        # cursor.execute("SELECT TOP (1000) FROM [MLCOperational].[dbo].[status_equipos]")
         
         all_data = []
         for row in cursor:  
             data = list(row)
             all_data.append(data)
-        # print(all_data)
+        print("DATAAA")
+        print(all_data)
         for data_device in all_data:
             if data_device[4] == eqmt:
                 status_dispatch = f'{data_device[5]}-{data_device[6]}'

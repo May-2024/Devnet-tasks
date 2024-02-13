@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { getMeshIndicators } from "../../../utils/Api-candelaria/api";
+import PuffLoader from "react-spinners/PuffLoader";
 import "./dashmesh.css";
 
 export function DashMesh() {
-  const [indicatorsMesh, setIndicatorsMesh] = useState(null); // Initialize with null
+  const [indicatorsMesh, setIndicatorsMesh] = useState(null);
+  const [spinnerMesh, setSpinnerMesh] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const indicators = await getMeshIndicators();
-        setIndicatorsMesh(indicators); // Assuming indicators.mesh is the correct property
+        setIndicatorsMesh(indicators);
+        setSpinnerMesh(false);
       } catch (error) {
         console.error("Error al obtener el listado de indicadores MESH:", error);
       }
@@ -20,6 +23,13 @@ export function DashMesh() {
     const currentTab = document.title; 
     const tableClassName = currentTab === "Home" ? "mesh-dash-table-home" : "mesh-dash-table";
   
+  if (spinnerMesh) {
+    return (
+      <div className="spinner-dash-container">
+        <PuffLoader color="red" />
+      </div>
+    );
+  }
 
   return (
     <>

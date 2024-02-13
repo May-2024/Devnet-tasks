@@ -11,6 +11,8 @@ import { DashFirewalls } from "../Firewalls/DashFirewalls/DashFirewalls";
 import { WanDashboard } from "../Wan/WanDashboard/WanDashboard";
 import { useWanDates } from "../../hooks/useWanDates";
 import { useVpnCounter } from "../../hooks/useVpnCounter";
+import { InfraGeneralDash } from "../InfraGeneral/InfraGeneralDash/InfraGeneralDash";
+import PuffLoader from "react-spinners/PuffLoader";
 import "./home.css";
 
 export function Home() {
@@ -21,9 +23,14 @@ export function Home() {
   const [otroCount, setOtroCount] = useState(0);
   const [changeBatery, setChangeBatery] = useState(0);
   const [numberUps, setNumberUps] = useState(0);
-  const { vpn1Users, vpn2Users, vpn3Users } = useVpnCounter();
+  const { dataVpn1Users, dataVpn2Users, dataVpn3Users } = useVpnCounter();
   const [homeMessage, setHomeMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+
+  // Estados de spinners
+  const [spinnerDcsCandelaria, setSpinnerDcsCandelaria] = useState(true);
+  const [spinnerUps, setSpinnerUps] = useState(true);
+  const [spinnerMesh, setSpinnerMesh] = useState(false);
 
   const queryParams = new URLSearchParams(location.search);
   const logoutParam = queryParams.get("logout");
@@ -60,6 +67,9 @@ export function Home() {
           });
 
         setDcsCandeIndicators(dcsCandelaria);
+        setSpinnerDcsCandelaria(false);
+        setSpinnerUps(false);
+        setSpinnerMesh(false);
         setWanDates(dates);
         setNumberUps(countUps);
         setEnLineaCount(enLinea);
@@ -73,7 +83,6 @@ export function Home() {
 
     fetchData();
   }, []);
-
 
   useEffect(() => {
     if (logoutParam && !token) {
@@ -91,7 +100,7 @@ export function Home() {
 
   return (
     <>
-      <Navbar title={"Home"} />
+      <Navbar title={"DEVNET"} />
       <div>
         {showMessage && (
           <div className="home-message-container">
@@ -104,116 +113,161 @@ export function Home() {
           <div className="name-system-container">
             <h1>DCS Candelaria</h1>
           </div>
+          {spinnerDcsCandelaria ? (
+            <div className="spinner-home-container">
+              <div className="spinner-container">
+                <PuffLoader color="red" />
+              </div>
+              <div className="link-system-container links-spinner-home">
+                <Link
+                  to="/monitoreo/candelaria/clients"
+                  className="link-system button-clients button-link"
+                  style={{ color: "white" }}
+                >
+                  Clientes
+                </Link>
+                <Link
+                  to="/monitoreo/candelaria/switches"
+                  className="link-system button-switches button-link"
+                  style={{ color: "white" }}
+                >
+                  Switches
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="home-kpi-container">
+                <table className="home-kpi-table">
+                  <tbody>
+                    <tr>
+                      <td>Overall</td>
+                      <td>
+                        <span
+                          className={overAll < 99.95 ? "kpi-red" : "kpi-green"}
+                        >
+                          {" "}
+                          {overAll}%{" "}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Disponibilidad</td>
+                      <td>
+                        <span
+                          className={
+                            disponibilidad < 99.95 ? "kpi-red" : "kpi-green"
+                          }
+                        >
+                          {" "}
+                          {disponibilidad}%{" "}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Infraestructura Solución</td>
+                      <td>
+                        <span
+                          className={
+                            infra_solucion < 99.95 ? "kpi-red" : "kpi-green"
+                          }
+                        >
+                          {" "}
+                          {infra_solucion}%{" "}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div className="home-kpi-container">
-            <table className="home-kpi-table">
-              <tbody>
-                <tr>
-                  <td>Overall</td>
-                  <td>
-                    <span className={overAll < 99.95 ? "kpi-red" : "kpi-green"}>
-                      {" "}
-                      {overAll}%{" "}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Disponibilidad</td>
-                  <td>
-                    <span
-                      className={
-                        disponibilidad < 99.95 ? "kpi-red" : "kpi-green"
-                      }
-                    >
-                      {" "}
-                      {disponibilidad}%{" "}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Infraestructura Solución</td>
-                  <td>
-                    <span
-                      className={
-                        infra_solucion < 99.95 ? "kpi-red" : "kpi-green"
-                      }
-                    >
-                      {" "}
-                      {infra_solucion}%{" "}
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="link-system-container">
-            <Link
-              to="/monitoreo/candelaria/clients"
-              className="link-system button-clients button-link"
-              style={{ color: "white" }}
-            >
-              Clientes
-            </Link>
-            <Link
-              to="/monitoreo/candelaria/switches"
-              className="link-system button-switches button-link"
-              style={{ color: "white" }}
-            >
-              Switches
-            </Link>
-          </div>
+              <div className="link-system-container">
+                <Link
+                  to="/monitoreo/candelaria/clients"
+                  className="link-system button-clients button-link"
+                  style={{ color: "white" }}
+                >
+                  Clientes
+                </Link>
+                <Link
+                  to="/monitoreo/candelaria/switches"
+                  className="link-system button-switches button-link"
+                  style={{ color: "white" }}
+                >
+                  Switches
+                </Link>
+              </div>
+            </>
+          )}
         </section>
 
         <section className="system-container">
           <div className="name-system-container">
             <h1>UPS</h1>
           </div>
+          {spinnerUps ? (
+            <div className="spinner-home-container">
+              <div className="spinner-home-container">
+                <PuffLoader color="red" />
+              </div>
+              <div className="link-system-container links-spinner-home">
+                <Link
+                  to="/monitoreo/ups"
+                  className="link-system button-link"
+                  style={{ color: "white" }}
+                >
+                  Ver detalles
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="home-kpi-container">
+                <table className="home-kpi-table ups-table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p className="light-indicator green-light"></p>En línea
+                      </td>
+                      <td>{numberUps}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p className="light-indicator yellow-light"></p>Usando
+                        batería
+                      </td>
+                      <td>{usandoBateriaCount}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p className="light-indicator red-light"></p>Otro
+                      </td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p className="warning-light" style={{ bottom: "10px" }}>
+                          🪫
+                        </p>
+                        Cambio batería
+                      </td>
+                      <td>{changeBatery}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div className="home-kpi-container">
-            <table className="home-kpi-table ups-table">
-              <tbody>
-                <tr>
-                  <td>
-                    <p className="light-indicator green-light"></p>En línea
-                  </td>
-                  <td>{numberUps}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className="light-indicator yellow-light"></p>Usando
-                    batería
-                  </td>
-                  <td>{usandoBateriaCount}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className="light-indicator red-light"></p>Otro
-                  </td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className="warning-light" style={{ bottom: "10px" }}>
-                      🪫
-                    </p>
-                    Cambio batería
-                  </td>
-                  <td>{changeBatery}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="link-system-container">
-            <Link
-              to="/monitoreo/ups"
-              className="link-system button-link"
-              style={{ color: "white" }}
-            >
-              Ver detalles
-            </Link>
-          </div>
+              <div className="link-system-container">
+                <Link
+                  to="/monitoreo/ups"
+                  className="link-system button-link"
+                  style={{ color: "white" }}
+                >
+                  Ver detalles
+                </Link>
+              </div>
+            </>
+          )}
         </section>
 
         <section className="system-container">
@@ -222,19 +276,19 @@ export function Home() {
           </div>
 
           <div className="home-kpi-container">
-            <table className="home-kpi-table">
+            <table className="home-kpi-table home-vpn-table">
               <tbody>
                 <tr>
                   <td>Administrativo</td>
-                  <td>{vpn1Users.number} users</td>
+                  <td>{dataVpn1Users.number} users</td>
                 </tr>
                 <tr>
                   <td>Concentradora</td>
-                  <td>{vpn2Users.number} users</td>
+                  <td>{dataVpn2Users.number} users</td>
                 </tr>
                 <tr>
                   <td>Ojos</td>
-                  <td>{vpn3Users.number} users</td>
+                  <td>{dataVpn3Users.number} users</td>
                 </tr>
               </tbody>
             </table>
@@ -269,6 +323,32 @@ export function Home() {
             </Link>
           </div>
         </section>
+        {/* 
+        <section className="system-container">
+          <div className="name-system-container">
+            <h1>MESH</h1>
+          </div>
+          {spinnerMesh ? (
+            <div className="spinner-home-container">
+              <PuffLoader color="red" />
+            </div>
+          ) : (
+            <>
+              <div className="home-kpi-container">
+                <DashMesh />
+              </div>
+              <div className="link-system-container">
+                <Link
+                  to="/monitoreo/candelaria/mesh"
+                  className="link-system button-link"
+                  style={{ color: "white" }}
+                >
+                  Ver detalles
+                </Link>
+              </div>
+            </>
+          )}
+        </section> */}
 
         <section className="system-container">
           <div className="name-system-container">
@@ -328,6 +408,73 @@ export function Home() {
             </Link>
           </div>
         </section>
+
+        <section className="system-container">
+          <div className="name-system-container">
+            <h1>Infraestructura General</h1>
+          </div>
+
+          <div className="home-kpi-container">
+            <InfraGeneralDash />
+          </div>
+
+          <div className="link-system-container">
+            <Link
+              to="/monitoreo/infraestrucura-general/map"
+              className="link-system button-link"
+              style={{ color: "white" }}
+            >
+              Mapa
+            </Link>
+            <Link
+              to="/monitoreo/infraestrucura-general/categorias"
+              className="link-system button-link"
+              style={{ color: "white" }}
+            >
+              Detalles
+            </Link>
+
+            {/* <Link
+              to="/monitoreo/infraestrucura-general/details"
+              className="link-system button-link"
+              style={{ color: "white" }}
+            >
+              Detalles
+            </Link> */}
+          </div>
+        </section>
+
+        {/* <section className="system-container">
+          <div className="name-system-container">
+            <h1>DCS PAC</h1>
+          </div>
+
+          <div className="link-system-container">
+            <Link
+              to="/monitoreo/pac/clientes"
+              className="link-system button-link"
+              style={{ color: "white" }}
+            >
+              Detalles
+            </Link>
+          </div>
+        </section>
+
+        <section className="system-container">
+          <div className="name-system-container">
+            <h1>DCS OJOS</h1>
+          </div>
+
+          <div className="link-system-container">
+            <Link
+              to="/monitoreo/ojos/clientes"
+              className="link-system button-link"
+              style={{ color: "white" }}
+            >
+              Detalles
+            </Link>
+          </div>
+        </section> */}
       </div>
     </>
   );
