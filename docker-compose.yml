@@ -71,14 +71,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
       
-  camaras:
-    build:
-      context: Services/Camaras
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # camaras:
+  #   build:
+  #     context: Services/Camaras
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
     
   backend-api-rest:
     build:
@@ -107,23 +107,23 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  # firewalls:
-  #   build:
-  #     context: Services/Firewalls
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - ENVIRONMENT=production
-
-  infraestructura-general:
+  firewalls:
     build:
-      context: Services/InfraGeneral
+      context: Services/Firewalls
     restart: always
     depends_on:
       - db
     environment:
       - ENVIRONMENT=production
+
+  # infraestructura-general:
+  #   build:
+  #     context: Services/InfraGeneral
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
   # dcs-pac:
   #   build:
@@ -143,11 +143,11 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  ap:
-    build:
-      context: Services/InfGen_Ap
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # ap:
+  #   build:
+  #     context: Services/InfGen_Ap
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production

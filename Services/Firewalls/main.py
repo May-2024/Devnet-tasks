@@ -224,7 +224,7 @@ def number_users(host, username, password):
     
 def check_failed_before(cursor, name, channel):
     try:
-        query = f"SELECT * FROM dcs.firewalls WHERE fw = '{name}' AND canal = '{channel}' AND state = 'down' AND datetime >= NOW() - INTERVAL 24 HOUR ORDER BY datetime DESC LIMIT 1"
+        query = f"SELECT * FROM dcs.firewalls WHERE fw = '{name}' AND canal = '{channel}' AND state = 'dead' AND datetime >= NOW() - INTERVAL 24 HOUR ORDER BY datetime DESC LIMIT 1"
         cursor.execute(query)
         row = cursor.fetchone()
         if row:

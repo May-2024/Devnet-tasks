@@ -13,6 +13,8 @@ import { MdOnlinePrediction } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
 import { FaQuestion } from "react-icons/fa";
 import { BsFillCameraVideoFill } from "react-icons/bs";
+import { StatusColor } from "../StatusColor/StatusColor";
+import { MdOutlineInfo } from "react-icons/md";
 
 import "./devices.css";
 
@@ -21,16 +23,9 @@ export function Devices() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterDownPaused, setFilterDownPaused] = useState(true);
   const [loading, setLoading] = useState(true);
-
-  // Probar Spinner
-  // useEffect(() => {
-  //   const fakeLoading = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 21000);
-  //   return () => {
-  //     clearTimeout(fakeLoading);
-  //   };
-  // }, []);
+  const [showColorMeans, setShowColorMeans] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [filterNotFound, setFilterNotFound] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +45,11 @@ export function Devices() {
     setFilterDownPaused(e.target.checked);
   };
 
+  // Utilizado para filtrar por el atributo status_cisco_device === "Not Found"
+  const handleNotFoundChange = (e) => {
+    setFilterNotFound(e.target.checked);
+  };
+
   const filteredDevices = devices.filter((device) => {
     const searchValues = Object.values(device)
       .map((value) => value.toString().toLowerCase())
@@ -58,14 +58,31 @@ export function Devices() {
     return !filterDownPaused || (filterDownPaused && hasDownPaused);
   });
 
-  const filteredSearchDevices = filteredDevices.filter((device) =>
-    Object.values(device)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase())
+  const filteredSearchDevices = filteredDevices.filter(
+    (device) =>
+      Object.values(device)
+        .join(" ")
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) &&
+      (!filterNotFound ||
+        (device.cisco_status_device === "Not Found" &&
+          device.cisco_device_ip !== "Not Found"))
   );
 
-  const [expanded, setExpanded] = useState(false);
+  const colorTitle = (status) => {
+    if (status.includes("Up")) {
+      return "IP Cisco en PRTG: Up";
+    }
+    if (status.includes("Down")) {
+      return "IP Cisco en PRTG: Down";
+    }
+    if (status.includes("Paused")) {
+      return "IP Cisco en PRTG: Pausado";
+    }
+    if (status.includes("Not Found")) {
+      return "IP Cisco en PRTG: Not Found";
+    }
+  };
 
   const toggleContent = () => {
     setExpanded(!expanded);
@@ -107,9 +124,18 @@ export function Devices() {
         <td>{device.prtg_lastup}</td>
         <td>{device.prtg_lastdown}</td>
         <td style={{ width: "1%" }}>
-          {device.data_backup === "true"
-            ? `⚠️ ${device.cisco_device_ip}`
-            : device.cisco_device_ip}
+          {device.data_backup === "true" ? (
+            <p
+              className="warning-icon"
+              title={
+                "Data Not Found, información extraida de registros antiguos."
+              }
+            >
+              ⚠️ {device.cisco_device_ip}
+            </p>
+          ) : (
+            <p>{device.cisco_device_ip}</p>
+          )}
         </td>
         <td
           className={`${
@@ -119,12 +145,45 @@ export function Devices() {
               ? "kpi-red"
               : device.cisco_status_device.includes("Paused")
               ? "kpi-blue"
+              : device.cisco_status_device.includes("Not Found") &&
+                device.cisco_device_ip !== "Not Found"
+              ? "kpi-grey"
               : ""
           } td-name-cisco`}
         >
-          {device.data_backup === "true"
-            ? `⚠️ ${device.cisco_device_name}`
-            : device.cisco_device_name}
+          {device.data_backup === "true" ? (
+            <div>
+              <p
+                className="warning-icon"
+                title="Data Not Found, información extraida de registros antiguos."
+              >
+                ⚠️
+              </p>{" "}
+              <p
+                style={{ cursor: "help" }}
+                title={colorTitle(device.cisco_status_device)}
+              >
+                {device.cisco_device_name}
+              </p>
+            </div>
+          ) : (
+            <div
+              style={{ cursor: "help" }}
+              title={colorTitle(device.cisco_status_device)}
+            >
+              {device.cisco_device_name}
+            </div>
+          )}
+          {/* {device.data_backup === "true" ? (
+            <div
+              onMouseOver={() => setShowColorMeans(true)}
+              onMouseOut={() => setShowColorMeans(false)}
+            >
+              ⚠️ {device.cisco_device_name} {showColorMeans && <StatusColor />}
+            </div>
+          ) : (
+            device.cisco_device_name
+          )} */}
         </td>
         <td>
           <a
@@ -133,33 +192,54 @@ export function Devices() {
             }&forceLoad=true`}
             target="_blank"
           >
-            {device.data_backup === "true"
-              ? `⚠️ ${device.cisco_port}`
-              : device.cisco_port}
+            {device.data_backup === "true" ? (
+              <p
+                className="warning-icon"
+                title="Data Not Found, información extraida de registros antiguos."
+              >
+                ⚠️ {device.cisco_port}
+              </p>
+            ) : (
+              device.cisco_port
+            )}
           </a>
         </td>
         <td>
-          {device.data_backup === "true"
-            ? `⚠️ ${device.cisco_status}`
-            : device.cisco_status}
+          {device.data_backup === "true" ? (
+            <p
+              className="warning-icon"
+              title="Data Not Found, información extraida de registros antiguos."
+            >
+              ⚠️ {device.cisco_status}
+            </p>
+          ) : (
+            device.cisco_status
+          )}
         </td>
         <td>
           {device.cctv_enabled === "N/A" ? (
             ""
-          ) : device.cctv_enabled === "True" && device.cctv_valid === "True" ? (
+          ) : device.cctv_enabled !== "N/A" &&
+            device.type === "Camara" &&
+            device.cctv_enabled === "True" &&
+            device.cctv_valid === "True" ? (
             <BsFillCameraVideoFill
               title={"CCTV ENABLED: True & CCTV VALID: True"}
               fontSize="1.3rem"
               color="green"
             />
-          ) : device.cctv_enabled === "True" &&
+          ) : device.cctv_enabled !== "N/A" &&
+            device.type === "Camara" &&
+            device.cctv_enabled === "True" &&
             device.cctv_valid === "False" ? (
             <BsFillCameraVideoFill
               title={"CCTV ENABLED: True & CCTV VALID: False"}
               fontSize="1.3rem"
               color="orange"
             />
-          ) : device.cctv_enabled === "Not Found" ? (
+          ) : device.cctv_enabled !== "N/A" &&
+            device.type === "Camara" &&
+            device.cctv_enabled === "Not Found" ? (
             <FaQuestion title={"CCTV Not Found"} fontSize="1rem" color="gray" />
           ) : (
             <BsFillCameraVideoFill
@@ -195,7 +275,7 @@ export function Devices() {
         placeholder="Buscar..."
       />
 
-      <label>
+      <label style={{ marginRight: "10px" }}>
         <input
           className="checkbox-filter"
           type="checkbox"
@@ -203,6 +283,15 @@ export function Devices() {
           onChange={handleCheckboxChange}
         />
         Down
+      </label>
+      <label>
+        <input
+          className="checkbox-filter"
+          type="checkbox"
+          checked={filterNotFound}
+          onChange={handleNotFoundChange}
+        />
+        PRTG Estado Cisco IP: Not Found
       </label>
 
       <div className="devices-container">
@@ -222,7 +311,9 @@ export function Devices() {
               <th>CISCO SW NAME</th>
               <th>CISCO PUERTO</th>
               <th>CISCO ESTADO</th>
-              <th>CCTV</th>
+              <th title="Iconos de Información">
+                <MdOutlineInfo size={"1.1rem"} style={{ cursor: "help" }} />
+              </th>
             </tr>
           </thead>
           <tbody className="data-table-devices">{renderTableBody()}</tbody>

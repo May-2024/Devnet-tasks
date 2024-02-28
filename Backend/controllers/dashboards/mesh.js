@@ -32,7 +32,7 @@ const dashboardMesh = async () => {
       if (device.status_dispatch.includes("2") &&
         (
           (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' && Math.abs(parseInt(device.nivel_senal)) >= 85) ||
-          (device.packet_loss !== 'Not Found' && parseFloat(device.ping_avg.replace('.', '')) >= 500) ||
+          // (device.packet_loss !== 'Not Found' && parseFloat(device.ping_avg.replace('.', '')) >= 500) ||//! Esto elimina el AVPG ping como parametro para estados fails
           (device.snr !== 'Not Found' && device.snr !== 'N/A' && parseInt(device.snr) <= 10)
         )
       ) {
