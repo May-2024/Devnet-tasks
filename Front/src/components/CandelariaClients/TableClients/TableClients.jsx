@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getClients } from "../../../utils/Api-candelaria/api";
 import { PRTG_URL, CISCO_URL } from "../../../utils/Api-candelaria/api";
 import PuffLoader from "react-spinners/PuffLoader";
+import { useColorTitle } from "../../../hooks/useColorTitle";
 import "./TableClients.css";
 
 export function TableClients() {
@@ -64,8 +65,10 @@ export function TableClients() {
     }
 
     return filteredSearchClients.map((client) => (
-      <tr key={client.ip+client.id}>
-        <td>{client.name} {client.group}</td>
+      <tr key={client.ip + client.id}>
+        <td>
+          {client.name} {client.group}
+        </td>
         <td>{client.description}</td>
         <td>{client.ip}</td>
         <td>
@@ -75,11 +78,20 @@ export function TableClients() {
         </td>
         <td>{client.lastup_prtg}</td>
         <td>{client.lastdown_prtg}</td>
-        <td>{client.data_backup === "true"
-            ? `⚠️ ${client.device_ip_cisco}`
-            : client.device_ip_cisco}
+        <td>
+          {client.data_backup === "true" ? (
+            <div title="Data Not Found, información extraida de registros antiguos.">
+              ⚠️ {client.device_ip_cisco}
+            </div>
+          ) : (
+            client.device_ip_cisco
+          )}
         </td>
         <td
+          title={useColorTitle(
+            client.status_device_cisco,
+            client.device_ip_cisco
+          )}
           className={
             client.status_device_cisco.includes("Up")
               ? "kpi-green"
@@ -87,32 +99,53 @@ export function TableClients() {
               ? "kpi-red"
               : client.status_device_cisco.includes("Paused")
               ? "kpi-blue"
+              : client.status_device_cisco.includes("Not Found") &&
+                client.device_ip_cisco !== "Not Found"
+              ? "kpi-grey"
               : ""
           }
         >
-          {client.data_backup === "true"
-            ? `⚠️ ${client.device_cisco}`
-            : client.device_cisco}
-
+          {client.data_backup === "true" ? (
+            <div>
+              <p title="Data Not Found, información extraida de registros antiguos.">
+                ⚠️
+              </p>{" "}
+              <p style={{ cursor: "help" }}>{client.device_cisco}</p>
+            </div>
+          ) : (
+            <p style={{ cursor: "help" }}>{client.device_cisco}</p>
+          )}
         </td>
 
         <td>
           <a href={`${CISCO_URL}${client.ip}&forceLoad=true`} target="_blank">
-            {client.data_backup === "true"
-            ? `⚠️ ${client.port_cisco}`
-            : client.port_cisco}
+            {client.data_backup === "true" ? (
+              <div title="Data Not Found, información extraida de registros antiguos.">
+                ⚠️ {client.port_cisco}
+              </div>
+            ) : (
+              client.port_cisco
+            )}
           </a>
         </td>
         <td>
-          {client.data_backup === "true"
-            ? `⚠️ ${client.status_cisco}`
-            : client.status_cisco}
-          </td>
+          {client.data_backup === "true" ? (
+            <div title="Data Not Found, información extraida de registros antiguos.">
+              ⚠️ {client.status_cisco}
+            </div>
+          ) : (
+            client.status_cisco
+          )}
+        </td>
         <td>
-          {client.data_backup === "true"
-            ? `⚠️ ${client.reachability_cisco}`
-            : client.reachability_cisco}
-          </td>
+          {client.data_backup === "true" ? (
+            <div title="Data Not Found, información extraida de registros antiguos.">
+              ⚠️ {client.reachability_cisco}
+            </div>
+          ) : (
+            client.reachability_cisco
+          )}
+        </td>
       </tr>
     ));
   };
@@ -125,7 +158,7 @@ export function TableClients() {
       </div>
     );
   };
-  
+
   return (
     <div className="table-container">
       <input
