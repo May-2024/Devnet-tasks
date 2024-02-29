@@ -50,6 +50,12 @@
   font-weight: bold;
 }
 
+.kpi-grey {
+  background-color: rgb(150, 150, 150);
+  color: white;
+  font-weight: bold;
+}
+
 .spinner-dash-container {
   display: grid;
   place-content: center;
