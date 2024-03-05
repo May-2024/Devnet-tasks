@@ -10,7 +10,7 @@ import traceback
 import sched
 from dotenv import load_dotenv
 from reset_base import reset_base
-from save_register import save_down_register, update_status_base
+from save_register import save_down_register, update_status_base, database_connection
 
 
 warnings.filterwarnings("ignore", message="Unverified HTTPS request")
@@ -50,7 +50,6 @@ def check_fim():
 
             # Actualizamos estado de la base en la BD
             for sensor in sensors:
-                # print(sensor)
                 if "portsensor" in sensor["tags"]:
                     base["base_status"] = sensor["status"]
                     update_status_base(base)
@@ -63,20 +62,28 @@ def check_fim():
                     reset_base(ip_base)
                     save_down_register(base)
                     
+        mydb = database_connection()
+        cursor = mydb.cursor()
+        now = datetime.datetime.now()
+        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+        fecha_y_hora = str(fecha_y_hora)
+        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fim (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
+        mydb.commit()
+        cursor.close()
+        logging.info("Terminado")
+                    
     except Exception as e:
         logging.error(f"Error en la funcion principal - {base['name']}")
         logging.error(traceback.format_exc())
         logging.error(e)
 
 
-# def bucle(scheduler):
-#     getData()
-#     scheduler.enter(3600, 1, bucle, (scheduler,))
+def bucle(scheduler):
+    check_fim()
+    scheduler.enter(3600, 1, bucle, (scheduler,))
 
 
-# if __name__ == "__main__":
-#     s = sched.scheduler(time.time, time.sleep)
-#     s.enter(0, 1, bucle, (s,))
-#     s.run()
-
-check_fim()
+if __name__ == "__main__":
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(0, 1, bucle, (s,))
+    s.run()

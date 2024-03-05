@@ -182,31 +182,25 @@ export const DetailsCore = () => {
               </tr>
             </thead>
             <tbody>
-              {filterData(devicesInterfaces).length === 0 ? (
-                <tr>
-                  <td colSpan="3">No hay elementos</td>
+              {filterData(devicesInterfaces).map((interfaceDevice) => (
+                <tr key={interfaceDevice.id + interfaceDevice.id_prtg}>
+                  <td>{interfaceDevice.name}</td>
+                  <td
+                    className={
+                      interfaceDevice.status === "Up"
+                        ? "kpi-green"
+                        : interfaceDevice.status.includes("Down")
+                        ? "kpi-red"
+                        : interfaceDevice.status.includes("Warning")
+                        ? "kpi-yellow"
+                        : "kpi-blue"
+                    }
+                  >
+                    {interfaceDevice.status}
+                  </td>
+                  <td>{interfaceDevice.name_switch}</td>
                 </tr>
-              ) : (
-                filterData(devicesInterfaces).map((interfaceDevice) => (
-                  <tr key={interfaceDevice.id + interfaceDevice.id_prtg}>
-                    <td>{interfaceDevice.name}</td>
-                    <td
-                      className={
-                        interfaceDevice.status === "Up"
-                          ? "kpi-green"
-                          : interfaceDevice.status.includes("Down")
-                          ? "kpi-red"
-                          : interfaceDevice.status.includes("Warning")
-                          ? "kpi-yellow"
-                          : "kpi-blue"
-                      }
-                    >
-                      {interfaceDevice.status}
-                    </td>
-                    <td>{interfaceDevice.name_switch}</td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>
@@ -222,34 +216,28 @@ export const DetailsCore = () => {
               </tr>
             </thead>
             <tbody>
-              {filterData(devicesHealth).length === 0 ? (
-                <tr>
-                  <td colSpan="4">No hay elementos</td>
+              {filterData(devicesHealth).map((healthDevice) => (
+                <tr key={healthDevice.id + healthDevice.id_prtg}>
+                  <td>{healthDevice.name}</td>
+                  <td
+                    className={
+                      healthDevice.status === "Up"
+                        ? "kpi-green"
+                        : healthDevice.status.includes("Down")
+                        ? "kpi-red"
+                        : healthDevice.status.includes("Warning")
+                        ? "kpi-yellow"
+                        : "kpi-blue"
+                    }
+                  >
+                    {healthDevice.status}
+                  </td>
+                  <td className={`kpi-${healthDevice.color}`}>
+                    {healthDevice.lastvalue}
+                  </td>
+                  <td>{healthDevice.name_switch}</td>
                 </tr>
-              ) : (
-                filterData(devicesHealth).map((healthDevice) => (
-                  <tr key={healthDevice.id + healthDevice.id_prtg}>
-                    <td>{healthDevice.name}</td>
-                    <td
-                      className={
-                        healthDevice.status === "Up"
-                          ? "kpi-green"
-                          : healthDevice.status.includes("Down")
-                          ? "kpi-red"
-                          : healthDevice.status.includes("Warning")
-                          ? "kpi-yellow"
-                          : "kpi-blue"
-                      }
-                    >
-                      {healthDevice.status}
-                    </td>
-                    <td className={`kpi-${healthDevice.color}`}>
-                      {healthDevice.lastvalue}
-                    </td>
-                    <td>{healthDevice.name_switch}</td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>
@@ -266,27 +254,21 @@ export const DetailsCore = () => {
               </tr>
             </thead>
             <tbody>
-              {filterData(neighbors).length === 0 ? (
-                <tr>
-                  <td colSpan="5">No hay elementos</td>
+              {filterData(neighbors).map((neighbor) => (
+                <tr key={neighbor.id + neighbor.ip_neighbor}>
+                  <td>{neighbor.ip_neighbor}</td>
+                  <td
+                    className={
+                      neighbor.status !== "Up" ? "kpi-red" : "kpi-green"
+                    }
+                  >
+                    {neighbor.status}
+                  </td>
+                  <td>{neighbor.neighbor.toUpperCase()}</td>
+                  <td>{neighbor.interface}</td>
+                  <td>{neighbor.name_switch}</td>
                 </tr>
-              ) : (
-                filterData(neighbors).map((neighbor) => (
-                  <tr key={neighbor.id + neighbor.ip_neighbor}>
-                    <td>{neighbor.ip_neighbor}</td>
-                    <td
-                      className={
-                        neighbor.status !== "Up" ? "kpi-red" : "kpi-green"
-                      }
-                    >
-                      {neighbor.status}
-                    </td>
-                    <td>{neighbor.neighbor.toUpperCase()}</td>
-                    <td>{neighbor.interface}</td>
-                    <td>{neighbor.name_switch}</td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>

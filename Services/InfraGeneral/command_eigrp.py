@@ -13,7 +13,16 @@ logging.getLogger().addHandler(file_handler)
 paramiko_logger = logging.getLogger("paramiko")
 paramiko_logger.setLevel(logging.WARNING)
 
-def eigrp_function(ip_switch, red, name):
+def eigrp_function(switch):
+    
+    ip_switch = switch['ip']
+    red = switch['red']
+    name = switch['name_switch']
+    is_eigrp = switch['is_eigrp']
+    
+    if is_eigrp == 0:
+        return []
+    
     try:
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())

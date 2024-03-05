@@ -161,3 +161,195 @@ mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'd
 2024-02-29 12:42:39,019 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-2)
 2024-02-29 12:42:39,019 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-2)
 2005 (HY000): Unknown MySQL server host 'db' (-2)
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,703 - ERROR - Error en funcion BGP
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,713 - ERROR - [Errno 110] Connection timed out
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 12:59:33,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:17,202 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:37:45,281 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 95, in core1
+    data_neighbors = data_bgp + data_eigrp + data_ospf + data_clcanot_dcs + data_clcanot_ug + data_clcanot_ugmine
+TypeError: can only concatenate list (not "NoneType") to list
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+
+2024-03-04 13:40:35,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 114, in core1
+    route_via_bgp = data_route['via_bgp']
+TypeError: list indices must be integers or slices, not str
+

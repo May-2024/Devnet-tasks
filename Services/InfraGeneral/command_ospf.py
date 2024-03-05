@@ -13,7 +13,15 @@ logging.getLogger().addHandler(file_handler)
 paramiko_logger = logging.getLogger("paramiko")
 paramiko_logger.setLevel(logging.WARNING)
 
-def ospf_function(ip_switch, red, name):
+def ospf_function(switch):
+    
+    ip_switch = switch['ip']
+    red = switch['red']
+    name = switch['name_switch']
+    is_ospf = switch['is_ospf']
+    
+    if is_ospf == 0:
+        return []
     try:
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())

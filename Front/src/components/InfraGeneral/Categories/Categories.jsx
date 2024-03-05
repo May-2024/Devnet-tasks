@@ -24,6 +24,10 @@ export function Categories() {
   const [apNegocioDown, setApNegocioDown] = useState([]);
   const [apMeshUp, setApMeshUp] = useState([]);
   const [apMeshDown, setApMeshDown] = useState([]);
+  const [fortigateAdminUp, setFortigateAdminUp] = useState([]);
+  const [fortigateAdminDown, setFortigateAdminDown] = useState([]);
+  const [fortigateConceUp, setFortigateConceUp] = useState([]);
+  const [fortigateConceDown, setFortigateConceDown] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -35,11 +39,15 @@ export function Categories() {
         const newDistUp = [];
         const newApNegocioUp = [];
         const newApMeshUp = [];
+        const newFortigateAdminUp = [];
+        const newFortigateConcenUp = [];
 
         const newCoresDown = [];
         const newDistDown = [];
         const newApNegocioDown = [];
         const newApMeshDown = [];
+        const newFortigateAdminDown = [];
+        const newFortigateConcenDown = [];
 
         dataStatusInfGen.upElements.forEach((e) => {
           if (e.name_switch && e.name_switch.includes("CORE")) {
@@ -53,6 +61,12 @@ export function Categories() {
           }
           if (e.name_switch === "WLC - MESH") {
             newApMeshUp.push(e);
+          }
+          if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
+            newFortigateAdminUp.push(e);
+          }
+          if (e.name_switch === "FORTIGATE - CONCENTRADORA") {
+            newFortigateConcenUp.push(e);
           }
         });
 
@@ -69,6 +83,12 @@ export function Categories() {
           if (e.name_switch === "WLC - MESH") {
             newApMeshDown.push(e);
           }
+          if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
+            newFortigateAdminDown.push(e);
+          }
+          if (e.name_switch === "FORTIGATE - CONCENTRADORA") {
+            newFortigateConcenDown.push(e);
+          }
         });
 
         setCoresUp(newCoresUp);
@@ -79,6 +99,10 @@ export function Categories() {
         setApNegocioDown(newApNegocioDown);
         setApMeshUp(newApMeshUp);
         setApMeshDown(newApMeshDown);
+        setFortigateAdminUp(newFortigateAdminUp);
+        setFortigateAdminDown(newFortigateAdminDown);
+        setFortigateConceUp(newFortigateConcenUp);
+        setFortigateConceDown(newFortigateConcenDown);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -150,6 +174,21 @@ export function Categories() {
                 <td>{apMeshUp.length}</td>
                 <td>{apMeshDown.length}</td>
                 <td>{apMeshUp.length + apMeshDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general?categoria=fortigate">
+                    S2S
+                  </Link>
+                </td>
+                <td>{fortigateAdminUp.length + fortigateConceUp.length}</td>
+                <td>{fortigateAdminDown.length + fortigateConceDown.length}</td>
+                <td>
+                  {fortigateAdminUp.length +
+                    fortigateAdminDown.length +
+                    fortigateConceUp.length +
+                    fortigateConceDown.length}
+                </td>
               </tr>
             </tbody>
           </table>

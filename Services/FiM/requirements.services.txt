@@ -7,3 +7,4 @@ python-dotenv==1.0.0
 requests==2.29.0
 urllib3==1.26.15
 paramiko==3.2.0
+netmiko==4.1.2

@@ -70,10 +70,8 @@ def core1():
         data_switches = [sw for sw in data_switches if sw['category'] != 'AP']
 
         # data_switches = [
-        #     {'ip':'10.224.127.147', 'red': 'ot', 'name_switch': 'SW-CORE-OT-ADMIN'},
-        #     {'ip':'10.224.127.148', 'red': 'ot', 'name_switch': 'SW-CORE-OT-CONCE'},
-        #     {'ip':'10.224.127.183', 'red': 'ot', 'name_switch': 'CORE-OT-NX-CONC'},
-        #     {'ip':'10.224.127.182', 'red': 'ot', 'name_switch': 'CORE-OT-NX-ADM'},
+        #     {'ip':'10.224.126.89', 'red': 'it', 'name_switch': 'FORTIGATE - ADMINISTRACIÓN', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
+        #     {'ip':'10.224.126.93', 'red': 'it', 'name_switch': 'FORTIGATE - CONCENTRADORA', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
         # ]
 
         current_data_neighbors = []
@@ -88,9 +86,9 @@ def core1():
             data_interfaces = get_data_interfaces(ip_switch, id_prtg_switch, red)
             data_systemhealth = system_health(ip_switch, id_prtg_switch, red)
             
-            data_bgp = bgp_function(ip_switch, red, name_switch)
-            data_eigrp = eigrp_function(ip_switch, red, name_switch)
-            data_ospf = ospf_function(ip_switch, red, name_switch)
+            data_bgp = bgp_function(switch)
+            data_eigrp = eigrp_function(switch)
+            data_ospf = ospf_function(switch)
             data_clcanot_dcs = eigrp_clcanot_dcs_function(ip_switch, red, name_switch)
             data_clcanot_ug = eigrp_clcanot_ug_function(ip_switch, red, name_switch)
             data_clcanot_ugmine = eigrp_clcanot_ugmine_function(ip_switch, red, name_switch)
@@ -113,20 +111,24 @@ def core1():
                 # mydb.commit()
             
             data_route = route_function(ip_switch, red, name_switch)
-            route_via_bgp = data_route['via_bgp']
-            route_name = data_route['name_switch']
-            route_red = data_route['red']
-            route_ip_switch = data_route['ip_switch']
+            
+            if data_route == []:
+                pass
+            else:
+                route_via_bgp = data_route['via_bgp']
+                route_name = data_route['name_switch']
+                route_red = data_route['red']
+                route_ip_switch = data_route['ip_switch']
 
-            query = (f"UPDATE dcs.route_default SET via_bgp = '{route_via_bgp}' WHERE ip_switch = '{route_ip_switch}'")
-            #! Query comentado para rellenar tabla de datos fijos
-            # query = (f"INSERT INTO dcs.route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
-            cursor.execute(query)
-            mydb.commit()
+                query = (f"UPDATE dcs.route_default SET via_bgp = '{route_via_bgp}' WHERE ip_switch = '{route_ip_switch}'")
+                #! Query comentado para rellenar tabla de datos fijos
+                # query = (f"INSERT INTO dcs.route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
+                cursor.execute(query)
+                mydb.commit()
 
-            query_historic = (f"INSERT INTO dcs.historic_route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
-            cursor.execute(query_historic)
-            mydb.commit()
+                query_historic = (f"INSERT INTO dcs.historic_route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
+                cursor.execute(query_historic)
+                mydb.commit()
 
             for interface in data_interfaces:
                 name_interface = interface['name']
@@ -242,7 +244,7 @@ def get_data_interfaces(ip_switch, id_switch, red):
         for interface in interfaces:
             interface['ip_switch'] = ip_switch
             interface['red'] = red
-        
+
         return interfaces
 
     except Exception as e:

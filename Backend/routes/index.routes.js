@@ -19,6 +19,7 @@ const statusCoresRoutes = require("./status_core.routes");
 const infra_general = require("./inf_gen.routes");
 const clientsPacRoutes = require("./clients_pac.routes");
 const clientsOjosRoutes = require("./clients_ojos.routes");
+const fimRoutes = require("./fim.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -43,6 +44,7 @@ const allRoutes = (app) => {
   router.use("/infra_general", infra_general);
   router.use("/pac/clients", clientsPacRoutes);
   router.use("/ojos/clients", clientsOjosRoutes);
+  router.use("/fim", fimRoutes);
 };
 
 module.exports = { allRoutes };
