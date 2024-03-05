@@ -80,15 +80,15 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
     
-  backend-api-rest:
-    build:
-      context: Backend
-    ports:
-      - '3001:3001'
-    restart: always
-    environment:
-      - NODE_ENV=production
-    command: sh -c "npx sequelize-cli db:migrate && node index.js"
+  # backend-api-rest:
+  #   build:
+  #     context: Backend
+  #   ports:
+  #     - '3001:3001'
+  #   restart: always
+  #   environment:
+  #     - NODE_ENV=production
+  #   command: sh -c "npx sequelize-cli db:migrate && node index.js"
       
   frontend-react:
     build:
@@ -96,7 +96,7 @@ services:
     ports:
       - '4000:80'
     restart: always
-    environment: Este se define en el archivo .env
+  # # #   environment: Este se define en el archivo .env
 
   # wan:
   #   build:
@@ -107,14 +107,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  firewalls:
-    build:
-      context: Services/Firewalls
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # firewalls:
+  #   build:
+  #     context: Services/Firewalls
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
   # infraestructura-general:
   #   build:
@@ -151,3 +151,12 @@ services:
   #     - db
   #   environment:
   #     - ENVIRONMENT=production
+
+  base_fim:
+    build:
+      context: Services/FiM
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production

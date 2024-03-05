@@ -7,7 +7,8 @@ const {
   StatusDevices,
   StatusFirewalls,
   StatusWan,
-  StatusIg
+  StatusIg,
+  StatusFim,
 } = require("../models/status_system");
 
 async function date_status_system() {
@@ -56,6 +57,11 @@ async function date_status_system() {
     limit: 1,
   });
 
+  const fim_status = await StatusFim.findAll({
+    order: [["id", "DESC"]],
+    limit: 1,
+  });
+
   const data = {
     dcs: dcs_status,
     sw: sw_status,
@@ -65,7 +71,8 @@ async function date_status_system() {
     devices: devices_status,
     fw: firewalls_status,
     wan: wan_status,
-    ig: ig_status
+    ig: ig_status,
+    fim: fim_status
   };
 
   return data;

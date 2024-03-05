@@ -9,7 +9,7 @@ export function Status_System({ tableToShow }) {
   const [message, setMessage] = useState("");
   const [color, setColor] = useState("");
   const [show, setShow] = useState(false);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,12 +26,18 @@ export function Status_System({ tableToShow }) {
 
   useEffect(() => {
     // Verifica si statusSystem y statusModule están definidos antes de hacer la comparación
-    if (statusSystem && statusSystem[tableToShow] && statusSystem[tableToShow][0]) {
+    if (
+      statusSystem &&
+      statusSystem[tableToShow] &&
+      statusSystem[tableToShow][0]
+    ) {
       setStatusModule(statusSystem[tableToShow][0].estado);
-      
+
       if (statusSystem[tableToShow][0].estado === "ERROR") {
-        setMessage(`Hay un error con el modulo ${table()}, la información puede verse afectada.`);
-        setColor('red-message');
+        setMessage(
+          `Hay un error con el modulo ${table()}, la información puede verse afectada.`
+        );
+        setColor("red-message");
         setShow(true);
       }
     }
@@ -56,6 +62,8 @@ export function Status_System({ tableToShow }) {
       return "WAN";
     } else if (tableToShow === "ig") {
       return "Infra General";
+    } else if (tableToShow === "fim") {
+      return "Base Fim";
     }
   };
 

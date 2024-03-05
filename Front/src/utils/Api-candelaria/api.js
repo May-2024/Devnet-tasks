@@ -193,3 +193,10 @@ export const getDataClientsOjos = async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('CLIENTS OJOS: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataBaseFim = async () => {
+  return axios
+    .get(`${BASE_API_URL}/fim`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('FIM: Error del API REST Candealaria : ',error)});
+};

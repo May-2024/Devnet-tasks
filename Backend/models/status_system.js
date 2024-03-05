@@ -57,6 +57,11 @@ const StatusIg = sequelize.define("StatusIg", columns, {
   timestamps: false,
 });
 
+const StatusFim = sequelize.define("StatusFim", columns, {
+  tableName: "fechas_consultas_fim",
+  timestamps: false,
+});
+
 module.exports = {
   StatusClients,
   StatusSwitches,
@@ -66,5 +71,6 @@ module.exports = {
   StatusDevices,
   StatusFirewalls,
   StatusWan,
-  StatusIg
+  StatusIg,
+  StatusFim
 };
