@@ -3,6 +3,8 @@ import {
   getUps,
   getMeshIndicators,
   getDataBaseFim,
+  getMeshIndicators,
+  getDataBaseFim,
 } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
@@ -31,6 +33,7 @@ export function Home() {
   const [meshUpElem, setMeshUpElem] = useState(0);
   const [meshDownElem, setMeshDownElem] = useState(0);
   const [fimDownElem, setFimhDownElem] = useState(0);
+  const [openPitLoading, setOpenPitLoading] = useState(true);
 
   // Estados de spinners
   const [spinnerDcsCandelaria, setSpinnerDcsCandelaria] = useState(true);
@@ -45,15 +48,18 @@ export function Home() {
     const fetchData = async () => {
       try {
         const dcsCandelaria = await getDcsCandelariaIndicators();
+
+        // OPEN PIT
         const meshIndicators = await getMeshIndicators();
         let meshElementsDown = 0;
         meshElementsDown += meshIndicators.palasFailed;
         meshElementsDown += meshIndicators.caexFailed;
         let meshElementsUp = 0;
-        meshElementsUp += meshIndicators.palasTotales;
-        meshElementsUp += meshIndicators.caexTotales;
+        meshElementsUp += meshIndicators.palasOk + meshIndicators.palasWarnings;
+        meshElementsUp += meshIndicators.caexOk + meshIndicators.caexWarnings;
         setMeshUpElem(meshElementsUp);
         setMeshDownElem(meshElementsDown);
+        setOpenPitLoading(false);
 
         const { fimStatus } = await getDataBaseFim();
         const downFim = fimStatus.filter((e) => e.status.includes("Down"));
@@ -324,77 +330,58 @@ export function Home() {
         </section>
 
         <section className="system-container">
-          <div className="name-system-container">
-            <h1>Redes Open Pit</h1>
-          </div>
-
-          <div className="home-kpi-container">
-            <table className="home-kpi-openpit">
-              <thead>
-                <tr>
-                  <th>Sistema</th>
-                  <th className="kpi-green">Up</th>
-                  <th className="kpi-red">Down</th>
-                  <th>Detalles</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mesh</td>
-                  <td>{meshUpElem}</td>
-                  <td>{meshDownElem}</td>
-                  <td>
-                    <Link
-                      className="link-open-pit"
-                      to="/monitoreo/candelaria/mesh"
-                    >
-                      Ver
-                    </Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Radwin</td>
-                  <td>{4 - fimDownElem}</td>
-                  <td>{fimDownElem}</td>
-                  <td>
-                    <Link
-                      className="link-open-pit"
-                      to="/monitoreo/candelaria/fim"
-                    >
-                      Ver
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-        {/* 
-        <section className="system-container">
-          <div className="name-system-container">
-            <h1>MESH</h1>
-          </div>
-          {spinnerMesh ? (
-            <div className="spinner-home-container">
+          {openPitLoading === true ? (
+            <div className="loader-openpit-container">
               <PuffLoader color="red" />
             </div>
           ) : (
-            <>
+            <div className="system-container-openpit">
+              <div className="name-system-container">
+                <h1>Redes Open Pit</h1>
+              </div>
               <div className="home-kpi-container">
-                <DashMesh />
+                <table className="home-kpi-openpit">
+                  <thead>
+                    <tr>
+                      <th>Sistema</th>
+                      <th className="kpi-green">Up</th>
+                      <th className="kpi-red">Down</th>
+                      <th>Detalles</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Mesh</td>
+                      <td>{meshUpElem}</td>
+                      <td>{meshDownElem}</td>
+                      <td>
+                        <Link
+                          className="link-open-pit"
+                          to="/monitoreo/candelaria/mesh"
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Radwin</td>
+                      <td>{4 - fimDownElem}</td>
+                      <td>{fimDownElem}</td>
+                      <td>
+                        <Link
+                          className="link-open-pit"
+                          to="/monitoreo/candelaria/fim"
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="link-system-container">
-                <Link
-                  to="/monitoreo/candelaria/mesh"
-                  className="link-system button-link"
-                  style={{ color: "white" }}
-                >
-                  Ver detalles
-                </Link>
-              </div>
-            </>
+            </div>
           )}
-        </section> */}
+        </section>
 
         <section className="system-container">
           <div className="name-system-container">
