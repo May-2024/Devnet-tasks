@@ -3,6 +3,8 @@ import {
   getUps,
   getMeshIndicators,
   getDataBaseFim,
+  getMeshIndicators,
+  getDataBaseFim,
 } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
