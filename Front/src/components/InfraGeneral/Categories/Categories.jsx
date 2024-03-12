@@ -155,7 +155,7 @@ export function Categories() {
                 <td>{distDown.length}</td>
                 <td>{distUp.length + distDown.length}</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td className="td-category-ig">
                   <Link to="/monitoreo/infraestrucura-general/detalles/ap/negocio">
                     AP NEGOCIO
@@ -174,11 +174,11 @@ export function Categories() {
                 <td>{apMeshUp.length}</td>
                 <td>{apMeshDown.length}</td>
                 <td>{apMeshUp.length + apMeshDown.length}</td>
-              </tr>
+              </tr> */}
               <tr>
                 <td className="td-category-ig">
                   <Link to="/monitoreo/infraestrucura-general?categoria=fortigate">
-                    S2S
+                    VPN SITE TO SITE
                   </Link>
                 </td>
                 <td>{fortigateAdminUp.length + fortigateConceUp.length}</td>

@@ -20,11 +20,11 @@ const dashboardDevices = async () => {
     
     const numApUp = devices.filter(
       (device) =>
-        device.type.toLowerCase() === "access point" && device.prtg_status.includes("Up")
+        device.type.toLowerCase().includes("access point") && device.prtg_status.includes("Up")
     );
     const numApDown = devices.filter(
       (device) =>
-        device.type.toLowerCase() === "access point" &&
+        device.type.toLowerCase().includes("access point") &&
         device.prtg_status.includes("Down")
     );
 
@@ -34,6 +34,7 @@ const dashboardDevices = async () => {
       (device) =>
         device.type.toLowerCase() !== "camara" &&
         device.type.toLowerCase() !== "access point" &&
+        device.type.toLowerCase() !== "access point red negocio" &&
         device.type.toLowerCase() !== "impresora" &&
         device.prtg_status.includes("Up")
     );

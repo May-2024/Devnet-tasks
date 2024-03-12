@@ -18,17 +18,17 @@ import "./MainTopology.css";
 export function MainTopology() {
   const location = useLocation();
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [infraGeneral, setInfraGeneral] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(null);
   const [devicesInterfaces, setDevicesInterfaces] = useState([]);
   const [devicesHealth, setDevicesHealth] = useState([]);
   const [neighbors, setNeighbors] = useState([]);
   const [routeStatus, setRouteStatus] = useState([]);
-  const [infraGeneral, setInfraGeneral] = useState([]);
   const [statusInfGen, setStatusInfGen] = useState([]);
-  const [selectedRow, setSelectedRow] = useState(null);
   const [dataCoreVisible, setDataCoreVisible] = useState(false);
   const [allDataInfGen, setAllDataInfGen] = useState([]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [searchTerm, setSearchTerm] = useState("");
 
   const [loading, setLoading] = useState(true);
 
@@ -46,6 +46,18 @@ export function MainTopology() {
         ]);
 
         function sameNameSwitch(sw) {
+          sw.downElem = [];
+          sw.upElem = [];
+          dataStatusInfGen.downElements.forEach((e) => {
+            if (e.name_switch === sw.name_switch) {
+              sw.downElem.push(e);
+            }
+          });
+          dataStatusInfGen.upElements.forEach((e) => {
+            if (e.name_switch === sw.name_switch) {
+              sw.upElem.push(e);
+            }
+          });
           const match = dataStatusInfGen.downElements.some(
             (e) => e.name_switch === sw.name_switch
           );
@@ -134,29 +146,34 @@ export function MainTopology() {
                   <td colSpan="4">No hay coincidencias</td>
                 </tr>
               ) : (
-                filteredInfraGeneral.map((e, index) => (
-                  <tr key={e.id}>
-                    <td className="td-category-ig">
-                      <Link
-                        style={{ color: "blue" }}
-                        to={`/monitoreo/infraestrucura-general/detalles?nombre=${e.name_switch}`}
-                      >
-                        {e.name_switch}
-                      </Link>
-                      {/* <td onClick={(event) => handleRowClick(index, event)}> */}
-                    </td>
-                    <td
-                      // onClick={(event) => handleRowClick(index, event)}
-                      className={`row-ig-table ${
-                        e.swStatus === "FAIL" ? "kpi-red" : "kpi-green"
-                      }`}
-                    >
-                      {e.swStatus}
-                    </td>
-                    <td>{e.rol}</td>
-                    <td>{e.ip}</td>
-                  </tr>
-                ))
+                filteredInfraGeneral.map(
+                  (e) =>
+                    // Utilizamos una condición para filtrar los elementos
+                    // que cumplen con la condición name.switch === "WLC - MESH"
+                    // y no renderizarlos
+                    e.name_switch !== "WLC - MESH" && (
+                      <tr key={e.id}>
+                        <td className="td-category-ig">
+                          <Link
+                            style={{ color: "blue" }}
+                            to={`/monitoreo/infraestrucura-general/detalles?nombre=${e.name_switch}`}
+                          >
+                            {e.name_switch}
+                          </Link>
+                        </td>
+                        <td
+                          className={`row-ig-table ${
+                            e.swStatus === "FAIL" ? "kpi-red" : "kpi-green"
+                          }`}
+                        >
+                          {e.upElem.length - e.downElem.length} /{" "}
+                          {e.upElem.length}
+                        </td>
+                        <td>{e.rol}</td>
+                        <td>{e.ip}</td>
+                      </tr>
+                    )
+                )
               )}
             </tbody>
           </table>

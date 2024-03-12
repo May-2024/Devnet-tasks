@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   getInterfaces,
   getSystemHealth,
@@ -9,9 +10,14 @@ import {
 import { Navbar } from "../../Navbar/Navbar";
 import { useDataInfGen } from "../../../hooks/useDataInfGen";
 import { DataCore } from "../DataCore/DataCore";
+import { Status_System } from "../../Status_System/Status_System";
+import { Spinner } from "../../Spinner/Spinner";
+import { Link } from "react-router-dom";
 import "./MainTopology.css";
 
 export function MainTopology() {
+  const location = useLocation();
+
   const [devicesInterfaces, setDevicesInterfaces] = useState([]);
   const [devicesHealth, setDevicesHealth] = useState([]);
   const [neighbors, setNeighbors] = useState([]);
@@ -22,26 +28,25 @@ export function MainTopology() {
   const [dataCoreVisible, setDataCoreVisible] = useState(false);
   const [allDataInfGen, setAllDataInfGen] = useState([]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const dataInterfaces = await getInterfaces();
-        const dataDevicesHealth = await getSystemHealth();
-        const dataNeighbors = await getNeighbors();
-        const dataRouteStatus = await getDefaultRoute();
-        const dataInfraGeneral = await getDataInfGen();
+        setLoading(true);
+        let dataInfraGeneral = await getDataInfGen();
         const dataStatusInfGen = await useDataInfGen();
 
         setStatusInfGen(dataStatusInfGen);
-        setDevicesHealth(dataDevicesHealth);
-        setRouteStatus(dataRouteStatus);
-        setDevicesInterfaces(dataInterfaces);
-        setNeighbors(dataNeighbors);
+        setAllDataInfGen([
+          ...dataStatusInfGen.upElements,
+          ...dataStatusInfGen.downElements,
+        ]);
 
-        // Agregar el estado a cada SW de Inf General
         function sameNameSwitch(sw) {
-          const match = dataStatusInfGen.totalDownElements.some(
+          const match = dataStatusInfGen.downElements.some(
             (e) => e.name_switch === sw.name_switch
           );
           if (match) {
@@ -51,88 +56,120 @@ export function MainTopology() {
           }
         }
 
+        dataInfraGeneral = dataInfraGeneral.filter(
+          (e) => e.name_switch !== "WLC 9800 NEGOCIO"
+        );
         dataInfraGeneral.forEach((sw) => {
           sameNameSwitch(sw);
         });
 
         function sortByFailFirst(a, b) {
           if (a.swStatus === "FAIL" && b.swStatus === "OK") {
-            return -1; // "FAIL" viene primero
+            return -1;
           }
           if (a.swStatus === "OK" && b.swStatus === "FAIL") {
-            return 1; // "FAIL" viene después de "OK"
+            return 1;
           }
-          return 0; // Sin cambios en la posición
+          return 0;
         }
-        
+
         dataInfraGeneral.sort(sortByFailFirst);
-
         setInfraGeneral(dataInfraGeneral);
-
-
-        const allData = [
-          ...dataStatusInfGen.totalDownElements,
-          ...dataStatusInfGen.totalUpElements,
-        ];
-        setAllDataInfGen(allData);
+        setSearchTerm(getCategoriaQueryParam(location.search));
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [location.search]);
 
   const handleRowClick = (index, event) => {
-    // Si haces clic en la misma fila, oculta el componente
     setDataCoreVisible(selectedRow !== index);
     setSelectedRow(selectedRow === index ? null : index);
     setPosition({ x: event.clientX, y: event.clientY });
   };
 
+  const filteredInfraGeneral = infraGeneral.filter((e) => {
+    const valuesToSearch = [e.name_switch, e.swStatus, e.rol, e.ip].map(String);
+    return valuesToSearch.some((value) =>
+      value.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
+  const noResults = filteredInfraGeneral.length === 0;
+
   return (
     <div>
       <Navbar title={"Infraestructura General"} />
-      <div className="table-topology-ig-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Estado</th>
-              <th>Rol Equipo</th>
-              <th>Ip</th>
-            </tr>
-          </thead>
-          <tbody>
-            {infraGeneral &&
-              infraGeneral.map((e, index) => (
-                <tr
-                  key={e.id}
-                  onClick={(event) => handleRowClick(index, event)}
-                  className="row-ig-table"
-                >
-                  <td>{e.rol}</td>
-                  <td className={e.swStatus === "FAIL" ? "kpi-red" : "kpi-green"}>{e.swStatus}</td>
-                  <td>{e.name_switch}</td>
-                  <td>{e.ip}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </div>
+      <Status_System tableToShow={"ig"} />
 
-      {selectedRow !== null && dataCoreVisible && (
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="table-topology-ig-container">
+          <div className="search-container-ig">
+            <label htmlFor="">Buscar por palabra clave:</label>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              value={searchTerm.toUpperCase()}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <table className="table-names-sw-ig">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Rol Equipo</th>
+                <th>Ip</th>
+              </tr>
+            </thead>
+            <tbody>
+              {noResults ? (
+                <tr>
+                  <td colSpan="4">No hay coincidencias</td>
+                </tr>
+              ) : (
+                filteredInfraGeneral.map((e, index) => (
+                  <tr key={e.id}>
+                    <td className="td-category-ig">
+                      <Link
+                        style={{ color: "blue" }}
+                        to={`/monitoreo/infraestrucura-general/detalles?nombre=${e.name_switch}`}
+                      >
+                        {e.name_switch}
+                      </Link>
+                      {/* <td onClick={(event) => handleRowClick(index, event)}> */}
+                    </td>
+                    <td
+                      // onClick={(event) => handleRowClick(index, event)}
+                      className={`row-ig-table ${
+                        e.swStatus === "FAIL" ? "kpi-red" : "kpi-green"
+                      }`}
+                    >
+                      {e.swStatus}
+                    </td>
+                    <td>{e.rol}</td>
+                    <td>{e.ip}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* {selectedRow !== null && dataCoreVisible && (
         <div
           className="dataCoreContainer"
           style={{ left: position.x, top: position.y }}
         >
           <div className="close-button-datacore">
-            <p
-              
-              onClick={() => setDataCoreVisible(false)}
-            >
-              X
-            </p>
+            <p onClick={() => setDataCoreVisible(false)}>X</p>
           </div>
 
           <DataCore
@@ -140,7 +177,12 @@ export function MainTopology() {
             swName={infraGeneral[selectedRow].name_switch}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
+
+  function getCategoriaQueryParam(search) {
+    const params = new URLSearchParams(search);
+    return params.get("categoria") || "";
+  }
 }

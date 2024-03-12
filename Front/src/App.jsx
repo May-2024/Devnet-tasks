@@ -29,7 +29,7 @@ import { AdminUsers } from "./components/AdminPanel/AdminViews/AdminUsers";
 import { AdminAp } from "./components/AdminPanel/AdminViews/AdminAp";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import { Login } from "./components/Login/Logins";
-import { InfraGeneral } from "./components/InfraGeneral/InfraGeneral";
+// import { InfraGeneral } from "./components/InfraGeneral/InfraGeneral";
 import { DetailsCore } from "./components/InfraGeneral/DetailsCore/DetailsCore";
 import { Map } from "./components/InfraGeneral/Map/Map";
 import { MainTopology } from "./components/InfraGeneral/MainTopology/MainTopology";

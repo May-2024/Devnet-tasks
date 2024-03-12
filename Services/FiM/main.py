@@ -35,6 +35,7 @@ def check_fim():
     ]
 
     try:
+        general_status = ""
         for base in data:
             ip_base = base["ip"]
             logging.info(base["name"])
@@ -59,7 +60,10 @@ def check_fim():
                 if "portsensor" in sensor["tags"] and sensor["status"] != "Up":
                     logging.info(f"Reiniciando {base['name']}")
                     logging.info(sensor["status"])
-                    reset_base(ip_base)
+                    result = reset_base(ip_base)
+                    if result == "Error":
+                        general_status = "ERROR"
+                        break
                     save_down_register(base)
                     
         mydb = database_connection()
@@ -67,7 +71,7 @@ def check_fim():
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fim (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
+        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fim (ultima_consulta, estado) VALUES ('{fecha_y_hora}', '{general_status}')")
         mydb.commit()
         cursor.close()
         logging.info("Terminado")
@@ -80,7 +84,7 @@ def check_fim():
 
 def bucle(scheduler):
     check_fim()
-    scheduler.enter(3600, 1, bucle, (scheduler,))
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
 
 if __name__ == "__main__":
