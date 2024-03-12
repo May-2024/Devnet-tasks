@@ -152,11 +152,11 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  base_fim:
-    build:
-      context: Services/FiM
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # base_fim:
+  #   build:
+  #     context: Services/FiM
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production

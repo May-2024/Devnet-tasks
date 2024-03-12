@@ -15,6 +15,8 @@ load_dotenv()
 
 def switches():
     env = os.getenv('ENVIRONMENT')
+    
+    # Conexión a la BD
     if env == 'local':
         mydb = mysql.connector.connect(
         host=database['local']['DB_HOST'],
@@ -50,6 +52,7 @@ def switches():
         
 
     try:
+        # Para cada IP hacemos las consultas a PRTG y a Cisco
         for switch in allSwitches:
             ip = switch['ip']
             group = switch['group']
@@ -63,17 +66,18 @@ def switches():
             last_down = prtg_data['last_down']
             
             status_cisco_device = get_cisco_data(ip)
-                
+            
+            # Una vez obtenidos los datos guardamos en la BD
             sql = f"INSERT INTO switches (dispositivo, ip, tipo, status_prtg, lastup_prtg, lastdown_prtg, reachability, ups1, ups2, status_ups1, status_ups2, `group`)"
             val = f"VALUES ('{name}', '{ip}', 'Switch', '{status}', '{last_up}', '{last_down}', '{status_cisco_device}', 'NA', 'NA', 'NA', 'NA', '{group}')"
             consulta = f"{sql} {val}"
             cursor.execute(consulta)
             mydb.commit()
-            
+        
+        # Guardamos la fecha y hora de la consulta en la BD    
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-
         sql_datetime = f"INSERT INTO fechas_consultas_switches (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')"
         cursor.execute(sql_datetime)
         mydb.commit()   
@@ -82,6 +86,7 @@ def switches():
         logging.info('Terminado')
             
     except Exception:
+        # En caso de error se detiene la función y se guarda la fecha y hora y el estado error
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
@@ -92,6 +97,8 @@ def switches():
 
 
 def get_prtg_data(ip):
+    # Función encargada de obtener los datos de PRTG y guardarlos en una variable.
+    # Inicializamos la variable como Not Found en caso de no recibir data de la API.
     prtg_data = {
         'name': 'Not Found',
         'status': 'Not Found',
@@ -134,6 +141,7 @@ def get_prtg_data(ip):
         return prtg_data
 
 def get_cisco_data(ip):
+    # Función encargada de obtener los datos de CISCO y guardarlos en una variable.
     try:
         URL_CISCO_IP_DEVICE = os.getenv('URL_CISCO_IP_DEVICE').format(ip=ip)
         cisco_ip_response = requests.get(URL_CISCO_IP_DEVICE, verify=False).json()
@@ -155,6 +163,7 @@ def get_cisco_data(ip):
     
 
 def bucle(scheduler):
+    #Funcion encargada de ejecutar el proceso principal cada 5 minutos.
     switches()
     scheduler.enter(300, 1, bucle, (scheduler,))
 

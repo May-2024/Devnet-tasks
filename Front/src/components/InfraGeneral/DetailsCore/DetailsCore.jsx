@@ -171,125 +171,137 @@ export const DetailsCore = () => {
         />
       </div>
       <main className="table-details-inf-gen-container">
-        <div className="div-details-inf-gen">
-          <h3>Interfaces</h3>
-          <table className="table-details-inf-gen">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Estado</th>
-                <th>Switch</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filterData(devicesInterfaces).length === 0 ? (
+        {filterData(devicesInterfaces).length === 0 ? (
+          <div style={{ display: "none" }}></div>
+        ) : (
+          <div className="div-details-inf-gen">
+            <h3>Interfaces</h3>
+            <table className="table-details-inf-gen">
+              <thead>
                 <tr>
-                  <td colSpan="3">No hay elementos</td>
+                  <th>Nombre</th>
+                  <th>Estado</th>
+                  <th>Switch</th>
                 </tr>
-              ) : (
-                filterData(devicesInterfaces).map((interfaceDevice) => (
-                  <tr key={interfaceDevice.id + interfaceDevice.id_prtg}>
-                    <td>{interfaceDevice.name}</td>
-                    <td
-                      className={
-                        interfaceDevice.status === "Up"
-                          ? "kpi-green"
-                          : interfaceDevice.status.includes("Down")
-                          ? "kpi-red"
-                          : interfaceDevice.status.includes("Warning")
-                          ? "kpi-yellow"
-                          : "kpi-blue"
-                      }
-                    >
-                      {interfaceDevice.status}
-                    </td>
-                    <td>{interfaceDevice.name_switch}</td>
+              </thead>
+              <tbody>
+                {filterData(devicesInterfaces).length === 0 ? (
+                  <tr>
+                    <td colSpan="3">No hay elementos</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-        <div className="div-details-inf-gen">
-          <h3>System Health</h3>
-          <table className="table-details-inf-gen">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Estado</th>
-                <th>Info</th>
-                <th>Switch</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filterData(devicesHealth).length === 0 ? (
+                ) : (
+                  filterData(devicesInterfaces).map((interfaceDevice) => (
+                    <tr key={interfaceDevice.id + interfaceDevice.id_prtg}>
+                      <td>{interfaceDevice.name}</td>
+                      <td
+                        className={
+                          interfaceDevice.status === "Up"
+                            ? "kpi-green"
+                            : interfaceDevice.status.includes("Down")
+                            ? "kpi-red"
+                            : interfaceDevice.status.includes("Warning")
+                            ? "kpi-yellow"
+                            : "kpi-blue"
+                        }
+                      >
+                        {interfaceDevice.status}
+                      </td>
+                      <td>{interfaceDevice.name_switch}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {filterData(devicesHealth).length === 0 ? (
+          <div style={{ display: "none" }}></div>
+        ) : (
+          <div className="div-details-inf-gen">
+            <h3>System Health</h3>
+            <table className="table-details-inf-gen">
+              <thead>
                 <tr>
-                  <td colSpan="4">No hay elementos</td>
+                  <th>Nombre</th>
+                  <th>Estado</th>
+                  <th>Info</th>
+                  <th>Switch</th>
                 </tr>
-              ) : (
-                filterData(devicesHealth).map((healthDevice) => (
-                  <tr key={healthDevice.id + healthDevice.id_prtg}>
-                    <td>{healthDevice.name}</td>
-                    <td
-                      className={
-                        healthDevice.status === "Up"
-                          ? "kpi-green"
-                          : healthDevice.status.includes("Down")
-                          ? "kpi-red"
-                          : healthDevice.status.includes("Warning")
-                          ? "kpi-yellow"
-                          : "kpi-blue"
-                      }
-                    >
-                      {healthDevice.status}
-                    </td>
-                    <td className={`kpi-${healthDevice.color}`}>
-                      {healthDevice.lastvalue}
-                    </td>
-                    <td>{healthDevice.name_switch}</td>
+              </thead>
+              <tbody>
+                {filterData(devicesHealth).length === 0 ? (
+                  <tr>
+                    <td colSpan="4">No hay elementos</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-        <div className="div-details-inf-gen">
-          <h3>Neighbors</h3>
-          <table className="table-details-inf-gen">
-            <thead>
-              <tr>
-                <th>IP</th>
-                <th>Estado</th>
-                <th>Neighbor</th>
-                <th>Interface</th>
-                <th>Switch</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filterData(neighbors).length === 0 ? (
+                ) : (
+                  filterData(devicesHealth).map((healthDevice) => (
+                    <tr key={healthDevice.id + healthDevice.id_prtg}>
+                      <td>{healthDevice.name}</td>
+                      <td
+                        className={
+                          healthDevice.status === "Up"
+                            ? "kpi-green"
+                            : healthDevice.status.includes("Down")
+                            ? "kpi-red"
+                            : healthDevice.status.includes("Warning")
+                            ? "kpi-yellow"
+                            : "kpi-blue"
+                        }
+                      >
+                        {healthDevice.status}
+                      </td>
+                      <td className={`kpi-${healthDevice.color}`}>
+                        {healthDevice.lastvalue}
+                      </td>
+                      <td>{healthDevice.name_switch}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {filterData(neighbors).length === 0 ? (
+          <div style={{ display: "none" }}></div>
+        ) : (
+          <div className="div-details-inf-gen">
+            <h3>Neighbors</h3>
+            <table className="table-details-inf-gen">
+              <thead>
                 <tr>
-                  <td colSpan="5">No hay elementos</td>
+                  <th>IP</th>
+                  <th>Estado</th>
+                  <th>Neighbor</th>
+                  <th>Interface</th>
+                  <th>Switch</th>
                 </tr>
-              ) : (
-                filterData(neighbors).map((neighbor) => (
-                  <tr key={neighbor.id + neighbor.ip_neighbor}>
-                    <td>{neighbor.ip_neighbor}</td>
-                    <td
-                      className={
-                        neighbor.status !== "Up" ? "kpi-red" : "kpi-green"
-                      }
-                    >
-                      {neighbor.status}
-                    </td>
-                    <td>{neighbor.neighbor.toUpperCase()}</td>
-                    <td>{neighbor.interface}</td>
-                    <td>{neighbor.name_switch}</td>
+              </thead>
+              <tbody>
+                {filterData(neighbors).length === 0 ? (
+                  <tr>
+                    <td colSpan="5">No hay elementos</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+                ) : (
+                  filterData(neighbors).map((neighbor) => (
+                    <tr key={neighbor.id + neighbor.ip_neighbor}>
+                      <td>{neighbor.ip_neighbor}</td>
+                      <td
+                        className={
+                          neighbor.status !== "Up" ? "kpi-red" : "kpi-green"
+                        }
+                      >
+                        {neighbor.status}
+                      </td>
+                      <td>{neighbor.neighbor.toUpperCase()}</td>
+                      <td>{neighbor.interface}</td>
+                      <td>{neighbor.name_switch}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
       </main>
     </div>
   );

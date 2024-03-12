@@ -46,11 +46,13 @@ def ups():
     
     try:
         for ups in upsList:
+            # Para cada Ups consultamos en PRTG
             ip = ups['ip']
-            print(ip)
             ubication = ups['ubication']
             url_prtg_ip = os.getenv('URL_PRTG_IP_UPS').format(ip=ip)
             prtg_response_ip = requests.get(url_prtg_ip, verify=False).json()
+            
+            # Si la API no retorna datos guardamos como Not Found en la BD
             if len(prtg_response_ip['devices']) == 0:
                 cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_ups, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
                 mydb.commit()
@@ -63,6 +65,7 @@ def ups():
                 url_prtg_id = os.getenv('URL_PRTG_ID_UPS').format(id=id_ups)
                 prtg_response_id = requests.get(url_prtg_id, verify=False).json()
                 sensors = prtg_response_id['sensors']
+                
                 if len(sensors) == 0:
                     cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, status_ups, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
                     mydb.commit()
@@ -71,15 +74,15 @@ def ups():
                     status_prtg = os.getenv('URL_PRTG_GET_DATA_PING_WITH_ID').format(id_ups_ping=id_ups)
                     status_prtg = requests.get(status_prtg, verify=False).json()
                     try:
-                        print(status_prtg['sensors'][0]['status'])
                         status_prtg = status_prtg['sensors'][0]['status']
                     except KeyError:
-                        print('Not Found')
                         status_prtg = 'Not Found'
                         
                     get_id_ping = os.getenv('URL_PRTG_UPS_PING').format(id_snmp=id_ups)
                     ping_response = requests.get(get_id_ping, verify=False).json()
                     id_ping = ping_response['sensors'][0]['objid']
+                
+                    # Función para obtener el Uptime de la UPS
                     uptime = get_uptime(id_ping)
                     
                     for sensor in sensors:
