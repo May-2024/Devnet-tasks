@@ -200,3 +200,10 @@ export const getDataBaseFim = async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('FIM: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataAnillo = async () => {
+  return axios
+    .get(`${BASE_API_URL}/anillo`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
+};

@@ -1,0 +1,443 @@
+.background-anillo {
+  position: relative;
+  /* height: 100vh; */
+}
+
+.main-anillo-container {
+  width: 1200px;
+  margin: auto;
+  /* margin-top: 30px; */
+}
+
+.main-anillo-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-lights-anillo-container {
+  position: absolute;
+  width: 1200px;
+  height: 2210px;
+  margin: auto;
+}
+
+
+
+.status-light-anillo {
+  border: black solid 1px;
+  width: 24px;
+  height: 10px;
+  /* background-color: red; */
+  position: absolute;
+}
+
+
+.anillo-green {
+  background-color: rgb(148, 247, 0);
+}
+
+.anillo-red {
+  background-color: red;
+  font-weight: bold;
+}
+
+.anillo-blue {
+  background-color: rgb(29, 158, 250);
+  font-weight: bold;
+}
+
+.anillo-white {
+  background-color:white;
+}
+
+.anillo-orange {
+  background-color: orange;
+  /* animation: titilar-yellow 2s infinite; */
+  font-weight: bold;
+}
+
+@keyframes anillo-titilar-red {
+  0% {
+    background-color: red;
+  }
+  20% {
+    background-color: rgb(253, 173, 173);
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+
+.button-zoom-container {
+  width: 50px;
+  position: absolute;
+  z-index: 9999;
+  text-align: center;
+}
+
+.button-zoom {
+  margin-bottom: 15px;
+  width: 30px;
+  border-radius: 25%;
+}
+
+.background-anillo {
+  transition: transform 0.3s ease; /* Agrega una transición suave al hacer zoom */
+}
+
+/* Define diferentes niveles de zoom según sea necesario */
+.background-anillo.zoom-1 {
+  transform: scale(1);
+}
+
+.background-anillo.zoom-2 {
+  transform: scale(1.2); /* Puedes ajustar el valor según sea necesario */
+}
+
+.background-anillo.zoom-3 {
+  transform: scale(1.7); /* Puedes ajustar el valor según sea necesario */
+}
+
+.background-anillo.zoom-4 {
+  transform: scale(2); /* Puedes ajustar el valor según sea necesario */
+}
+
+.background-anillo {
+  transition: transform 0.3s ease;
+  transform-origin: top;
+}
+
+.button-zoom {
+  margin: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.status-light-anillo-container {
+  position: absolute;
+  top: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+.id15596 {
+  top: 170px;
+  left: 327px;
+}
+
+.id15609 {
+  top: 147px;
+  left: 307px;
+  width: 30px;
+}
+
+.id17572 {
+  top: 123px;
+  left: 310px;
+  width: 30px;
+}
+
+.id15608 {
+  top: 135px;
+  left: 223px;
+}
+
+.id15685 {
+  top: 135px;
+  left: 189px;
+  width: 24px;
+}
+
+.id15684 {
+  top: 175px;
+  left: 164px;
+}
+
+.id15607 {
+  top: 207px;
+  left: 164px; 
+  width: 38px;
+}
+
+.id15606 {
+  top: 228px;
+  left: 190px; 
+  width: 38px;
+}
+
+.id15605 {
+  top: 250px;
+  left: 190px; 
+  width: 38px;
+}
+
+.id15604 {
+  top: 273px;
+  left: 164px; 
+  width: 38px;
+}
+
+.id15583 {
+  top: 228px;
+  left: 244px; 
+}
+
+.id15611 {
+  top: 275px;
+  left: 229px; 
+}
+
+.id15603 {
+  top: 307px;
+  left: 164px;
+  width: 30px;
+}
+
+.id15602 {
+  top: 370px;
+  left: 171px;
+  width: 30px;
+}
+
+.id15612 {
+  top: 420px;
+  left: 216px;
+}
+
+.id15670 {
+  top: 430px;
+  left: 295px;
+}
+
+.id15613 {
+  top: 470px;
+  left: 237px;
+}
+
+.id15628 {
+  top: 515px;
+  left: 237px;
+}
+
+.id15668 {
+  top: 431px;
+  left: 338px;
+}
+
+.id15669 {
+  top: 431px;
+  left: 418px;
+}
+
+.id15614 {
+  top: 469px;
+  left: 534px;
+}
+
+.id15615 {
+  top: 432px;
+  left: 550px;
+}
+
+.id17753 {
+  top: 432px;
+  left: 470px;
+}
+
+.id17754 {
+  top: 469px;
+  left: 488px;
+  width: 28px;
+}
+
+.id15610 {
+  top: 540px;
+  left: 503px;
+}
+
+.id15631 {
+  top: 616px;
+  left: 503px;
+  width: 30px;
+  font-size: 8px;
+  height: 8px;
+}
+
+.id15633 {
+  top: 605px;
+  left: 503px;
+  font-size: 8px;
+  height: 8px;
+}
+
+.id15634 {
+  top: 595px;
+  left: 503px;
+  font-size: 8px;
+  height: 8px;
+}
+
+.id15632 {
+  top: 643px;
+  left: 490px;
+  font-size: 8px;
+  height: 8px;
+  width: 30px;
+}
+
+.id15629 {
+  top: 603px;
+  left: 550px;
+}
+
+.id15630 {
+  top: 683px;
+  left: 550px;
+}
+
+.id15636 {
+  top: 751px;
+  left: 544px;
+  width: 30px;
+}
+
+.id15585 {
+  top: 432px;
+  left: 673px;
+}
+
+.id15586 {
+  top: 432px;
+  left: 595px;
+}
+
+.id15597 {
+  top: 432px;
+  left: 718px;
+}
+
+.id15598 {
+  top: 432px;
+  left: 797px;
+}
+
+.id15599 {
+  top: 472px;
+  left: 770px;
+}
+
+.id15638 {
+  top: 492px;
+  left: 770px;
+}
+
+.id15637 {
+  top: 560px;
+  left: 770px;
+  width: 28px;
+}
+
+.id15639 {
+  top: 575px;
+  left: 790px;
+}
+
+.id15587 {
+  top: 432px;
+  left: 843px;
+}
+
+.id15588 {
+  top: 425px;
+  left: 924px;
+}
+
+.id15593 {
+  top: 386px;
+  left: 963px;
+}
+
+.id15595 {
+  top: 340px;
+  left: 940px;
+}
+
+.id15594 {
+  top: 322px;
+  left: 994px;
+}
+
+.id15589 {
+  top: 222px;
+  left: 994px;
+}
+
+.id15590 {
+  top: 287px;
+  left: 994px;
+}
+
+.id16562 {
+  top: 189px;
+  left: 994px;
+}
+
+.id16561 {
+  top: 143px;
+  left: 939px;
+}
+
+.id15600 {
+  top: 144px;
+  left: 887px;
+  width: 30px;
+}
+
+.id15601 {
+  top: 136px;
+  left: 803px;
+  width: 30px;
+}
+
+.id17757 {
+  top: 40px;
+  left: 440px;
+  width: 33px;
+  color: white;
+}
+
+.id17758 {
+  top: 22px;
+  left: 440px;
+  width: 33px;
+  color: white;
+}
+
+.id17759 {
+  top: 40px;
+  left: 600px;
+  width: 33px;
+  color: white;
+}
+
+.id17760 {
+  top: 22px;
+  left: 600px;
+  width: 33px;
+  color: white;
+}
+
+.id17761 {
+  top: 57px;
+  left: 592px;
+  width: 33px;
+  color: white;
+}
+
+.id17762 {
+  top: 57px;
+  left: 699px;
+  width: 33px;
+  color: white;
+}

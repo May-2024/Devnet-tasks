@@ -90,7 +90,7 @@ def get_data_interfaces(data_anillo):
         data_interfaces = [] 
         for element in data_anillo:
             ip_node = element['ip']
-            print(ip_node)
+            logging.info(ip_node)
             get_id_url = os.getenv("URL_PRTG_GET_ID_WITH_IP").format(ip=ip_node)
             response_get_id_url = requests.get(get_id_url, verify=False).json()
             if response_get_id_url["devices"] == []:
@@ -104,6 +104,7 @@ def get_data_interfaces(data_anillo):
             for interface in interfaces:
                 data_interfaces.append(interface)
         
+        logging.info("Terminado")
         return data_interfaces
 
 
@@ -114,14 +115,12 @@ def get_data_interfaces(data_anillo):
 
 
 
-# def bucle(scheduler):
-#     status_interfaces()
-#     scheduler.enter(300, 1, bucle, (scheduler,))
+def bucle(scheduler):
+    status_interfaces()
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
 
-# if __name__ == "__main__":
-#     s = sched.scheduler(time.time, time.sleep)
-#     s.enter(0, 1, bucle, (s,))
-#     s.run()
-
-status_interfaces()
+if __name__ == "__main__":
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(0, 1, bucle, (s,))
+    s.run()
