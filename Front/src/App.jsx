@@ -39,6 +39,7 @@ import { ApMesh } from "./components/InfraGeneral/Ap/ApMesh";
 import { DcsPac } from "./components/DcsPac/DcsPac";
 import { DcsOjos } from "./components/DcsOjos/DcsOjos";
 import { BaseFim } from "./components/BaseFim/BaseFim";
+import { Anillo } from "./components/Anillo/Anillo";
 import "./app.css";
 
 function App() {
@@ -115,6 +116,7 @@ function App() {
         />
         <Route path="/monitoreo/infraestrucura-general/map" element={<Map />} />
         <Route path="/monitoreo/candelaria/fim" element={<BaseFim />} />
+        <Route path="/monitoreo/candelaria/anillo" element={<Anillo />} />
       </Routes>
 
       <div className="refresh-button-container">
