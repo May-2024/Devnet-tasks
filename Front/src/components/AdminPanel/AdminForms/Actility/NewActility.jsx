@@ -13,6 +13,8 @@ export function NewActility({
     name: "",
     eui: "",
     device: "",
+    latitude: "",
+    longitude: "",
   });
   const token = localStorage.getItem("jwtToken");
 
@@ -91,6 +93,22 @@ export function NewActility({
           name="device"
           id="device"
           value={newElement.device}
+          onChange={handleChange}
+        />
+        <label htmlFor="device">LATITUD</label>
+        <input
+          type="number"
+          name="latitude"
+          id="latitude"
+          value={newElement.latitude}
+          onChange={handleChange}
+        />
+        <label htmlFor="device">LONGITUD</label>
+        <input
+          type="number"
+          name="longitude"
+          id="longitude"
+          value={newElement.longitude}
           onChange={handleChange}
         />
         <button type="submit">Guardar</button>
