@@ -269,6 +269,7 @@ export function Actility() {
                     value={dataElem.device}
                     onChange={handleChange}
                   />
+<<<<<<< HEAD
                   <label htmlFor="">LONGITUD</label>
                   <input
                     type="number"
@@ -285,6 +286,8 @@ export function Actility() {
                     value={dataElem.latitude}
                     onChange={handleChange}
                   />
+=======
+>>>>>>> 9b138a410be488586f2a54618360a40655725b3e
                 </form>
                 <section className="edit-cancel-actility-container">
                   <button
