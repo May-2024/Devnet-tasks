@@ -28,6 +28,7 @@ import { AdminFirewalls } from "./components/AdminPanel/AdminViews/AdminFirewall
 import { AdminUsers } from "./components/AdminPanel/AdminViews/AdminUsers";
 import { AdminAp } from "./components/AdminPanel/AdminViews/AdminAp";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
+import { Actility } from "./components/AdminPanel/AdminForms/Actility/Actility";
 import { Login } from "./components/Login/Logins";
 // import { InfraGeneral } from "./components/InfraGeneral/InfraGeneral";
 import { DetailsCore } from "./components/InfraGeneral/DetailsCore/DetailsCore";
@@ -91,6 +92,7 @@ function App() {
         <Route path="/admin/firewalls" element={<AdminFirewalls />} />
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/admin/infrageneral/ap" element={<AdminAp />} />
+        <Route path="/admin/actility" element={<Actility />} />
         <Route path="/login" element={<Login />} />
         <Route path="/monitoreo/pac/clientes" element={<DcsPac />} />
         <Route path="/monitoreo/ojos/clientes" element={<DcsOjos />} />

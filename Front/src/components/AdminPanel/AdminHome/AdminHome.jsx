@@ -12,6 +12,7 @@ export const AdminHome = () => {
     "/admin/mesh",
     "/admin/firewalls",
     "/admin/users",
+    "/admin/actility",
   ];
   const titles = [
     "DCS Clientes Candelaria",
@@ -22,6 +23,7 @@ export const AdminHome = () => {
     "MESH",
     "Firewalls - Canales Internet",
     "Usuarios",
+    "Actility AP",
   ];
 
   return (

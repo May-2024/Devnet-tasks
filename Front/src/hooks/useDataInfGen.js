@@ -136,14 +136,14 @@ export async function useDataInfGen() {
   };
 
   // Clasificacion de AP
-  dataAp.apList.forEach((element) => {
-    if (element.status !== "Joined") {
-      downElements.push(element);
-    }
-    if (element.status === "Joined") {
-      upElements.push(element);
-    }
-  });
+  // dataAp.apList.forEach((element) => {
+  //   if (element.status !== "Joined") {
+  //     downElements.push(element);
+  //   }
+  //   if (element.status === "Joined") {
+  //     upElements.push(element);
+  //   }
+  // });
 
   upOrDownInterface(allData);
   upOrDownNeighbors(allData);

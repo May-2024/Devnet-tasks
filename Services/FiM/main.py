@@ -57,8 +57,7 @@ def check_fim():
 
             # Reiniciamos la FIM y guardamos registro en caso de ser Down
             for sensor in sensors:
-                if "portsensor" in sensor["tags"] and sensor["status"] != "Up":
-                    logging.info(f"Reiniciando {base['name']}")
+                if "portsensor" in sensor["tags"] and "Down" in sensor["status"]:
                     logging.info(sensor["status"])
                     result = reset_base(ip_base)
                     if result == "Error":

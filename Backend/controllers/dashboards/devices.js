@@ -43,6 +43,7 @@ const dashboardDevices = async () => {
         device.type.toLowerCase() !== "camara" &&
         device.type.toLowerCase() !== "access point" &&
         device.type.toLowerCase() !== "impresora" &&
+        device.type.toLowerCase() !== "access point red negocio" &&
         device.prtg_status.includes("Down")
     );
 
