@@ -99,6 +99,13 @@ export function Actility() {
       !dataElem.longitude ||
       !dataElem.latitude
     ) {
+    if (
+      !dataElem.name ||
+      !dataElem.eui ||
+      !dataElem.device ||
+      !dataElem.longitude ||
+      !dataElem.latitude
+    ) {
       setShowMessageForm(true);
       setMessageForm("Por favor, completa todos los campos");
       return;
