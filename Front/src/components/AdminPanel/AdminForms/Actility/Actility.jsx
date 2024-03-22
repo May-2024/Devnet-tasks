@@ -92,7 +92,13 @@ export function Actility() {
   };
 
   const editElement = async () => {
-    if (!dataElem.name || !dataElem.eui || !dataElem.device) {
+    if (
+      !dataElem.name ||
+      !dataElem.eui ||
+      !dataElem.device ||
+      !dataElem.longitude ||
+      !dataElem.latitude
+    ) {
       setShowMessageForm(true);
       setMessageForm("Por favor, completa todos los campos");
       return;
@@ -261,6 +267,22 @@ export function Actility() {
                     name="device"
                     id="device"
                     value={dataElem.device}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="">LONGITUD</label>
+                  <input
+                    type="number"
+                    name="longitude"
+                    id="longitude"
+                    value={dataElem.longitude}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="">LATITUD</label>
+                  <input
+                    type="number"
+                    name="latitude"
+                    id="latitude"
+                    value={dataElem.latitude}
                     onChange={handleChange}
                   />
                 </form>
