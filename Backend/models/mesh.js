@@ -71,6 +71,10 @@ const Mesh = sequelize.define(
     id_prtg: {
       type: DataTypes.STRING(32),
       allowNull: true,
+    },
+    distance: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
     }
   },
   {

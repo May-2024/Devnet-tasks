@@ -207,3 +207,10 @@ export const getDataAnillo = async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataActility = async () => {
+  return axios
+    .get(`${BASE_API_URL}/actility`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
+};

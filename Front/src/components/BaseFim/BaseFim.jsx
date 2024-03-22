@@ -70,7 +70,7 @@ export function BaseFim() {
               <tr key={fim.id}>
                 <td>{fim.base_name}</td>
                 <td>{fim.base_ip}</td>
-                <td className={fim.status === "Up" ? "kpi-green" : "kpi-red"}>
+                <td className={fim.status === "Down" ? "kpi-red" : "kpi-green"}>
                   {fim.status}
                 </td>
                 <td style={{ cursor: "pointer" }} onClick={() => fimData(fim)}>

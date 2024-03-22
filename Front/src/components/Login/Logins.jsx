@@ -11,7 +11,6 @@ export function Login() {
   const [error, setError] = useState("");
   const [apiResponse, setApiResponse] = useState("");
 
-
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -57,13 +56,15 @@ export function Login() {
 
   return (
     <>
-      <Navbar title={"Admin Devnet"}/>
+      <Navbar title={"Admin Devnet"} />
       <div className=" login-container">
         <form className="login-form" onSubmit={handleSubmit}>
           <h2>Iniciar Sesión</h2>
           {error && <div className="error-message">{error}</div>}
           {errorParam === "401" && (
-            <div className="error-message">Debes iniciar sesión con una cuenta autorizada.</div>
+            <div className="error-message">
+              Debes iniciar sesión con una cuenta autorizada.
+            </div>
           )}
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -89,7 +90,9 @@ export function Login() {
               required
             />
           </div>
-          <button type="submit">Log in</button>
+          <button className="login-button" type="submit">
+            Log in
+          </button>
         </form>
         {apiResponse && <div className="api-response">{apiResponse}</div>}
       </div>

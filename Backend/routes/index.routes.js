@@ -21,6 +21,7 @@ const clientsPacRoutes = require("./clients_pac.routes");
 const clientsOjosRoutes = require("./clients_ojos.routes");
 const fimRoutes = require("./fim.routes");
 const anilloRoutes = require("./anillo.routes");
+const actilityRoutes = require("./actility.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -47,6 +48,7 @@ const allRoutes = (app) => {
   router.use("/ojos/clients", clientsOjosRoutes);
   router.use("/fim", fimRoutes);
   router.use("/anillo", anilloRoutes);
+  router.use("/actility", actilityRoutes);
 };
 
 module.exports = { allRoutes };

@@ -5,6 +5,9 @@ from config import database
 from datetime import timedelta
 from controladora import get_data_controladora
 from dispatch import get_data_dispatch
+from actility_position import get_actility_data
+from cande_position import get_cande_data
+from calculate_distance import get_distance
 
 # Esto evita que las respuestas de las API tengan warnings.
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
@@ -91,11 +94,8 @@ def prtg_data():
             URL_GET_DATA_PING = os.getenv('URL_GET_DATA_PING').format(objid=objid, sdate=sdate, edate=edate)
             try:
                 data_ping = requests.get(URL_GET_DATA_PING, verify=False)
-                # print(data_ping.content)
                 data_ping = xmltodict.parse(data_ping.text)
-                print(data_ping)
                 data_ping = data_ping["histdata"]['item'][0]['value'] #! Se agrega la posicion [0]
-                # print(f"Toda la info {data_ping}")
                 avg_ping = data_ping[0]['#text']
                 min_ping = data_ping[1]['#text']
                 max_ping = data_ping[2]['#text']
@@ -115,11 +115,29 @@ def prtg_data():
             ap_name = netmiko_data['ap_name']
             snr_level = netmiko_data['snr_level']
             
+            ap_longitude, ap_latitude = get_actility_data(mydb, ap_name)
+            elem_longitude, elem_latitud = get_cande_data(eqmt_device)
+            distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud)
             status_dispatch, operador = get_data_dispatch(eqmt_device)
 
-            query = "INSERT INTO dcs.mesh (`ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`, `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`, `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`, `SNR`, `id_prtg`) "
-            value = f"VALUES ('{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}', '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}', '{last_down_ping}', '{signal_strength}', '{signal_noise}', '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}', '{snr_level}', {id_ping})"
-            cursor.execute(query + value)
+            query = """
+                INSERT INTO dcs.mesh (
+                    `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
+                    `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
+                    `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
+                    `SNR`, `id_prtg`, `distance`
+                )
+            """
+            values = f"""
+                VALUES (
+                    '{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}',
+                    '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}',
+                    '{last_down_ping}', '{signal_strength}', '{signal_noise}',
+                    '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}',
+                    '{snr_level}', '{id_ping}', '{distance}'
+                )
+            """
+            cursor.execute(query + values)
             mydb.commit()
 
         now = datetime.datetime.now()

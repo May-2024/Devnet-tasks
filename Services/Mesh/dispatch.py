@@ -23,8 +23,7 @@ def get_data_dispatch(eqmt):
         for row in cursor:  
             data = list(row)
             all_data.append(data)
-        print("DATAAA")
-        print(all_data)
+
         for data_device in all_data:
             if data_device[4] == eqmt:
                 status_dispatch = f'{data_device[5]}-{data_device[6]}'
@@ -38,7 +37,6 @@ def get_data_dispatch(eqmt):
         return status_dispatch, operador
         
     except Exception as e:
-        print(f"error {e}")
         status_dispatch = 'Not Found'
         operador = 'Not Found'
         return status_dispatch, operador

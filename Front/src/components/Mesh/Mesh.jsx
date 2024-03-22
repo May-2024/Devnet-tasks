@@ -209,6 +209,12 @@ export function Mesh() {
                         {device.conectado_a}
                       </p>
                       <p>
+                        <p>
+                          <span>Distancia:</span>
+                          {device.distance === 0.0
+                            ? "Not Found"
+                            : `${device.distance} metros`}
+                        </p>
                         <span>Nivel de SNR: </span>
                         <span className={`mesh-valor ${colorNivelSnr}`}>
                           {device.snr}
