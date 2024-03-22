@@ -169,3 +169,12 @@ services:
       - db
     environment:
       - ENVIRONMENT=production
+
+  anillo_candelaria:
+    build:
+      context: Services/Anillo
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
