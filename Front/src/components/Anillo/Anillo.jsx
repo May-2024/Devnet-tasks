@@ -592,7 +592,7 @@ export const Anillo = () => {
             <div className="status-light-anillo-container">
               <p // 10.224.114.78
                 title={statusTitle(15597)}
-                className={`status-light-anillo id15597 ${statusLight(15597)}`}
+                className={`status-light-anillo id15598 ${statusLight(15597)}`}
               >
                 <a
                   style={{ color: "black" }}
@@ -606,7 +606,7 @@ export const Anillo = () => {
             <div className="status-light-anillo-container">
               <p // 10.224.114.78
                 title={statusTitle(15598)}
-                className={`status-light-anillo id15598 ${statusLight(15598)}`}
+                className={`status-light-anillo id15597 ${statusLight(15598)}`}
               >
                 <a
                   style={{ color: "black" }}

@@ -195,7 +195,15 @@ export function Mesh() {
                         </span>
                       </p>
                       <p>
-                        <span>Ruido: </span>
+                        <span>Contador Fail Nivel Señal: </span>
+                        {device.fail_senal}
+                      </p>
+                      <p>
+                        <span>Duración Última Falla: </span>
+                        {device.fail_time_senal} min
+                      </p>
+                      <p>
+                        <span>SNR Cliente: </span>
                         {device.ruido_senal}
                       </p>
                       <p>
@@ -219,6 +227,14 @@ export function Mesh() {
                         <span className={`mesh-valor ${colorNivelSnr}`}>
                           {device.snr}
                         </span>
+                        <p>
+                          <span>Contador Fail SNR: </span>
+                          {device.fail_snr}
+                        </p>
+                        <p>
+                          <span>Duración Última Falla: </span>
+                          {device.fail_time_snr} min
+                        </p>
                       </p>
                     </td>
                     <td>
