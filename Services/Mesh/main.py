@@ -79,7 +79,7 @@ def prtg_data():
         now = datetime.datetime.now()
         current_hour = now.time()
         bot_limit = datetime.time(0, 0)
-        top_limit = datetime.time(0, 40)
+        top_limit = datetime.time(0, 30)
 
         if bot_limit <= current_hour <= top_limit:
             cursor.execute("UPDATE dcs.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0")
