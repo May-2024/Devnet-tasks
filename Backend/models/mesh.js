@@ -75,7 +75,27 @@ const Mesh = sequelize.define(
     distance: {
       type: DataTypes.FLOAT,
       allowNull: true,
-    }
+    },
+    fail_senal: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    fail_time_senal: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    fail_snr: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    fail_time_snr: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    date: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
   },
   {
     tableName: "mesh",

@@ -15,6 +15,7 @@ import { useWanDates } from "../../hooks/useWanDates";
 import { useVpnCounter } from "../../hooks/useVpnCounter";
 import { InfraGeneralDash } from "../InfraGeneral/InfraGeneralDash/InfraGeneralDash";
 import PuffLoader from "react-spinners/PuffLoader";
+import { getDataAnillo } from "../../utils/Api-candelaria/api";
 import "./home.css";
 
 export function Home() {
@@ -37,6 +38,8 @@ export function Home() {
   const [spinnerDcsCandelaria, setSpinnerDcsCandelaria] = useState(true);
   const [spinnerUps, setSpinnerUps] = useState(true);
   const [spinnerMesh, setSpinnerMesh] = useState(false);
+  const [anilloUp, setAnilloUp] = useState([]);
+  const [anilloDown, setAnilloDown] = useState([]);
 
   const queryParams = new URLSearchParams(location.search);
   const logoutParam = queryParams.get("logout");
@@ -46,6 +49,13 @@ export function Home() {
     const fetchData = async () => {
       try {
         const dcsCandelaria = await getDcsCandelariaIndicators();
+        const dataAnillo = await getDataAnillo();
+        const dataUpAnillo = dataAnillo.filter((e) => e.status === "Up");
+        const dataDownAnillo = dataAnillo.filter((e) =>
+          e.status.includes("Down")
+        );
+        setAnilloUp(dataUpAnillo);
+        setAnilloDown(dataDownAnillo);
 
         // OPEN PIT
         const meshIndicators = await getMeshIndicators();
@@ -369,6 +379,19 @@ export function Home() {
                         <Link
                           className="link-open-pit"
                           to="/monitoreo/candelaria/fim"
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Anillo</td>
+                      <td>{anilloUp.length}</td>
+                      <td>{anilloDown.length}</td>
+                      <td>
+                        <Link
+                          className="link-open-pit"
+                          to="/monitoreo/candelaria/anillo"
                         >
                           Ver
                         </Link>
