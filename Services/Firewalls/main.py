@@ -1,8 +1,10 @@
 import mysql.connector, warnings, time, sched, datetime, os, re, traceback, logging, requests, paramiko
+import netmiko
 from netmiko import ConnectHandler
 from dotenv import load_dotenv
 from config import database
 from vdom import vdom_connection, number_users_vdom
+
 
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -88,42 +90,45 @@ def fw_status():
                             mydb.commit()
                     
                 else:
-                    network_device_list = {
-                        "host": host,
-                        "username": USER,
-                        "password": PASSWORD,
-                        "device_type": "fortinet",
-                        "port": 2221,
-                        "timeout": 180,
-                    }
+                    try:
+                        network_device_list = {
+                            "host": host,
+                            "username": USER,
+                            "password": PASSWORD,
+                            "device_type": "fortinet",
+                            "port": 2221,
+                            "timeout": 10000,
+                        }
 
-                    net_connect = ConnectHandler(**network_device_list)
-                    output = net_connect.send_command("diagnose sys sdwan health-check Check_Internet")
-                    net_connect.disconnect()
-                    
-                    if 'Health Check' in output:
-                        pattern = r'Seq\(\d+ ([^\)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\)(?: latency\(([^)]+)\), jitter\(([^)]+)\))?.*'
-                        matches = re.findall(pattern, output)
-                        for match in matches:
-                            try:
-                                canal = match[0]
-                                if canal == channel:
-                                    state = match[1]
-                                    packet_loss = match[2]
-                                    packet_loss = packet_loss.replace("%", "")
-                                    latency = match[3] if match[3] else "Not Found"
-                                    jitter = match[4] if match[4] else "Not Found"
-                                    failed_before = check_failed_before(cursor, name, channel)
-                                    
-                                    query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
-                                    value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
-                                    cursor.execute(query + value)
-                                    mydb.commit()
+                        net_connect = ConnectHandler(**network_device_list)
+                        output = net_connect.send_command("diagnose sys sdwan health-check Check_Internet")
+                        net_connect.disconnect()
+                        
+                        if 'Health Check' in output:
+                            pattern = r'Seq\(\d+ ([^\)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\)(?: latency\(([^)]+)\), jitter\(([^)]+)\))?.*'
+                            matches = re.findall(pattern, output)
+                            for match in matches:
+                                try:
+                                    canal = match[0]
+                                    if canal == channel:
+                                        state = match[1]
+                                        packet_loss = match[2]
+                                        packet_loss = packet_loss.replace("%", "")
+                                        latency = match[3] if match[3] else "Not Found"
+                                        jitter = match[4] if match[4] else "Not Found"
+                                        failed_before = check_failed_before(cursor, name, channel)
+                                        
+                                        query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                                        value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                                        cursor.execute(query + value)
+                                        mydb.commit()
 
-                            except:
-                                logging.error(f"Error en la expresión regular Health Check - FW {host}")
-                                logging.error(traceback.format_exc())
-                                save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                                except:
+                                    logging.error(f"Error en la expresión regular Health Check - FW {host}")
+                                    logging.error(traceback.format_exc())
+                                    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                    except netmiko.NetMikoTimeoutException as timeout_error:
+                        logging.error("ENTRO AL NETMIKO ERRRO")
                                     
                     else:
                         logging.error(f"No se encontraron las palabras 'Health Check - FW {host}'")
@@ -149,8 +154,8 @@ def fw_status():
         logging.info("Terminado")
     
     except Exception as e:
-        if net_connect:
-            net_connect.disconnect()
+        # if net_connect:
+        #     net_connect.disconnect()
         logging.error(f"Error de bajo nivel, posible error en Netmiko")
         logging.error(e)
         logging.error(traceback.format_exc())
@@ -216,8 +221,8 @@ def number_users(host, username, password):
             return number
         
     except Exception as e:
-        if net_connect:
-            net_connect.disconnect()
+        # if net_connect:
+        #     net_connect.disconnect()
         logging.error(f"Error de bajo nivel, posible error en Netmiko")
         logging.error(e)
         

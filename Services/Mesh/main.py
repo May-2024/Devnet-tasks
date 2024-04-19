@@ -90,6 +90,10 @@ def prtg_data():
             name_device = device["device"]
             eqmt_device = device["eqmt"]
             logging.info(f"Consultando informacion: {name_device}")
+            
+            now = datetime.datetime.now()
+            fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+            fecha_y_hora = str(fecha_y_hora)
 
             URL_GET_ID_PING = os.getenv("URL_GET_ID_PING").format(ip_host=ip_device)
             try:
@@ -116,7 +120,7 @@ def prtg_data():
             last_down_ping = re.sub(patron, "", last_down_ping)
 
             edate = datetime.datetime.today()
-            sdate = datetime.datetime.today() - timedelta(minutes=360)
+            sdate = datetime.datetime.today() - timedelta(minutes=30)
             edate = edate.strftime("%Y-%m-%d-%H-%M-%S")
             sdate = sdate.strftime("%Y-%m-%d-%H-%M-%S")
 
@@ -126,9 +130,10 @@ def prtg_data():
             try:
                 data_ping = requests.get(URL_GET_DATA_PING, verify=False)
                 data_ping = xmltodict.parse(data_ping.text)
-                data_ping = data_ping["histdata"]["item"][0][
+                data_ping = data_ping["histdata"]["item"][
                     "value"
                 ]  #! Se agrega la posicion [0]
+                print(data_ping)
                 avg_ping = data_ping[0]["#text"]
                 min_ping = data_ping[1]["#text"]
                 max_ping = data_ping[2]["#text"]
@@ -148,10 +153,10 @@ def prtg_data():
             ap_name = netmiko_data["ap_name"]
             snr_level = netmiko_data["snr_level"]
 
-            ap_longitude, ap_latitude = get_actility_data(mydb, ap_name) #! Descomentar
-            elem_longitude, elem_latitud = get_cande_data(eqmt_device) #! Descomentar
-            distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
-            # distance = 0.0  #! Borrar
+            # ap_longitude, ap_latitude = get_actility_data(mydb, ap_name) #! Descomentar
+            # elem_longitude, elem_latitud = get_cande_data(eqmt_device) #! Descomentar
+            # distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
+            distance = 0.0  #! Borrar
             status_dispatch, operador = get_data_dispatch(eqmt_device)
             fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
             
@@ -250,7 +255,7 @@ def get_number(nivel):
     if isinstance(nivel, int):
         nivel = str(nivel)
         
-    if "N/A" in nivel:
+    if  nivel == "N/A":
         return "N/A"
     
     match = re.search(r'(-?\d+(\.\d+)?)', nivel)

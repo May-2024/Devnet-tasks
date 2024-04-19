@@ -64,6 +64,8 @@ export function Status_System({ tableToShow }) {
       return "Infra General";
     } else if (tableToShow === "fim") {
       return "Base Fim";
+    } else if (tableToShow === "mesh_process") {
+      return "Proceso Mesh";
     }
   };
 

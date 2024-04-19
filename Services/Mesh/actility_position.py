@@ -23,7 +23,7 @@ def get_actility_data(mydb, ap_name):
                 
             return device['latitude'], device['longitude']
         else:
-            logging.info("ACTILITY: No se encontraron coincidencias con los AP reportados por la controladora.")
+            # logging.info("ACTILITY: No se encontraron coincidencias con los AP reportados por la controladora.")
             mydb.commit()
             return 99.999, 99.999
         

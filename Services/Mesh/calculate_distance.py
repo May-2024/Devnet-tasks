@@ -4,13 +4,13 @@ import logging
 def get_distance(lon1, lat1, lon2, lat2):
     try:
         # Verificar si alguno de los parámetros es una cadena (string)
-        logging.info(f"AP LONGITUD {lon1}")
-        logging.info(f"AP LATITUD {lat1}")
-        logging.info(f"PALA LONGITUD {lon2}")
-        logging.info(f"PALA LATITUD {lat2}")
+        # logging.info(f"AP LONGITUD {lon1}")
+        # logging.info(f"AP LATITUD {lat1}")
+        # logging.info(f"PALA LONGITUD {lon2}")
+        # logging.info(f"PALA LATITUD {lat2}")
      
         if lon1 == 99.999 or lat1 == 99.999 or lon2 == 99.999 or lat2 == 99.999:
-            logging.info("Uno de los datos es 99.999, retornando 0 metros")
+            # logging.info("Uno de los datos es 99.999, retornando 0 metros")
             return 0
         
         # Radio de la Tierra en metros

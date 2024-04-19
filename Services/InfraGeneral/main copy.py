@@ -10,7 +10,6 @@ from status_core import ping_host
 from commands_ot.clcanot_dcs import eigrp_clcanot_dcs_function
 from commands_ot.clcanot_ug import eigrp_clcanot_ug_function
 from commands_ot.clcanot_ugmine import eigrp_clcanot_ugmine_function
-from interfaces_descriptions import get_interfaces_descriptions
 
 warnings.filterwarnings("ignore", message="Unverified HTTPS request")
 
@@ -163,42 +162,19 @@ def core1():
                 mydb.commit()
         
         status_data_neighbors = status_neighbor(mydb, current_data_neighbors)
-        for element in status_data_neighbors:
-            element['descrip'] = ''
-        #! DESCRIPCION DE LAS INTERFACES
         
-        interfaces_description = ''
-        for switch in data_switches:
-            interfaces_description = get_interfaces_descriptions(switch)
-            # interfaces_description.append(data)
-            
-        # print(status_data_neighbors)
-        # print(interfaces_description)
-        for item in interfaces_description:
-            for element in status_data_neighbors:
-                if element['name_switch'] == item['name_switch'] and element['interface'] == item['interface']:
-                    element['descrip'] = item['descrip']
-                    break
-
-        print(status_data_neighbors)           
-        #! TERMINA BLOQUE DESCRIPCION DE LAS INTERFACES
+        # Blanqueamos la tabla neighbors antes de rellenarla de nuevo
+        query = (f"DELETE FROM dcs.neighbors")
+        cursor.execute(query)
+        mydb.commit()
         
-        # # Blanqueamos la tabla neighbors antes de rellenarla de nuevo
-        # query = (f"DELETE FROM dcs.neighbors")
-        # cursor.execute(query)
-        # mydb.commit()
-        
-        # # Guardamos en bloque en la BD en vez de linea por linea
-        # query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        # query_historic = "INSERT INTO dcs.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        # values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status']) for neigh in status_data_neighbors]
-        # cursor.executemany(query, values)
-        # cursor.executemany(query_historic, values)
-        # mydb.commit()
-        
-        query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`, `interface_descrip`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-        values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+        # Guardamos en bloque en la BD en vez de linea por linea
+        query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        query_historic = "INSERT INTO dcs.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status']) for neigh in status_data_neighbors]
         cursor.executemany(query, values)
+        cursor.executemany(query_historic, values)
+        mydb.commit()
                 
         # for neighbor in status_data_neighbors:
         #     ip_neighbor = neighbor['ip_neighbor']

@@ -6427,3 +6427,831 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+2024-04-15 08:39:34,646 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-04-15 08:39:34,646 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-04-15 08:39:34,655 - ERROR - local variable 'net_connect' referenced before assignment
+2024-04-15 08:39:34,655 - ERROR - local variable 'net_connect' referenced before assignment
+2024-04-15 08:39:34,656 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 212, in number_users
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 75, in fw_status
+    num_users = number_users(host, USER, PASSWORD)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 224, in number_users
+    if net_connect:
+UnboundLocalError: local variable 'net_connect' referenced before assignment
+
+2024-04-15 08:39:34,656 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 212, in number_users
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 75, in fw_status
+    num_users = number_users(host, USER, PASSWORD)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 224, in number_users
+    if net_connect:
+UnboundLocalError: local variable 'net_connect' referenced before assignment
+
+2024-04-15 08:43:29,587 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-04-15 08:43:29,587 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-04-15 08:43:29,587 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2024-04-15 08:43:29,587 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2024-04-15 08:43:39,598 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-04-15 08:43:39,598 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-04-16 11:04:25,952 - ERROR: Error en funcion Main
+2024-04-16 11:04:25,952 - ERROR: Error en funcion Main
+2024-04-16 11:04:25,953 - ERROR: 'ubication'
+2024-04-16 11:04:25,953 - ERROR: 'ubication'
+2024-04-16 11:04:25,953 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 82, in main
+    repeated_mac = check_mac(current_data)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/check_mac.py", line 16, in check_mac
+    ubication = item['ubication']
+KeyError: 'ubication'
+
+2024-04-16 11:04:25,953 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 82, in main
+    repeated_mac = check_mac(current_data)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/check_mac.py", line 16, in check_mac
+    ubication = item['ubication']
+KeyError: 'ubication'
+
+2024-04-17 00:17:46,703 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:17:46,703 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:17:46,704 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:17:46,704 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:18:10,865 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:18:10,865 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:18:10,865 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:18:10,865 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:19:27,562 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:19:27,562 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:19:27,562 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:19:27,562 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:19:54,403 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:19:54,403 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:19:54,403 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:19:54,403 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-17 00:20:42,309 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:20:42,309 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:20:42,309 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:20:42,309 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:21:05,794 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:21:05,794 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-17 00:21:05,795 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:21:05,795 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:21:27,890 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:21:27,890 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-17 00:21:27,890 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 00:21:27,890 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,547 - ERROR - Error al conectarse a la base de datos
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,548 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-17 11:49:23,549 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 55, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 13:36:20,506 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 90, in core1
+    data_bgp = bgp_function(switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 19, in bgp_function
+    is_bgp = switch['is_bgp']
+KeyError: 'is_bgp'
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:06:58,245 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:09:03,505 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:13:11,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    if element['ip_neighbor'] == item['ip_switch'] and element['interface'] == item['interface']:
+TypeError: list indices must be integers or slices, not str
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:16:07,673 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+
+2024-04-18 14:18:08,286 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in core1
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 200, in <listcomp>
+    values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
+KeyError: 'descrip'
+

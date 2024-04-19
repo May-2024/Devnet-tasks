@@ -1,0 +1,46 @@
+const sequelize = require("../db/conection");
+const { Sequelize, DataTypes } = require("sequelize");
+
+const MeshProcess = sequelize.define(
+  "MeshProcess",
+  {
+    ubication: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    device: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    client: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    last_mac: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    current_mac: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    note: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    last_change_date: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.STRING(10),
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "mesh_process",
+    timestamps: false,
+  }
+);
+
+module.exports = { MeshProcess };
