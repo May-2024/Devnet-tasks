@@ -12,6 +12,7 @@ import paramiko
 from dotenv import load_dotenv
 from config import database
 from mesh_data import get_mesh_process_data
+from check_mac import check_mac
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s")
@@ -62,7 +63,7 @@ def main():
             for i in range(len(column_names)):
                 row_dict[column_names[i]] = row[i]
             last_data.append(row_dict)
-
+        
         # Obtenemos los datos actuales
         current_data = get_mesh_process_data()
 
@@ -77,8 +78,9 @@ def main():
             query_mac = f"UPDATE dcs.mesh_process SET last_mac = '{current_mac}' WHERE client = '{client}'"
             cursor.execute(query_mac)
             mydb.commit()
+            
         
-        # Actualizamos el Mac Actual con el valor del Mac Actual    
+        # Actualizamos el valor de la Mac Actual     
         for data in current_data:
             client = data['ip']
             current_mac = data['mac']
@@ -92,10 +94,42 @@ def main():
                     mydb.commit()
                     break
                 
-            query_mac = f"UPDATE dcs.mesh_process SET current_mac = '{current_mac}' WHERE client = '{client}'"
-            cursor.execute(query_mac)
-            mydb.commit()
+        query = "SELECT * FROM dcs.mesh_process"
+        cursor.execute(query)
+        
+        # Obtenemos la lista con los datos de los diccionarios actualizados
+        column_names = [column[0] for column in cursor.description]
+        data_updated = []
+        for row in cursor:
+            row_dict = {}
+            for i in range(len(column_names)):
+                row_dict[column_names[i]] = row[i]
+            data_updated.append(row_dict)
             
+        # Validamos que los elementos no se repitan
+        repeated_mac = check_mac(data_updated)
+        
+        for item in data_updated:
+            item['status'] = 'ok'  # Establece el estado inicial a 'ok'
+            if item['current_mac'] in repeated_mac:
+                item['status'] = 'fail'  # Cambia el estado a 'fail' si el elemento está repetido
+                
+        for data in data_updated:
+            if data['client'] != '10.117.126.100':
+                status = data['status']
+                query_mac = f"UPDATE dcs.mesh_process SET status = '{status}' WHERE client = '{data['client']}'"
+                cursor.execute(query_mac)
+                mydb.commit()        
+                
+                
+        now = datetime.datetime.now()
+        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+        fecha_y_hora = str(fecha_y_hora)
+        
+        cursor.execute(
+            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}' WHERE `id` = '1'"
+        )
+        mydb.commit()
         cursor.close()
         logging.info("Ciclo Terminado")
         
@@ -103,11 +137,16 @@ def main():
         logging.error("Error en funcion Main")
         logging.error(e)
         logging.error(traceback.format_exc())
+        cursor.execute(
+            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `id` = '1'"
+        )
+        mydb.commit()
+        cursor.close()
         return "Error"
     
 def bucle(scheduler):
     main()
-    scheduler.enter(300, 1, bucle, (scheduler,))
+    scheduler.enter(43000, 1, bucle, (scheduler,))
 
 if __name__ == "__main__":
     s = sched.scheduler(time.time, time.sleep)

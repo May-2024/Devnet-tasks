@@ -3,6 +3,7 @@ import {
   getUps,
   getMeshIndicators,
   getDataBaseFim,
+  getDataMeshProcess,
 } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
@@ -33,6 +34,8 @@ export function Home() {
   const [meshDownElem, setMeshDownElem] = useState(0);
   const [fimDownElem, setFimhDownElem] = useState(0);
   const [openPitLoading, setOpenPitLoading] = useState(true);
+  const [dataMeshProcessUp, setDataMeshProcessUp] = useState([]);
+  const [dataMeshProcessDown, setDataMeshProcessDown] = useState([]);
 
   // Estados de spinners
   const [spinnerDcsCandelaria, setSpinnerDcsCandelaria] = useState(true);
@@ -54,6 +57,7 @@ export function Home() {
         const dataDownAnillo = dataAnillo.filter((e) =>
           e.status.includes("Down")
         );
+
         setAnilloUp(dataUpAnillo);
         setAnilloDown(dataDownAnillo);
 
@@ -65,9 +69,18 @@ export function Home() {
         let meshElementsUp = 0;
         meshElementsUp += meshIndicators.palasOk + meshIndicators.palasWarnings;
         meshElementsUp += meshIndicators.caexOk + meshIndicators.caexWarnings;
+        const allDataMeshProcess = await getDataMeshProcess();
+        const allDataMeshProcessUp = allDataMeshProcess.filter(
+          (e) => e.status === "ok"
+        );
+        const allDataMeshProcessDown = allDataMeshProcess.filter(
+          (e) => e.status === "fail"
+        );
         setMeshUpElem(meshElementsUp);
         setMeshDownElem(meshElementsDown);
         setOpenPitLoading(false);
+        setDataMeshProcessUp(allDataMeshProcessUp);
+        setDataMeshProcessDown(allDataMeshProcessDown);
 
         const { fimStatus } = await getDataBaseFim();
         const downFim = fimStatus.filter((e) => e.status.includes("Down"));
@@ -392,6 +405,19 @@ export function Home() {
                         <Link
                           className="link-open-pit"
                           to="/monitoreo/candelaria/anillo"
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Clientes Mesh</td>
+                      <td>{dataMeshProcessUp.length}</td>
+                      <td>{dataMeshProcessDown.length}</td>
+                      <td>
+                        <Link
+                          className="link-open-pit"
+                          to="/monitoreo/candelaria/proceso-mesh"
                         >
                           Ver
                         </Link>

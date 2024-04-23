@@ -30,6 +30,10 @@ export const useTabsName = (pathname) => {
       return "Mapa Infra General";
     case "/monitoreo/infraestrucura-general/details":
       return "Detalles Infra General";
+    case "/monitoreo/candelaria/fim":
+      return "Estaciones Base Fim";
+    case "/monitoreo/candelaria/anillo":
+      return "Anillo Candelaria";
     default:
       return "Sistema de Monitoreo";
   }

@@ -1,0 +1,38 @@
+.container-process-mesh-table {
+    max-height: calc(100vh - 8rem - 60px);
+    overflow-y: auto;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.process-mesh-table {
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.process-mesh-table th, .process-mesh-table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.process-mesh-table th {
+    background-color: rgb(52, 52, 52);
+    color: white;
+    border-right: white 1px solid;
+}
+
+.process-mesh-table td {
+    font-weight: 100;
+}
+
+.container-process-mesh-table input {
+    margin-bottom: 10px;
+    height: 2rem;
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 400px;
+}

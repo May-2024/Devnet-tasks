@@ -14,7 +14,8 @@ data = [
         "lastvalue": "693 msec",
         "lastup": "03-04-2024 15:57:57 [30 s ago]",
         "lastdown": "03-04-2024 15:18:01 [40 m 26 s ago]",
-        "nivel_senal": "-166 dBm", #!
+        "nivel_senal": "Not Found", #!
+        # "nivel_senal": "-166 dBm", #!
         "ruido_senal": "15 dB",
         "tiempo_conexion": "172 Min",
         "conectado_a": "CAN-RAP10",
@@ -27,7 +28,7 @@ data = [
         "fail_time_senal": 16,
         "fail_snr": 2,
         "fail_time_snr": 15,
-        "date": "2024-04-11 11:00:00",
+        "date": "2024-04-15 01:00:00",
     }
 ]
 
@@ -35,7 +36,7 @@ def get_number(nivel):
     if isinstance(nivel, int):
         nivel = str(nivel)
 
-    if "N/A" in nivel:
+    if nivel == "N/A":
         return "N/A"
 
     match = re.search(r"(-?\d+(\.\d+)?)", nivel)
@@ -166,7 +167,7 @@ def counter_function(ip_device, signal_strength, snr_level, data):
                             
     return fail_senal, fail_time_senal, fail_snr, fail_time_snr
       
-# signal_strength = "-166 dBm"
+# signal_strength = "Not Found"
 # snr_level = 1  
 # counter_function("10.117.115.110", signal_strength, snr_level, data)
 

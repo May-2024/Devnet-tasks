@@ -1,30 +1,34 @@
 const sequelize = require("../db/conection");
 const { Sequelize, DataTypes } = require("sequelize");
 
-const Neighbors= sequelize.define(
-  "Neighbors",
+const MeshProcess = sequelize.define(
+  "MeshProcess",
   {
-    ip_neighbor: {
+    ubication: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    neighbor: {
-      type: DataTypes.STRING(32),
-      allowNull: false,
-    },
-    red: {
-      type: DataTypes.STRING(10),
-      allowNull: false,
-    },
-    name_switch: {
+    device: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    ip_switch: {
+    client: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    interface: {
+    last_mac: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    current_mac: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    note: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    last_change_date: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
@@ -32,15 +36,11 @@ const Neighbors= sequelize.define(
       type: DataTypes.STRING(10),
       allowNull: false,
     },
-    interface_descrip: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-    }
   },
   {
-    tableName: "neighbors",
+    tableName: "mesh_process",
     timestamps: false,
   }
 );
 
-module.exports = { Neighbors };
+module.exports = { MeshProcess };

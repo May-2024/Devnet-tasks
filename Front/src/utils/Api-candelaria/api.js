@@ -214,3 +214,10 @@ export const getDataActility = async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataMeshProcess = async () => {
+  return axios
+    .get(`${BASE_API_URL}/mesh-process`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('MESH PROCESS: Error del API REST Candealaria : ',error)});
+};

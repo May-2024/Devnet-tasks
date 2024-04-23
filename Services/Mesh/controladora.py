@@ -27,6 +27,7 @@ def get_data_controladora(device_ip):
         "password": Password,
         "device_type": "cisco_wlc_ssh",
         "timeout": 1960,
+        "timeout": 1960,
     }
 
     net_connect = ConnectHandler(**network_device_list)
@@ -71,7 +72,7 @@ def get_data_controladora(device_ip):
         }
 
         net_connect.disconnect()
-        print(netmiko_data)
+        # print(netmiko_data)
         return netmiko_data
 
     except Exception as e:
@@ -88,4 +89,4 @@ def get_data_controladora(device_ip):
 
         return netmiko_data
 
-get_data_controladora('10.117.115.111')
+# get_data_controladora('10.117.115.111')
