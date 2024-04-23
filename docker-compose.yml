@@ -179,12 +179,3 @@ services:
       - db
     environment:
       - ENVIRONMENT=production
-
-  mesh_process:
-    build:
-      context: Services/Mesh_Process
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production

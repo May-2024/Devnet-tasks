@@ -17,7 +17,6 @@ import { useVpnCounter } from "../../hooks/useVpnCounter";
 import { InfraGeneralDash } from "../InfraGeneral/InfraGeneralDash/InfraGeneralDash";
 import PuffLoader from "react-spinners/PuffLoader";
 import { getDataAnillo } from "../../utils/Api-candelaria/api";
-import { getDataAnillo } from "../../utils/Api-candelaria/api";
 import "./home.css";
 
 export function Home() {
