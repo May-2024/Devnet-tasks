@@ -293,7 +293,22 @@ export const DetailsCore = () => {
                         {neighbor.status}
                       </td>
                       <td>{neighbor.neighbor.toUpperCase()}</td>
-                      <td>{neighbor.interface}</td>
+                      <td
+                        style={{ cursor: "help" }}
+                        className={
+                          neighbor.interface_descrip === "" ? "kpi-grey" : ""
+                        }
+                        title={
+                          neighbor.interface_descrip === ""
+                            ? "No description"
+                            : neighbor.interface_descrip
+                        }
+                      >
+                        {neighbor.interface_descrip === ""
+                          ? `${neighbor.interface} `
+                          : neighbor.interface}
+                      </td>
+
                       <td>{neighbor.name_switch}</td>
                     </tr>
                   ))

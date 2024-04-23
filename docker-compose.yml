@@ -62,14 +62,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
       
-  # mesh:
-  #   build:
-  #     context: Services/Mesh
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - ENVIRONMENT=production
+  mesh:
+    build:
+      context: Services/Mesh
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
       
   # camaras:
   #   build:
@@ -116,14 +116,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  # infraestructura-general:
-  #   build:
-  #     context: Services/InfraGeneral
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - ENVIRONMENT=production
+  infraestructura-general:
+    build:
+      context: Services/InfraGeneral
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
 
   # dcs-pac:
   #   build:
@@ -161,14 +161,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  # anillo_candelaria:
-  #   build:
-  #     context: Services/Anillo
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - ENVIRONMENT=production
+  anillo_candelaria:
+    build:
+      context: Services/Anillo
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
 
   mesh_process:
     build:

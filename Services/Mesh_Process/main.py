@@ -80,7 +80,7 @@ def main():
             mydb.commit()
             
         
-        # Actualizamos el Mac Actual con el valor del Mac Actual    
+        # Actualizamos el valor de la Mac Actual     
         for data in current_data:
             client = data['ip']
             current_mac = data['mac']

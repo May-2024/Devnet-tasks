@@ -39,7 +39,6 @@ def bgp_function(switch):
             output = ""
             while channel.recv_ready():
                 output += channel.recv(1024).decode('utf-8')
-            
             channel.close()
             client.close()
             neighbor_list = re.findall(r'(\d+\.\d+\.\d+\.\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\w+\s+\d+', output)

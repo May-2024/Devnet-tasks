@@ -7255,3 +7255,2836 @@ KeyError: 'descrip'
     values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
 KeyError: 'descrip'
 
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,898 - ERROR - Error en funcion BGP
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:42:20,899 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/command_bgp.py", line 29, in bgp_function
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - Error en funcion OSPF
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - [Errno 110] Connection timed out
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,017 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 386, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:44:34,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,607 - ERROR - Authentication failed.
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:17,618 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Error en funcion OSPF
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Authentication failed.
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 09:56:22,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,631 - ERROR - Authentication failed.
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:23,632 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Error en funcion OSPF
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Authentication failed.
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:19:28,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,279 - ERROR - Authentication failed.
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:38,280 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,116 - ERROR - Authentication failed.
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 21, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:24:43,117 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,531 - ERROR - Authentication failed.
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:42,532 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Authentication failed.
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,328 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 22, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:30:47,329 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,515 - ERROR - Authentication failed.
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:19,516 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,320 - ERROR - Authentication failed.
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 24, in get_interfaces_descriptions
+    client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1587, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/donkami/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 10:58:24,321 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 176, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:03:59,817 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 173, in core1
+    interfaces_description.append(interfaces_description[0])
+AttributeError: 'NoneType' object has no attribute 'append'
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:08:53,862 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 177, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:12:07,981 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:14:01,289 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:16:49,291 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 178, in core1
+    for item in interfaces_description:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 11:19:41,018 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    for element in data:
+TypeError: 'NoneType' object is not iterable
+
+2024-04-22 13:02:32,807 - ERROR - Error en funcion INTERFACES DESCRIPTION
+2024-04-22 13:02:32,807 - ERROR - 'name_switch'
+2024-04-22 13:02:32,808 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/interfaces_descriptions.py", line 49, in get_interfaces_descriptions
+    entry = {'name_switch': switch['name_switch'], 'interface': columns[0], 'descrip': ' '.join(columns[3:])}
+KeyError: 'name_switch'
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-22 14:22:40,016 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 86, in core1
+    id_prtg_switch = get_id_prtg(ip_switch)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 242, in get_id_prtg
+    response_objid = requests.get(url_objid, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.241.25', port=443): Max retries exceeded with url: /api/table.json?content=devices&columns=objid&filter_host=10.224.127.147&username=canadmin&password=Carrera01&count=* (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd1c60a52a0>, 'Connection to 10.224.241.25 timed out. (connect timeout=None)'))
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:18:20,300 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 175, in core1
+    if "Vlan" in switch['interface']:
+KeyError: 'interface'
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+
+2024-04-23 15:35:23,118 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 172, in core1
+    print(f"################ interfaces_description {interfaces_description}")
+UnboundLocalError: local variable 'interfaces_description' referenced before assignment
+

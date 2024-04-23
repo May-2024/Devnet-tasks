@@ -69,11 +69,11 @@ def core1():
         
         # Eliminamos del listado la concentradora inalambrica
         data_switches = [sw for sw in data_switches if sw['category'] != 'AP']
-
         # data_switches = [
-        #     {'ip':'10.224.127.1', 'red': 'it', 'name_switch': 'SW CORE ADMIN', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
-        #     {'ip':'10.224.126.93', 'red': 'it', 'name_switch': 'FORTIGATE - CONCENTRADORA', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
+        #     {'ip':'10.224.127.147', 'red': 'it', 'name_switch': 'SW-CORE-OT-ADMIN', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
+        #     # {'ip':'10.224.126.93', 'red': 'it', 'name_switch': 'FORTIGATE - CONCENTRADORA', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
         # ]
+        # print(data_switches)
 
         current_data_neighbors = []
         for switch in data_switches:
@@ -162,31 +162,35 @@ def core1():
                 cursor.execute(query_historic, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor))
                 mydb.commit()
         
+        # Agregamos la llave `descrip` a los diccionarios 
         status_data_neighbors = status_neighbor(mydb, current_data_neighbors)
         for element in status_data_neighbors:
             element['descrip'] = ''
+            if "Vlan" in element['interface']:
+                element['interface'] = element['interface'].replace("Vlan", "Vl")
         #! DESCRIPCION DE LAS INTERFACES
-        
-        interfaces_description = ''
+        # print(f"################ status_data_neighbors {status_data_neighbors}")
+
+        interfaces_description = []
         for switch in data_switches:
-            interfaces_description = get_interfaces_descriptions(switch)
-            # interfaces_description.append(data)
-            
-        # print(status_data_neighbors)
-        # print(interfaces_description)
+            data = get_interfaces_descriptions(switch)
+            if data != None:
+                for element in data:
+                    interfaces_description.append(element)
+        # print(f"################ interfaces_description {interfaces_description}")
+        
         for item in interfaces_description:
             for element in status_data_neighbors:
                 if element['name_switch'] == item['name_switch'] and element['interface'] == item['interface']:
                     element['descrip'] = item['descrip']
                     break
-
-        print(status_data_neighbors)           
+        # print(f"################ status_data_neighbors {status_data_neighbors}")
         #! TERMINA BLOQUE DESCRIPCION DE LAS INTERFACES
         
-        # # Blanqueamos la tabla neighbors antes de rellenarla de nuevo
-        # query = (f"DELETE FROM dcs.neighbors")
-        # cursor.execute(query)
-        # mydb.commit()
+        # Blanqueamos la tabla neighbors antes de rellenarla de nuevo
+        query = (f"DELETE FROM dcs.neighbors")
+        cursor.execute(query)
+        mydb.commit()
         
         # # Guardamos en bloque en la BD en vez de linea por linea
         # query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
@@ -196,6 +200,7 @@ def core1():
         # cursor.executemany(query_historic, values)
         # mydb.commit()
         
+        #! ACTUALIZAR EN VEZ DE INSERTAR
         query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`, `interface_descrip`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
         cursor.executemany(query, values)
