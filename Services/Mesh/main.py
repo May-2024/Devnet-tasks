@@ -133,7 +133,7 @@ def prtg_data():
                 data_ping = data_ping["histdata"]["item"][
                     "value"
                 ]  #! Se agrega la posicion [0]
-                print(data_ping)
+
                 avg_ping = data_ping[0]["#text"]
                 min_ping = data_ping[1]["#text"]
                 max_ping = data_ping[2]["#text"]
@@ -164,6 +164,13 @@ def prtg_data():
             fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
             fecha_y_hora = str(fecha_y_hora)
             # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
+            fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
+            
+            now = datetime.datetime.now()
+            fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+            fecha_y_hora = str(fecha_y_hora)
+            # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
+
 
             query = f"""
                 INSERT INTO dcs.mesh (
@@ -206,6 +213,19 @@ def prtg_data():
                     `fail_time_snr` = VALUES(`fail_time_snr`), 
                     `date` = VALUES(`date`)
             """
+
+            cursor.execute(query)
+            mydb.commit()
+            
+            # Este query se usa para insertar los datos en la tabla historic_mesh.
+            query_historic = f"""
+                INSERT INTO dcs.historic_mesh (
+                    `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
+                    `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
+                    `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
+                    `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
+                    `fail_snr`, `fail_time_snr`, `date`
+                )"""
 
             cursor.execute(query)
             mydb.commit()
@@ -268,7 +288,6 @@ def bucle(scheduler):
 
     prtg_data()
     scheduler.enter(300, 1, bucle, (scheduler,))
-
 
 if __name__ == "__main__":
     s = sched.scheduler(time.time, time.sleep)
