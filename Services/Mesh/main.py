@@ -9,15 +9,22 @@ from actility_position import get_actility_data
 from cande_position import get_cande_data
 from calculate_distance import get_distance
 from counter import counter_function
+from counter import counter_function
 
 # Esto evita que las respuestas de las API tengan warnings.
+warnings.filterwarnings("ignore", message="Unverified HTTPS request")
 warnings.filterwarnings("ignore", message="Unverified HTTPS request")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s"
 )
 file_handler = logging.FileHandler("issues.log")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s"
+)
+file_handler = logging.FileHandler("issues.log")
 file_handler.setLevel(logging.WARNING)
+file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s: %(message)s"))
 file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s: %(message)s"))
 logging.getLogger().addHandler(file_handler)
 
@@ -25,6 +32,7 @@ logging.getLogger().addHandler(file_handler)
 def prtg_data():
 
     load_dotenv()
+    env = os.getenv("ENVIRONMENT")
     env = os.getenv("ENVIRONMENT")
     now = datetime.datetime.now()
     fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -36,7 +44,12 @@ def prtg_data():
             user=database["local"]["DB_USER"],
             password=database["local"]["DB_PASSWORD"],
             database=database["local"]["DB_DATABASE"],
+            host=database["local"]["DB_HOST"],
+            user=database["local"]["DB_USER"],
+            password=database["local"]["DB_PASSWORD"],
+            database=database["local"]["DB_DATABASE"],
         )
+
 
     else:
         mydb = mysql.connector.connect(
@@ -44,7 +57,12 @@ def prtg_data():
             user=database["production"]["DB_USER"],
             password=database["production"]["DB_PASSWORD"],
             database=database["production"]["DB_DATABASE"],
+            host=database["production"]["DB_HOST"],
+            user=database["production"]["DB_USER"],
+            password=database["production"]["DB_PASSWORD"],
+            database=database["production"]["DB_DATABASE"],
         )
+
 
     try:
         cursor = mydb.cursor()
@@ -85,7 +103,19 @@ def prtg_data():
             cursor.execute("UPDATE dcs.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0")
             mydb.commit()
 
+        now = datetime.datetime.now()
+        current_hour = now.time()
+        bot_limit = datetime.time(0, 0)
+        top_limit = datetime.time(0, 30)
+
+        if bot_limit <= current_hour <= top_limit:
+            cursor.execute("UPDATE dcs.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0")
+            mydb.commit()
+
         for device in devices:
+            ip_device = device["ip"]
+            name_device = device["device"]
+            eqmt_device = device["eqmt"]
             ip_device = device["ip"]
             name_device = device["device"]
             eqmt_device = device["eqmt"]
@@ -99,15 +129,25 @@ def prtg_data():
             try:
                 get_id_ping = requests.get(URL_GET_ID_PING, verify=False).json()
                 id_ping = get_id_ping["devices"][0]["objid"]
+                id_ping = get_id_ping["devices"][0]["objid"]
             except Exception:
+                id_ping = "Not Found"
                 id_ping = "Not Found"
 
             URL_GET_LAST_DATA_PING = os.getenv("URL_GET_LAST_DATA_PING").format(
                 id_ping=id_ping
             )
+            URL_GET_LAST_DATA_PING = os.getenv("URL_GET_LAST_DATA_PING").format(
+                id_ping=id_ping
+            )
             last_data_ping = requests.get(URL_GET_LAST_DATA_PING, verify=False).json()
             last_data_ping = last_data_ping["sensors"][0]
+            last_data_ping = last_data_ping["sensors"][0]
 
+            objid = last_data_ping["objid"]
+            last_value_ping = last_data_ping["lastvalue"]
+            last_up_ping = last_data_ping["lastup"]
+            last_down_ping = last_data_ping["lastdown"]
             objid = last_data_ping["objid"]
             last_value_ping = last_data_ping["lastvalue"]
             last_up_ping = last_data_ping["lastup"]
@@ -118,11 +158,20 @@ def prtg_data():
             )  # Se usa para formatear el last_up y last_down
             last_up_ping = re.sub(patron, "", last_up_ping)
             last_down_ping = re.sub(patron, "", last_down_ping)
+            patron = re.compile(
+                r"<.*?>"
+            )  # Se usa para formatear el last_up y last_down
+            last_up_ping = re.sub(patron, "", last_up_ping)
+            last_down_ping = re.sub(patron, "", last_down_ping)
 
             edate = datetime.datetime.today()
             sdate = datetime.datetime.today() - timedelta(minutes=30)
             edate = edate.strftime("%Y-%m-%d-%H-%M-%S")
             sdate = sdate.strftime("%Y-%m-%d-%H-%M-%S")
+
+            URL_GET_DATA_PING = os.getenv("URL_GET_DATA_PING").format(
+                objid=objid, sdate=sdate, edate=edate
+            )
 
             URL_GET_DATA_PING = os.getenv("URL_GET_DATA_PING").format(
                 objid=objid, sdate=sdate, edate=edate
@@ -140,6 +189,11 @@ def prtg_data():
                 packet_loss = data_ping[3]["#text"]
 
             except KeyError:
+                avg_ping = "Not Found"
+                min_ping = "Not Found"
+                max_ping = "Not Found"
+                packet_loss = "Not Found"
+
                 avg_ping = "Not Found"
                 min_ping = "Not Found"
                 max_ping = "Not Found"
@@ -164,12 +218,54 @@ def prtg_data():
             fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
             fecha_y_hora = str(fecha_y_hora)
             # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
+            fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
+            
+            now = datetime.datetime.now()
+            fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+            fecha_y_hora = str(fecha_y_hora)
+            # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
+
 
             query = f"""
                 INSERT INTO dcs.mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
                     `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
+                    `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
+                    `fail_snr`, `fail_time_snr`, `date`
+                )
+                VALUES (
+                    '{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}',
+                    '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}',
+                    '{last_down_ping}', '{signal_strength}', '{signal_noise}',
+                    '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}',
+                    '{snr_level}', '{id_ping}', '{distance}', '{fail_senal}', '{fail_time_senal}',
+                    '{fail_snr}', '{fail_time_snr}', '{fecha_y_hora}'
+                )
+                ON DUPLICATE KEY UPDATE
+                    `ip` = VALUES(`ip`), 
+                    `device` = VALUES(`device`), 
+                    `ping_avg` = VALUES(`ping_avg`), 
+                    `minimo` = VALUES(`minimo`), 
+                    `maximo` = VALUES(`maximo`), 
+                    `packet_loss` = VALUES(`packet_loss`), 
+                    `lastvalue` = VALUES(`lastvalue`), 
+                    `lastup` = VALUES(`lastup`), 
+                    `lastdown` = VALUES(`lastdown`), 
+                    `nivel_senal` = VALUES(`nivel_senal`), 
+                    `ruido_senal` = VALUES(`ruido_senal`), 
+                    `tiempo_conexion` = VALUES(`tiempo_conexion`), 
+                    `conectado_a` = VALUES(`conectado_a`), 
+                    `status_dispatch` = VALUES(`status_dispatch`), 
+                    `operador` = VALUES(`operador`), 
+                    `snr` = VALUES(`snr`), 
+                    `id_prtg` = VALUES(`id_prtg`), 
+                    `distance` = VALUES(`distance`), 
+                    `fail_senal` = VALUES(`fail_senal`), 
+                    `fail_time_senal` = VALUES(`fail_time_senal`), 
+                    `fail_snr` = VALUES(`fail_snr`), 
+                    `fail_time_snr` = VALUES(`fail_time_snr`), 
+                    `date` = VALUES(`date`)
                     `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
                     `fail_snr`, `fail_time_snr`, `date`
                 )
@@ -218,6 +314,19 @@ def prtg_data():
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
                     `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
                     `fail_snr`, `fail_time_snr`, `date`
+                )"""
+
+            cursor.execute(query)
+            mydb.commit()
+            
+            # Este query se usa para insertar los datos en la tabla historic_mesh.
+            query_historic = f"""
+                INSERT INTO dcs.historic_mesh (
+                    `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
+                    `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
+                    `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
+                    `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
+                    `fail_snr`, `fail_time_snr`, `date`
                 )
                 VALUES (
                     '{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}',
@@ -226,8 +335,11 @@ def prtg_data():
                     '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}',
                     '{snr_level}', '{id_ping}', '{distance}', '{fail_senal}', '{fail_time_senal}',
                     '{fail_snr}', '{fail_time_snr}', '{fecha_y_hora}'
+                    '{snr_level}', '{id_ping}', '{distance}', '{fail_senal}', '{fail_time_senal}',
+                    '{fail_snr}', '{fail_time_snr}', '{fecha_y_hora}'
                 )
             """
+            cursor.execute(query_historic)
             cursor.execute(query_historic)
             mydb.commit()
 
@@ -237,18 +349,26 @@ def prtg_data():
         cursor.execute(
             f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')"
         )
+        cursor.execute(
+            f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')"
+        )
         mydb.commit()
         cursor.close()
         logging.info("Terminado Ciclo")
+
 
     except Exception as e:
         logging.error(f"Error en la consulta {name_device}")
         cursor.execute(
             f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'ERROR')"
         )
+        cursor.execute(
+            f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'ERROR')"
+        )
         mydb.commit()
         cursor.close()
         logging.error(traceback.format_exc())
+
 
 
 def get_number(nivel):
@@ -266,9 +386,9 @@ def get_number(nivel):
 
 def bucle(scheduler):
 
+
     prtg_data()
     scheduler.enter(300, 1, bucle, (scheduler,))
-
 
 if __name__ == "__main__":
     s = sched.scheduler(time.time, time.sleep)
