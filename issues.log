@@ -6843,3 +6843,27 @@ IndexError: list index out of range
     output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
 IndexError: list index out of range
 
+2024-04-25 22:05:50,348 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-25 22:05:50,348 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-25 22:05:50,349 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-25 22:05:50,349 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-25 22:06:12,499 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-25 22:06:12,499 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-25 22:06:12,499 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-25 22:06:12,499 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+

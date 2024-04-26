@@ -118,10 +118,35 @@ async function deleteFirewall(ip, ubication) {
   }
 }
 
+async function getHistoryFail() {
+  try {
+    const historyFail = await Firewalls.findAll({
+      where: {
+        state: "dead",
+      },
+      order: [["id", "DESC"]],
+      limit: 1000,
+    });
+    return {
+      status: 200,
+      message: "Historial de fallas recuperado exitosamente",
+      data: historyFail,
+    };
+  } catch (error) {
+    console.error(error)
+    return {
+      status: 200,
+      message: "Error al recuperar el historial de fallas",
+      error: error,
+    };
+  }
+}
+
 module.exports = {
   getFirewalls,
   createFirewall,
   editOneFirewall,
   deleteFirewall,
   getOneFirewall,
+  getHistoryFail
 };

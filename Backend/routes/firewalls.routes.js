@@ -13,6 +13,7 @@ const {
   editOneFirewall,
   deleteFirewall,
   getOneFirewall,
+  getHistoryFail
 } = require("../controllers/firewalls");
 
 router.get("/", async (req, res, next) => {
@@ -106,5 +107,26 @@ router.delete(
     }
   }
 );
+
+router.get(
+  "/history-fail",
+  passport.authenticate("jwt", { session: false }),
+  checkRoles("admin", "staff"),
+  async (req, res, next) => {
+    try {
+      const data = await getHistoryFail();
+      res.status(data.status).json({
+        status: data.status,
+        message: data.message,
+        error: data.error,
+        data: data.data,
+      });
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
+
 
 module.exports = router;
