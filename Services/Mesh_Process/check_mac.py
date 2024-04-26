@@ -26,7 +26,7 @@ def check_mac(data):
     # Validar repeticiones
     for ubication, mac_list in result.items():
         for mac in mac_list:
-            if mac != 'No data' and mac != 'b827.eb80.f108':
+            if mac != 'No data' and mac != 'b827.eb80.f108': # Esta MAC corresponde a una mac experimental
                 for other_ubication, other_mac_list in result.items():
                     if ubication != other_ubication:
                         if mac in other_mac_list and mac not in repeated_elements:

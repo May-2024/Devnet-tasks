@@ -20,34 +20,49 @@ export function Categories() {
   const [coresDown, setCoresDown] = useState([]);
   const [distUp, setDistUp] = useState([]);
   const [distDown, setDistDown] = useState([]);
-  const [apNegocioUp, setApNegocioUp] = useState([]);
-  const [apNegocioDown, setApNegocioDown] = useState([]);
-  const [apMeshUp, setApMeshUp] = useState([]);
-  const [apMeshDown, setApMeshDown] = useState([]);
   const [fortigateAdminUp, setFortigateAdminUp] = useState([]);
   const [fortigateAdminDown, setFortigateAdminDown] = useState([]);
   const [fortigateConceUp, setFortigateConceUp] = useState([]);
   const [fortigateConceDown, setFortigateConceDown] = useState([]);
+  const [sslUp, setSslUp] = useState([]);
+  const [voiceUp, setVoiceUp] = useState([]);
+  const [wirelessUp, setWirelessUp] = useState([]);
+  const [iseUp, setIseUp] = useState([]);
+  const [sslDown, setSslDown] = useState([]);
+  const [voiceDown, setVoiceDown] = useState([]);
+  const [wirelessDown, setWirelessDown] = useState([]);
+  const [iseDown, setIseDown] = useState([]);
+  const [lteUp, setLteUp] = useState([]);
+  const [lteDown, setLteDown] = useState([]);
+  const [cctvUp, setCctvUp] = useState([]);
+  const [cctvDown, setCctvDown] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const dataStatusInfGen = await useDataInfGen();
-        console.log(dataStatusInfGen);
         const newCoresUp = [];
         const newDistUp = [];
-        const newApNegocioUp = [];
-        const newApMeshUp = [];
         const newFortigateAdminUp = [];
         const newFortigateConcenUp = [];
+        const dataSslUp = [];
+        const dataVoiceUp = [];
+        const dataWirelessUp = [];
+        const dataIseUp = [];
+        const dataLteUp = [];
+        const dataCctvUp = [];
 
         const newCoresDown = [];
         const newDistDown = [];
-        const newApNegocioDown = [];
-        const newApMeshDown = [];
         const newFortigateAdminDown = [];
         const newFortigateConcenDown = [];
+        const dataSslDown = [];
+        const dataVoiceDown = [];
+        const dataWirelessDown = [];
+        const dataIseDown = [];
+        const dataLteDown = [];
+        const dataCctvDown = [];
 
         dataStatusInfGen.upElements.forEach((e) => {
           if (e.name_switch && e.name_switch.includes("CORE")) {
@@ -56,17 +71,32 @@ export function Categories() {
           if (e.name_switch && e.name_switch.includes("DIST")) {
             newDistUp.push(e);
           }
-          if (e.name_switch === "WLC 9800 NEGOCIO") {
-            newApNegocioUp.push(e);
-          }
-          if (e.name_switch === "WLC - MESH") {
-            newApMeshUp.push(e);
-          }
           if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
             newFortigateAdminUp.push(e);
           }
           if (e.name_switch === "FORTIGATE - CONCENTRADORA") {
             newFortigateConcenUp.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("certificado")) {
+            dataSslUp.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("telefonia")) {
+            dataVoiceUp.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("ise")) {
+            dataIseUp.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("inalambricas")) {
+            dataWirelessUp.push(e);
+          }
+          if (
+            (e.group && e.group.toLowerCase().includes("lte")) ||
+            (e.group && e.group.toLowerCase().includes("vmware"))
+          ) {
+            dataLteUp.push(e);
+          }
+          if (e.group && e.group.toLowerCase() === "candelaria") {
+            dataCctvUp.push(e);
           }
         });
 
@@ -77,17 +107,32 @@ export function Categories() {
           if (e.name_switch && e.name_switch.includes("DIST")) {
             newDistDown.push(e);
           }
-          if (e.name_switch === "WLC 9800 NEGOCIO") {
-            newApNegocioDown.push(e);
-          }
-          if (e.name_switch === "WLC - MESH") {
-            newApMeshDown.push(e);
-          }
           if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
             newFortigateAdminDown.push(e);
           }
           if (e.name_switch === "FORTIGATE - CONCENTRADORA") {
             newFortigateConcenDown.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("certificado")) {
+            dataSslDown.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("telefonia")) {
+            dataVoiceDown.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("ise")) {
+            dataIseDown.push(e);
+          }
+          if (e.group && e.group.toLowerCase().includes("inalambricas")) {
+            dataWirelessDown.push(e);
+          }
+          if (
+            (e.group && e.group.toLowerCase().includes("lte")) ||
+            (e.group && e.group.toLowerCase().includes("vmware"))
+          ) {
+            dataLteDown.push(e);
+          }
+          if (e.group && e.group.toLowerCase() === "candelaria") {
+            dataCctvDown.push(e);
           }
         });
 
@@ -95,15 +140,23 @@ export function Categories() {
         setDistUp(newDistUp);
         setCoresDown(newCoresDown);
         setDistDown(newDistDown);
-        setApNegocioUp(newApNegocioUp);
-        setApNegocioDown(newApNegocioDown);
-        setApMeshUp(newApMeshUp);
-        setApMeshDown(newApMeshDown);
         setFortigateAdminUp(newFortigateAdminUp);
         setFortigateAdminDown(newFortigateAdminDown);
         setFortigateConceUp(newFortigateConcenUp);
         setFortigateConceDown(newFortigateConcenDown);
+        setSslUp(dataSslUp);
+        setVoiceUp(dataVoiceUp);
+        setWirelessUp(dataWirelessUp);
+        setIseUp(dataIseUp);
+        setSslDown(dataSslDown);
+        setVoiceDown(dataVoiceDown);
+        setWirelessDown(dataWirelessDown);
+        setIseDown(dataIseDown);
         setIsLoading(false);
+        setLteUp(dataLteUp);
+        setLteDown(dataLteDown);
+        setCctvUp(dataCctvUp);
+        setCctvDown(dataCctvDown);
       } catch (error) {
         console.error(error);
         setIsLoading(false);
@@ -189,6 +242,64 @@ export function Categories() {
                     fortigateConceUp.length +
                     fortigateConceDown.length}
                 </td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/certificados">
+                    Certificados Candelaria
+                  </Link>
+                </td>
+                <td>{sslUp.length}</td>
+                <td>{sslDown.length}</td>
+                <td>{sslUp.length + sslDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/telefonia">
+                    Telefonia IP
+                  </Link>
+                </td>
+                <td>{voiceUp.length}</td>
+                <td>{voiceDown.length}</td>
+                <td>{voiceUp.length + voiceDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/iseprime">
+                    Servidores ISE y PRIME
+                  </Link>
+                </td>
+                <td>{iseUp.length}</td>
+                <td>{iseDown.length}</td>
+                <td>{iseUp.length + iseDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/contraladoras-inalambricas">
+                    Controladoras Inalambricas
+                  </Link>
+                </td>
+                <td>{wirelessUp.length}</td>
+                <td>{wirelessDown.length}</td>
+                <td>{wirelessUp.length + wirelessDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/lte">LTE</Link>
+                </td>
+                <td>{lteUp.length}</td>
+                <td>{lteDown.length}</td>
+                <td>{lteUp.length + lteDown.length}</td>
+              </tr>
+              <tr>
+                <td className="td-category-ig">
+                  <Link to="/monitoreo/infraestrucura-general/cctv">
+                    Sistema CCTV
+                  </Link>
+                </td>
+                <td>{cctvUp.length}</td>
+                <td>{cctvDown.length}</td>
+                <td>{cctvUp.length + cctvDown.length}</td>
               </tr>
             </tbody>
           </table>

@@ -43,6 +43,7 @@ def eigrp_function(switch):
             output += channel.recv(1024).decode('utf-8')
         channel.close()
         client.close()
+        print(f"output {output}")
         patron = r'\d+\s+(\S+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(\d+)\s+(\w+)\s+(\d+)\s+(\d+)'
 
         # patron = r'\d+\s+([\d.]+)\s+(\S+)\s+(\d+)\s+([\w/]+)\s+(\d+)\s+(\w+)\s+(\d+)\s+(\d+)'
@@ -74,7 +75,7 @@ def eigrp_function(switch):
                 'name_switch': name     
             }
             data_list.append(data)
-
+        # print(f"data_list {data_list}")
         return data_list
 
     except Exception as e:
@@ -89,5 +90,9 @@ def eigrp_function(switch):
             'red': red,
             'name_switch': name
         }]
+        # print(f"ERROR data_list {data_list}")
 
         return data
+
+# prueba = {'ip': '10.224.127.147', 'red': 'it', 'name_switch':'prueba', 'is_eigrp': 1}
+# eigrp_function(prueba)

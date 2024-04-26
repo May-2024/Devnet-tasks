@@ -23,6 +23,7 @@ const fimRoutes = require("./fim.routes");
 const anilloRoutes = require("./anillo.routes");
 const actilityRoutes = require("./actility.routes");
 const meshProcessRoutes = require("./meshProcess.routes");
+const groupPrtgRoutes = require("./group_prtg.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -51,6 +52,7 @@ const allRoutes = (app) => {
   router.use("/anillo", anilloRoutes);
   router.use("/actility", actilityRoutes);
   router.use("/mesh-process", meshProcessRoutes);
+  router.use("/group-prtg", groupPrtgRoutes);
 };
 
 module.exports = { allRoutes };

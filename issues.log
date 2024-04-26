@@ -6427,3 +6427,419 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+2024-04-23 19:23:02,644 - ERROR: Error en la consulta Pala 60
+2024-04-23 19:23:02,644 - ERROR: Error en la consulta Pala 60
+2024-04-23 19:23:02,664 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/main.py", line 151, in prtg_data
+    last_data_ping = last_data_ping["sensors"][0]
+KeyError: 'sensors'
+
+2024-04-23 19:23:02,664 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/main.py", line 151, in prtg_data
+    last_data_ping = last_data_ping["sensors"][0]
+KeyError: 'sensors'
+
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,062 - ERROR - Error al conectarse a la base de datos
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,079 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 31, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-04-23 21:54:21,080 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 56, in core1
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+Error al conectarse a la base de datos
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-2)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 38, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-2)
+
+2005 (HY000): Unknown MySQL server host 'db' (-2)
+Error - Funcion get_data_interfaces
+'NoneType' object has no attribute 'cursor'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 56, in get_data
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+Error - Funcion get_data_interfaces
+string indices must be integers
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 96, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 96, in <listcomp>
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+TypeError: string indices must be integers
+
+Error - Funcion get_data_interfaces
+string indices must be integers
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 96, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 96, in <listcomp>
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+TypeError: string indices must be integers
+
+Error - Funcion get_data_interfaces
+'group'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 100, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 100, in <listcomp>
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+KeyError: 'group'
+
+Error - Funcion get_data_interfaces
+'group'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 102, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 102, in <listcomp>
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+KeyError: 'group'
+
+Error - Funcion get_data_interfaces
+'objid'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 102, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 102, in <listcomp>
+    values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+KeyError: 'objid'
+
+Error - Funcion get_data_interfaces
+1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s
+                WHERE id_prtg = %s' at line 3
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s
+                WHERE id_prtg = %s' at line 3
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 103, in get_data
+    cursor.executemany(query, values)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s
+                WHERE id_prtg = %s' at line 3
+
+Error - Funcion get_data_interfaces
+1062 (23000): Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 103, in get_data
+    cursor.executemany(query, values)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+
+Error - Funcion get_data_interfaces
+1062 (23000): Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 103, in get_data
+    cursor.executemany(query, values)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '15977' for key 'prtg_groups.id_prtg'
+
+2024-04-24 09:09:26,579 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-24 09:09:26,579 - ERROR: Error Controladora Device 10.117.115.183
+2024-04-24 09:09:26,580 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-24 09:09:26,580 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-24 09:09:50,511 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-24 09:09:50,511 - ERROR: Error Controladora Device 10.117.115.184
+2024-04-24 09:09:50,511 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-04-24 09:09:50,511 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 39, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+

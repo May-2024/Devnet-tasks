@@ -39,7 +39,6 @@ def prtg_data():
     fecha_y_hora = str(fecha_y_hora)
 
     if env == "local":
-    if env == "local":
         mydb = mysql.connector.connect(
             host=database["local"]["DB_HOST"],
             user=database["local"]["DB_USER"],
@@ -93,21 +92,7 @@ def prtg_data():
                 row_dict[column_names_datamesh[i]] = row[i]
             current_data_mesh.append(row_dict)
 
-
-        cursor = mydb.cursor()
-        query = "SELECT * FROM mesh"
-        cursor.execute(query)
-
-        column_names_datamesh = [column[0] for column in cursor.description]
-
-        current_data_mesh = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names_datamesh)):
-                row_dict[column_names_datamesh[i]] = row[i]
-            current_data_mesh.append(row_dict)
-
-        # devices = [{'ip':'10.117.115.181', 'device': 'Pala 19', 'eqmt': 'P19'}]
+        devices = [{'ip':'10.117.115.111', 'device': 'Pala 11', 'eqmt': 'P11'}]
 
         now = datetime.datetime.now()
         current_hour = now.time()
@@ -240,7 +225,7 @@ def prtg_data():
             fecha_y_hora = str(fecha_y_hora)
             # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
 
-            query = f"""
+
             query = f"""
                 INSERT INTO dcs.mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
@@ -329,7 +314,7 @@ def prtg_data():
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
                     `snr`, `id_prtg`, `distance`, `fail_senal`, `fail_time_senal`,
                     `fail_snr`, `fail_time_snr`, `date`
-                )
+                )"""
 
             cursor.execute(query)
             mydb.commit()
@@ -405,11 +390,7 @@ def bucle(scheduler):
     prtg_data()
     scheduler.enter(300, 1, bucle, (scheduler,))
 
-
-if __name__ == "__main__":
-
 if __name__ == "__main__":
     s = sched.scheduler(time.time, time.sleep)
     s.enter(0, 1, bucle, (s,))
     s.run()
-

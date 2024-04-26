@@ -69,10 +69,11 @@ def core1():
         
         # Eliminamos del listado la concentradora inalambrica
         data_switches = [sw for sw in data_switches if sw['category'] != 'AP']
-        # data_switches = [
-        #     {'ip':'10.224.127.147', 'red': 'it', 'name_switch': 'SW-CORE-OT-ADMIN', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
-        #     # {'ip':'10.224.126.93', 'red': 'it', 'name_switch': 'FORTIGATE - CONCENTRADORA', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0},
-        # ]
+        data_switches = [
+            # {'ip':'10.224.127.2', 'red': 'it', 'name_switch': 'SW CORE CONCE', 'is_eigrp':1, 'is_bgp':1, 'is_ospf': 1},
+            # {'ip':'10.224.127.148', 'red': 'it', 'name_switch': 'SW-CORE-OT-CONCE', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 1},
+            {'ip':'10.224.127.147', 'red': 'it', 'name_switch': 'SW-CORE-OT-ADMIN', 'is_eigrp':1, 'is_bgp':0, 'is_ospf': 0},
+        ]
         # print(data_switches)
 
         current_data_neighbors = []
@@ -162,8 +163,10 @@ def core1():
                 cursor.execute(query_historic, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor))
                 mydb.commit()
         
-        # Agregamos la llave `descrip` a los diccionarios 
+        # Agregamos la llave `descrip` a los diccionarios
+        # print(f"current_data_neighbors {current_data_neighbors}")
         status_data_neighbors = status_neighbor(mydb, current_data_neighbors)
+        # print(f"status_data_neighbors {status_data_neighbors}")
         for element in status_data_neighbors:
             element['descrip'] = ''
             if "Vlan" in element['interface']:

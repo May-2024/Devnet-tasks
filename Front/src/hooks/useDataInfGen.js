@@ -8,6 +8,7 @@ import {
   getDefaultRoute,
   getDataInfGen,
   getAp,
+  getDataPrtgGroups
 } from "../utils/Api-candelaria/api";
 
 export async function useDataInfGen() {
@@ -16,12 +17,14 @@ export async function useDataInfGen() {
   const dataNeighbors = await getNeighbors();
   const dataRouteStatus = await getDefaultRoute();
   const dataAp = await getAp();
+  const dataPrtgGroups = await getDataPrtgGroups();
 
   const allData = [
     ...dataInterfaces,
     ...dataDevicesHealth,
     ...dataNeighbors,
     ...dataRouteStatus,
+    ...dataPrtgGroups
   ];
 
   const upElements = [];
@@ -136,14 +139,15 @@ export async function useDataInfGen() {
   };
 
   // Clasificacion de AP
-  // dataAp.apList.forEach((element) => {
-  //   if (element.status !== "Joined") {
-  //     downElements.push(element);
-  //   }
-  //   if (element.status === "Joined") {
-  //     upElements.push(element);
-  //   }
-  // });
+  dataPrtgGroups.forEach((element) => {
+    if (element.status.includes("Down")) {
+      downElements.push(element);
+    }
+    if (element.status.includes("Up")) {
+      upElements.push(element);
+    }
+  });
+
 
   upOrDownInterface(allData);
   upOrDownNeighbors(allData);
