@@ -221,3 +221,10 @@ export const getDataMeshProcess = async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('MESH PROCESS: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataPrtgGroups= async () => {
+  return axios
+    .get(`${BASE_API_URL}/group-prtg`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('GRUOPS PRTG: Error del API REST Candealaria : ',error)});
+};

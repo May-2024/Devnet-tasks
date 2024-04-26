@@ -42,6 +42,12 @@ import { DcsOjos } from "./components/DcsOjos/DcsOjos";
 import { BaseFim } from "./components/BaseFim/BaseFim";
 import { Anillo } from "./components/Anillo/Anillo";
 import { MeshProcess } from "./components/MeshProcess/MeshProcess";
+import { Certificates } from "./components/InfraGeneral/Group_Prtg/Certificates";
+import { Voice } from "./components/InfraGeneral/Group_Prtg/Voice";
+import { Ise } from "./components/InfraGeneral/Group_Prtg/Ise";
+import { Wireless } from "./components/InfraGeneral/Group_Prtg/Wireless";
+import { Lte } from "./components/InfraGeneral/Group_Prtg/Lte";
+import { Cctv } from "./components/InfraGeneral/Group_Prtg/Cctv";
 import "./app.css";
 
 function App() {
@@ -123,6 +129,27 @@ function App() {
         <Route
           path="/monitoreo/candelaria/proceso-mesh"
           element={<MeshProcess />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/certificados"
+          element={<Certificates />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/telefonia"
+          element={<Voice />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/iseprime"
+          element={<Ise />}
+        />
+        <Route
+          path="/monitoreo/infraestrucura-general/contraladoras-inalambricas"
+          element={<Wireless />}
+        />
+        <Route path="/monitoreo/infraestrucura-general/lte" element={<Lte />} />
+        <Route
+          path="/monitoreo/infraestrucura-general/cctv"
+          element={<Cctv />}
         />
       </Routes>
 
