@@ -10,7 +10,7 @@ import { DataCore } from "../DataCore/DataCore";
 import { Status_System } from "../../Status_System/Status_System";
 import { Spinner } from "../../Spinner/Spinner";
 import { Link } from "react-router-dom";
-import { Group_Prtg2 } from "../Group_Prtg2/Group_Prtg2";
+import { TableGroupPrtg } from "../TableGroupPrtg/TableGroupPrtg";
 import "./MainTopology.css";
 
 export function MainTopology() {
@@ -173,11 +173,11 @@ export function MainTopology() {
                 )}
                 {filteredPrtgGroups.map((e, index) => (
                   <tr key={index}>
-                    <td onClick={() => handleClickPrtgGroup(e.device)}>
+                    <td style={{cursor: "pointer", color: "blue"}} onClick={() => handleClickPrtgGroup(e.device)}>
                       {e.device.toUpperCase()}
                     </td>
-                    <td>
-                      {e.up} / {e.down}
+                    <td className={e.down >= 1 ? "kpi-red" : "kpi-green"}>
+                      {e.up} / {e.down+e.up}
                     </td>
                     <td>{e.group.toUpperCase()}</td>
                     <td>N/A</td>
@@ -188,7 +188,7 @@ export function MainTopology() {
           </div>
         </div>
       )}
-      {showTablePrtgGroup && (<Group_Prtg2 name={namePrtgGroup} show={setShowTablePrtgGroup}/>)}
+      {showTablePrtgGroup && (<TableGroupPrtg name={namePrtgGroup} show={setShowTablePrtgGroup}/>)}
     </div>
   );
 

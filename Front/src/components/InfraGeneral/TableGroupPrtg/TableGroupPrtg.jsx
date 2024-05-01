@@ -4,7 +4,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { PRTG_URL } from "../../../utils/Api-candelaria/api";
 import "./TableGroupPrtg.css";
 
-export function Group_Prtg2({ name, show }) {
+export function TableGroupPrtg({ name, show }) {
   const [prtgGroup, setPrtgGroup] = useState([]);
   console.log(name);
   useEffect(() => {
@@ -26,7 +26,7 @@ export function Group_Prtg2({ name, show }) {
   return (
     <div className="main-table-sensors-prtggroups-container">
       <IoMdCloseCircle
-        title={"Cerrar tabla Historial de Fallas"}
+        title={"Cerrar"}
         size="2rem"
         color="red"
         style={{ cursor: "pointer" }}
@@ -56,7 +56,7 @@ export function Group_Prtg2({ name, show }) {
                   </a>
                 </td>
                 <td
-                  className={e.status.includes("Up") ? "kpi-green" : "kpi-red"}
+                  className={e.status.includes("Down") ? "kpi-red" : "kpi-green"}
                 >
                   {e.status}
                 </td>

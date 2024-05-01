@@ -29,7 +29,7 @@ export function Group_Prtg({ data }) {
                   href={`https://10.224.241.25/sensor.htm?id=${e.id_prtg}&tabid=1`}
                   target="_blank"
                 >
-                  {e.name}
+                  {e.device}
                 </a>
               </td>
               <td
