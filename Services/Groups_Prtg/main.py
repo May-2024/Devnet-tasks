@@ -66,12 +66,18 @@ def get_data():
             data = api_request["sensors"]
             if data:
                 prtg_data.extend(data)
+                
+        for item in prtg_data:
+            if "VMWARE" in item['group']:
+                item['group'] = "LTE CORE"
+            if item['group'] == "Candelaria":
+                item['group'] = "CCTV"
             
         # Guardamos en la base de datos
-        values = [(item["device"], item["group"], item["status"], item["objid"]) for item in prtg_data]
+        values = [(item["device"], item["group"], item["status"], item["objid"], item["sensor"]) for item in prtg_data]
         query = """
-                INSERT INTO dcs.prtg_groups (`name`, `group`, `status`, `id_prtg`)
-                VALUES (%s, %s, %s, %s)
+                INSERT INTO dcs.prtg_groups (`device`, `group`, `status`, `id_prtg`, `sensor`)
+                VALUES (%s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE `status` = VALUES(`status`)
                 """
         cursor.executemany(query, values)

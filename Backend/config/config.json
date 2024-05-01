@@ -2,8 +2,8 @@
   "local": {
     "dialect": "mysql",
     "host": "127.0.0.1",
-    "username": "candelaria",
-    "password": "candelaria",
+    "username": "root",
+    "password": "root",
     "database": "dcs"
   },
   "production": {

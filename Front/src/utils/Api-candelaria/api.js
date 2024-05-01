@@ -228,3 +228,10 @@ export const getDataPrtgGroups= async () => {
     .then((response) => response.data)
     .catch((error) => {throw new Error('GRUOPS PRTG: Error del API REST Candealaria : ',error)});
 };
+
+export const getDataPrtgGroupsUpDown= async () => {
+  return axios
+    .get(`${BASE_API_URL}/group-prtg/updown`)
+    .then((response) => response.data)
+    .catch((error) => {throw new Error('GRUOPS PRTG UP DOWN: Error del API REST Candealaria : ',error)});
+};

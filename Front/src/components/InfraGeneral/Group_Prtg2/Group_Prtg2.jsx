@@ -1,0 +1,70 @@
+import { useEffect, useState } from "react";
+import { getDataPrtgGroups } from "../../../utils/Api-candelaria/api";
+import { IoMdCloseCircle } from "react-icons/io";
+import { PRTG_URL } from "../../../utils/Api-candelaria/api";
+import "./TableGroupPrtg.css";
+
+export function Group_Prtg2({ name, show }) {
+  const [prtgGroup, setPrtgGroup] = useState([]);
+  console.log(name);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let data = await getDataPrtgGroups();
+        data = data.filter((e) => e.device === name);
+        setPrtgGroup(data);
+      } catch (error) {
+        console.error(
+          "Error en el fetchdata del componente group prtg:",
+          error
+        );
+        return error;
+      }
+    };
+    fetchData();
+  }, [name]);
+  return (
+    <div className="main-table-sensors-prtggroups-container">
+      <IoMdCloseCircle
+        title={"Cerrar tabla Historial de Fallas"}
+        size="2rem"
+        color="red"
+        style={{ cursor: "pointer" }}
+        onClick={() => show(false)}
+      />
+      <div className="table-sensors-prtggroups-container">
+        <h2 style={{ textAlign: "center", backgroundColor: "white" }}>
+          {name}
+        </h2>
+        <table className="table-sensors-prtggroups">
+          <thead>
+            <tr>
+              <th>SENSOR</th>
+              <th>ESTADO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {prtgGroup.map((e, index) => (
+              <tr key={e.name + index}>
+                <td>
+                  {" "}
+                  <a
+                    href={`https://10.224.241.25/sensor.htm?id=${e.id_prtg}&tabid=1`}
+                    target="_blank"
+                  >
+                    {e.sensor}
+                  </a>
+                </td>
+                <td
+                  className={e.status.includes("Up") ? "kpi-green" : "kpi-red"}
+                >
+                  {e.status}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

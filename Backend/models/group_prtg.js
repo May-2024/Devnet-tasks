@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const GroupPrtg = sequelize.define(
   "GroupPrtg",
   {
-    name: {
+    device: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
@@ -18,6 +18,10 @@ const GroupPrtg = sequelize.define(
     },
     id_prtg : {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    sensor: {
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
   },

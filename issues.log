@@ -6917,3 +6917,47 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+Error
+1054 (42S22): Unknown column 'name' in 'field list'
+Traceback (most recent call last):
+  File "c:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\main.py", line 77, in get_data
+    cursor.executemany(query, values)
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\cursor.py", line 721, in executemany
+    return self.execute(stmt)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\cursor.py", line 615, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\connection.py", line 1046, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\connection.py", line 824, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'name' in 'field list'
+
+Error
+'sensor'
+Traceback (most recent call last):
+  File "c:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\main.py", line 71, in get_data
+    values = [(item["device"], item["group"], item["status"], item["objid"], item["sensor"]) for item in prtg_data]
+                                                                             ~~~~^^^^^^^^^^
+KeyError: 'sensor'
+
+Error
+1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'status` = VALUES(`status`)' at line 3
+Traceback (most recent call last):
+  File "c:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\main.py", line 77, in get_data
+    cursor.executemany(query, values)
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\cursor.py", line 721, in executemany
+    return self.execute(stmt)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\cursor.py", line 615, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\connection.py", line 1046, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Donkami\devnet-candelaria\Services\Groups_Prtg\venv\Lib\site-packages\mysql\connector\connection.py", line 824, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'status` = VALUES(`status`)' at line 3
+
