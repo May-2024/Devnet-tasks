@@ -24,6 +24,10 @@ const GroupPrtg = sequelize.define(
       type: DataTypes.STRING(100),
       allowNull: false,
     },
+    lastvalue: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
   },
   {
     tableName: "prtg_groups",

@@ -41,6 +41,7 @@ export function TableGroupPrtg({ name, show }) {
             <tr>
               <th>SENSOR</th>
               <th>ESTADO</th>
+              <th>LASTVALUE</th>
             </tr>
           </thead>
           <tbody>
@@ -56,10 +57,13 @@ export function TableGroupPrtg({ name, show }) {
                   </a>
                 </td>
                 <td
-                  className={e.status.includes("Down") ? "kpi-red" : "kpi-green"}
+                  className={
+                    e.status.includes("Down") ? "kpi-red" : "kpi-green"
+                  }
                 >
                   {e.status}
                 </td>
+                <td>{e.lastvalue}</td>
               </tr>
             ))}
           </tbody>

@@ -6961,3 +6961,958 @@ Traceback (most recent call last):
     raise get_exception(packet)
 mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'status` = VALUES(`status`)' at line 3
 
+Error al conectarse a la base de datos
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'172.18.0.1' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 30, in database_connection
+    mydb = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'172.18.0.1' (using password: YES)
+
+1045 (28000): Access denied for user 'root'@'172.18.0.1' (using password: YES)
+Error
+'NoneType' object has no attribute 'cursor'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Groups_Prtg/main.py", line 55, in get_data
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-05-02 12:59:33,132 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-02 12:59:33,132 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-02 12:59:33,132 - ERROR - NoneType: None
+
+2024-05-02 12:59:33,132 - ERROR - NoneType: None
+
+2024-05-02 13:00:30,953 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-02 13:00:30,953 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-02 13:00:30,953 - ERROR - NoneType: None
+
+2024-05-02 13:00:30,953 - ERROR - NoneType: None
+
+2024-05-02 13:01:30,762 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-02 13:01:30,762 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-02 13:01:30,762 - ERROR - NoneType: None
+
+2024-05-02 13:01:30,762 - ERROR - NoneType: None
+
+2024-05-02 13:02:42,557 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:02:42,557 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:02:42,558 - ERROR - NoneType: None
+
+2024-05-02 13:02:42,558 - ERROR - NoneType: None
+
+2024-05-02 13:03:45,810 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:03:45,810 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:03:45,811 - ERROR - NoneType: None
+
+2024-05-02 13:03:45,811 - ERROR - NoneType: None
+
+2024-05-02 13:04:43,505 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:04:43,505 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-02 13:04:43,505 - ERROR - NoneType: None
+
+2024-05-02 13:04:43,505 - ERROR - NoneType: None
+
+2024-05-02 13:05:40,025 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:05:40,025 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:05:40,025 - ERROR - NoneType: None
+
+2024-05-02 13:05:40,025 - ERROR - NoneType: None
+
+2024-05-02 13:06:35,537 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:06:35,537 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:06:35,537 - ERROR - NoneType: None
+
+2024-05-02 13:06:35,537 - ERROR - NoneType: None
+
+2024-05-02 13:07:28,312 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:07:28,312 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-02 13:07:28,312 - ERROR - NoneType: None
+
+2024-05-02 13:07:28,312 - ERROR - NoneType: None
+
+2024-05-02 13:08:22,643 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:08:22,643 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:08:22,643 - ERROR - NoneType: None
+
+2024-05-02 13:08:22,643 - ERROR - NoneType: None
+
+2024-05-02 13:09:14,916 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:09:14,916 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:09:14,916 - ERROR - NoneType: None
+
+2024-05-02 13:09:14,916 - ERROR - NoneType: None
+
+2024-05-02 13:10:10,423 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:10:10,423 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:10:10,423 - ERROR - NoneType: None
+
+2024-05-02 13:10:10,423 - ERROR - NoneType: None
+
+2024-05-02 13:11:28,039 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:11:28,039 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-02 13:11:28,039 - ERROR - NoneType: None
+
+2024-05-02 13:11:28,039 - ERROR - NoneType: None
+
+2024-05-02 13:12:00,961 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-02 13:12:00,961 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-02 13:12:00,961 - ERROR - NoneType: None
+
+2024-05-02 13:12:00,961 - ERROR - NoneType: None
+
+2024-05-02 13:15:26,933 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:15:26,933 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:15:26,933 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:15:26,933 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:15:26,944 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:15:26,944 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:15:26,948 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:15:26,948 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:15:26,948 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:15:26,948 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:15:26,948 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:15:26,948 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:21,620 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:16:21,620 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:16:21,620 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:21,620 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:21,621 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:21,621 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:21,622 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:16:21,622 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:16:21,622 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:21,622 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:21,623 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:21,623 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:46,282 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:16:46,282 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:16:46,282 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:46,282 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:46,283 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:46,283 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:46,284 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:16:46,284 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:16:46,284 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:46,284 - ERROR - 1364 (HY000): Field 'id' doesn't have a default value
+2024-05-02 13:16:46,285 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:16:46,285 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+
+2024-05-02 13:19:38,568 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:19:38,568 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:19:38,568 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:19:38,568 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:19:38,569 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:19:38,569 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:19:38,570 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:19:38,570 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:19:38,570 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:19:38,570 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:19:38,570 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:19:38,570 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:21:41,118 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:21:41,118 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:21:41,118 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:21:41,118 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:21:41,119 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:21:41,119 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:21:41,120 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:21:41,120 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:21:41,120 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:21:41,120 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:21:41,120 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:21:41,120 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:22:44,837 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:22:44,837 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:22:44,838 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:22:44,838 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:22:44,838 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:22:44,838 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:22:44,839 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:22:44,839 - ERROR - Error de bajo nivel, posible error en Netmiko
+2024-05-02 13:22:44,839 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:22:44,839 - ERROR - 1364 (HY000): Field 'id_fw' doesn't have a default value
+2024-05-02 13:22:44,839 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:22:44,839 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 89, in fw_status
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id_fw' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 164, in fw_status
+    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/AntesDeImplementarUpdateYUniqu.py", line 219, in save_bd_error
+    cursor.execute(query + value)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id_fw' doesn't have a default value
+
+2024-05-02 13:35:47,317 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:35:47,317 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-02 13:35:47,317 - ERROR - can only concatenate str (not "dict") to str
+2024-05-02 13:35:47,317 - ERROR - can only concatenate str (not "dict") to str
+2024-05-02 13:35:47,317 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 105, in fw_status
+    values = (name, host, canal, num_users, state, packet_loss, latency, jitter, failed_before, fecha_y_hora, link, gateway, ubication, status_gateway, canal+fw)
+TypeError: can only concatenate str (not "dict") to str
+
+2024-05-02 13:35:47,317 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 105, in fw_status
+    values = (name, host, canal, num_users, state, packet_loss, latency, jitter, failed_before, fecha_y_hora, link, gateway, ubication, status_gateway, canal+fw)
+TypeError: can only concatenate str (not "dict") to str
+
+2024-05-02 13:36:01,246 - ERROR - Error en el segundo Try, FW 10.224.113.161
+2024-05-02 13:36:01,246 - ERROR - Error en el segundo Try, FW 10.224.113.161
+2024-05-02 13:36:01,247 - ERROR - can only concatenate str (not "dict") to str
+2024-05-02 13:36:01,247 - ERROR - can only concatenate str (not "dict") to str
+2024-05-02 13:36:01,247 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 105, in fw_status
+    values = (name, host, canal, num_users, state, packet_loss, latency, jitter, failed_before, fecha_y_hora, link, gateway, ubication, status_gateway, canal+fw)
+TypeError: can only concatenate str (not "dict") to str
+
+2024-05-02 13:36:01,247 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 105, in fw_status
+    values = (name, host, canal, num_users, state, packet_loss, latency, jitter, failed_before, fecha_y_hora, link, gateway, ubication, status_gateway, canal+fw)
+TypeError: can only concatenate str (not "dict") to str
+
+2024-05-03 09:40:38,580 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 09:40:38,580 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 09:40:38,580 - ERROR - NoneType: None
+
+2024-05-03 09:40:38,580 - ERROR - NoneType: None
+
+2024-05-03 09:41:39,063 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-03 09:41:39,063 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-03 09:41:39,063 - ERROR - NoneType: None
+
+2024-05-03 09:41:39,063 - ERROR - NoneType: None
+
+2024-05-03 09:42:35,267 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-03 09:42:35,267 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-03 09:42:35,267 - ERROR - NoneType: None
+
+2024-05-03 09:42:35,267 - ERROR - NoneType: None
+
+2024-05-03 09:43:29,827 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:43:29,827 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:43:29,827 - ERROR - NoneType: None
+
+2024-05-03 09:43:29,827 - ERROR - NoneType: None
+
+2024-05-03 09:44:27,442 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:44:27,442 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:44:27,442 - ERROR - NoneType: None
+
+2024-05-03 09:44:27,442 - ERROR - NoneType: None
+
+2024-05-03 09:45:22,788 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:45:22,788 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-03 09:45:22,788 - ERROR - NoneType: None
+
+2024-05-03 09:45:22,788 - ERROR - NoneType: None
+
+2024-05-03 09:46:14,933 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:46:14,933 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:46:14,933 - ERROR - NoneType: None
+
+2024-05-03 09:46:14,933 - ERROR - NoneType: None
+
+2024-05-03 09:47:07,059 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:47:07,059 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:47:07,059 - ERROR - NoneType: None
+
+2024-05-03 09:47:07,059 - ERROR - NoneType: None
+
+2024-05-03 09:47:59,240 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:47:59,240 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-03 09:47:59,240 - ERROR - NoneType: None
+
+2024-05-03 09:47:59,240 - ERROR - NoneType: None
+
+2024-05-03 09:48:55,585 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:48:55,585 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:48:55,586 - ERROR - NoneType: None
+
+2024-05-03 09:48:55,586 - ERROR - NoneType: None
+
+2024-05-03 09:49:47,702 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:49:47,702 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:49:47,702 - ERROR - NoneType: None
+
+2024-05-03 09:49:47,702 - ERROR - NoneType: None
+
+2024-05-03 09:50:41,923 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:50:41,923 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:50:41,923 - ERROR - NoneType: None
+
+2024-05-03 09:50:41,923 - ERROR - NoneType: None
+
+2024-05-03 09:51:59,790 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:51:59,790 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-03 09:51:59,791 - ERROR - NoneType: None
+
+2024-05-03 09:51:59,791 - ERROR - NoneType: None
+
+2024-05-03 09:52:29,209 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-03 09:52:29,209 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-03 09:52:29,210 - ERROR - NoneType: None
+
+2024-05-03 09:52:29,210 - ERROR - NoneType: None
+
+2024-05-03 09:52:40,610 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-05-03 09:52:40,610 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-05-03 09:57:09,932 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 09:57:09,932 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 09:57:09,932 - ERROR - NoneType: None
+
+2024-05-03 09:57:09,932 - ERROR - NoneType: None
+
+2024-05-03 10:04:17,889 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-03 10:04:17,889 - ERROR - Error en el segundo Try, FW 10.224.21.1
+2024-05-03 10:04:17,889 - ERROR - update_fail_datetime() takes 2 positional arguments but 3 were given
+2024-05-03 10:04:17,889 - ERROR - update_fail_datetime() takes 2 positional arguments but 3 were given
+2024-05-03 10:04:17,889 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 118, in fw_status
+    update_fail_datetime(mydb, last_firewall_list, data)
+TypeError: update_fail_datetime() takes 2 positional arguments but 3 were given
+
+2024-05-03 10:04:17,889 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Firewalls/main.py", line 118, in fw_status
+    update_fail_datetime(mydb, last_firewall_list, data)
+TypeError: update_fail_datetime() takes 2 positional arguments but 3 were given
+
+2024-05-03 10:11:31,737 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:11:31,737 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:11:31,737 - ERROR - NoneType: None
+
+2024-05-03 10:11:31,737 - ERROR - NoneType: None
+
+2024-05-03 10:13:37,284 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:13:37,284 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:13:37,284 - ERROR - NoneType: None
+
+2024-05-03 10:13:37,284 - ERROR - NoneType: None
+
+2024-05-03 10:30:32,078 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:30:32,078 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:30:32,078 - ERROR - NoneType: None
+
+2024-05-03 10:30:32,078 - ERROR - NoneType: None
+
+2024-05-03 10:32:31,439 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:32:31,439 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:32:31,439 - ERROR - NoneType: None
+
+2024-05-03 10:32:31,439 - ERROR - NoneType: None
+
+2024-05-03 10:35:36,741 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:35:36,741 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:35:36,741 - ERROR - NoneType: None
+
+2024-05-03 10:35:36,741 - ERROR - NoneType: None
+
+2024-05-03 10:37:27,946 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:37:27,946 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-03 10:37:27,946 - ERROR - NoneType: None
+
+2024-05-03 10:37:27,946 - ERROR - NoneType: None
+

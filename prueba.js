@@ -1,27 +1,15 @@
-function clasifyGroupPrtg(data) {
-    let result = {};
+const now = new Date();
+let twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000)); // Resta 24 horas a la hora actual
 
-    // Iterar sobre el array
-    data.forEach(obj => {
-        // Verificar si ya existe una clave para este dispositivo
-        if (result[obj.device]) {
-            // Si existe, agregar este objeto al array existente
-            result[obj.device].push(obj);
-        } else {
-            // Si no existe, crear un nuevo array con este objeto
-            result[obj.device] = [obj];
-        }
-    });
+// Obtenemos los componentes de la fecha y hora
+let year = twentyFourHoursAgo.getFullYear();
+let month = String(twentyFourHoursAgo.getMonth() + 1).padStart(2, '0'); // Sumamos 1 al mes porque los meses van de 0 a 11
+let day = String(twentyFourHoursAgo.getDate()).padStart(2, '0');
+let hours = String(twentyFourHoursAgo.getHours()).padStart(2, '0');
+let minutes = String(twentyFourHoursAgo.getMinutes()).padStart(2, '0');
+let seconds = String(twentyFourHoursAgo.getSeconds()).padStart(2, '0');
 
-    return result;
-}
+// Concatenamos los componentes en el formato deseado
+let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
-// Ejemplo de uso
-let a = [
-    { device: "device1", data: "texto1" },
-    { device: "device2", data: "texto2" },
-    { device: "device1", data: "texto3" }
-];
-
-let b = clasifyGroupPrtg(a);
-console.log(b);
+console.log(formattedDate);

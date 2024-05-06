@@ -4,7 +4,8 @@ from netmiko import ConnectHandler
 from dotenv import load_dotenv
 from config import database
 from vdom import vdom_connection, number_users_vdom
-
+from save_bd import save_bd
+from update_fail_datetime import update_fail_datetime
 
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -40,17 +41,29 @@ def fw_status():
     try:
         USER = os.getenv('NETMIKO_USER')
         PASSWORD = os.getenv('NETMIKO_PASSWORD')
+        
         query = "SELECT * FROM dcs.data_firewalls"
         cursor.execute(query)
         column_names = [column[0] for column in cursor.description]
-
-        # Convertir los resultados a una lista de diccionarios
         firewall_list = []
         for row in cursor:
             row_dict = {}
             for i in range(len(column_names)):
                 row_dict[column_names[i]] = row[i]
             firewall_list.append(row_dict)
+        
+            
+        # Obtenemos los datos de la utima consulta
+        query = "SELECT * FROM dcs.firewalls"
+        cursor.execute(query)
+        last_column_names = [column[0] for column in cursor.description]
+        last_firewall_list = []
+        for row in cursor:
+            row_dict = {}
+            for i in range(len(last_column_names)):
+                row_dict[last_column_names[i]] = row[i]
+            last_firewall_list.append(row_dict)
+            
 
         for fw in firewall_list:
             now = datetime.datetime.now()
@@ -84,10 +97,31 @@ def fw_status():
                     for canal, state, packet_loss, latency, jitter in results:
                         if canal == channel or canal == 'Not Found':
                             failed_before = check_failed_before(cursor, name, channel)
-                            query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
-                            value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
-                            cursor.execute(query + value)
-                            mydb.commit()
+                            
+                            data = {
+                                "name": name,
+                                "ip": host,
+                                "canal": canal,
+                                "num_users": num_users,
+                                "state": state,
+                                "packet_loss": packet_loss,
+                                "latency": latency,
+                                "jitter": jitter,
+                                "failed_before": failed_before,
+                                "datetime": fecha_y_hora,
+                                "link": link,
+                                "gateway": gateway,
+                                "ubication": ubication,
+                                "status_gateway": status_gateway
+                            }
+                            
+                            update_fail_datetime(last_firewall_list, data)
+                            save_bd(data)
+                            
+                            # query_historic = "INSERT INTO dcs.historic_firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                            # value_historic = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                            # cursor.execute(query_historic + value_historic)
+                            # mydb.commit()
                     
                 else:
                     try:
@@ -118,22 +152,47 @@ def fw_status():
                                         jitter = match[4] if match[4] else "Not Found"
                                         failed_before = check_failed_before(cursor, name, channel)
                                         
-                                        query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
-                                        value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
-                                        cursor.execute(query + value)
-                                        mydb.commit()
+                                        data = {
+                                            "name": name,
+                                            "ip": host,
+                                            "canal": canal,
+                                            "num_users": num_users,
+                                            "state": state,
+                                            "packet_loss": packet_loss,
+                                            "latency": latency,
+                                            "jitter": jitter,
+                                            "failed_before": failed_before,
+                                            "datetime": fecha_y_hora,
+                                            "link": link,
+                                            "gateway": gateway,
+                                            "ubication": ubication,
+                                            "status_gateway": status_gateway
+                                        }
+                                        
+                                        update_fail_datetime(last_firewall_list, data)
+                                        save_bd(data)
+                                        # query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                                        # value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                                        # cursor.execute(query + value)
+                                        # mydb.commit()
+                                        
+                                        # query = "INSERT INTO dcs.historic_firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                                        # value = f"VALUES ('{name}', '{host}', '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                                        # cursor.execute(query + value)
+                                        # mydb.commit()
 
                                 except:
                                     logging.error(f"Error en la expresión regular Health Check - FW {host}")
                                     logging.error(traceback.format_exc())
-                                    save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                                    save_bd_error(last_firewall_list, cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                    
                     except netmiko.NetMikoTimeoutException as timeout_error:
                         logging.error("ENTRO AL NETMIKO ERRRO")
                                     
                     else:
                         logging.error(f"No se encontraron las palabras 'Health Check - FW {host}'")
                         logging.error(traceback.format_exc())
-                        save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                        save_bd_error(last_firewall_list, cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
                                     
             except Exception as e:
                 if net_connect:
@@ -141,7 +200,7 @@ def fw_status():
                 logging.error(f"Error en el segundo Try, FW {host}")
                 logging.error(e)
                 logging.error(traceback.format_exc())
-                save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                save_bd_error(last_firewall_list, cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway)
                 
                     
         now = datetime.datetime.now()
@@ -186,18 +245,38 @@ def get_prtg_status(ip_gateway):
     
     return status
 
-def save_bd_error(cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway):
+def save_bd_error(last_firewall_list, cursor, mydb, host, channel, num_users, name, fecha_y_hora, link, gateway, ubication, status_gateway):
     canal = 'Not Found'
     state = 'Not Found'
     packet_loss = 'Not Found'
     latency = 'Not Found'
     jitter = 'Not Found'
     failed_before = check_failed_before(cursor, name, channel)
+    
+    data = {    
+        "name": name,
+        "ip": host,
+        "canal": canal,
+        "num_users": num_users,
+        "state": state,
+        "packet_loss": packet_loss,
+        "latency": latency,
+        "jitter": jitter,
+        "failed_before": failed_before,
+        "datetime": fecha_y_hora,
+        "link": link,
+        "gateway": gateway,
+        "ubication": ubication,
+        "status_gateway": status_gateway
+    }
+    
+    update_fail_datetime(last_firewall_list, data)
+    save_bd(data)
 
-    query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
-    value = f"VALUES ('{name}', '{host}',  '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
-    cursor.execute(query + value)
-    mydb.commit()
+    # query = "INSERT INTO dcs.firewalls (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+    # value = f"VALUES ('{name}', '{host}',  '{canal}', '{num_users}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+    # cursor.execute(query + value)
+    # mydb.commit()
 
 def number_users(host, username, password):
     try:

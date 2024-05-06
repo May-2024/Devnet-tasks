@@ -74,11 +74,11 @@ def get_data():
                 item['group'] = "CCTV"
             
         # Guardamos en la base de datos
-        values = [(item["device"], item["group"], item["status"], item["objid"], item["sensor"]) for item in prtg_data]
+        values = [(item["device"], item["group"], item["status"], item["objid"], item["sensor"], item["lastvalue"]) for item in prtg_data]
         query = """
-                INSERT INTO dcs.prtg_groups (`device`, `group`, `status`, `id_prtg`, `sensor`)
-                VALUES (%s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE `status` = VALUES(`status`)
+                INSERT INTO dcs.prtg_groups (`device`, `group`, `status`, `id_prtg`, `sensor`, `lastvalue`)
+                VALUES (%s, %s, %s, %s, %s, %s)
+                ON DUPLICATE KEY UPDATE `status` = VALUES(`status`), `lastvalue` = VALUES(`lastvalue`)
                 """
         cursor.executemany(query, values)
         mydb.commit()

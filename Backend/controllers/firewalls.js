@@ -1,20 +1,13 @@
 const { Firewalls } = require("../models/firewalls");
 const { DataFirewalls } = require("../models/data_firewalls");
+const { Op } = require("sequelize");
 
 async function getFirewalls() {
-  const numFw = await getNumberFw();
   const firewalls = await Firewalls.findAll({
     order: [["id", "DESC"]],
-    limit: numFw,
   });
   firewalls.reverse();
   return firewalls;
-}
-
-async function getNumberFw() {
-  const listFw = await DataFirewalls.findAll();
-  const numFw = listFw.length;
-  return numFw;
 }
 
 async function getOneFirewall(ip, ubication) {
@@ -118,26 +111,44 @@ async function deleteFirewall(ip, ubication) {
   }
 }
 
-async function getHistoryFail() {
+async function getHistoryFail(fw, canal) {
   try {
+    const now = new Date(); // Obtén la hora actual en la zona horaria local
+    let twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000); // Resta 24 horas a la hora actual
+    // Obtenemos los componentes de la fecha y hora
+    let year = twentyFourHoursAgo.getFullYear();
+    let month = String(twentyFourHoursAgo.getMonth() + 1).padStart(2, "0"); // Sumamos 1 al mes porque los meses van de 0 a 11
+    let day = String(twentyFourHoursAgo.getDate()).padStart(2, "0");
+    let hours = String(twentyFourHoursAgo.getHours()).padStart(2, "0");
+    let minutes = String(twentyFourHoursAgo.getMinutes()).padStart(2, "0");
+    let seconds = String(twentyFourHoursAgo.getSeconds()).padStart(2, "0");
+
+    // Concatenamos los componentes en el formato deseado
+    let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     const historyFail = await Firewalls.findAll({
       where: {
+        fw: fw,
+        canal: canal,
         state: "dead",
+        datetime: {
+          [Op.gte]: formattedDate, // Obtener registros en los últimos 24 horas
+        },
       },
       order: [["id", "DESC"]],
-      limit: 1000,
     });
+
     return {
       status: 200,
       message: "Historial de fallas recuperado exitosamente",
       data: historyFail,
     };
   } catch (error) {
-    console.error(error)
+    console.error(error);
     return {
       status: 200,
       message: "Error al recuperar el historial de fallas",
       error: error,
+      data: [],
     };
   }
 }
@@ -148,5 +159,5 @@ module.exports = {
   editOneFirewall,
   deleteFirewall,
   getOneFirewall,
-  getHistoryFail
+  getHistoryFail,
 };

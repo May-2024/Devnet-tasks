@@ -18,6 +18,7 @@ export function Group_Prtg({ data }) {
           <tr>
             <th>NOMBRE</th>
             <th>ESTADO</th>
+            <th>LASTVALUE</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ export function Group_Prtg({ data }) {
               >
                 {e.status}
               </td>
+              <td>{e.lastvalue}</td>
             </tr>
           ))}
         </tbody>

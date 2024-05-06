@@ -1,0 +1,14 @@
+.dates-reset-fw {
+    background-color: #e5e5e5;
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    width: 300px;
+    z-index: 9999;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    border-top: black solid 1px;
+    border-left: black solid 1px;
+}

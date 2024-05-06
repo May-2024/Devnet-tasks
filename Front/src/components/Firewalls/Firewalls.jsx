@@ -19,8 +19,9 @@ export function Firewalls() {
   const [showSpinner, setShowSpinner] = useState(true);
   const [showHistoryButton, setShowHistoryButton] = useState(false);
   const [showHistoryTable, setShowHistoryTable] = useState(false);
-  const [dataHistoryFail, setDataHistoryFail] = useState([]);
+  const [arrayHistoryFail, setArrayHistoryFail] = useState([]);
   const [showLoadingButton, setShowLoadingButton] = useState(false);
+  const [fwHistory, setFwHistory] = useState({});
   const jwtToken = localStorage.getItem("jwtToken");
 
   useEffect(() => {
@@ -76,7 +77,15 @@ export function Firewalls() {
         <td>{fw.num_users}</td>
         <td>{fw.canal}</td>
         <td>{fw.link}</td>
-        <td className={fw.state === "dead" ? "kpi-red" : "kpi-green"}>
+        <td
+          title={
+            fw.fail_datetime !== "No fail reported" ? fw.fail_datetime : ""
+          }
+          style={{
+            cursor: fw.fail_datetime !== "No fail reported" ? "help" : "",
+          }}
+          className={fw.state === "dead" ? "kpi-red" : "kpi-green"}
+        >
           {fw.state.toUpperCase()}
         </td>
         <td
@@ -144,7 +153,11 @@ export function Firewalls() {
           {fw.gateway}
         </td>
 
-        <td className={fw.failed_before === "Si" ? "kpi-yellow" : ""}>
+        <td
+          onClick={() => getHistoryFail(fw)}
+          className={fw.failed_before === "Si" ? "kpi-yellow" : ""}
+          style={{ cursor: "pointer" }}
+        >
           {fw.failed_before}
         </td>
       </tr>
@@ -168,7 +181,17 @@ export function Firewalls() {
         <td>{fw.ip}</td>
         <td>{fw.canal}</td>
         <td>{fw.link}</td>
-        <td>{fw.state}</td>
+        <td
+          title={
+            fw.fail_datetime !== "No fail reported" ? fw.fail_datetime : ""
+          }
+          style={{
+            cursor: fw.fail_datetime !== "No fail reported" ? "help" : "",
+          }}
+          className={fw.state === "dead" ? "kpi-red" : "kpi-green"}
+        >
+          {fw.state.toUpperCase()}
+        </td>
         <td
           className={
             fw.packet_loss === "Not Found"
@@ -223,7 +246,13 @@ export function Firewalls() {
           {fw.gateway}
         </td>
 
-        <td>{fw.failed_before}</td>
+        <td
+          className={fw.failed_before === "Si" ? "kpi-yellow" : ""}
+          onClick={() => getHistoryFail(fw)}
+          style={{ cursor: "pointer" }}
+        >
+          {fw.failed_before}
+        </td>
       </tr>
     ));
   };
@@ -238,49 +267,25 @@ export function Firewalls() {
     );
   };
 
-  // // Funcion para obtener historial de fallas de los FW
-  // const getHistoryFail = async () => {
-  //   setShowHistoryButton(false);
-  //   setShowLoadingButton(true);
-  //   setTimeout(async () => {
-  //     try {
-  //       const request = await axios.get(
-  //         `${BASE_API_URL}/firewalls/history-fail`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${jwtToken}`,
-  //           },
-  //         }
-  //       );
-  //       if (request.status === 200) {
-  //         setDataHistoryFail(request.data);
-  //         setShowHistoryTable(true);
-  //         setShowHistoryButton(true);
-  //         setShowLoadingButton(false);
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //       setShowHistoryButton(true);
-  //       setShowLoadingButton(false);
-  //     }
-  //   }, 3000);
-  // };
-
   // Funcion para obtener historial de fallas de los FW
-  const getHistoryFail = async () => {
+  const getHistoryFail = async (dataFw) => {
+    console.log("eeeas");
     setShowHistoryButton(false);
     setShowLoadingButton(true);
+    setFwHistory({
+      name: dataFw.fw,
+      canal: dataFw.canal,
+      ubication: dataFw.ubication,
+    });
     try {
-      const request = await axios.get(
+      const request = await axios.post(
         `${BASE_API_URL}/firewalls/history-fail`,
         {
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
+          ...dataFw,
         }
       );
       if (request.status === 200) {
-        setDataHistoryFail(request.data);
+        setArrayHistoryFail(request.data.data);
         setShowHistoryTable(true);
         setShowHistoryButton(true);
         setShowLoadingButton(false);
@@ -296,7 +301,8 @@ export function Firewalls() {
     <>
       {showHistoryTable && (
         <FailHistoryFw
-          dataHistoryFail={dataHistoryFail}
+          fwHistory={fwHistory}
+          arrayHistoryFail={arrayHistoryFail}
           setShowHistoryTable={setShowHistoryTable}
         />
       )}
