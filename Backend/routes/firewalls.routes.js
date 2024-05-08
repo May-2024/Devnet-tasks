@@ -13,6 +13,7 @@ const {
   editOneFirewall,
   deleteFirewall,
   getOneFirewall,
+  getHistoryFail,
 } = require("../controllers/firewalls");
 
 router.get("/", async (req, res, next) => {
@@ -27,7 +28,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:ip/:ubication", async (req, res, next) => {
   try {
     const ip = req.params.ip;
-    const ubication = req.params.ubication
+    const ubication = req.params.ubication;
     const firewall = await getOneFirewall(ip, ubication);
     res.status(firewall.status).json({
       status: firewall.status,
@@ -99,6 +100,28 @@ router.delete(
         message: firewallDeleted.message,
         error: firewallDeleted.error,
         data: firewallDeleted.data,
+      });
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
+
+router.post(
+  "/history-fail",
+  // passport.authenticate("jwt", { session: false }),
+  // checkRoles("admin", "staff"),
+  async (req, res, next) => {
+    try {
+      const { fw, canal } = req.body;
+      console.log(fw, canal)
+      const data = await getHistoryFail(fw, canal);
+      res.status(data.status).json({
+        status: data.status,
+        message: data.message,
+        error: data.error,
+        data: data.data,
       });
     } catch (error) {
       console.error(error);

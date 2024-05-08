@@ -81,6 +81,12 @@
     width: 200px;
 }
 
+.table-names-sw-ig-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    border-bottom: solid 1px black;
+}
+
 .table-names-sw-ig {
     width: 100%;
 }

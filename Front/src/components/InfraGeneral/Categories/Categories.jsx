@@ -95,7 +95,7 @@ export function Categories() {
           ) {
             dataLteUp.push(e);
           }
-          if (e.group && e.group.toLowerCase() === "candelaria") {
+          if (e.group && e.group.toLowerCase() === "cctv") {
             dataCctvUp.push(e);
           }
         });
@@ -131,7 +131,7 @@ export function Categories() {
           ) {
             dataLteDown.push(e);
           }
-          if (e.group && e.group.toLowerCase() === "candelaria") {
+          if (e.group && e.group.toLowerCase() === "cctv") {
             dataCctvDown.push(e);
           }
         });
@@ -255,7 +255,7 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general/telefonia">
+                  <Link to="/monitoreo/infraestrucura-general?categoria=telefonia">
                     Telefonia IP
                   </Link>
                 </td>
@@ -265,7 +265,7 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general/iseprime">
+                  <Link to="/monitoreo/infraestrucura-general?categoria=ise">
                     Servidores ISE y PRIME
                   </Link>
                 </td>
@@ -275,7 +275,7 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general/contraladoras-inalambricas">
+                  <Link to="/monitoreo/infraestrucura-general?categoria=inalambricas">
                     Controladoras Inalambricas
                   </Link>
                 </td>
@@ -285,7 +285,7 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general/lte">LTE</Link>
+                  <Link to="/monitoreo/infraestrucura-general?categoria=lte">LTE</Link>
                 </td>
                 <td>{lteUp.length}</td>
                 <td>{lteDown.length}</td>
@@ -293,7 +293,7 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general/cctv">
+                  <Link to="/monitoreo/infraestrucura-general?categoria=cctv">
                     Sistema CCTV
                   </Link>
                 </td>

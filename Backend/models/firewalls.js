@@ -59,6 +59,10 @@ const Firewalls = sequelize.define(
     status_gateway: {
       type: DataTypes.STRING(32),
       allowNull: true,
+    },
+    fail_datetime: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
     }
   },
   {
