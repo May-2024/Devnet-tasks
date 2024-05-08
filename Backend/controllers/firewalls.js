@@ -1,4 +1,4 @@
-const { Firewalls } = require("../models/firewalls");
+const { Firewalls, HistoricFirewalls } = require("../models/firewalls");
 const { DataFirewalls } = require("../models/data_firewalls");
 const { Op } = require("sequelize");
 
@@ -125,7 +125,7 @@ async function getHistoryFail(fw, canal) {
 
     // Concatenamos los componentes en el formato deseado
     let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    const historyFail = await Firewalls.findAll({
+    const historyFail = await HistoricFirewalls.findAll({
       where: {
         fw: fw,
         canal: canal,

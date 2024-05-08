@@ -52,40 +52,50 @@ def main():
     try:
         mydb = database_connection()
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.mesh_process"
-        cursor.execute(query)
+        # query = "SELECT * FROM dcs.mesh_process"
+        # cursor.execute(query)
         
         # Convertimos los datos Antiguos en una lista de diccionarios
-        column_names = [column[0] for column in cursor.description]
-        last_data = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names)):
-                row_dict[column_names[i]] = row[i]
-            last_data.append(row_dict)
+        # column_names = [column[0] for column in cursor.description]
+        # last_data = []
+        # for row in cursor:
+        #     row_dict = {}
+        #     for i in range(len(column_names)):
+        #         row_dict[column_names[i]] = row[i]
+        #     last_data.append(row_dict)
         
         # Obtenemos los datos actuales
-        current_data = get_mesh_process_data()
+        # current_data = get_mesh_process_data()
+        # print(f"de la base de datos: {last_data}")
+        # print(f"de la controladora: {current_data}")
 
+        #! db_data_test
+        last_data = [{'id': 1, 'ubication': 'Camion 201', 'device': 'Cisco AP', 'client': '10.117.115.201', 'last_mac': '1A', 'current_mac': 'CurrentMacVieja', 'note': 'No data', 'last_change_date': 'No data', 'status': 'ok'}, {'id': 2, 'ubication': 'Camion 201', 'device': 'Cisco RO', 'client': '10.117.116.201', 'last_mac': '0027.e3c7.5600', 'current_mac': '0027.e3c7.5600', 'note': 'No data', 'last_change_date': 'No data', 'status': 'ok'}, {'id': 3, 'ubication': 'Camion 201', 'device': 'Dispatch', 'client': '10.117.123.201', 'last_mac': '0080.0701.12d8', 'current_mac': '0080.0701.12d8', 'note': 'No data', 'last_change_date': 'No data', 'status': 'ok'}]
+        
+        #! controladora_data_test
+        current_data = [{'ip': '10.117.115.201', 'mac': 'NuevaMac'}, {'ip': '10.117.116.24', 'mac': 'cc90.70c1.7480'}, {'ip': '10.117.126.21', 'mac': 'accc.8ed0.1d6b'}]
+        
         # Si no hay datos desde la maquina manejamos esto como un error
         if current_data == []:
             return "a" #! Manejar el caso en que no lleguen datos
         
-        # Actualizamos el Mac Anterior con el valor del Mac Actual
-        for data in last_data:
-            client = data['client']
-            current_mac = data['current_mac']
-            query_mac = f"UPDATE dcs.mesh_process SET last_mac = '{current_mac}' WHERE client = '{client}'"
-            cursor.execute(query_mac)
-            mydb.commit()
+        # Actualizamos el Mac Anterior con el valor del Mac Actual solo si
+        # la Mac actual de la ultima consulta y la mac actual de la consulta mas reciente
+        # son diferentes
+        for last in last_data:
+            for current in current_data:
+                if last['client'] == current['ip'] and last['current_mac'] != current["mac"]:
+                    print("Entro al If de actualizar la mac anterior")
+                    query_mac = f"UPDATE dcs.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
+                    cursor.execute(query_mac)
+                    mydb.commit()
             
-        
         # Actualizamos el valor de la Mac Actual     
-        for data in current_data:
-            client = data['ip']
-            current_mac = data['mac']
-            for elem in last_data:
-                if elem['client'] == client and elem['current_mac'] != current_mac:
+        for current in current_data:
+            client = current['ip']
+            current_mac = current['mac']
+            for last in last_data:
+                if last['client'] == client and last['current_mac'] != current_mac:
                     now = datetime.datetime.now()
                     fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
                     fecha_y_hora = str(fecha_y_hora)
@@ -127,7 +137,7 @@ def main():
         fecha_y_hora = str(fecha_y_hora)
         
         cursor.execute(
-            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}' WHERE `id` = '1'"
+            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}' WHERE `id` = 1"
         )
         mydb.commit()
         cursor.close()
@@ -137,18 +147,23 @@ def main():
         logging.error("Error en funcion Main")
         logging.error(e)
         logging.error(traceback.format_exc())
+        now = datetime.datetime.now()
+        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+        fecha_y_hora = str(fecha_y_hora)
         cursor.execute(
-            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `id` = '1'"
+            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `id` = 1"
         )
         mydb.commit()
         cursor.close()
         return "Error"
     
-def bucle(scheduler):
-    main()
-    scheduler.enter(43000, 1, bucle, (scheduler,))
+# def bucle(scheduler):
+#     main()
+#     scheduler.enter(43000, 1, bucle, (scheduler,))
 
-if __name__ == "__main__":
-    s = sched.scheduler(time.time, time.sleep)
-    s.enter(0, 1, bucle, (s,))
-    s.run()
+# if __name__ == "__main__":
+#     s = sched.scheduler(time.time, time.sleep)
+#     s.enter(0, 1, bucle, (s,))
+#     s.run()
+    
+main()
