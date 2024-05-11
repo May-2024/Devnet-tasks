@@ -36,3 +36,26 @@
     padding: 5px;
     width: 400px;
 }
+
+.filtres-processmesh-container {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.input-mesh-process {
+    height: 2rem;
+    align-items: center;
+}
+
+.label-mesh-process {
+    display: flex;
+    flex-direction: row;
+    width: 14rem;
+    justify-content: space-around;
+    margin-left: 20px;
+    cursor: pointer;
+}

@@ -56,6 +56,12 @@
   font-weight: bold;
 }
 
+.kpi-orange {
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+}
+
 .spinner-dash-container {
   display: grid;
   place-content: center;
