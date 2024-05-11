@@ -23,12 +23,6 @@ export function Firewalls() {
   const [showLoadingButton, setShowLoadingButton] = useState(false);
   const [fwHistory, setFwHistory] = useState({});
   const jwtToken = localStorage.getItem("jwtToken");
-  const [showHistoryButton, setShowHistoryButton] = useState(false);
-  const [showHistoryTable, setShowHistoryTable] = useState(false);
-  const [arrayHistoryFail, setArrayHistoryFail] = useState([]);
-  const [showLoadingButton, setShowLoadingButton] = useState(false);
-  const [fwHistory, setFwHistory] = useState({});
-  const jwtToken = localStorage.getItem("jwtToken");
 
   useEffect(() => {
     const fetchData = async () => {
