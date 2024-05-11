@@ -1,7 +1,6 @@
 const { Firewalls, HistoricFirewalls } = require("../models/firewalls");
 const { DataFirewalls } = require("../models/data_firewalls");
 const { Op } = require("sequelize");
-const { Op } = require("sequelize");
 
 async function getFirewalls() {
   const firewalls = await Firewalls.findAll({
