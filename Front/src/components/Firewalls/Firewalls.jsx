@@ -8,6 +8,10 @@ import { BASE_API_URL } from "../../utils/Api-candelaria/api";
 import { FailHistoryFw } from "./FailHistoryFw";
 import BeatLoader from "react-spinners/BeatLoader";
 import axios from "axios";
+import { BASE_API_URL } from "../../utils/Api-candelaria/api";
+import { FailHistoryFw } from "./FailHistoryFw";
+import BeatLoader from "react-spinners/BeatLoader";
+import axios from "axios";
 import "./firewalls.css";
 
 export function Firewalls() {
@@ -17,6 +21,12 @@ export function Firewalls() {
   const [fwCommunity, setFwCommunity] = useState([]);
   const [fwCorporate, setFwCorporate] = useState([]);
   const [showSpinner, setShowSpinner] = useState(true);
+  const [showHistoryButton, setShowHistoryButton] = useState(false);
+  const [showHistoryTable, setShowHistoryTable] = useState(false);
+  const [arrayHistoryFail, setArrayHistoryFail] = useState([]);
+  const [showLoadingButton, setShowLoadingButton] = useState(false);
+  const [fwHistory, setFwHistory] = useState({});
+  const jwtToken = localStorage.getItem("jwtToken");
   const [showHistoryButton, setShowHistoryButton] = useState(false);
   const [showHistoryTable, setShowHistoryTable] = useState(false);
   const [arrayHistoryFail, setArrayHistoryFail] = useState([]);
