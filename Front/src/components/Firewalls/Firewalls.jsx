@@ -8,6 +8,7 @@ import { BASE_API_URL } from "../../utils/Api-candelaria/api";
 import { FailHistoryFw } from "./FailHistoryFw";
 import BeatLoader from "react-spinners/BeatLoader";
 import axios from "axios";
+
 import "./firewalls.css";
 
 export function Firewalls() {
