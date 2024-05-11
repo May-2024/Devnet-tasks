@@ -117,14 +117,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  infraestructura-general:
-    build:
-      context: Services/InfraGeneral
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # infraestructura-general:
+  #   build:
+  #     context: Services/InfraGeneral
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
   # dcs-pac:
   #   build:
@@ -171,20 +171,20 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  # mesh_process:
-  #   build:
-  #     context: Services/Mesh_Process
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - ENVIRONMENT=production
-
-  groups_prtg:
+  mesh_process:
     build:
-      context: Services/Groups_Prtg
+      context: Services/Mesh_Process
     restart: always
     depends_on:
       - db
     environment:
       - ENVIRONMENT=production
+
+  # groups_prtg:
+  #   build:
+  #     context: Services/Groups_Prtg
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production

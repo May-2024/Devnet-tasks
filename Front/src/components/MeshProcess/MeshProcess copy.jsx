@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { getDataMeshProcess } from "../../utils/Api-candelaria/api";
 import { Status_System } from "../Status_System/Status_System";
@@ -6,6 +6,7 @@ import "./MeshProcess.css";
 
 export function MeshProcess() {
   const [processMesh, setProcessMesh] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +22,6 @@ export function MeshProcess() {
           }
         });
         setProcessMesh(meshData);
-        // setShowSpinner(false);
       } catch (error) {
         console.error("Error al obtener la data del process mesh", error);
         return error;
@@ -30,11 +30,31 @@ export function MeshProcess() {
     fetchData();
   }, []);
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProcessMesh = processMesh.filter((device) =>
+    Object.entries(device).some(
+      ([key, value]) =>
+        key !== "prtg_status" &&
+        value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
   return (
     <div>
       <Navbar title={"Proceso Mesh"} />
       <Status_System tableToShow={"mesh_process"} />
+
       <div className="container-process-mesh-table">
+        <input
+          className="input-mesh-process"
+          type="text"
+          placeholder="Buscar..."
+          value={searchTerm}
+          onChange={handleSearch}
+        />
         <table className="process-mesh-table">
           <thead>
             <tr>
@@ -47,15 +67,33 @@ export function MeshProcess() {
             </tr>
           </thead>
           <tbody>
-            {processMesh.map((device) => (
+            {filteredProcessMesh.map((device) => (
               <tr key={device.id}>
                 <td>{device.ubication}</td>
                 <td>{device.device}</td>
-                <td>{device.client}</td>
+                <td
+                  className={
+                    device.prtg_status.toLowerCase().includes("up")
+                      ? "kpi-green"
+                      : device.prtg_status.toLowerCase().includes("down")
+                      ? "kpi-red"
+                      : device.prtg_status.toLowerCase().includes("paused")
+                      ? "kpi-blue"
+                      : device.prtg_status.toLowerCase().includes("warning")
+                      ? "kpi-yelllow"
+                      : device.prtg_status.toLowerCase().includes("unusual")
+                      ? "kpi-orange"
+                      : ""
+                  }
+                  title={`PRTG: ${device.prtg_status}`}
+                  style={{ cursor: "help" }}
+                >
+                  {device.client}
+                </td>
                 <td>{device.last_mac}</td>
                 <td
                   className={device.status === "fail" ? "kpi-red" : ""}
-                  style={device.status === "fail" ? { cursor: "pointer" } : {}}
+                  style={device.status === "fail" ? { cursor: "help" } : {}}
                   title={
                     device.status === "fail"
                       ? "El valor de esta MAC se repite en otra Ubicación"

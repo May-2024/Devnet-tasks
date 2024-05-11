@@ -48,7 +48,10 @@ def get_mesh_process_data():
                 ip = match.group(1)
                 mac = match.group(2)
                 resultado.append({'ip': ip, 'mac': mac})
-
+        # print(output)
+        # print(resultado)
+        # print(len(resultado))
+        logging.info("MESH_DATA: Valores MAC Actualizados")
         return resultado
             
 
@@ -57,3 +60,5 @@ def get_mesh_process_data():
         logging.error(e)
         logging.error(traceback.format_exc())
         return []
+    
+# get_mesh_process_data()

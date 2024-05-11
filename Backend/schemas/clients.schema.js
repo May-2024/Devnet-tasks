@@ -35,14 +35,14 @@ const createClientSchema = Joi.object({
     .required()
     .allow("")
     .empty("")
-    .min(1)
+    .min(0)
     .max(999)
     .messages({
       "any.required": "La clave es requerida",
       "number.base": "La clave debe ser un número",
       "number.integer": "La clave debe ser un número entero",
       "number.max": "La clave no puede exceder 999",
-      "number.min": "La clave no puede ser menor a 1",
+      "number.min": "La clave no puede ser menor a 0",
     }),
   description: Joi.string().required().allow("").empty("").max(100).messages({
     "any.required": "La descripción es requerida",

@@ -79,7 +79,9 @@ export function Firewalls() {
         <td>{fw.link}</td>
         <td
           title={
-            fw.fail_datetime !== "No fail reported" ? fw.fail_datetime : ""
+            fw.fail_datetime !== "No fail reported"
+              ? `Falló desde ${fw.fail_datetime}`
+              : ""
           }
           style={{
             cursor: fw.fail_datetime !== "No fail reported" ? "help" : "",
@@ -309,7 +311,7 @@ export function Firewalls() {
       <Navbar title={"Firewalls - Canales Internet"} />
 
       {showLoadingButton && <BeatLoader className="charging-bar" color="red" />}
-      {showHistoryButton && (
+      {/* {showHistoryButton && (
         <button
           style={{ cursor: "pointer" }}
           onClick={() => getHistoryFail()}
@@ -317,7 +319,7 @@ export function Firewalls() {
         >
           Historial de Fallas
         </button>
-      )}
+      )} */}
       <Status_System tableToShow={"fw"} />
       <DashFirewalls />
       <div className="firewalls-container">

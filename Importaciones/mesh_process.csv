@@ -1,3 +1,4 @@
+id,ubication,device,client,last_mac,current_mac,note,last_change_date,status
 1,Camion 201,Cisco AP,10.117.115.201,2c5a.0f10.c5ca,2c5a.0f10.c5ca,No data,No data,ok
 2,Camion 201,Cisco RO,10.117.116.201,0027.e3c7.5600,0027.e3c7.5600,No data,No data,ok
 3,Camion 201,Dispatch,10.117.123.201,0080.0701.12d8,0080.0701.12d8,No data,No data,ok
@@ -59,7 +60,7 @@
 67,Camion 209,Dispatch,10.117.123.209,0080.0701.0e69,0080.0701.0e69,No data,No data,ok
 68,Camion 209,MEM,10.117.122.209,0013.952e.7b7e,0013.952e.7b7e,No data,No data,ok
 69,Camion 209,UMAN,10.117.126.209,b827.eb52.e2f8,b827.eb52.e2f8,No data,No data,ok
-70,Camion 209,VIMS,10.117.124.209,No data,No data,No data,No data,ok
+70,Camion 209,VIMS,10.117.124.209,No data,No data,No data,2024-05-01 19:09:10,ok
 71,Camion 209,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
 73,Camion 210,Cisco AP,10.117.115.210,f80b.cbd8.8ce4,f80b.cbd8.8ce4,No data,No data,ok
 74,Camion 210,Cisco RO,10.117.116.210,a023.9fe5.6680,a023.9fe5.6680,No data,No data,ok
@@ -103,11 +104,11 @@
 117,Camion 215,UMAN,10.117.126.215,b827.ebf0.0b2a,b827.ebf0.0b2a,No data,No data,ok
 118,Camion 215,VIMS,10.117.124.215,000a.750e.41fe,000a.750e.41fe,No data,No data,ok
 119,Camion 215,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
-121,Camion 216,Cisco AP,10.117.115.216,f01d.2d55.e1b6,f01d.2d55.e1b6,No data,No data,ok
+121,Camion 216,Cisco AP,10.117.115.216,f01d.2d55.e1b6,f01d.2d55.e1b6,No data,2024-05-03 21:41:49,ok
 122,Camion 216,Cisco RO,10.117.116.216,cc90.70c1.7560,cc90.70c1.7560,No data,No data,ok
 123,Camion 216,Dispatch,10.117.123.216,0080.0701.0c79,0080.0701.0c79,No data,No data,ok
 124,Camion 216,MEM,10.117.122.216,0013.952e.7b71,0013.952e.7b71,No data,No data,ok
-125,Camion 216,UMAN,10.117.126.216,b827.eb8d.17b5,b827.eb8d.17b5,No data,No data,ok
+125,Camion 216,UMAN,10.117.126.216,b827.eb8d.17b5,b827.eb8d.17b5,No data,2024-05-03 21:41:49,ok
 126,Camion 216,VIMS,10.117.124.216,000a.750e.4213,000a.750e.4213,No data,No data,ok
 127,Camion 216,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
 129,Camion 217,Cisco AP,10.117.115.217,acf5.e6db.5230,acf5.e6db.5230,No data,No data,ok
@@ -121,7 +122,7 @@
 138,Camion 218,Cisco RO,10.117.116.218,No data,No data,No data,No data,ok
 139,Camion 218,Dispatch,10.117.123.218,No data,No data,No data,No data,ok
 140,Camion 218,MEM,10.117.122.218,No data,No data,No data,No data,ok
-141,Camion 218,UMAN,10.117.126.218,No data,No data,No data,No data,ok
+141,Camion 218,UMAN,10.117.126.218,0060.3537.4bd1,0060.3537.4bd1,No data,2024-05-01 19:09:10,ok
 142,Camion 218,VIMS,10.117.124.218,No data,No data,No data,No data,ok
 143,Camion 218,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
 145,Camion 219,Cisco AP,10.117.115.219,5c71.0d09.de1e,5c71.0d09.de1e,No data,No data,ok
@@ -138,8 +139,8 @@
 157,Camion 220,UMAN,10.117.126.220,b827.ebf8.44dd,b827.ebf8.44dd,No data,No data,ok
 158,Camion 220,VIMS,10.117.124.220,000a.750e.47fd,000a.750e.47fd,No data,No data,ok
 159,Camion 220,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
-161,Camion 221,Cisco AP,10.117.115.32,9cd5.7dd4.1ed0,9cd5.7dd4.1ed0,No data,No data,ok
-162,Camion 221,Cisco RO,10.117.116.32,4006.d5c8.9600,4006.d5c8.9600,No data,No data,ok
+161,Camion 221,Cisco AP,10.117.115.32,9cd5.7dd4.1ed0,9cd5.7dd4.10de,No data,2024-05-08 00:09:34,ok
+162,Camion 221,Cisco RO,10.117.116.32,4006.d5c8.9600,4006.d5c8.97a0,No data,2024-05-08 00:09:34,ok
 163,Camion 221,Dispatch,10.117.123.221,0080.0700.f69b,0080.0700.f69b,No data,No data,ok
 164,Camion 221,MEM,10.117.122.221,0013.952f.168c,0013.952f.168c,No data,No data,ok
 165,Camion 221,UMAN,10.117.126.221,b827.eb37.1cf6,b827.eb37.1cf6,No data,No data,ok
@@ -225,7 +226,7 @@
 257,Camion 233,Cisco AP,10.117.115.68,d4ad.bdf3.6746,d4ad.bdf3.6746,No data,No data,ok
 258,Camion 233,Cisco RO,10.117.116.68,d4ad.bdf3.6726,d4ad.bdf3.6726,No data,No data,ok
 259,Camion 233,Dispatch,10.117.123.233,0080.0701.0b15,0080.0701.0b15,No data,No data,ok
-260,Camion 233,MEM,10.117.122.233,0013.9533.b537,0013.9533.b537,No data,No data,ok
+260,Camion 233,MEM,10.117.122.233,0090.fb70.3f6e,0090.fb70.3f6e,No data,2024-05-01 19:09:10,ok
 261,Camion 233,UMAN,10.117.126.233,b827.eb39.58ad,b827.eb39.58ad,No data,No data,ok
 262,Camion 233,VIMS,10.117.124.233,900e.8300.1113,900e.8300.1113,No data,No data,ok
 263,Camion 233,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
@@ -278,19 +279,19 @@
 317,Camion 241,UMAN,10.117.126.241,b827.ebba.365b,b827.ebba.365b,No data,No data,ok
 318,Camion 241,VIMS,10.117.124.241,000a.7517.a469,000a.7517.a469,No data,No data,ok
 319,Camion 241,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
-321,Camion 315,Cisco AP,10.117.115.5,No data,No data,No data,No data,ok
+321,Camion 315,Cisco AP,10.117.115.5,No data,No data,No data,2024-05-01 19:09:10,ok
 322,Camion 315,Cisco RO,10.117.116.5,No data,No data,No data,No data,ok
-323,Camion 315,Dispatch,10.117.123.115,No data,No data,No data,No data,ok
+323,Camion 315,Dispatch,10.117.123.115,No data,No data,No data,2024-05-01 19:09:10,ok
 324,Camion 315,MEM,10.117.122.115,No data,No data,No data,No data,ok
-325,Camion 315,UMAN,10.117.126.135,No data,No data,No data,No data,ok
-326,Camion 315,VIMS,10.117.124.135,No data,No data,No data,No data,ok
+325,Camion 315,UMAN,10.117.126.135,No data,No data,No data,2024-05-01 19:09:10,ok
+326,Camion 315,VIMS,10.117.124.135,No data,No data,No data,2024-05-01 19:09:10,ok
 327,Camion 315,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
 329,Camion 316,Cisco AP,10.117.115.6,No data,No data,No data,No data,ok
 330,Camion 316,Cisco RO,10.117.116.6,No data,No data,No data,No data,ok
 331,Camion 316,Dispatch,10.117.123.136,0080.0701.12bb,0080.0701.12bb,No data,No data,ok
 332,Camion 316,MEM,10.117.122.136,No data,No data,No data,No data,ok
-333,Camion 316,UMAN,10.117.126.136,No data,No data,No data,No data,ok
-334,Camion 316,VIMS,10.117.124.136,No data,No data,No data,No data,ok
+333,Camion 316,UMAN,10.117.126.136,No data,No data,No data,2024-05-01 19:09:10,ok
+334,Camion 316,VIMS,10.117.124.136,No data,No data,No data,2024-05-01 19:09:10,ok
 335,Camion 316,UMAN Replacement,10.117.126.100,b827.ebf4.f023,b827.ebf4.f023,No data,25/04/2024 18:20,N/A
 337,Camion 317,Cisco AP,10.117.115.7,No data,No data,No data,No data,ok
 338,Camion 317,Cisco RO,10.117.116.7,No data,No data,No data,No data,ok
@@ -328,26 +329,26 @@
 372,Pala 11,Cliente Tooth Metrics,10.117.121.48,2046.a105.a80a,2046.a105.a80a,No data,No data,ok
 373,Pala 11,Cliente Camara ope,10.117.121.50,accc.8e58.4464,accc.8e58.4464,No data,No data,ok
 374,Pala 11,Cliente Receptor GPS2,10.117.121.57,0060.3537.c385,0060.3537.c385,No data,No data,ok
-375,Pala 11,Cliente ION,10.117.121.58,No data,No data,No data,No data,ok
+375,Pala 11,Cliente ION,10.117.121.58,4c42.1e50.b6e0,4c42.1e50.b6e0,No data,2024-05-03 21:41:49,ok
 376,Pala 11,Cliente Datalogger MEM Eth0,10.117.122.111,0001.c00c.9e31,0001.c00c.9e31,No data,No data,ok
 377,Pala 11,Cliente PTX Dispatch/Provision,10.117.123.111,0080.0700.d294,0080.0700.d294,No data,No data,ok
 378,Pala 11,Cliente PLC Medicion,10.117.124.102,No data,No data,No data,No data,ok
 379,Pala 11,Cliente AC800 Centurion,10.117.121.41,No data,No data,NAT,No data,ok
-380,Pala 11,Cliente GUI Centurion,10.117.121.42,No data,No data,NAT,No data,ok
-381,Pala 11,Cliente GUI Centurion,10.117.121.43,No data,No data,NAT,No data,ok
-382,Pala 12,Cisco AP,10.117.115.112,f01d.2d55.73be,f01d.2d55.73be,No data,No data,ok
-383,Pala 12,Cisco RO,10.117.121.80,5c3e.06ff.ec20,5c3e.06ff.ec20,No data,No data,ok
-384,Pala 12,Cisco SW,10.117.114.112,No data,No data,No data,No data,ok
+380,Pala 11,Cliente GUI Centurion,10.117.121.42,4c42.1e50.b6e0,4c42.1e50.b6e0,NAT,2024-05-02 07:05:57,ok
+381,Pala 11,Cliente GUI Centurion,10.117.121.43,4c42.1e50.b6e0,4c42.1e50.b6e0,NAT,2024-04-26 07:44:35,ok
+382,Pala 12,Cisco AP,10.117.115.112,9cd5.7dd4.abdc,9cd5.7dd4.abdc,No data,2024-05-02 09:42:07,ok
+383,Pala 12,Cisco RO,10.117.121.80,5cb1.2ec0.b0e0,5cb1.2ec0.b0e0,No data,2024-05-01 19:09:10,ok
+384,Pala 12,Cisco SW,10.117.114.112,cc79.d7cf.38cb,cc79.d7cf.38cb,No data,2024-05-01 19:09:10,ok
 385,Pala 12,Cliente Camara fragm,10.117.121.66,accc.8e71.f3eb,accc.8e71.f3eb,No data,No data,ok
 386,Pala 12,Cliente Receptor GPS1,10.117.121.67,0060.3537.c3a6,0060.3537.c3a6,No data,No data,ok
 387,Pala 12,Cliente Tooth Metrics,10.117.121.68,0003.1d12.ec12,0003.1d12.ec12,No data,No data,ok
 388,Pala 12,Cliente Camara ope,10.117.121.70,accc.8e58.446d,accc.8e58.446d,No data,No data,ok
 389,Pala 12,Cliente Receptor GPS2,10.117.121.77,0060.3537.c3c8,0060.3537.c3c8,No data,No data,ok
 390,Pala 12,Cliente ION,10.117.121.78,No data,No data,No data,No data,ok
-391,Pala 12,Clente Datalogger MEM Eth0,10.117.122.112,0001.c00c.9e2f,0001.c00c.9e2f,No data,No data,ok
+391,Pala 12,Clente Datalogger MEM Eth0,10.117.122.112,0001.c00c.8653,0001.c00c.8653,No data,2024-05-01 19:09:10,ok
 392,Pala 12,Cliente PTX Dispatch/Provision,10.117.123.112,0080.0701.3580,0080.0701.3580,No data,No data,ok
 393,Pala 12,Cliente AC800 Centurion,10.117.121.61,No data,No data,NAT,No data,ok
-394,Pala 12,Cliente GUI Centurion,10.117.121.62,No data,No data,NAT,No data,ok
+394,Pala 12,Cliente GUI Centurion,10.117.121.62,5cb1.2ec0.b0e0,5cb1.2ec0.b0e0,NAT,2024-05-03 21:41:49,ok
 395,Pala 12,Cliente GUI Centurion,10.117.121.63,No data,No data,NAT,No data,ok
 396,Pala 21,Cisco AP,10.117.115.121,f01d.2d55.7116,f01d.2d55.7116,No data,No data,ok
 397,Pala 21,Cisco RO,10.117.121.120,cc90.70c1.7200,cc90.70c1.7200,No data,No data,ok
@@ -361,16 +362,16 @@
 405,Pala 21,Clente Datalogger MEM Eth0,10.117.122.121,0013.9533.b6d2,0013.9533.b6d2,No data,No data,ok
 406,Pala 21,Cliente PTX Dispatch/Provision,10.117.123.121,0080.0701.334c,0080.0701.334c,No data,No data,ok
 407,Pala 21,Cliente AC800 Centurion,10.117.121.101,No data,No data,NAT,No data,ok
-408,Pala 21,Cliente GUI Centurion,10.117.121.102,No data,No data,NAT,No data,ok
-409,Pala 21,Cliente GUI Centurion,10.117.121.103,No data,No data,NAT,No data,ok
+408,Pala 21,Cliente GUI Centurion,10.117.121.102,cc90.70c1.7200,cc90.70c1.7200,NAT,2024-05-03 21:41:49,ok
+409,Pala 21,Cliente GUI Centurion,10.117.121.103,cc90.70c1.7200,cc90.70c1.7200,NAT,2024-05-02 07:05:57,ok
 410,Pala 21,Cliente CAMARA TERMICA Host 1 / Propel,10.117.121.104,No data,No data,NAT,No data,ok
 411,Pala 21,Cliente CAMARA TERMICA Host 2,10.117.121.105,No data,No data,NAT,No data,ok
 412,Pala 21,Cliente CAMARA TERMICA Swing,10.117.121.109,No data,No data,NAT,No data,ok
-413,Pala 21,Cliente SKF IMX 1,10.117.121.111,No data,No data,NAT,No data,ok
-414,Pala 21,Cliente SKF IMX 2,10.117.121.112,No data,No data,NAT,No data,ok
+413,Pala 21,Cliente SKF IMX 1,10.117.121.111,cc90.70c1.7200,cc90.70c1.7200,NAT,2024-05-03 21:41:49,ok
+414,Pala 21,Cliente SKF IMX 2,10.117.121.112,cc90.70c1.7200,cc90.70c1.7200,NAT,2024-05-03 21:41:49,ok
 415,Pala 21,Cliente SKF IMX 3,10.117.121.113,No data,No data,NAT,No data,ok
 416,Pala 21,Cliente SKF IMX 4,10.117.121.114,No data,No data,NAT,No data,ok
-417,Pala 21,Cliente PLC Medicion,10.117.121.115,No data,No data,NAT,No data,ok
+417,Pala 21,Cliente PLC Medicion,10.117.121.115,cc90.70c1.7200,cc90.70c1.7200,NAT,2024-05-03 21:41:49,ok
 418,Pala 21,Cliente CAMARA TERMICA Crowd /Propel 2,10.117.121.116,No data,No data,NAT,No data,ok
 419,Pala 21,Cliente CAMARA TERMICA Sala de maquinas,10.117.121.119,No data,No data,NAT,No data,ok
 420,Pala 22,Cisco AP,10.117.115.122,9cd5.7dd5.7512,9cd5.7dd5.7512,No data,No data,ok
@@ -385,9 +386,9 @@
 429,Pala 22,Clente Datalogger MEM Eth0,10.117.122.122,0001.c00c.8834,0001.c00c.8834,No data,No data,ok
 430,Pala 22,Cliente PTX Dispatch/Provision,10.117.123.122,0080.0701.3556,0080.0701.3556,No data,No data,ok
 431,Pala 22,Cliente PLC Medicion,10.117.124.106,No data,No data,No data,No data,ok
-432,Pala 22,Cliente AC800 Centurion,10.117.121.121,No data,No data,NAT,No data,ok
-433,Pala 22,Cliente GUI Centurion,10.117.121.122,No data,No data,NAT,No data,ok
-434,Pala 22,Cliente GUI Centurion,10.117.121.123,No data,No data,NAT,No data,ok
+432,Pala 22,Cliente AC800 Centurion,10.117.121.121,4c42.1e50.eb60,4c42.1e50.eb60,NAT,2024-05-02 21:48:14,ok
+433,Pala 22,Cliente GUI Centurion,10.117.121.122,4c42.1e50.eb60,4c42.1e50.eb60,NAT,2024-05-03 21:41:49,ok
+434,Pala 22,Cliente GUI Centurion,10.117.121.123,4c42.1e50.eb60,4c42.1e50.eb60,NAT,2024-05-03 21:41:49,ok
 435,Pala 18,Cisco AP,10.117.115.180,acf5.e6db.4c58,acf5.e6db.4c58,No data,22/04/2024 15:49,ok
 436,Pala 18,Cisco RO,10.117.116.180,acf5.e6db.4c38,acf5.e6db.4c38,No data,No data,ok
 437,Pala 18,Cliente Dispatch,10.117.123.180,0080.0701.124c,0080.0701.124c,No data,No data,ok
@@ -397,31 +398,31 @@
 441,Pala 19,Cliente Payload,10.117.121.151,0030.643c.03d2,0030.643c.03d2,No data,No data,ok
 442,Pala 19,Cliente Camara ope,10.117.121.152,accc.8e7d.f885,accc.8e7d.f885,No data,No data,ok
 443,Pala 19,Cliente Dispatch,10.117.123.181,0080.0701.6b45,0080.0701.6b45,No data,22/04/2024 15:42,ok
-444,Pala 19,Cliente VIMS,10.117.124.119,No data,No data,No data,No data,ok
+444,Pala 19,Cliente VIMS,10.117.124.119,000a.7511.7cd5,000a.7511.7cd5,No data,2024-04-26 07:44:35,ok
 445,Pala 23,Cisco AP,10.117.115.182,9cd5.7dd4.7502,9cd5.7dd4.7502,No data,No data,ok
 446,Pala 23,Cisco RO,10.117.116.182,4c42.1e50.cc00,4c42.1e50.cc00,No data,No data,ok
 447,Pala 23,Cliente Dispatch,10.117.123.182,0080.0701.3360,0080.0701.3360,No data,25/04/2024 18:20,ok
 448,Pala 23,Cliente VIMS,10.117.124.120,No data,No data,No data,No data,ok
 449,Pala 23,Cliente Camara ope,10.117.126.21,accc.8ed0.1d6b,accc.8ed0.1d6b,No data,No data,ok
-450,Pala 60,Cisco AP,10.117.115.183,No data,No data,No data,No data,ok
+450,Pala 60,Cisco AP,10.117.115.183,No data,No data,No data,2024-05-01 19:09:10,ok
 451,Pala 60,Cisco RO,10.117.116.183,No data,No data,No data,No data,ok
-452,Pala 60,Cisco SW,10.117.114.183,No data,No data,No data,No data,ok
-453,Pala 60,Cliente Dispatch,10.117.123.183,No data,No data,No data,No data,ok
+452,Pala 60,Cisco SW,10.117.114.183,No data,No data,No data,2024-05-01 19:09:10,ok
+453,Pala 60,Cliente Dispatch,10.117.123.183,No data,No data,No data,2024-05-01 19:09:10,ok
 454,Pala 60,Cliente PLE,10.117.124.160,No data,No data,No data,No data,ok
 455,Pala 60,Cliente Camara ope,10.117.126.1,No data,No data,No data,No data,ok
-456,Pala 60,Cliente Receptor GPS1,10.117.126.2,No data,No data,No data,No data,ok
-457,Pala 60,Cliente Receptor GPS2,10.117.126.3,No data,No data,No data,No data,ok
-458,Pala 61,Cisco AP,10.117.115.184,No data,No data,No data,No data,ok
+456,Pala 60,Cliente Receptor GPS1,10.117.126.2,No data,No data,No data,2024-05-01 19:09:10,ok
+457,Pala 60,Cliente Receptor GPS2,10.117.126.3,No data,No data,No data,2024-05-01 19:09:10,ok
+458,Pala 61,Cisco AP,10.117.115.184,No data,No data,No data,2024-05-01 19:09:10,ok
 459,Pala 61,Cisco RO,10.117.116.184,No data,No data,No data,No data,ok
 460,Pala 61,Cisco SW,10.117.114.184,No data,No data,No data,No data,ok
-461,Pala 61,Cliente Dispatch,10.117.123.184,No data,No data,No data,No data,ok
+461,Pala 61,Cliente Dispatch,10.117.123.184,No data,No data,No data,2024-05-01 19:09:10,ok
 462,Pala 61,Cliente PLE,10.117.124.161,No data,No data,No data,No data,ok
-463,Pala 61,Cliente Camara ope,10.117.126.11,No data,No data,No data,No data,ok
-464,Pala 61,Cliente Receptor GPS1,10.117.126.12,No data,No data,No data,No data,ok
+463,Pala 61,Cliente Camara ope,10.117.126.11,No data,No data,No data,2024-05-01 19:09:10,ok
+464,Pala 61,Cliente Receptor GPS1,10.117.126.12,No data,No data,No data,2024-05-01 19:09:10,ok
 465,Pala 61,Cliente Receptor GPS2,10.117.126.13,No data,No data,No data,No data,ok
 466,Aljibe 10,Cisco AP,10.117.115.160,bcc4.93db.5484,bcc4.93db.5484,No data,No data,ok
 467,Aljibe 10,Cisco RO,10.117.116.160,bcc4.93db.5464,bcc4.93db.5464,No data,No data,ok
-468,Aljibe 10,Cliente Dispatch,10.117.123.160,0080.0701.0814,0080.0701.0814,No data,No data,ok
+468,Aljibe 10,Cliente Dispatch,10.117.123.160,No data,No data,No data,2024-05-01 19:09:10,ok
 469,Aljibe 10,Cliente Datalogger MEM Eth0,10.117.122.160,0001.c011.ee12,0001.c011.ee12,No data,No data,ok
 470,Aljibe 10,Cliente VIMS,10.117.124.110,No data,No data,No data,No data,ok
 471,Aljibe 11,Cisco AP,10.117.115.161,No data,No data,No data,No data,ok
@@ -429,9 +430,9 @@
 473,Aljibe 11,Cliente Dispatch,10.117.123.161,0080.0701.1337,0080.0701.1337,No data,No data,ok
 474,Aljibe 11,Cliente Datalogger MEM Eth0,10.117.122.161,0001.c00c.9e3e,0001.c00c.9e3e,No data,No data,ok
 475,Aljibe 11,Cliente VIMS,10.117.124.111,000a.7504.8778,000a.7504.8778,No data,No data,ok
-476,Aljibe 13,Cisco AP,10.117.115.163,003c.108d.18d0,003c.108d.18d0,No data,No data,ok
+476,Aljibe 13,Cisco AP,10.117.115.163,003c.108d.18d0,003c.108d.18d0,No data,2024-05-02 07:05:57,ok
 477,Aljibe 13,Cisco RO,10.117.116.163,003c.108d.18b0,003c.108d.18b0,No data,No data,ok
-478,Aljibe 13,Cliente Dispatch,10.117.123.163,0080.0701.03b1,0080.0701.03b1,No data,No data,ok
+478,Aljibe 13,Cliente Dispatch,10.117.123.163,0080.0701.03b1,0080.0701.03b1,No data,2024-05-02 07:05:57,ok
 479,Aljibe 13,Cliente VIMS,10.117.124.113,000a.7511.7931,000a.7511.7931,No data,No data,ok
 480,Aljibe 14,Cisco AP,10.117.115.164,003c.108d.1b8a,003c.108d.1b8a,No data,No data,ok
 481,Aljibe 14,Cisco RO,10.117.116.164,003c.108d.1b6a,003c.108d.1b6a,No data,No data,ok

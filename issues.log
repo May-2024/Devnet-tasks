@@ -7916,3 +7916,145 @@ TypeError: update_fail_datetime() takes 2 positional arguments but 3 were given
 
 2024-05-03 10:37:27,946 - ERROR - NoneType: None
 
+2024-05-07 09:01:28,413 - ERROR: Error en funcion Main
+2024-05-07 09:01:28,413 - ERROR: Error en funcion Main
+2024-05-07 09:01:28,422 - ERROR: 'client'
+2024-05-07 09:01:28,422 - ERROR: 'client'
+2024-05-07 09:01:28,423 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 79, in main
+    if last['client'] == current['client'] and last['current_mac'] != current["current_mac"]:
+KeyError: 'client'
+
+2024-05-07 09:01:28,423 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 79, in main
+    if last['client'] == current['client'] and last['current_mac'] != current["current_mac"]:
+KeyError: 'client'
+
+2024-05-07 09:03:44,985 - ERROR: Error en funcion Main
+2024-05-07 09:03:44,985 - ERROR: Error en funcion Main
+2024-05-07 09:03:44,986 - ERROR: 'current_mac'
+2024-05-07 09:03:44,986 - ERROR: 'current_mac'
+2024-05-07 09:03:44,986 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 79, in main
+    if last['client'] == current['ip'] and last['current_mac'] != current["current_mac"]:
+KeyError: 'current_mac'
+
+2024-05-07 09:03:44,986 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 79, in main
+    if last['client'] == current['ip'] and last['current_mac'] != current["current_mac"]:
+KeyError: 'current_mac'
+
+2024-05-07 09:29:02,659 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-07 09:29:02,659 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.113.97'
+2024-05-07 09:29:02,659 - ERROR - NoneType: None
+
+2024-05-07 09:29:02,659 - ERROR - NoneType: None
+
+2024-05-07 09:29:56,857 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-07 09:29:56,857 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-07 09:29:56,857 - ERROR - NoneType: None
+
+2024-05-07 09:29:56,857 - ERROR - NoneType: None
+
+2024-05-07 09:30:51,267 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-07 09:30:51,267 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.28.1'
+2024-05-07 09:30:51,267 - ERROR - NoneType: None
+
+2024-05-07 09:30:51,267 - ERROR - NoneType: None
+
+2024-05-07 09:31:46,943 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:31:46,943 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:31:46,943 - ERROR - NoneType: None
+
+2024-05-07 09:31:46,943 - ERROR - NoneType: None
+
+2024-05-07 09:32:41,379 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:32:41,379 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:32:41,379 - ERROR - NoneType: None
+
+2024-05-07 09:32:41,379 - ERROR - NoneType: None
+
+2024-05-07 09:33:40,136 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:33:40,136 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.97'
+2024-05-07 09:33:40,137 - ERROR - NoneType: None
+
+2024-05-07 09:33:40,137 - ERROR - NoneType: None
+
+2024-05-07 09:34:32,406 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:34:32,406 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:34:32,407 - ERROR - NoneType: None
+
+2024-05-07 09:34:32,407 - ERROR - NoneType: None
+
+2024-05-07 09:35:30,001 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:35:30,001 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:35:30,001 - ERROR - NoneType: None
+
+2024-05-07 09:35:30,001 - ERROR - NoneType: None
+
+2024-05-07 09:36:26,435 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:36:26,435 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.93'
+2024-05-07 09:36:26,435 - ERROR - NoneType: None
+
+2024-05-07 09:36:26,435 - ERROR - NoneType: None
+
+2024-05-07 09:37:20,850 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:37:20,850 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:37:20,850 - ERROR - NoneType: None
+
+2024-05-07 09:37:20,850 - ERROR - NoneType: None
+
+2024-05-07 09:38:13,085 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:38:13,085 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:38:13,086 - ERROR - NoneType: None
+
+2024-05-07 09:38:13,086 - ERROR - NoneType: None
+
+2024-05-07 09:39:05,296 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:39:05,296 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:39:05,296 - ERROR - NoneType: None
+
+2024-05-07 09:39:05,296 - ERROR - NoneType: None
+
+2024-05-07 09:40:20,048 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:40:20,048 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.126.89'
+2024-05-07 09:40:20,049 - ERROR - NoneType: None
+
+2024-05-07 09:40:20,049 - ERROR - NoneType: None
+
+2024-05-07 09:40:53,023 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-07 09:40:53,023 - ERROR - No se encontraron las palabras 'Health Check - FW 10.224.26.133'
+2024-05-07 09:40:53,023 - ERROR - NoneType: None
+
+2024-05-07 09:40:53,023 - ERROR - NoneType: None
+
+2024-05-07 09:41:04,405 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-05-07 09:41:04,405 - ERROR - ENTRO AL NETMIKO ERRRO
+2024-05-08 10:49:20,576 - ERROR: Error en funcion Main
+2024-05-08 10:49:20,576 - ERROR: Error en funcion Main
+2024-05-08 10:49:20,585 - ERROR: local variable 'last_data' referenced before assignment
+2024-05-08 10:49:20,585 - ERROR: local variable 'last_data' referenced before assignment
+2024-05-08 10:49:20,586 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 69, in main
+    print(f"de la base de datos: {last_data}")
+UnboundLocalError: local variable 'last_data' referenced before assignment
+
+2024-05-08 10:49:20,586 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 69, in main
+    print(f"de la base de datos: {last_data}")
+UnboundLocalError: local variable 'last_data' referenced before assignment
+
+2024-05-10 14:49:36,079 - ERROR: Error en la funcion CHECK_MAC
+2024-05-10 14:49:36,079 - ERROR: Error en la funcion CHECK_MAC
+2024-05-10 14:49:36,080 - ERROR: name 'database_connection' is not defined
+2024-05-10 14:49:36,080 - ERROR: name 'database_connection' is not defined
+2024-05-10 14:49:36,081 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/check_mac.py", line 6, in check_mac
+    mydb = database_connection()
+NameError: name 'database_connection' is not defined
+
+2024-05-10 14:49:36,081 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/check_mac.py", line 6, in check_mac
+    mydb = database_connection()
+NameError: name 'database_connection' is not defined
+
