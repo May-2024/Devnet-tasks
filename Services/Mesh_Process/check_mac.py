@@ -1,10 +1,10 @@
+
 import logging
 import mysql.connector
 import traceback
 import os
 from dotenv import load_dotenv
 from config import database
-
 
 
 """
@@ -62,30 +62,30 @@ def check_mac():
             data_updated.append(row_dict)
             
         #! DATA TEST    
-        data_updated = [
-            {
-                "id": 353,
-                "ubication": "Pala 10",
-                "device": "Cisco AP",
-                "client": "10.117.115.110",
-                "last_mac": "f01d.2d55.7512",
-                "current_mac": "f01d.2d55.7512",
-                "note": "No data",
-                "last_change_date": "No data",
-                "status": "ok",
-            },
-            {
-                "id": 349,
-                "ubication": "Camion 318",
-                "device": "UMAN",
-                "client": "10.117.126.118",
-                "last_mac": "No data",
-                "current_mac": "f01d.2d55.7512",
-                "note": "No data",
-                "last_change_date": "No data",
-                "status": "ok",
-            },
-        ]
+        # data_updated = [
+        #     {
+        #         "id": 353,
+        #         "ubication": "Pala 10",
+        #         "device": "Cisco AP",
+        #         "client": "10.117.115.110",
+        #         "last_mac": "f01d.2d55.7512",
+        #         "current_mac": "f01d.2d55.7512",
+        #         "note": "No data",
+        #         "last_change_date": "No data",
+        #         "status": "ok",
+        #     },
+        #     {
+        #         "id": 349,
+        #         "ubication": "Camion 318",
+        #         "device": "UMAN",
+        #         "client": "10.117.126.118",
+        #         "last_mac": "No data",
+        #         "current_mac": "f01d.2d55.7512",
+        #         "note": "No data",
+        #         "last_change_date": "No data",
+        #         "status": "ok",
+        #     },
+        # ]
 
         for i, data in enumerate(data_updated):
             if data["note"] == "NAT":
@@ -125,4 +125,4 @@ def check_mac():
         logging.error(traceback.format_exc())
 
 
-check_mac()
+# check_mac()

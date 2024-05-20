@@ -47,7 +47,6 @@ def database_connection():
         logging.error(traceback.format_exc())
         logging.error(e)
 
-
 def status_prtg():
     try:
         mydb = database_connection()
@@ -65,30 +64,30 @@ def status_prtg():
             data.append(row_dict)
 
         #! Data Test
-        data = [
-            {
-                "id": 353,
-                "ubication": "Pala 10",
-                "device": "Cisco AP",
-                "client": "10.117.115.110",
-                "last_mac": "f01d.2d55.7512",
-                "current_mac": "f01d.2d55.7512",
-                "note": "No data",
-                "last_change_date": "No data",
-                "status": "ok",
-            },
-            {
-                "id": 349,
-                "ubication": "Camion 318",
-                "device": "UMAN",
-                "client": "10.117.126.118",
-                "last_mac": "No data",
-                "current_mac": "No data",
-                "note": "No data",
-                "last_change_date": "No data",
-                "status": "ok",
-            },
-        ]
+        # data = [
+        #     {
+        #         "id": 353,
+        #         "ubication": "Pala 10",
+        #         "device": "Cisco AP",
+        #         "client": "10.117.115.110",
+        #         "last_mac": "f01d.2d55.7512",
+        #         "current_mac": "f01d.2d55.7512",
+        #         "note": "No data",
+        #         "last_change_date": "No data",
+        #         "status": "ok",
+        #     },
+        #     {
+        #         "id": 349,
+        #         "ubication": "Camion 318",
+        #         "device": "UMAN",
+        #         "client": "10.117.126.118",
+        #         "last_mac": "No data",
+        #         "current_mac": "No data",
+        #         "note": "No data",
+        #         "last_change_date": "No data",
+        #         "status": "ok",
+        #     },
+        # ]
 
         # Obtiene Id del PRTG
         logging.info("STATUS_PRTG: Actualizando estados PRTG")
@@ -151,4 +150,4 @@ def status_prtg():
         logging.error(traceback.format_exc())
 
 
-status_prtg()
+# status_prtg()
