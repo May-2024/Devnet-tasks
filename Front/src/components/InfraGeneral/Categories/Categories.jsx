@@ -285,7 +285,9 @@ export function Categories() {
               </tr>
               <tr>
                 <td className="td-category-ig">
-                  <Link to="/monitoreo/infraestrucura-general?categoria=lte">LTE</Link>
+                  <Link to="/monitoreo/infraestrucura-general?categoria=lte">
+                    LTE
+                  </Link>
                 </td>
                 <td>{lteUp.length}</td>
                 <td>{lteDown.length}</td>

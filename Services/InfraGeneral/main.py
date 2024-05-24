@@ -69,11 +69,11 @@ def core1():
         
         # Eliminamos del listado la concentradora inalambrica
         data_switches = [sw for sw in data_switches if sw['category'] != 'AP']
-        # data_switches = [
-        #     # {'ip':'10.224.127.2', 'red': 'it', 'name_switch': 'SW CORE CONCE', 'is_eigrp':1, 'is_bgp':1, 'is_ospf': 1},
-        #     # {'ip':'10.224.127.148', 'red': 'it', 'name_switch': 'SW-CORE-OT-CONCE', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 1},
-        #     {'ip':'10.224.127.147', 'red': 'it', 'name_switch': 'SW-CORE-OT-ADMIN', 'is_eigrp':1, 'is_bgp':0, 'is_ospf': 0},
-        # ]
+        data_switches = [
+            # {'ip':'10.224.127.2', 'red': 'it', 'name_switch': 'SW CORE CONCE', 'is_eigrp':1, 'is_bgp':1, 'is_ospf': 1},
+            # {'ip':'10.224.127.148', 'red': 'it', 'name_switch': 'SW-CORE-OT-CONCE', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 1},
+            {'ip':'10.224.126.89', 'red': 'it', 'name_switch': 'SW-CORE-OT-ADMIN', 'is_eigrp':0, 'is_bgp':0, 'is_ospf': 0, 'category':"S2S"},
+        ]
         # print(data_switches)
 
         current_data_neighbors = []
@@ -247,7 +247,6 @@ def get_id_prtg(ip_switch):
     url_objid = os.getenv("URL_PRTG_GET_ID").format(ip=ip_switch)
     response_objid = requests.get(url_objid, verify=False).json()
     objid = response_objid.get("devices", [{'objid':'Not Found'}])
-
     if objid == []:
         objid = 'Not Found'
         return objid

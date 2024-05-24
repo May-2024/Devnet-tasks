@@ -61,7 +61,7 @@ def counter_function(ip_device, signal_strength, snr_level, data):
             fail_snr = mesh_element["fail_snr"]
             fail_time_snr = mesh_element["fail_time_snr"]
             date_last_data = mesh_element["date"]
-             
+
         # Primera Validacion: Estado Dispatch 2 y obtener el elemento de la IP correspondiente
         if "2" in mesh_element["status_dispatch"] and mesh_element["ip"] == ip_device:
             signal_strength = get_number(signal_strength)

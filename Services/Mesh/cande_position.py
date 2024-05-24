@@ -10,7 +10,6 @@ def get_cande_data(eqmt):
 
     conn = pymssql.connect(server=server, user=user, password=password, database=database)
     cursor = conn.cursor(as_dict=True)
-    
     latitud = 99.999
     longitud = 99.999
 
@@ -44,3 +43,5 @@ def get_cande_data(eqmt):
     
     finally:
         conn.close()
+        
+# get_cande_data("P10")

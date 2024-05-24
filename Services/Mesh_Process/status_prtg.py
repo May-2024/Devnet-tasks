@@ -102,7 +102,7 @@ def status_prtg():
 
         for sensor in data:
             ip_client = sensor["client"]
-            if "pala" in sensor["ubication"].lower():
+            if "pala" in sensor["ubication"].lower() and "cisco ap" in sensor["device"].lower():
                 # Si se encuentra el estado 2 entonces que haga la peticion API y valide status dispatch
                 # Si no definir, prtg_status = 'No operando', prtg_id = 0 en la DB
                 api_candelaria = os.getenv("API_STATUS_PALA").format(env=api_env)

@@ -153,7 +153,7 @@ def prtg_data():
             ap_name = netmiko_data["ap_name"]
             snr_level = netmiko_data["snr_level"]
 
-            # ap_longitude, ap_latitude = get_actility_data(mydb, ap_name) #! Descomentar
+            # ap_longitude, ap_latitude = get_actility_data(ap_name) #! Descomentar
             # elem_longitude, elem_latitud = get_cande_data(eqmt_device) #! Descomentar
             # distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
             distance = 0.0  #! Borrar
@@ -164,14 +164,8 @@ def prtg_data():
             fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
             fecha_y_hora = str(fecha_y_hora)
             # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
-            fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
-            
-            now = datetime.datetime.now()
-            fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-            fecha_y_hora = str(fecha_y_hora)
-            # Este query se usa para actualizar la tabla mesh a la cual la API consulta.
-
-
+            # fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
+        
             query = f"""
                 INSERT INTO dcs.mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,

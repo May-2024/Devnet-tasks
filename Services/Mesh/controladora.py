@@ -34,10 +34,10 @@ def get_data_controladora(device_ip):
     
     try:
         data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
-        logging.info(f"OUTPUT: sh wireless client summary detail ipv4 | inc {device_ip}: {data_pala}")
+        # logging.info(f"OUTPUT: sh wireless client summary detail ipv4 | inc {device_ip}: {data_pala}")
         
         output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
-        logging.info(f"OUTPUT: sh wireless client mac-address {data_pala.split()[0]} detail: {output}")
+        # logging.info(f"OUTPUT: sh wireless client mac-address {data_pala.split()[0]} detail: {output}")
 
         signal_strength_pattern = r"Radio Signal Strength Indicator\s*:\s*(-?\d+)\s+dBm"
         signal_noise_pattern = r"Signal to Noise Ratio\s*:\s*(-?\d+)\s+dB"

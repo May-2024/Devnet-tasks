@@ -39,4 +39,4 @@ def reset_base(ip_base):
         logging.error(traceback.format_exc())
         return "Error"
         
-reset_base("10.224.89.10")
+# reset_base("10.224.89.10")
