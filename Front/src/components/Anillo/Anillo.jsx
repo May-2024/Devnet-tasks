@@ -111,7 +111,7 @@ export const Anillo = () => {
       </div>
       <main className={`background-anillo zoom-${zoomLevel}`}>
         <div className="main-anillo-container">
-          <img src="/anillo.png" alt="anillo" />
+          <img src="/anillo2-modified.png" alt="anillo" />
 
           <div className=".main-lights-anillo-container">
             <div className="status-light-anillo-container">
@@ -263,6 +263,34 @@ export const Anillo = () => {
                 <a
                   style={{ color: "black" }}
                   href={`${PRTG_URL}5444&tabid=1`}
+                  target="_blank"
+                >
+                  Gi1/1
+                </a>
+              </p>
+            </div>
+            <div className="status-light-anillo-container">
+              <p // 10.224.114.72
+                title={statusTitle(18452)}
+                className={`status-light-anillo id18452 ${statusLight(18452)}`}
+              >
+                <a
+                  style={{ color: "black" }}
+                  href={`${PRTG_URL}5444&tabid=1`}
+                  target="_blank"
+                >
+                  Gi1/2
+                </a>
+              </p>
+            </div>
+            <div className="status-light-anillo-container">
+              <p // 10.224.114.106
+                title={statusTitle(17408)}
+                className={`status-light-anillo id17408 ${statusLight(17408)}`}
+              >
+                <a
+                  style={{ color: "black" }}
+                  href={`${PRTG_URL}17404&tabid=1`}
                   target="_blank"
                 >
                   Gi1/1
@@ -746,6 +774,34 @@ export const Anillo = () => {
               </p>
             </div>
             <div className="status-light-anillo-container">
+              <p // 10.224.114.80
+                title={statusTitle(18599)}
+                className={`status-light-anillo id18599 ${statusLight(18599)}`}
+              >
+                <a
+                  style={{ color: "black" }}
+                  href={`${PRTG_URL}5582&tabid=1`}
+                  target="_blank"
+                >
+                  Gi1/8
+                </a>
+              </p>
+            </div>
+            <div className="status-light-anillo-container">
+              <p // 10.224.114.89
+                title={statusTitle(15648)}
+                className={`status-light-anillo id15648 ${statusLight(15648)}`}
+              >
+                <a
+                  style={{ color: "black" }}
+                  href={`${PRTG_URL}15644&tabid=1`}
+                  target="_blank"
+                >
+                  Gi1/1
+                </a>
+              </p>
+            </div>
+            <div className="status-light-anillo-container">
               <p // 10.224.114.81
                 title={statusTitle(15589)}
                 className={`status-light-anillo id15589 ${statusLight(15589)}`}
@@ -770,6 +826,20 @@ export const Anillo = () => {
                   target="_blank"
                 >
                   Gi1/2
+                </a>
+              </p>
+            </div>
+            <div className="status-light-anillo-container">
+              <p // 10.224.114.111
+                title={statusTitle(18598)}
+                className={`status-light-anillo id18598 ${statusLight(18598)}`}
+              >
+                <a
+                  style={{ color: "black" }}
+                  href={`${PRTG_URL}18594&tabid=1`}
+                  target="_blank"
+                >
+                  Gi1/1
                 </a>
               </p>
             </div>
