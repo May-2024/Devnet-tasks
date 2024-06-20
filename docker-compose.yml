@@ -96,8 +96,7 @@ services:
     ports:
       - '4000:80'
     restart: always
-  #   environment: Este se define en el archivo .env
-  #   environment: Este se define en el archivo .env
+  # #   environment: Este se define en el archivo .env
 
   # wan:
   #   build:
@@ -171,20 +170,20 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  mesh_process:
-    build:
-      context: Services/Mesh_Process
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
-
-  # groups_prtg:
+  # mesh_process:
   #   build:
-  #     context: Services/Groups_Prtg
+  #     context: Services/Mesh_Process
   #   restart: always
   #   depends_on:
   #     - db
   #   environment:
   #     - ENVIRONMENT=production
+
+  groups_prtg:
+    build:
+      context: Services/Groups_Prtg
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
