@@ -90,7 +90,28 @@ export function MeshProcess() {
             {filteredProcessMesh.map((device) => (
               <tr key={device.id}>
                 <td>{device.ubication}</td>
-                <td>{device.device}</td>
+                <td
+                  className={
+                    device.device === "Cisco AP"
+                      ? device.status_num_clients === "fail"
+                        ? "kpi-red"
+                        : device.status === "fail"
+                        ? "kpi-red"
+                        : ""
+                      : ""
+                  }
+                  title={
+                    device.device === "Cisco AP"
+                      ? device.status_num_clients === "fail"
+                        ? "Este AP reporta más de 12 clientes"
+                        : device.status === "fail"
+                        ? "Este AP reporta clientes pertenecientes a otra ubicación"
+                        : ""
+                      : ""
+                  }
+                >
+                  {device.device}
+                </td>
                 <td
                   className={
                     device.prtg_status.toLowerCase().includes("up")
@@ -116,11 +137,15 @@ export function MeshProcess() {
                 </td>
                 <td>{device.last_mac}</td>
                 <td
-                  className={device.status === "fail" ? "kpi-red" : ""}
+                  className={
+                    device.status === "fail" && device.device !== "Cisco AP"
+                      ? "kpi-red"
+                      : ""
+                  }
                   style={device.status === "fail" ? { cursor: "help" } : {}}
                   title={
-                    device.status === "fail"
-                      ? "El valor de esta MAC se repite en otra Ubicación"
+                    device.status === "fail" && device.device !== "Cisco AP"
+                      ? "El valor de esta MAC pertenece a otra Ubicación"
                       : ""
                   }
                 >
