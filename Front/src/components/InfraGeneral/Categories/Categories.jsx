@@ -71,12 +71,15 @@ export function Categories() {
         const dataCctvDown = [];
         const dataFwItDown = [];
         const dataFwOtDown = [];
-
+        console.log(dataStatusInfGen);
         dataStatusInfGen.upElements.forEach((e) => {
           if (e.name_switch && e.name_switch.includes("CORE")) {
             newCoresUp.push(e);
           }
-          if (e.name_switch && e.name_switch.includes("DIST")) {
+          if (
+            (e.name_switch && e.name_switch.toLowerCase().includes("distri")) ||
+            (e.rol && e.rol.toLowerCase().includes("distri"))
+          ) {
             newDistUp.push(e);
           }
           if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
@@ -118,7 +121,10 @@ export function Categories() {
           if (e.name_switch && e.name_switch.includes("CORE")) {
             newCoresDown.push(e);
           }
-          if (e.name_switch && e.name_switch.includes("DIST")) {
+          if (
+            (e.name_switch && e.name_switch.toLowerCase().includes("distri")) ||
+            (e.rol && e.rol.toLowerCase().includes("distri"))
+          ) {
             newDistDown.push(e);
           }
           if (e.name_switch === "FORTIGATE - ADMINISTRACIÓN") {
