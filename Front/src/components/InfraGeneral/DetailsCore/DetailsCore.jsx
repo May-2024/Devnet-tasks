@@ -31,6 +31,7 @@ export const DetailsCore = () => {
         dataInterfaces.sort((a, b) => (a.status === "Up" ? 1 : -1));
 
         let dataDevicesHealth = await getSystemHealth();
+        console.log(dataDevicesHealth);
         dataDevicesHealth.sort((a, b) => (a.status === "Up" ? 1 : -1));
 
         let dataNeighbors = await getNeighbors();
@@ -121,13 +122,13 @@ export const DetailsCore = () => {
       if (
         element.status === "Up" &&
         element.name.includes("Temperatures") &&
-        parseInt(element.lastvalue) < 50
+        parseInt(element.lastvalue) < 70
       ) {
         element.color = "";
       }
       if (
         (element.name.includes("Temperatures") &&
-          parseInt(element.lastvalue) >= 50) ||
+          parseInt(element.lastvalue) >= 70) ||
         (element.name.includes("Temperatures") &&
           element.status.includes("Down"))
       ) {

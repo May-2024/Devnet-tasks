@@ -102,13 +102,13 @@ export async function useDataInfGen() {
         if (
           element.status === "Up" &&
           element.name.includes("Temperatures") &&
-          parseInt(element.lastvalue) < 50
+          parseInt(element.lastvalue) < 70
         ) {
           upElements.push(element);
         }
         if (
           (element.name.includes("Temperatures") &&
-            parseInt(element.lastvalue) >= 50) ||
+            parseInt(element.lastvalue) >= 70) ||
           (element.name.includes("Temperatures") &&
             element.status.includes("Down"))
         ) {
