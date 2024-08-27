@@ -116,14 +116,14 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  infraestructura-general:
-    build:
-      context: Services/InfraGeneral
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # infraestructura-general:
+  #   build:
+  #     context: Services/InfraGeneral
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
   # dcs-pac:
   #   build:
