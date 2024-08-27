@@ -312,3 +312,57 @@ KeyError: 'id_prtg'
 
 2024-08-27 01:17:41,959 - ERROR - Error con el Cliente 10.225.196.21, 'id_prtg': 15091
 2024-08-27 01:17:41,959 - ERROR - Error en la funcion `get_prtg_data` del archivo `main`
+2024-08-27 12:25:20,216 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 51, in main
+    update_devnet_data(clients_updated)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/db_update_devnet.py", line 25, in update_devnet_data
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/db_update_devnet.py", line 30, in <listcomp>
+    client["cisco_device_ip_adrress"],
+KeyError: 'cisco_device_ip_adrress'
+
+2024-08-27 12:38:59,757 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 52, in main
+    datetime_register(status="ERROR")
+TypeError: datetime_register() missing 1 required positional argument: 'table_name'
+
+2024-08-27 12:38:59,767 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 52, in main
+    datetime_register(status="ERROR")
+TypeError: datetime_register() missing 1 required positional argument: 'table_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'candelaria_clients' in 'where clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/db_update_devnet.py", line 102, in datetime_register
+    devnet_cursor.execute(query)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'candelaria_clients' in 'where clause'
+
+2024-08-27 12:38:59,768 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-08-27 12:38:59,768 - ERROR - 1054 (42S22): Unknown column 'candelaria_clients' in 'where clause'
+2024-08-27 12:40:32,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 52, in main
+    datetime_register(status="ERROR")
+TypeError: datetime_register() missing 1 required positional argument: 'table_name'
+
+2024-08-27 12:40:56,721 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 52, in main
+    datetime_register(status="ERROR")
+TypeError: datetime_register() missing 1 required positional argument: 'system_name'
+
+2024-08-27 13:04:52,371 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/main.py", line 52, in main
+    datetime_register(status="ERROR")
+TypeError: datetime_register() missing 1 required positional argument: 'system_name'
+

@@ -4,6 +4,19 @@ from db_connections import historic_connection
 from datetime import datetime, timedelta
 
 def save_historic_data(data):
+    """
+    Inserta y gestiona datos históricos de dispositivos UPS en la base de datos `historic-devnet`.
+
+    Proceso:
+    - Elimina registros antiguos (mayores a 12 meses) de la base de datos histórica.
+    - Inserta nuevos datos de UPS en la base de datos histórica.
+
+    Parámetros:
+    - data (list): Lista de diccionarios que contienen datos de los dispositivos UPS.
+
+    Manejo de errores:
+    - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
+    """
     # Calcular la fecha límite (12 meses atrás desde hoy)
     twelve_months_ago = datetime.now() - timedelta(days=365)
     twelve_months_ago_str = twelve_months_ago.strftime('%Y-%m-%d %H:%M:%S')

@@ -12,7 +12,22 @@ PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
 
 
 def get_prtg_id(client):
-    #* Obtiene id-prtg (objid) del `device` de la api prtg
+    """
+    Obtiene el ID de PRTG (objid) para un dispositivo desde la API de PRTG.
+
+    Esta función consulta la API de PRTG utilizando la dirección IP del cliente para
+    obtener el ID asociado al dispositivo (objid). Si la consulta no encuentra ningún
+    dispositivo, se asigna 'Not Found' al campo `id_prtg` del cliente. En caso de un
+    error en la solicitud o en la lógica de la función, se asigna 'Error PRTG' al campo `id_prtg`.
+
+    Args:
+        client (dict): Diccionario que contiene los datos del cliente, incluyendo
+                       la dirección IP bajo la clave "ip".
+
+    Returns:
+        dict: El diccionario del cliente con el campo `id_prtg` actualizado con el ID de PRTG,
+              'Not Found' si no se encontró el dispositivo, o 'Error PRTG' en caso de error.
+    """
     try:
         url_prtg_ip = os.getenv('URL_PRTG_IP').format(ip=client["ip"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
         prtg_response = requests.get(url_prtg_ip, verify=False).json()
@@ -32,7 +47,25 @@ def get_prtg_id(client):
         return client
     
 def get_prtg_data(client):
-    #* Obtiene la data del sensor del device de la api prtg
+    """
+    Obtiene los datos del sensor de un dispositivo desde la API de PRTG.
+
+    Esta función consulta la API de PRTG utilizando el ID de PRTG (`id_prtg`) del cliente
+    para obtener información sobre el sensor asociado al dispositivo. Si el `id_prtg`
+    es 'Error PRTG' o 'Not Found', se asignan esos valores a los campos `status_prtg`,
+    `last_up_prtg` y `last_down_prtg` del cliente. Si la consulta no encuentra sensores,
+    se asigna 'Not Found' a esos campos. En caso de un error en la solicitud o en la lógica
+    de la función, se asigna 'Error PRTG' a los mismos campos.
+
+    Args:
+        client (dict): Diccionario que contiene los datos del cliente, incluyendo
+                       el ID de PRTG bajo la clave `id_prtg`.
+
+    Returns:
+        dict: El diccionario del cliente con los campos `status_prtg`, `last_up_prtg`, 
+              y `last_down_prtg` actualizados con la información obtenida de PRTG, 
+              o con valores predeterminados en caso de error o falta de datos.
+    """
     try:
         # Si no hay id_prtg no se puede obtener la informacion necesaria
         if client["id_prtg"] == 'Error PRTG' or client["id_prtg"] == 'Not Found':

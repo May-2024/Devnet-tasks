@@ -39,7 +39,7 @@ def get_data_clients(table_name):
         devnet_cursor = db_connector.cursor()
 
         # Realizar una consulta para leer información de la base de datos
-        query = f"SELECT * FROM dcs.{table_name}"
+        query = f"SELECT * FROM `dcs`.`{table_name}`"
         devnet_cursor.execute(query)
 
         # Obtener los nombres de las columnas
@@ -69,6 +69,8 @@ def get_historic_cisco_data(client):
     proporcionado, asegurando que el campo `device_cisco` no tenga el valor 'Not Found'. 
     Actualiza el diccionario `client` con la información más reciente encontrada o 
     asigna valores predeterminados en caso de no encontrar datos o si ocurre un error.
+    En caso de encontrar el valor desde los datos historicos definira la propiedad
+    `data_backup` = True, de lo contrario `data_backup` = False.
     
     Parámetros:
         client (dict): Diccionario que contiene la información del cliente, 

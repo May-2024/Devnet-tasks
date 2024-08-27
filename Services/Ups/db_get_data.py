@@ -4,7 +4,26 @@ import traceback
 from db_connections import devnet_connection
 
 def get_data(table_name):
-    #* Funcion para obtener los datos actuales de las UPS
+    """
+    Obtiene los datos actuales de una tabla específica en la base de datos `dcs`.
+
+    Proceso:
+    - Establece una conexión con la base de datos de producción.
+    - Realiza una consulta SQL para obtener todos los registros de la tabla especificada.
+    - Convierte los resultados en una lista de diccionarios, donde las claves son los nombres de las columnas.
+
+    Parámetros:
+    - table_name (str): Nombre de la tabla desde la cual se desean obtener los datos.
+
+    Retorna:
+    - list: Una lista de diccionarios que contiene los datos de la tabla.
+    - None: Si ocurre un error durante la ejecución o la conexión a la base de datos falla.
+
+    Manejo de errores:
+    - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
+    - Si la conexión a la base de datos falla, se levanta un ValueError.
+    """
+    
     try:
         db_connector = devnet_connection()
         

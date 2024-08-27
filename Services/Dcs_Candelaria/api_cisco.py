@@ -50,6 +50,8 @@ def get_cisco_id(client):
                 client["cisco_id"] = cisco_response['queryResponse']['entityId'][0]['$']
             else:
                 client["cisco_id"] = 'Unknown Error'
+        # A veces por errores inesperados la resues de la API no incluye
+        # queryResponse si no errorDocument
         elif 'errorDocument' in cisco_response:
             client["cisco_id"] = 'Error CISCO'
         else:
@@ -67,7 +69,26 @@ def get_cisco_id(client):
 
     
 def get_cisco_data(client):
-    #* Obtiene la data del sensor del device de la api prtg
+    """
+    Obtiene los datos del dispositivo de un cliente desde la API de Cisco y complementa con información de PRTG.
+
+    Esta función consulta la API de Cisco utilizando el ID de Cisco (`cisco_id`) del cliente para obtener detalles
+    sobre el puerto, estado, nombre del dispositivo, y dirección IP asociada. Si el `cisco_id` es 'Not Found' o
+    'Error CISCO', se intenta recuperar datos históricos utilizando la función `get_historic_cisco_data`.
+    Además, la función consulta la API de PRTG para obtener el estado del dispositivo relacionado y su alcanzabilidad.
+    
+    En caso de que ocurra una excepción durante la ejecución, se asignan los valores 'Error CISCO' a las claves 
+    `port_cisco`, `status_cisco`, `device_cisco`, `device_ip_cisco` y `reachability_cisco` del cliente. También se
+    asigna el valor 'false' a la clave `data_backup`. Los errores son registrados en los logs para facilitar 
+    la depuración.
+
+    Parámetros:
+        client (dict): Diccionario que contiene los datos del cliente, incluyendo el ID de Cisco bajo la clave `cisco_id`.
+
+    Returns:
+        dict: El diccionario del cliente actualizado con los datos obtenidos de Cisco y PRTG, 
+              o con valores predeterminados en caso de error o falta de datos.
+    """
     try:
         if client["cisco_id"] == "Not Found" or client["cisco_id"] == "Error CISCO":
             client_data_backup = get_historic_cisco_data(client)
@@ -81,9 +102,9 @@ def get_cisco_data(client):
             client["port_cisco"] = cisco_client_data.get('clientInterface', 'Not Found')
             client["status_cisco"] = cisco_client_data.get('status', 'Not Found')
             client["device_cisco"] = cisco_client_data.get('deviceName', 'Not Found')
-            client["cisco_device_ip_adrress"] = cisco_client_data.get('deviceIpAddress', {}).get('address', 'Not Found')
+            client["device_ip_cisco"] = cisco_client_data.get('deviceIpAddress', {}).get('address', 'Not Found')
 
-            prtg_device_ip_url = os.getenv('URL_PRTG_IP').format(ip=client["cisco_device_ip_adrress"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
+            prtg_device_ip_url = os.getenv('URL_PRTG_IP').format(ip=client["device_ip_cisco"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
             prtg_device_ip_response = requests.get(prtg_device_ip_url, verify=False).json()
             devices_list = prtg_device_ip_response.get('devices', [])
             prtg_device_id = devices_list[0].get('objid', 'Not Found') if devices_list else 'Not Found'
@@ -92,7 +113,7 @@ def get_cisco_data(client):
             prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
             client["status_device_cisco"] = prtg_device_status_response.get('sensors', [{}])[0].get('status', 'Not Found')
             
-            cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=client["cisco_device_ip_adrress"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
+            cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=client["device_ip_cisco"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
             cisco_device_ip_response = requests.get(cisco_device_ip_url, verify=False).json()
             count = cisco_device_ip_response.get('queryResponse', {}).get('@count', 0)
 
@@ -108,15 +129,17 @@ def get_cisco_data(client):
 
         
     except Exception as e:
-        # client["status_prtg"] = "Error PRTG"
-        # client["last_up_prtg"] = "Error PRTG"
-        # client["last_down_prtg"]= "Error PRTG"
+        client["port_cisco"] = "Error CISCO"
+        client["status_cisco"] = "Error CISCO"
+        client["device_cisco"]= "Error CISCO"
+        client["reachability_cisco"] = "Error CISCO"
+        client["device_ip_cisco"] = "Error CISCO"
+        client["data_backup"]= "false"
         logging.error(e)
         logging.error(traceback.format_exc())
-        # logging.error(f'Error con el Cliente {client["ip"]}')
-        # logging.error("Error en la funcion `get_prtg_id` del archivo `main`")
-        # return client
-        pass
+        logging.error(f'Error con el Cliente {client["ip"]}')
+        logging.error("Error en la funcion `get_cisco_data` del archivo `api_cisco`")
+        return client
     
 # client = {"ip": "10.225.196.21", 'cisco_id': '1321377572'}
 # response = get_cisco_data(client)

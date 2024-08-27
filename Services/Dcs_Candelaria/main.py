@@ -15,17 +15,15 @@ from db_get_data import get_data_clients
 from api_cisco import get_cisco_id, get_cisco_data
 from api_prtg import get_prtg_id, get_prtg_data
 from db_insert_historic import save_historic_data
-from db_update_devnet import update_devnet_data
+from db_update_devnet import update_devnet_data, datetime_register
 
-# Importamos las credenciales
 load_dotenv()
 
 def main():
     try:
 
-        # Obtenemos los datos de los Clientes de la BD
+        # Obtenemos los datos de los Clientes desde la BD
         clients = get_data_clients(table_name="candelaria_clients")
-        # print(clients)
         if clients is None:
             raise ValueError(
                 "No se pudo establecer la conexión con la base de datos: el conector es None."
@@ -37,22 +35,21 @@ def main():
             logging.info(f'Procesando Cliente # {counter} de {len(clients)}: {client["ip"]}')
             counter += 1
         
-            client = get_prtg_id(client)
-            # print(f"get_prtg_id {client}")
-            client = get_prtg_data(client)
-            # print(f"get_prtg_data {client}")
-            client = get_cisco_id(client)
-            # print(f"get_cisco_id {client}")
-            client = get_cisco_data(client)
-            # print(f"get_cisco_data {client}")
-            clients_updated.append(client)
+            client = get_prtg_id(client) # Obtenemos Id de la API PRTG
+            client = get_prtg_data(client) # Consultamos la data de la API PRTG
+            client = get_cisco_id(client) # Obtenemos Id de la API CISCO
+            client = get_cisco_data(client) # Consultamos la data de la API CISCO
+            
             now = datetime.datetime.now()
             now_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
             now_datetime = str(now_datetime)
             client["datetime"] = now_datetime
+            
+            clients_updated.append(client)
+            
         save_historic_data(clients_updated)
         update_devnet_data(clients_updated)
-            
+        datetime_register(system_name="candelaria_clients",status="OK")
         logging.info("Ciclo finalizado con Exito!")
                     
     except Exception:
@@ -60,9 +57,8 @@ def main():
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        # devnet_cursor.execute(f"INSERT INTO dcs.fechas_consultas_clientes (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
-        # db_connector.commit()
-        # devnet_cursor.close()
+        datetime_register(system_name="candelaria_clients",status="ERROR")
+
 
                   
 # def bucle(scheduler):

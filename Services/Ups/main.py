@@ -14,7 +14,25 @@ from db_update_devnet import update_devnet_data, datetime_register
 
 
 def main():
+    """
+    Función principal que procesa datos de dispositivos UPS obtenidos desde una base de datos.
+    Realiza solicitudes a la API de PRTG para obtener información sobre el estado de cada UPS
+    y actualiza los datos en las bases de datos de históricos y de producción.
 
+    Proceso:
+    - Obtiene la lista de UPS desde la base de datos.
+    - Por cada UPS, realiza consultas a la API de PRTG para obtener datos relevantes.
+    - Si la información no está disponible, asigna valores por defecto.
+    - Almacena los datos procesados en la base de datos histórica y actualiza la base de datos de producción.
+    - Registra la fecha y hora de la última consulta exitosa.
+
+    Manejo de errores:
+    - Si ocurre un error durante la ejecución, se captura, se registra en los logs y se actualiza 
+      el estado del sistema a "ERROR".
+
+    Raises:
+        ValueError: Si la conexión con la base de datos falla.
+    """
     try:
         # Obtenemos los datos de las UPS de la BD
         upsList = get_data(table_name="ups")
@@ -131,7 +149,7 @@ def main():
             data_for_update
         )  # Actualiza la informacion de la BD de produccion
         datetime_register(
-            status="OK"
+            system_name="ups", status="OK"
         )  # Actualiza el datetime y status de la ultima consulta del sistema
 
         logging.info("Ciclo finalizado con exito!")
@@ -142,7 +160,7 @@ def main():
             f"Error en la funcion `ups` en el archivo `main` con la ups con IP {ip}"
         )
         logging.error(e)
-        datetime_register(status="ERROR")
+        datetime_register(system_name="ups", status="ERROR")
 
 
 def bucle(scheduler):
