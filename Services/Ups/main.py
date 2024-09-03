@@ -141,16 +141,14 @@ def main():
                     ups["uptime"] = uptime
                     ups["datetime"] = ups_datetime
                     data_for_update.append(ups)
+                    
+        devnet_bd_response = update_devnet_data(data_for_update)
+        historic_bd_response = save_historic_data(data_for_update)
 
-        save_historic_data(
-            data_for_update
-        )  # Inserta lineas nuevas en la BD para historicos
-        update_devnet_data(
-            data_for_update
-        )  # Actualiza la informacion de la BD de produccion
-        datetime_register(
-            system_name="ups", status="OK"
-        )  # Actualiza el datetime y status de la ultima consulta del sistema
+        if devnet_bd_response is True and historic_bd_response is True:
+            datetime_register(system_name="ups", status="OK")
+        else:
+            datetime_register(system_name="ups", status="ERROR")
 
         logging.info("Ciclo finalizado con exito!")
 

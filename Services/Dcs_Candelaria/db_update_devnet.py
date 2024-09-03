@@ -72,6 +72,8 @@ def update_devnet_data(data):
         db_connector.commit()
 
         db_connector.close()
+        
+        return True
 
     except Exception as e:
         logging.error(traceback.format_exc())
@@ -79,7 +81,10 @@ def update_devnet_data(data):
         logging.error(
             "Error en la función `update_devnet_data` en el archivo `db_update_devnet`"
         )
+        
+        return False
         datetime_register(system_name="candelaria_clients",status="ERROR")
+        
 
 
 def datetime_register(system_name, status):

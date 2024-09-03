@@ -47,9 +47,14 @@ def main():
             
             clients_updated.append(client)
             
-        save_historic_data(clients_updated)
-        update_devnet_data(clients_updated)
-        datetime_register(system_name="candelaria_clients",status="OK")
+        devnet_bd_response = update_devnet_data(clients_updated)
+        historic_bd_response = save_historic_data(clients_updated)
+
+        if devnet_bd_response is True and historic_bd_response is True:
+            datetime_register(system_name="candelaria_clients", status="OK")
+        else:
+            datetime_register(system_name="candelaria_clients", status="ERROR")
+
         logging.info("Ciclo finalizado con Exito!")
                     
     except Exception:

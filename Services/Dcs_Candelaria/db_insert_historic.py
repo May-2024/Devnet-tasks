@@ -99,8 +99,12 @@ def save_historic_data(data):
         db_connector.commit()
 
         db_connector.close()
+        
+        return True
 
     except Exception as e:
         logging.error(traceback.format_exc())
         logging.error("Error en la función `save_historic_data` en el archivo `db_insert_historic`")
         logging.error(e)
+
+        return False

@@ -62,7 +62,7 @@ def main():
         else:
             datetime_register(system_name="vpn_candelaria", status="ERROR")
 
-        logging.info("Datos actualizados exitosamente!")
+        logging.info("Ciclo finalizado con Exito!")
 
     except Exception as e:
         datetime_register(system_name="vpn_candelaria", status="ERROR")

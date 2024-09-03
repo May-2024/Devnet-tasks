@@ -1,72 +1,28 @@
 import requests
-import warnings
 import os
 import datetime
 import time
 import calendar
-import mysql.connector
 import logging
 import traceback
 import sched
+import logger_config
 from config import database
 from dotenv import load_dotenv
+from db_get_data import get_data
+from api_prtg import get_data_interfaces
 
-
-warnings.filterwarnings("ignore", message="Unverified HTTPS request")
-
-logging.basicConfig(level=logging.INFO, format="%(message)s")
-file_handler = logging.FileHandler("issues.log")
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(logging.Formatter("%(message)s"))
-logging.getLogger().addHandler(file_handler)
-
-load_dotenv()
-env = os.getenv("ENVIRONMENT")
-
-def database_connection():
-    try:
-        if env == "local":
-            mydb = mysql.connector.connect(
-                host=database["local"]["DB_HOST"],
-                user=database["local"]["DB_USER"],
-                password=database["local"]["DB_PASSWORD"],
-                database=database["local"]["DB_DATABASE"],
-            )
-
-        else:
-            mydb = mysql.connector.connect(
-                host=database["production"]["DB_HOST"],
-                user=database["production"]["DB_USER"],
-                password=database["production"]["DB_PASSWORD"],
-                database=database["production"]["DB_DATABASE"],
-            )
-        return mydb
-
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos")
-        logging.error(traceback.format_exc())
-        logging.error(e)
 
 
 def status_interfaces():
 
     try:
-        mydb = database_connection()
-        cursor = mydb.cursor()
-        query = "SELECT * FROM data_anillo"
-        cursor.execute(query)
+        # Obtenemos la informacion fija de la BD de DevNet
+        data_anillo = get_data(table_name="anillo_opit")
 
-        column_names = [column[0] for column in cursor.description]
-
-        # Convertir los resultados a una lista de diccionarios
-        data_anillo = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names)):
-                row_dict[column_names[i]] = row[i]
-            data_anillo.append(row_dict)
-            
+        # Obtenemos la data de la API de PRTG   
         data_interfaces = get_data_interfaces(data_anillo) 
+        
         for interface in data_interfaces:
             prtg_id = interface["objid"]
             status = interface["status"]

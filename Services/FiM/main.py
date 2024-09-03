@@ -1,25 +1,16 @@
 import requests
-import warnings
 import os
 import datetime
 import time
-import calendar
-import mysql.connector
 import logging
 import traceback
 import sched
+import logger_config
 from dotenv import load_dotenv
 from reset_base import reset_base
 from save_register import save_down_register, update_status_base, database_connection
+from db_update_devnet import datetime_register
 
-
-warnings.filterwarnings("ignore", message="Unverified HTTPS request")
-
-logging.basicConfig(level=logging.INFO, format="%(message)s")
-file_handler = logging.FileHandler("issues.log")
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(logging.Formatter("%(message)s"))
-logging.getLogger().addHandler(file_handler)
 
 load_dotenv()
 env = os.getenv("ENVIRONMENT")
@@ -69,20 +60,14 @@ def check_fim():
                         break
                     save_down_register(base)
                     
-        mydb = database_connection()
-        cursor = mydb.cursor()
-        now = datetime.datetime.now()
-        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-        fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fim (ultima_consulta, estado) VALUES ('{fecha_y_hora}', '{general_status}')")
-        mydb.commit()
-        cursor.close()
-        logging.info("Terminado")
+        datetime_register(system_name="base_fim", status="OK")
+        logging.info("Ciclo finalizado con Exito!")
                     
     except Exception as e:
         logging.error(f"Error en la funcion principal - {base['name']}")
         logging.error(traceback.format_exc())
         logging.error(e)
+        datetime_register(system_name="base_fim", status="ERROR")
 
 
 def bucle(scheduler):
