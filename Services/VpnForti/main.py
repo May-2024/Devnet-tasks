@@ -1,121 +1,80 @@
-import mysql.connector, time, sched, datetime, os
-from netmiko import ConnectHandler
-from dotenv import load_dotenv
-from config import database
+import time
+import sched
 import logging
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-file_handler = logging.FileHandler('issues.log')
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-logging.getLogger().addHandler(file_handler)
-
-load_dotenv()
-env = os.getenv('ENVIRONMENT')
-
-if env == 'local':
-    mydb = mysql.connector.connect(
-        host=database['local']['DB_HOST'],
-        user=database['local']['DB_USER'],
-        password=database['local']['DB_PASSWORD'],
-        database=database['local']['DB_DATABASE']
-    )
-else:
-    mydb = mysql.connector.connect(
-        host=database['production']['DB_HOST'],
-        user=database['production']['DB_USER'],
-        password=database['production']['DB_PASSWORD'],
-        database=database['production']['DB_DATABASE']
-    )
-
-cursor = mydb.cursor()
+import logger_config
+from datetime import datetime
+from get_fw_data import get_users_data
+from format_data import format_data_funct
+from db_update_devnet import update_devnet_data, datetime_register
+from db_insert_historic import save_historic_data
 
 
-def get_users_data(output):
+
+def main():
+
+    # Esta es la informacion de los FW donde los usuarios se conectan mediante VPN
+    fw_data = [
+        {"host": "10.224.126.89", "fw": 1},
+        {"host": "10.224.126.93", "fw": 2},
+        {"host": "10.224.126.97", "fw": 3},
+    ]
+
     try:
-        now = datetime.datetime.now()
-        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-        fecha_y_hora = str(fecha_y_hora)
-        
-        lines = output.splitlines()
-        data = []
-        for line in lines:
-            user_data = line.split()
-            if len(user_data) > 2:
-                email = user_data[1]
-                ip_lan = user_data[6]
-                ip_origin = user_data[3]
-                duration = int(user_data[4])
-                duration = int(duration / 60)
-                user_dict = {'email': email, 'ip_lan': ip_lan, 'ip_origin': ip_origin, 'duration': duration}
-                data.append(user_dict)
-        return data
-    except Exception as e:
-        logging.exception(e)
-        cursor.execute(f"INSERT INTO fechas_consultas_vpn (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
-        mydb.commit()
-        return []
+        final_data = []
 
-def get_users_list(Hostname, table):
-    try:
-        now = datetime.datetime.now()
-        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-        fecha_y_hora = str(fecha_y_hora)
-        
-        USER = os.getenv('NETMIKO_USER')
-        PASSWORD = os.getenv('NETMIKO_PASSWORD')
-        logging.info(f'Corriendo : {table}' )
-
-        network_device_list = {
-            "host": Hostname,
-            "username": USER,
-            "password": PASSWORD,
-            "device_type": "fortinet",
-            "port": 2221,
-            "timeout": 180,
-        }
-
-        net_connect = ConnectHandler(**network_device_list)
-        output = net_connect.send_command("execute vpn sslvpn list tunnel")
-        net_connect.disconnect()
-        output = output.split("\n", 2)[2]
-        data = get_users_data(output)
-
-        for user in data:
-            email = user['email']
-            ip_lan = user['ip_lan']
-            ip_origin = user['ip_origin']
-            duration = user['duration']
-
-            query = f"INSERT INTO dcs.{table} (email, ip_lan, ip_origin, duration, datetime) "
-            values = f"VALUES ('{email}', '{ip_lan}', '{ip_origin}', '{duration}', '{fecha_y_hora}')"
-            cursor.execute(query + values)
-            mydb.commit()
-
-        num_users = len(data)
-        cursor.execute(f"UPDATE dcs.vpn_number_users SET num_users = '{num_users}' WHERE vpn = '{table}'")
-        mydb.commit()
-
-        if table == 'vpn_3':
-            logging.info("entro al if para guarda fecha")
-            cursor.execute(f"INSERT INTO fechas_consultas_vpn (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
-            mydb.commit()
+        # Para cada FW en fw_data realizamos:
+        for firewall in fw_data:
+            host = firewall["host"]
+            fw = firewall["fw"]
             
-        logging.info('Datos guardados correctamente')
-        
+            logging.info(f"Obteniendo datos del FW: {fw}")
+
+            # Obtenemos las informacion de los usuarios conectados a la VPN
+            users_data = get_users_data(host)
+
+            # Si no se obtuvieron datos guardamos  un solo usuario con datos de error
+            # para mostrar en la UI que dicho FW no arrojo respuesta
+            if users_data is None:
+                error_dict = {
+                    "email": "Error DevNet",
+                    "ip_lan": "Error DevNet",
+                    "ip_origin": "Error DevNet",
+                    "duration": 0,
+                    "fw": fw,
+                    "datetime": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
+                }
+
+                final_data.append(error_dict)
+                logging.error(f"No se obtuvieron datos del FW: {fw}")
+                continue
+
+            # Formateamos la informacion obtenida en la funcion `get_users_data`
+            data_formated = format_data_funct(users_data, fw)
+
+            # Agregamos la data formateada a final_data
+            final_data.extend(data_formated)
+
+        devnet_bd_response = update_devnet_data(final_data)
+        historic_bd_response = save_historic_data(final_data)
+
+        if devnet_bd_response is True and historic_bd_response is True:
+            datetime_register(system_name="vpn_candelaria", status="OK")
+        else:
+            datetime_register(system_name="vpn_candelaria", status="ERROR")
+
+        logging.info("Datos actualizados exitosamente!")
+
     except Exception as e:
+        datetime_register(system_name="vpn_candelaria", status="ERROR")
         logging.exception(e)
-        cursor.execute(f"INSERT INTO fechas_consultas_vpn (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
-        mydb.commit()
+
 
 def bucle(scheduler):
-    get_users_list("10.224.126.89", "vpn_1")
-    get_users_list("10.224.126.93", "vpn_2")
-    get_users_list("10.224.126.97", "vpn_3")
+    main()
     scheduler.enter(300, 1, bucle, (scheduler,))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     s = sched.scheduler(time.time, time.sleep)
     s.enter(0, 1, bucle, (s,))
     s.run()
