@@ -11,7 +11,7 @@ import mysql.connector
 from dotenv import load_dotenv
 from config import database
 from db_connections import devnet_connection
-from db_get_data import get_data_clients
+from db_get_data import get_data
 from api_cisco import get_cisco_id, get_cisco_data
 from api_prtg import get_prtg_id, get_prtg_data
 from db_insert_historic import save_historic_data
@@ -23,7 +23,7 @@ def main():
     try:
 
         # Obtenemos los datos de los Clientes desde la BD
-        clients = get_data_clients(table_name="candelaria_clients")
+        clients = get_data(table_name="candelaria_clients")
         if clients is None:
             raise ValueError(
                 "No se pudo establecer la conexión con la base de datos: el conector es None."

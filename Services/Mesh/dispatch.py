@@ -2,6 +2,23 @@ import pymssql, os
 from dotenv import load_dotenv
 
 def get_data_dispatch(eqmt):
+    """
+    Obtiene el estado de despacho y el nombre del operador para un equipo específico desde la base de datos.
+
+    La función se conecta a una base de datos MSSQL utilizando las credenciales y parámetros de conexión 
+    obtenidos desde un archivo `.env`. Realiza una consulta para recuperar los datos de los equipos, 
+    buscando coincidencias con el equipo especificado en `eqmt`. Si se encuentra el equipo, devuelve 
+    su estado de despacho y el nombre del operador. Si no se encuentra, devuelve 'Not Found' para ambos.
+
+    Args:
+        eqmt (str): El identificador del equipo que se está buscando.
+
+    Returns:
+        tuple: Contiene dos cadenas:
+            - status_dispatch: El estado de despacho del equipo y el nombre asociado. 
+                               Retorna 'Not Found' si no se encuentra.
+            - operador: El nombre del operador asociado al equipo. Retorna 'Not Found' si no se encuentra.
+    """
     
     load_dotenv()
     HOST = os.getenv('SERVER_CONTROLADORA')

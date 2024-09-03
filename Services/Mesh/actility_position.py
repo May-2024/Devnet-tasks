@@ -4,69 +4,61 @@ import traceback
 import os
 from config import database
 from dotenv import load_dotenv
+from db_connections import devnet_connection
 
 load_dotenv()
 env = os.getenv("ENVIRONMENT")
 
 
-def database_connection():
-    try:
-        if env == "local":
-            mydb = mysql.connector.connect(
-                host=database["local"]["DB_HOST"],
-                user=database["local"]["DB_USER"],
-                password=database["local"]["DB_PASSWORD"],
-                database=database["local"]["DB_DATABASE"],
-            )
-        else:
-            mydb = mysql.connector.connect(
-                host=database["production"]["DB_HOST"],
-                user=database["production"]["DB_USER"],
-                password=database["production"]["DB_PASSWORD"],
-                database=database["production"]["DB_DATABASE"],
-            )
-        print("exito")
-        return mydb
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos")
-        logging.error(traceback.format_exc())
-        logging.error(e)
-
-
-mydb = database_connection()
-
-
 def get_actility_data(ap_name):
+    """
+    Obtiene los datos de latitud y longitud de un dispositivo basado en su nombre de punto de acceso (AP) desde la base de datos.
+
+    Esta función consulta la base de datos `devnet` para obtener la latitud y longitud de un
+    dispositivo que coincida con el nombre de punto de acceso proporcionado. Si el dispositivo
+    no se encuentra o si los valores de latitud y longitud son 0.0, devuelve coordenadas
+    predeterminadas (99.999, 99.999). En caso de error, también devuelve estas coordenadas
+    predeterminadas y registra la excepción en los logs.
+
+    Args:
+        ap_name (str): Nombre del punto de acceso del dispositivo.
+
+    Returns:
+        tuple: Una tupla que contiene la latitud y la longitud del dispositivo. Si no se
+        encuentran datos o en caso de error, devuelve (99.999, 99.999).
+    """
     try:
-        logging.info(f"Nombre del AP: {ap_name}")
-        cursor = mydb.cursor()
+        db_connector = devnet_connection()
+        devnet_cursor = db_connector.cursor()
         query = f"SELECT * FROM dcs.data_mesh_actility WHERE name = '{ap_name}'"
-        cursor.execute(query)
-        
+        devnet_cursor.execute(query)
+
         # Lee todas las filas para asegurarse de que no queden resultados sin leer
-        rows = cursor.fetchall()
+        rows = devnet_cursor.fetchall()
         if not rows:
-            mydb.commit()
+            db_connector.commit()
             return 99.999, 99.999
-        
+
         # Usa la primera fila
         row = rows[0]
-        column_names = [column[0] for column in cursor.description]
+        column_names = [column[0] for column in devnet_cursor.description]
 
         device = {column_names[i]: row[i] for i in range(len(column_names))}
 
-        mydb.commit()
-        cursor.close()  # Cierra el cursor después de usarlo
+        db_connector.commit()
+        devnet_cursor.close()
 
-        if device['latitude'] == 0.0 or device['longitude'] == 0.0:
+        if device["latitude"] == 0.0 or device["longitude"] == 0.0:
             latitude = 99.999
             longitude = 99.999
             return latitude, longitude
 
-        return device['latitude'], device['longitude']
+        return device["latitude"], device["longitude"]
 
     except Exception as e:
-        logging.error(f"Error funcion `get_actility_data`: {e}")
+        logging.error(traceback.format_exc())
+        logging.error(e)
+        logging.error(f"Error funcion `get_actility_data` en el archivo `actility_position`")
         return 99.999, 99.999
 
 

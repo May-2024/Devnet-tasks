@@ -1,13 +1,27 @@
 import math
 import logging
+import traceback
 
 def get_distance(lon1, lat1, lon2, lat2):
+    """
+    Calcula la distancia en metros entre dos puntos geográficos utilizando la fórmula de Haversine.
+
+    Esta función toma las coordenadas de longitud y latitud de dos puntos y calcula la distancia 
+    en metros entre ellos, asumiendo que ambos puntos están en la superficie de la Tierra. Si 
+    alguna de las coordenadas es 99.999, la función retorna 0 metros. En caso de error, se 
+    registra la excepción en los logs y también se devuelve 0.0.
+
+    Args:
+        lon1 (float): Longitud del primer punto.
+        lat1 (float): Latitud del primer punto.
+        lon2 (float): Longitud del segundo punto.
+        lat2 (float): Latitud del segundo punto.
+
+    Returns:
+        float: La distancia en metros entre los dos puntos. Retorna 0 si alguna de las 
+        coordenadas es inválida (99.999) o si ocurre un error.
+    """
     try:
-        # Verificar si alguno de los parámetros es una cadena (string)
-        # logging.info(f"AP LONGITUD {lon1}")
-        # logging.info(f"AP LATITUD {lat1}")
-        # logging.info(f"PALA LONGITUD {lon2}")
-        # logging.info(f"PALA LATITUD {lat2}")
      
         if lon1 == 99.999 or lat1 == 99.999 or lon2 == 99.999 or lat2 == 99.999:
             # logging.info("Uno de los datos es 99.999, retornando 0 metros")
@@ -32,6 +46,7 @@ def get_distance(lon1, lat1, lon2, lat2):
         return distance
     
     except Exception as e:
-        logging.error("Error en la funcion `get_distance`")
         logging.error(e)
+        logging.error(traceback.format_exc())
+        logging.error("Error en la funcion `get_distance` del archivo `calculate_distance`")
         return 0.0

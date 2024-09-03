@@ -1,8 +1,25 @@
 import pymssql
 import re
 import logging
+import traceback
 
 def get_cande_data(eqmt):
+    """
+    Obtiene las coordenadas GPS (latitud y longitud) de un equipo específico desde la base de datos 'Mina'.
+
+    Esta función se conecta a una base de datos MSSQL para consultar las ubicaciones recientes de equipos.
+    Si el identificador del equipo contiene "P", lo reemplaza por "PALA" antes de realizar la búsqueda. 
+    Utiliza expresiones regulares para extraer las coordenadas de las columnas GPS_Latitud y GPS_Longitud.
+    Si no se encuentra el equipo o si ocurre un error, la función devuelve las coordenadas predeterminadas 
+    (99.999, 99.999).
+
+    Args:
+        eqmt (str): Identificador del equipo para buscar en la base de datos.
+
+    Returns:
+        tuple: Una tupla con las coordenadas (latitud, longitud) del equipo. Si no se encuentra el equipo 
+        o ocurre un error, se retorna (99.999, 99.999).
+    """
     server = "10.224.98.50"
     user = "lundinmining\\svc.cl.can.dashboard"
     password = "T3cn0l0g1a.20309"
@@ -34,8 +51,9 @@ def get_cande_data(eqmt):
         return float(latitud), float(longitud)
 
     except Exception as e:
-        logging.error("Error en la funcion `get_cande_data`")
         logging.error(e)
+        logging.error(traceback.format_exc())
+        logging.error("Error en la funcion `get_cande_data` del archivo `cande_position`")
         latitud = 99.999
         longitud = 99.999
         return latitud, longitud

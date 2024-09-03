@@ -41,7 +41,7 @@ def save_historic_data(data):
 
     # Consulta SQL para insertar datos
     insert_query = """
-    INSERT INTO `candelaria_clients` (
+    INSERT INTO `historic-devnet`.`candelaria_clients` (
         `name`,
         `group`,
         `description`,
