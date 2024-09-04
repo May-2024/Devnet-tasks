@@ -216,7 +216,7 @@ def main():
         fecha_y_hora = str(fecha_y_hora)
 
         cursor.execute(
-            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}' WHERE `id` = 1"
+            f"UPDATE dcs.datetime_systems SET `datetime` = '{fecha_y_hora}', `status` = 'OK' WHERE `system_name` = 'mesh_process'"
         )
         mydb.commit()
         cursor.close()
@@ -230,7 +230,7 @@ def main():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(
-            f"UPDATE dcs.fechas_consultas_mesh_process SET `ultima_consulta` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `id` = 1"
+            f"UPDATE dcs.datetime_systems SET `datetime` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `system_name` = 'mesh_process'"
         )
         mydb.commit()
         cursor.close()

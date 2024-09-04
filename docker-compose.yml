@@ -161,9 +161,9 @@ services:
   #   environment:
   #     - ENVIRONMENT=production
 
-  # anillo_candelaria:
+  # anillo_opit:
   #   build:
-  #     context: Services/Anillo
+  #     context: Services/Anillo_Opit
   #   restart: always
   #   depends_on:
   #     - db

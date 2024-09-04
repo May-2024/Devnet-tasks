@@ -39,8 +39,11 @@ def main():
 
         # Actualizamos registro datetime del sistema
         if result is True:
+            print("Es TRue")
             datetime_register(system_name="anillo_opit", status="OK")
         else:
+            logging.error("Error al guardar en la BD")
+            logging.error(result)
             datetime_register(system_name="anillo_opit", status="ERROR")
             
         logging.info("Ciclo finalizado con exito!")

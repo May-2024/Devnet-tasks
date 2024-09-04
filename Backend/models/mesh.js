@@ -92,7 +92,7 @@ const Mesh = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    date: {
+    datetime: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
