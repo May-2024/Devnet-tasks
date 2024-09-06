@@ -16284,3 +16284,405 @@ TypeError: string indices must be integers
     if mesh_pala["ip"] == ip_client
 TypeError: string indices must be integers
 
+2024-09-05 16:51:24,679 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.20.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_connections.py", line 47, in historic_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.20.0.1' (using password: NO)
+
+2024-09-05 16:51:24,679 - ERROR - Error en la función `historic_connection` en el archivo `db_connections`
+2024-09-05 16:51:24,679 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.20.0.1' (using password: NO)
+2024-09-05 16:51:24,679 - ERROR - `get_historic_cisco_data` - `db_get_data` No se pudo establecer la conexión con la base de datos: el conector es None.
+2024-09-05 16:51:53,387 - ERROR - 1054 (42S22): Unknown column 'device_cisco' in 'where clause'
+2024-09-05 16:54:50,272 - ERROR - 'port_cisco'
+2024-09-05 16:55:02,121 - ERROR - 'port_cisco'
+2024-09-05 17:34:04,845 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 35, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-05 17:34:04,845 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 35, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-05 23:34:17,099 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown database 'dcs'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_insert_historic.py", line 85, in save_historic_data
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database 'dcs'
+
+2024-09-05 23:34:17,100 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-05 23:34:17,100 - ERROR - 1049 (42000): Unknown database 'dcs'
+2024-09-05 23:34:41,103 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown database 'historic_devnet'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_insert_historic.py", line 85, in save_historic_data
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database 'historic_devnet'
+
+2024-09-05 23:34:41,104 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-05 23:34:41,104 - ERROR - 1049 (42000): Unknown database 'historic_devnet'
+2024-09-05 23:54:10,488 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_cisco.py", line 28, in get_cisco_data
+    response_cisco_get_id = requests.get(URL_CISCO_GET_ID, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+
+2024-09-05 23:54:10,488 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 604, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 209, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_cisco.py", line 28, in get_cisco_data
+    response_cisco_get_id = requests.get(URL_CISCO_GET_ID, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+
+2024-09-05 23:54:10,489 - ERROR - HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+2024-09-05 23:54:10,489 - ERROR: HTTPSConnectionPool(host='10.224.116.90', port=443): Max retries exceeded with url: /webacs/api/v4/data/Clients.json?ipAddress=10.225.5.98 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ff718833760>, 'Connection to 10.224.116.90 timed out. (connect timeout=None)'))
+2024-09-05 23:54:10,489 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-05 23:54:10,489 - ERROR: Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-05 23:54:10,489 - ERROR - Ip del emento que causo el error 10.225.5.98
+2024-09-05 23:54:10,489 - ERROR: Ip del emento que causo el error 10.225.5.98
+2024-09-05 23:54:20,528 - ERROR - El servidor CCTV 10.225.0.253 no responde: Time Out
+2024-09-05 23:54:20,528 - ERROR: El servidor CCTV 10.225.0.253 no responde: Time Out
+2024-09-05 23:54:30,541 - ERROR - El servidor CCTV 10.231.0.253 no responde: Time Out
+2024-09-05 23:54:30,541 - ERROR: El servidor CCTV 10.231.0.253 no responde: Time Out
+2024-09-05 23:54:40,552 - ERROR - El servidor CCTV 10.225.11.253 no responde: Time Out
+2024-09-05 23:54:40,552 - ERROR: El servidor CCTV 10.225.11.253 no responde: Time Out
+2024-09-05 23:54:50,564 - ERROR - El servidor CCTV 10.231.10.253 no responde: Time Out
+2024-09-05 23:54:50,564 - ERROR: El servidor CCTV 10.231.10.253 no responde: Time Out
+2024-09-05 23:55:00,575 - ERROR - El servidor CCTV 10.224.116.199 no responde: Time Out
+2024-09-05 23:55:00,575 - ERROR: El servidor CCTV 10.224.116.199 no responde: Time Out
+2024-09-05 23:55:00,576 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 31, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-05 23:55:00,576 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 31, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-06 00:01:36,781 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_insert_historic.py", line 61, in save_historic_data
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 452, in executemany
+    stmt = self._batch_insert(operation, seq_params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 406, in _batch_insert
+    raise InterfaceError(f"Failed executing the operation; {err}") from None
+mysql.connector.errors.InterfaceError: Failed executing the operation; Not all parameters were used in the SQL statement
+
+2024-09-06 00:01:36,781 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-06 00:01:36,781 - ERROR - Failed executing the operation; Not all parameters were used in the SQL statement
+2024-09-06 00:15:46,338 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2024-09-06 00:15:46')' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_insert_historic.py", line 61, in save_historic_data
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2024-09-06 00:15:46')' at line 1
+
+2024-09-06 00:15:46,338 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-06 00:15:46,338 - ERROR - 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2024-09-06 00:15:46')' at line 1
+2024-09-06 11:36:53,714 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: UPDATE command denied to user 'candelaria'@'172.18.0.1' for table 'devices'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1142 (42000): UPDATE command denied to user 'candelaria'@'172.18.0.1' for table 'devices'
+
+2024-09-06 11:36:53,715 - ERROR - 1142 (42000): UPDATE command denied to user 'candelaria'@'172.18.0.1' for table 'devices'
+2024-09-06 11:36:53,715 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-06 11:42:14,957 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 31, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-06 11:42:14,957 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 31, in get_devices_data
+    ip = device["ip"]
+KeyError: 'ip'
+
+2024-09-06 11:42:14,957 - ERROR - 'ip'
+2024-09-06 11:42:14,957 - ERROR: 'ip'
+2024-09-06 11:42:14,957 - ERROR - Error en la función `main` en el archivo `main`
+2024-09-06 11:42:14,957 - ERROR: Error en la función `main` en el archivo `main`
+2024-09-06 11:45:06,556 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_prtg.py", line 129, in get_prtg_data
+    if client["id_prtg"] == 'Error PRTG' or client["id_prtg"] == 'Not Found':
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 37, in get_devices_data
+    prtg_data = get_prtg_data(ip)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_prtg.py", line 161, in get_prtg_data
+    client["status_prtg"] = "Error PRTG"
+TypeError: 'str' object does not support item assignment
+
+2024-09-06 11:45:06,556 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_prtg.py", line 129, in get_prtg_data
+    if client["id_prtg"] == 'Error PRTG' or client["id_prtg"] == 'Not Found':
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/main.py", line 37, in get_devices_data
+    prtg_data = get_prtg_data(ip)
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/api_prtg.py", line 161, in get_prtg_data
+    client["status_prtg"] = "Error PRTG"
+TypeError: 'str' object does not support item assignment
+
+2024-09-06 11:45:06,556 - ERROR - 'str' object does not support item assignment
+2024-09-06 11:45:06,556 - ERROR: 'str' object does not support item assignment
+2024-09-06 11:45:06,557 - ERROR - Error en la función `main` en el archivo `main`
+2024-09-06 11:45:06,557 - ERROR: Error en la función `main` en el archivo `main`
+2024-09-06 11:45:06,557 - ERROR - 10.225.5.98
+2024-09-06 11:45:06,557 - ERROR: 10.225.5.98
+2024-09-06 11:52:14,887 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+2024-09-06 11:52:14,887 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+2024-09-06 11:52:14,887 - ERROR - 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+2024-09-06 11:52:14,887 - ERROR: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+2024-09-06 11:52:14,887 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-06 11:52:14,887 - ERROR: Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-06 11:53:54,103 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+2024-09-06 11:53:54,103 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+
+2024-09-06 11:53:54,103 - ERROR - 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+2024-09-06 11:53:54,103 - ERROR: 1366 (HY000): Incorrect integer value: 'false' for column 'data_backup' at row 1
+2024-09-06 11:53:54,103 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-06 11:53:54,103 - ERROR: Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-06 12:01:55,785 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Camaras/db_update_devnet.py", line 67, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 323, in execute
+    stmt = RE_PY_PARAM.sub(psub, stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 112, in __call__
+    raise ProgrammingError(
+mysql.connector.errors.ProgrammingError: Not enough parameters for the SQL statement
+
+2024-09-06 12:01:55,785 - ERROR - Not enough parameters for the SQL statement
+2024-09-06 12:01:55,785 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`

@@ -142,6 +142,8 @@ def run_mac_detail(mesh_clients_list):
         logging.error("Error en funcion")
         logging.error(e)
         logging.error(traceback.format_exc())
+        
+        
 
 data_test = [
     {

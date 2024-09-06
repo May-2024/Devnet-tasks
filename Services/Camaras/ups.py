@@ -23,22 +23,6 @@ else:
     api_env = "localhost"
 
 
-def database_connection():
-    try:
-        mydb = mysql.connector.connect(
-            host=database[env]["DB_HOST"],
-            user=database[env]["DB_USER"],
-            password=database[env]["DB_PASSWORD"],
-            database=database[env]["DB_DATABASE"],
-        )
-        return mydb
-
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos")
-        logging.error(traceback.format_exc())
-        logging.error(e)
-
-
 def define_ups_status(sw_name):
     try:
         # logging.info("Iniciando actualizacion del estado de UPS para cada dispositivo")
@@ -101,4 +85,4 @@ def get_api_devices_data():
         return None
 
 
-# define_ups_status()
+define_ups_status("CDBUSSWADM-11")
