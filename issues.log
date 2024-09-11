@@ -17068,3 +17068,265 @@ mysql.connector.errors.InterfaceError: Failed executing the operation; Not enoug
 2024-09-09 16:51:33,186 - ERROR - Failed executing the operation; Not enough parameters for the SQL statement
 2024-09-09 16:53:19,371 - ERROR - 1054 (42S22): Unknown column 'fw' in 'where clause'
 2024-09-09 16:53:19,372 - ERROR - Error en la consulta a la BD check_failed_before en el archivo db_get_data
+2024-09-09 18:03:22,301 - ERROR - Error - Funcion core1-interfaces
+2024-09-09 18:03:22,302 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-09 18:03:22,303 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/api_prtg.py", line 54, in get_data_interfaces
+    response_interfaces = requests.get(url_interfaces, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-09 18:04:27,459 - ERROR - Error - Funcion core1-interfaces
+2024-09-09 18:04:27,460 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-09 18:04:27,461 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/api_prtg.py", line 54, in get_data_interfaces
+    response_interfaces = requests.get(url_interfaces, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-09 18:04:56,879 - ERROR - Error - Funcion core1-interfaces
+2024-09-09 18:04:56,879 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-09 18:04:56,879 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/api_prtg.py", line 54, in get_data_interfaces
+    response_interfaces = requests.get(url_interfaces, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-09 18:07:16,935 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/api_prtg.py", line 54, in get_data_interfaces
+    response_interfaces = requests.get(url_interfaces, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-09 18:07:16,935 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-09 18:07:16,936 - ERROR - Error - Funcion interfaces
+2024-09-09 18:08:04,214 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/api_prtg.py", line 55, in get_data_interfaces
+    response_interfaces = requests.get(url_interfaces, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-09 18:08:04,215 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-09 18:08:04,215 - ERROR - Error - Funcion interfaces
+2024-09-09 18:19:41,433 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'id_prtg' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 33, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'id_prtg' at row 1
+
+2024-09-09 18:19:41,433 - ERROR - 1406 (22001): Data too long for column 'id_prtg' at row 1
+2024-09-09 18:19:41,434 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-09 18:59:26,476 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'message' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 126, in update_statusCores
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'message' at row 1
+
+2024-09-09 18:59:26,476 - ERROR - 1406 (22001): Data too long for column 'message' at row 1
+2024-09-09 18:59:26,476 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-09 18:59:29,593 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'message' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 126, in update_statusCores
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'message' at row 1
+
+2024-09-09 18:59:29,593 - ERROR - 1406 (22001): Data too long for column 'message' at row 1
+2024-09-09 18:59:29,593 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-09 18:59:32,715 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'message' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 126, in update_statusCores
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'message' at row 1
+
+2024-09-09 18:59:32,715 - ERROR - 1406 (22001): Data too long for column 'message' at row 1
+2024-09-09 18:59:32,715 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-10 22:08:37,961 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ip_neighbor`, 
+            `neighbor`, 
+            `red`, 
+            `name_s' at line 2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 180, in update_neighbors
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ip_neighbor`, 
+            `neighbor`, 
+            `red`, 
+            `name_s' at line 2
+
+2024-09-10 22:08:37,961 - ERROR - 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ip_neighbor`, 
+            `neighbor`, 
+            `red`, 
+            `name_s' at line 2
+2024-09-10 22:08:37,962 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-10 22:53:32,916 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'asdasd'
+            WHERE ip = '10.224.127.1'' at line 2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 217, in update_via_bgp
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'asdasd'
+            WHERE ip = '10.224.127.1'' at line 2
+
+2024-09-10 22:53:32,916 - ERROR - 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'asdasd'
+            WHERE ip = '10.224.127.1'' at line 2
+2024-09-10 22:53:32,916 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-10 22:53:44,905 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'ip' in 'where clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 217, in update_via_bgp
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'ip' in 'where clause'
+
+2024-09-10 22:53:44,905 - ERROR - 1054 (42S22): Unknown column 'ip' in 'where clause'
+2024-09-10 22:53:44,905 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
