@@ -10,6 +10,7 @@ def ping_host():
     final_data = []
 
     for ip in ipList:
+        logging.info(f"({ip}) Actualizando estado de los servidores CORE")
         try:
             response = subprocess.run(
                 ["ping", "-c", "4", ip], capture_output=True, text=True, timeout=10

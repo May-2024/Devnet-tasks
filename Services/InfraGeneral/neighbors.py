@@ -27,7 +27,7 @@ def process_neighbors(data_switches):
             ip_switch = switch["ip"]
             name_switch = switch["name_switch"]
             red = switch["red"]
-            logging.info(f"{ip_switch} - {name_switch} - {red}")
+            logging.info(f"{ip_switch} - {name_switch} - {red} Actualizando estado de los Neighbors")
 
             data_bgp = bgp_function(switch)
             data_eigrp = eigrp_function(switch)
@@ -53,6 +53,8 @@ def process_neighbors(data_switches):
 
             for neigh in data_neighbors:
                 current_data_neighbors.append(neigh)
+                
+        return current_data_neighbors
 
     except Exception as e:
         logging.error(traceback.format_exc())
@@ -64,6 +66,7 @@ def process_neighbors(data_switches):
 
 def status_neighbor(current_neighbors):
     try:
+        
         dataNeighbor = get_data(table_name="data_neighbors")
 
         for data in dataNeighbor:
@@ -137,12 +140,12 @@ def get_interfaces_descriptions(data_switches):
                     if "Vlan" in entry["interface"]:
                         entry["interface"] = entry["interface"].replace("Vlan", "Vl")
 
-                data_interfaces.append(parsed_output)
+                data_interfaces.extend(parsed_output)
 
             except Exception as e:
-                logging.error("Error en funcion INTERFACES DESCRIPTION")
-                logging.error(e)
                 logging.error(traceback.format_exc())
+                logging.error(e)
+                logging.error("Error en funcion get_interfaces_description en el archivo neighbors")
                 return []
             
     return data_interfaces
@@ -150,7 +153,7 @@ def get_interfaces_descriptions(data_switches):
 def set_interfaces_descriptions(interfaces_description, status_data_neighbors):
     try:
         for element in status_data_neighbors:
-            element["descrip"] = ""
+            element["interface_descrip"] = ""
             if "Vlan" in element["interface"]:
                 element["interface"] = element["interface"].replace("Vlan", "Vl")
 
@@ -167,12 +170,12 @@ def set_interfaces_descriptions(interfaces_description, status_data_neighbors):
                     element["name_switch"] == item["name_switch"]
                     and element["interface"] == item["interface"]
                 ):
-                    element["descrip"] = item["descrip"]
+                    element["interface_descrip"] = item["descrip"]
                     break
                 
         return status_data_neighbors
 
     except Exception as e:
-        logging.error("Error en funcion SET INTERFACES DESCRIPTION")
-        logging.error(e)
         logging.error(traceback.format_exc())
+        logging.error(e)
+        logging.error("Error en funcion set_interfaces_description en el archivo neighbors")

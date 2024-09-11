@@ -24,6 +24,8 @@ def main():
 
         # Eliminamos del listado la concentradora inalambrica
         data_switches = [sw for sw in data_switches if sw["category"] != "AP"]
+        
+        logging.info(f"Iniciando proceso")
 
         # Actualizamos la informacion referente a PRTG
         update_prtg_data(data_switches)
@@ -41,18 +43,14 @@ def main():
         data_interfaces = get_interfaces_descriptions(data_switches)
 
         # Asignamos a cada SW la descripcion de su interface
-        final_data_neighbors = set_interfaces_descriptions(
-            data_interfaces, status_data_neighbors
-        )
-        
+        final_data_neighbors = set_interfaces_descriptions(data_interfaces, status_data_neighbors)
+
         # Guardamos en la BD los datos de los Neighbors
         update_neighbors(final_data_neighbors)
-
-        # data_route = route_function(ip_switch, red, name_switch)
         
         # Obtenemos la informacion del comando ip route
         data_route = route_function(data_switches)
-        
+
         # Actualizamos la BD con Route BGP
         update_via_bgp(data_route)
 

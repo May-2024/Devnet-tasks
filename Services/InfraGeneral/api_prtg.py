@@ -21,6 +21,7 @@ def update_prtg_data(data_switches):
 
         for switch in data_switches:
             ip_switch = switch["ip"]
+            logging.info(f"({ip_switch}) Actualizando datos de Interfaces y System Health")
             name_switch = switch["name_switch"]
             red = switch["red"]
 
@@ -29,7 +30,7 @@ def update_prtg_data(data_switches):
             if id_prtg == "Not Found" or id_prtg == "Error DevNet":
                 data_prtg = {
                     "name": "No Devices Found",
-                    "status": "Down",
+                    "status": "Not Found",
                     "objid": "Not Found",
                     "ip_switch": {ip_switch},
                     "name_switch": name_switch,
@@ -108,7 +109,7 @@ def get_data_interfaces(ip_switch, id_switch, red, name_switch):
         url_interfaces = os.getenv("URL_PRTG_GET_STATUS_INTERFACES").format(
             id_switch=id_switch, username=PRTG_USERNAME, password=PRTG_PASSWORD
         )
-        print(url_interfaces)
+
         response_interfaces = requests.get(url_interfaces, verify=False).json()
         interfaces = response_interfaces.get("sensors", interfaces_notFound)
 

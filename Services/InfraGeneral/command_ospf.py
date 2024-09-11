@@ -27,7 +27,6 @@ def ospf_function(switch, max_attempts=5):
     
     while attempts < max_attempts:
         try:
-            print(attempts)
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')

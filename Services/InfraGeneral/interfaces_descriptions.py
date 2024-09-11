@@ -64,15 +64,3 @@ def get_interfaces_descriptions(switch):
             logging.error(e)
             logging.error(traceback.format_exc())
 
-
-parsed_data = get_interfaces_descriptions(
-    {
-        "ip": "10.224.127.147",
-        "name_switch": "AAA",
-        "is_eigrp": 1,
-        "is_bgp": 0,
-        "is_ospf": 0,
-    }
-)
-print(parsed_data)
-print(len(parsed_data))

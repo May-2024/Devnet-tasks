@@ -1,8 +1,8 @@
 import traceback
 import logging
-from db_connections import devnet_connection
 from datetime import datetime
-
+from db_connections import devnet_connection
+from db_insert_historic import save_historic_neighbors, save_historic_interfaces, save_historic_sys_health
 
 def update_interfaces(data):
 
@@ -39,7 +39,13 @@ def update_interfaces(data):
         db_connector.commit()
 
         db_connector.close()
-        datetime_register(status="OK", system_name="inf_gen_interfaces")
+        
+        response = save_historic_interfaces(data)
+        if response:
+            datetime_register(status="OK", system_name="inf_gen_interfaces")
+        else:
+            datetime_register(status="ERROR", system_name="inf_gen_interfaces")
+        
         return True
 
     except Exception as e:
@@ -89,7 +95,11 @@ def update_sysHealth(data):
 
         db_connector.close()
         
-        datetime_register(status="OK", system_name="inf_gen_sysHealth")
+        response = save_historic_sys_health(data)
+        if response:
+            datetime_register(status="OK", system_name="inf_gen_sysHealth")
+        else:
+            datetime_register(status="ERROR", system_name="inf_gen_sysHealth")
 
         return True
 
@@ -183,8 +193,12 @@ def update_neighbors(data):
         db_connector.commit()
 
         db_connector.close()
-        datetime_register(status="OK", system_name="inf_gen_neighbors")
-        return True
+        
+        response = save_historic_neighbors(data)
+        if response:
+            datetime_register(status="OK", system_name="inf_gen_neighbors")
+        else:
+            datetime_register(status="ERROR", system_name="inf_gen_neighbors")
 
     except Exception as e:
         logging.error(traceback.format_exc())

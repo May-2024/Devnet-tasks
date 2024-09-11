@@ -17330,3 +17330,1509 @@ mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'ip' in 'w
 
 2024-09-10 22:53:44,905 - ERROR - 1054 (42S22): Unknown column 'ip' in 'where clause'
 2024-09-10 22:53:44,905 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 07:56:06,064 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:06,064 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:06,067 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:06,067 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:06,067 - ERROR - Error detallado:
+2024-09-11 07:56:06,067 - ERROR: Error detallado:
+2024-09-11 07:56:06,068 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:06,068 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93fa525990>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:06,068 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:06,068 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:11,988 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:11,988 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:11,988 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:11,988 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:11,988 - ERROR - Error detallado:
+2024-09-11 07:56:11,988 - ERROR: Error detallado:
+2024-09-11 07:56:11,988 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:11,988 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9391d20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:11,988 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:11,988 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:12,019 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:12,019 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:12,020 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:12,020 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:12,020 - ERROR - Error detallado:
+2024-09-11 07:56:12,020 - ERROR: Error detallado:
+2024-09-11 07:56:12,020 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:12,020 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f9390df0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:12,020 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:12,020 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:12,039 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:12,039 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-11 07:56:12,040 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:12,040 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-11 07:56:12,040 - ERROR - Error detallado:
+2024-09-11 07:56:12,040 - ERROR: Error detallado:
+2024-09-11 07:56:12,040 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:12,040 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f93f93907f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-11 07:56:12,040 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 07:56:12,040 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,703 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 38, in update_interfaces
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - 1062 (23000): Duplicate entry '17533' for key 'interfaces.id_prtg'
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,704 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,753 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:29:19,754 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 87, in update_sysHealth
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,513 - ERROR - 1062 (23000): Duplicate entry 'Not Found' for key 'system_health.id_prtg'
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:31:59,514 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 73, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:35:41,625 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,376 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 74, in status_neighbor
+    if neighbor in current_neighbors:
+TypeError: argument of type 'NoneType' is not iterable
+
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - argument of type 'NoneType' is not iterable
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:40:15,378 - ERROR - Error en la funcion `status_neighbor` en el archivo neighbors
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:43:31,112 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 172, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,298 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:47:30,299 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,976 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,977 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:51:39,978 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 170, in set_interfaces_descriptions
+    element["name_switch"] == item["name_switch"]
+TypeError: list indices must be integers or slices, not str
+
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - list indices must be integers or slices, not str
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,090 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:55:47,091 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,769 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/neighbors.py", line 173, in set_interfaces_descriptions
+    element["interface_descrip"] = item["interface_descrip"]
+KeyError: 'interface_descrip'
+
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - 'interface_descrip'
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Error en funcion set_interfaces_description en el archivo neighbors
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:57:49,770 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+TypeError: 'NoneType' object is not iterable
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 08:59:20,666 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 09:41:56,955 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/main.py", line 51, in main
+    update_neighbors(final_data_neighbors)
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 161, in update_neighbors
+    data_tuple = [
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_update_devnet.py", line 170, in <listcomp>
+    neigh["interface_descrip"],
+KeyError: 'interface_descrip'
+
+2024-09-11 10:13:44,683 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'datetime' in 'where clause'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_insert_historic.py", line 42, in save_interfaces
+    historic_cursor.execute(delete_query, (twelve_months_ago_str,))
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'datetime' in 'where clause'
+
+2024-09-11 10:13:44,684 - ERROR - Error en la función `save_interfaces` en el archivo `db_insert_historic`
+2024-09-11 10:13:44,684 - ERROR - 1054 (42S22): Unknown column 'datetime' in 'where clause'
+2024-09-11 10:14:00,547 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown database 'dcs'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/InfraGeneral/db_insert_historic.py", line 45, in save_interfaces
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database 'dcs'
+
+2024-09-11 10:14:00,547 - ERROR - Error en la función `save_interfaces` en el archivo `db_insert_historic`
+2024-09-11 10:14:00,547 - ERROR - 1049 (42000): Unknown database 'dcs'

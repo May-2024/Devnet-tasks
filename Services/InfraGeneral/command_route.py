@@ -18,12 +18,13 @@ def route_function(data_switches):
     final_data = []
     
     for sw in data_switches:
-        ip_switch = sw.get("ip_switch", "")
+        ip_switch = sw.get("ip", "")
         red = sw.get("red", "")
         name = sw.get("name_switch", "")
         
-        if ip_switch == "10.224.127.1" or ip_switch == "10.224.127.2":
+        if ip_switch == "10.224.127.1" or ip_switch == "10.224.127.2" or ip_switch == "10.230.127.1":
             try:
+                logging.info(f"({ip_switch}) Actualizando estado de los route_default")
                 client = paramiko.SSHClient()
                 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                 client.connect(hostname=ip_switch, port=22, username='roadmin', password='C4nd3*2023')
@@ -56,10 +57,10 @@ def route_function(data_switches):
                 data['via_bgp'] = 'true'
                 data['ip_switch'] = ip_switch
                 final_data.append(data)
-
+                
                 
             except Exception as e:
-                logging.error("Error en funcion ROUTE")
+                logging.error("Error en funcion route_function en el archivo command_route")
                 logging.error(e)
                 logging.error(traceback.format_exc())
                 
@@ -71,7 +72,6 @@ def route_function(data_switches):
                 }
                     
                 return data
-        else:
-            return []
 
+    return final_data
 # route_function('10.230.127.1', 'it', 'OJOS')
