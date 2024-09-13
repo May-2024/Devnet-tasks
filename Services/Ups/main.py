@@ -142,13 +142,14 @@ def main():
                     ups["datetime"] = ups_datetime
                     data_for_update.append(ups)
                     
-        devnet_bd_response = update_devnet_data(data_for_update)
+        # devnet_bd_response = update_devnet_data(data_for_update)
         historic_bd_response = save_historic_data(data_for_update)
-
-        if devnet_bd_response is True and historic_bd_response is True:
-            datetime_register(system_name="ups", status="OK")
-        else:
-            datetime_register(system_name="ups", status="ERROR")
+        print(historic_bd_response)
+        # print(historic_bd_response)
+        # if devnet_bd_response is True and historic_bd_response is True:
+        #     datetime_register(system_name="ups", status="OK")
+        # else:
+        #     datetime_register(system_name="ups", status="ERROR")
 
         logging.info("Ciclo finalizado con exito!")
 
@@ -163,7 +164,7 @@ def main():
 
 def bucle(scheduler):
     main()
-    scheduler.enter(10, 1, bucle, (scheduler,))
+    scheduler.enter(900, 1, bucle, (scheduler,))
 
 
 if __name__ == "__main__":

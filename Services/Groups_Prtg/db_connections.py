@@ -11,12 +11,20 @@ env = os.getenv("ENVIRONMENT")
 
 def devnet_connection():
     # * Base de datos DevNet
-
+    environment = ""
+    if env == "production":
+        environment = "PROD"
+    elif env == "development":
+        environment = "DEV"
+    else:
+        environment = "LOCAL"
+        
     try:
-        DB_HOST = os.getenv("DB_HOST")
-        DB_USER = os.getenv("DB_USER")
-        DB_PASSWORD = os.getenv("DB_PASSWORD")
-        DB_DATABASE = os.getenv("DB_DATABASE")
+
+        DB_HOST = os.getenv(f"DB_{environment}_HOST")
+        DB_USER = os.getenv(f"DB_{environment}_USER")
+        DB_PASSWORD = os.getenv(f"DB_{environment}_PASSWORD")
+        DB_DATABASE = os.getenv(f"DB_{environment}_DATABASE")
         
         db_connector = mysql.connector.connect(
             host=DB_HOST,

@@ -41,3 +41,31 @@ def devnet_connection():
         )
         logging.error(error)
         return None
+
+
+def historic_connection():
+    # * Base de datos para guardar registros hasta 12 meses
+
+    try:
+        DB_HOST_HISTORIC = os.getenv("DB_HOST_HISTORIC")
+        DB_USER_HISTORIC = os.getenv("DB_USER_HISTORIC")
+        DB_PASSWORD_HISTORIC = os.getenv("DB_PASSWORD_HISTORIC")
+        DB_DATABASE_HISTORIC = os.getenv("DB_DATABASE_HISTORIC")
+        
+        db_connector = mysql.connector.connect(
+            host=DB_HOST_HISTORIC,
+            user=DB_USER_HISTORIC,
+            password=DB_PASSWORD_HISTORIC,
+            database=DB_DATABASE_HISTORIC,
+            port=33061,
+        )
+
+        return db_connector
+
+    except Exception as error:
+        logging.error(traceback.format_exc())
+        logging.error(
+            "Error en la función `historic_connection` en el archivo `db_connections`"
+        )
+        logging.error(error)
+        return None

@@ -10,39 +10,41 @@ def update_devnet_data(data):
 
     Proceso:
     - Actualiza las filas correspondientes en la base de datos basándose en la dirección IP de cada UPS.
-    
+
     Parámetros:
     - data (list): Lista de diccionarios que contienen datos de los dispositivos UPS.
 
     Manejo de errores:
     - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
     """
-    
+
     # Consulta SQL para actualizar los datos donde el valor de la columna 'ip' coincida
     query = """
-    UPDATE dcs.ups SET 
-        name = %s,
-        status_prtg = %s,
-        status_ups = %s,
-        batery = %s,
-        id_ups = %s,
-        uptime = %s,
-        ubication = %s
+    UPDATE dcs.wan SET 
+        sensor = %s,
+        last_uptime_days = %s,
+        last_uptime_percent = %s,
+        last_down_days = %s,
+        last_down_percent = %s,
+        current_uptime_percent = %s,
+        today_uptime_percent = %s,
+        status = %s
     WHERE ip = %s
     """
 
     data_tuple = [
         (
-            ups["name"],
-            ups["status_prtg"],
-            ups["status_ups"],
-            ups["batery"],
-            ups["id_ups"],
-            ups["uptime"],
-            ups["ubication"],
-            ups["ip"],  # Esto es lo que se utiliza para encontrar la fila a actualizar
+            wan["sensor"],
+            wan["last_uptime_days"],
+            wan["last_uptime_percent"],
+            wan["last_down_days"],
+            wan["last_down_percent"],
+            wan["current_uptime_percent"],
+            wan["today_uptime_percent"],
+            wan["status"],
+            wan["ip"],  # Esto es lo que se utiliza para encontrar la fila a actualizar
         )
-        for ups in data
+        for wan in data
     ]
 
     try:
@@ -54,7 +56,7 @@ def update_devnet_data(data):
         db_connector.commit()
 
         db_connector.close()
-        
+
         return True
 
     except Exception as e:
@@ -64,6 +66,7 @@ def update_devnet_data(data):
         )
         logging.error(e)
         return False
+
 
 def datetime_register(system_name, status):
     """
@@ -79,7 +82,7 @@ def datetime_register(system_name, status):
     Manejo de errores:
     - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
     """
-    
+
     now = datetime.now()
     now_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
     now_datetime = str(now_datetime)

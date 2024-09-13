@@ -48,8 +48,7 @@ def historic_connection():
             host=DB_HOST_HISTORIC,
             user=DB_USER_HISTORIC,
             password=DB_PASSWORD_HISTORIC,
-            database=DB_DATABASE_HISTORIC,
-            port=33061,
+            database=DB_DATABASE_HISTORIC
         )
 
         return db_connector
@@ -61,3 +60,5 @@ def historic_connection():
         )
         logging.error(error)
         return None
+
+historic_connection()

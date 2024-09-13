@@ -8,71 +8,69 @@ def update_devnet_data(data):
     """
     Actualiza los datos en la base de datos para los registros que coincidan con la dirección IP proporcionada.
 
-    Esta función actualiza las columnas `status_prtg`, `lastup_prtg`, `lastdown_prtg`, `device_ip_cisco`, 
-    `device_cisco`, `port_cisco`, `status_cisco`, `reachability_cisco`, `id_prtg`, `status_device_cisco` 
-    y `data_backup` en la tabla `candelaria_clients` de la base de datos `dcs` para las filas que coincidan 
+    Esta función actualiza las columnas `status_prtg`, `lastup_prtg`, `lastdown_prtg`, `device_ip_cisco`,
+    `device_cisco`, `port_cisco`, `status_cisco`, `reachability_cisco`, `id_prtg`, `status_device_cisco`
+    y `data_backup` en la tabla `candelaria_clients` de la base de datos `dcs` para las filas que coincidan
     con la dirección IP (`ip`) proporcionada en cada diccionario dentro de la lista `data`.
 
     En caso de que ocurra una excepción durante la ejecución:
     - Los detalles de la excepción se registran en los logs para su posterior análisis.
-    - Se registra un mensaje de error específico indicando que hubo un problema en la función `update_devnet_data` 
+    - Se registra un mensaje de error específico indicando que hubo un problema en la función `update_devnet_data`
       dentro del archivo `db_update_devnet`.
 
     Args:
-        data (list[dict]): Lista de diccionarios, donde cada diccionario representa los datos de un cliente 
-                           que se van a actualizar en la base de datos. Cada diccionario debe contener las 
-                           siguientes claves: `status_prtg`, `lastup_prtg`, `lastdown_prtg`, `device_ip_cisco`, 
-                           `device_cisco`, `port_cisco`, `status_cisco`, `reachability_cisco`, `id_prtg`, 
+        data (list[dict]): Lista de diccionarios, donde cada diccionario representa los datos de un cliente
+                           que se van a actualizar en la base de datos. Cada diccionario debe contener las
+                           siguientes claves: `status_prtg`, `lastup_prtg`, `lastdown_prtg`, `device_ip_cisco`,
+                           `device_cisco`, `port_cisco`, `status_cisco`, `reachability_cisco`, `id_prtg`,
                            `status_device_cisco`, `data_backup`, y `ip` (clave utilizada en la cláusula WHERE).
 
     Raises:
         Exception: Si ocurre algún error durante la conexión a la base de datos, la ejecución de la consulta,
                    o el cierre de la conexión.
     """
-    
+
+    delete_query = "DELETE FROM dcs.prtg_groups"
+
     query = """
-    UPDATE `dcs`.`candelaria_clients` SET 
-        status_prtg = %s,
-        lastup_prtg = %s,
-        lastdown_prtg = %s,
-        device_ip_cisco = %s,
-        device_cisco = %s,
-        port_cisco = %s,
-        status_cisco = %s,
-        reachability_cisco = %s,
-        id_prtg = %s,
-        status_device_cisco = %s,
-        data_backup = %s
-    WHERE ip = %s
-    """
+            INSERT INTO dcs.prtg_groups
+            (`device`, 
+            `group`, 
+            `status`, 
+            `id_prtg`, 
+            `sensor`, 
+            `lastvalue`, 
+            `rol`)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
 
     data_tuple = [
         (
-            client["status_prtg"],
-            client["lastup_prtg"],
-            client["lastdown_prtg"],
-            client["device_ip_cisco"],
-            client["device_cisco"],
-            client["port_cisco"],
-            client["status_cisco"],
-            client["reachability_cisco"],
-            client["id_prtg"],
-            client["status_device_cisco"],
-            client["data_backup"],
-            client["ip"]  # Este es el valor para la cláusula WHERE
+            item["device"],
+            item["group"],
+            item["status"],
+            item["objid"],
+            item["sensor"],
+            item["lastvalue"],
+            item["rol"],
         )
-        for client in data
+        for item in data
     ]
 
     try:
         db_connector = devnet_connection()
         devnet_cursor = db_connector.cursor()
 
+        # Eliminamos los datos de la tabla para actualizarlos
+        # En ciertas ocasiones desde PRTG eliminan un elemento la cual
+        # ya no debe ser actualiazada en esta tabla
+        devnet_cursor.execute(delete_query)
+
         devnet_cursor.executemany(query, data_tuple)
         db_connector.commit()
 
         db_connector.close()
-        
+
         return True
 
     except Exception as e:
@@ -81,23 +79,22 @@ def update_devnet_data(data):
         logging.error(
             "Error en la función `update_devnet_data` en el archivo `db_update_devnet`"
         )
-        
-        datetime_register(system_name="candelaria_clients",status="ERROR")
+
+        datetime_register(system_name="candelaria_switches", status="ERROR")
         return False
-        
 
 
 def datetime_register(system_name, status):
     """
     Registra la fecha y hora actual junto con el estado proporcionado en la tabla `datetime_systems`.
 
-    Esta función actualiza el campo `status` y el campo `datetime` en la tabla `datetime_systems` de la base de datos `dcs` 
-    para el registro donde `system_name` coincide con el nombre de la tabla especificada. La fecha y hora actual se 
+    Esta función actualiza el campo `status` y el campo `datetime` en la tabla `datetime_systems` de la base de datos `dcs`
+    para el registro donde `system_name` coincide con el nombre de la tabla especificada. La fecha y hora actual se
     formatea como una cadena en el formato 'YYYY-MM-DD HH:MM:SS' antes de ser guardada.
 
     En caso de que ocurra una excepción durante la ejecución:
     - Los detalles de la excepción se registran en los logs para su posterior análisis.
-    - Se registra un mensaje de error específico indicando que hubo un problema en la función `datetime_register` 
+    - Se registra un mensaje de error específico indicando que hubo un problema en la función `datetime_register`
       dentro del archivo `db_update_devnet`.
 
     Args:
@@ -105,7 +102,7 @@ def datetime_register(system_name, status):
         status (str): El estado que se desea registrar en la tabla junto con la fecha y hora actuales.
 
     Raises:
-        Exception: Si ocurre algún error durante la conexión a la base de datos, la ejecución de la consulta, 
+        Exception: Si ocurre algún error durante la conexión a la base de datos, la ejecución de la consulta,
                    o el cierre de la conexión.
     """
     now = datetime.now()
@@ -135,3 +132,21 @@ def datetime_register(system_name, status):
             "Error en la función `datetime_register` en el archivo `db_update_devnet`"
         )
         logging.error(e)
+
+
+print(
+    update_devnet_data(
+        [
+            {
+                "id": 1,
+                "device": "Prueba Devnet",
+                "group": "Certificados Candelaria",
+                "status": "Up",
+                "objid": 15977,
+                "sensor": "SSL Certificate",
+                "lastvalue": "329 #",
+                "rol": "Certificados Candelaria",
+            },
+        ]
+    )
+)

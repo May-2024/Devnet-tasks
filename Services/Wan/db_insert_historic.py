@@ -17,6 +17,9 @@ def save_historic_data(data):
     Manejo de errores:
     - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
     """
+    
+    print(data)
+    
     # Calcular la fecha límite (12 meses atrás desde hoy)
     twelve_months_ago = datetime.now() - timedelta(days=365)
     twelve_months_ago_str = twelve_months_ago.strftime('%Y-%m-%d %H:%M:%S')

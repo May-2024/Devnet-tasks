@@ -1,16 +1,9 @@
-import requests
-import warnings
 import os
-import datetime
 import time
-import calendar
-import mysql.connector
 import logging
 import traceback
 import sched
-from config import database
 from dotenv import load_dotenv
-from db_connection import devnet_connection
 from db_get_data import get_devnet_data
 from api_prtg import get_status_prtg
 from db_update import update_devnet_data, datetime_register
@@ -39,7 +32,6 @@ def main():
 
         # Actualizamos registro datetime del sistema
         if result is True:
-            print("Es TRue")
             datetime_register(system_name="anillo_opit", status="OK")
         else:
             logging.error("Error al guardar en la BD")

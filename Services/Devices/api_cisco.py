@@ -8,8 +8,10 @@ from dotenv import load_dotenv
 from db_get_data import get_historic_cisco_data
 
 load_dotenv()
-CISCO_API_USERNAME = os.getenv("CISCO_API_USERNAME")
+CISCO_DEVICES_API_USERNAME_1 = os.getenv("CISCO_DEVICES_API_USERNAME_1")
+CISCO_DEVICES_API_USERNAME_2 = os.getenv("CISCO_DEVICES_API_USERNAME_2")
 CISCO_API_PASSWORD = os.getenv("CISCO_API_PASSWORD")
+
 PRTG_USERNAME = os.getenv("PRTG_USERNAME")
 PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
 
@@ -29,7 +31,7 @@ def get_cisco_data(red, ip):
         ip (str): La dirección IP del dispositivo del cual se quiere obtener la información.
 
     Returns:
-        dict: Diccionario con los datos del dispositivo Cisco y el estado correspondiente de PRTG. 
+        dict: Diccionario con los datos del dispositivo Cisco y el estado correspondiente de PRTG.
               Contiene las siguientes claves:
               - 'cisco_port' (str): Puerto del dispositivo en Cisco.
               - 'cisco_status' (str): Estado actual del dispositivo en Cisco.
@@ -40,7 +42,7 @@ def get_cisco_data(red, ip):
               - 'data_backup' (bool): Indica si los datos provienen de un respaldo histórico.
 
     Errores:
-        Si ocurre algún error en la consulta a la API de Cisco o PRTG, devuelve valores predeterminados 
+        Si ocurre algún error en la consulta a la API de Cisco o PRTG, devuelve valores predeterminados
         con la etiqueta "Error Devnet" y registra los errores en el log.
 
     Raises:
@@ -48,14 +50,19 @@ def get_cisco_data(red, ip):
     """
 
     cisco_data = {"data_backup": False}
-    
+
     if red == "IT":
         red = "10.224.116.90"
     else:
         red = "10.224.241.14"
-        
+
     try:
-        URL_CISCO_GET_ID = os.getenv("URL_CISCO_IP").format(red=red, ip=ip)
+        URL_CISCO_GET_ID = os.getenv("URL_CISCO_IP").format(
+            red=red,
+            ip=ip,
+            cisco_username_2=CISCO_DEVICES_API_USERNAME_2,
+            cisco_password=CISCO_API_PASSWORD,
+        )
         response_cisco_get_id = requests.get(URL_CISCO_GET_ID, verify=False).json()
         cisco_id_device = (
             response_cisco_get_id.get("queryResponse", {"queryResponse": "Not Found"})
@@ -68,7 +75,10 @@ def get_cisco_data(red, ip):
 
         else:
             URL_CISCO_ID = os.getenv("URL_CISCO_ID").format(
-                red=red, cisco_id_device=cisco_id_device
+                red=red,
+                cisco_id_device=cisco_id_device,
+                cisco_username_1=CISCO_DEVICES_API_USERNAME_1,
+                cisco_password=CISCO_API_PASSWORD,
             )
             cisco_client_response = requests.get(URL_CISCO_ID, verify=False).json()
             cisco_client_data = (
@@ -93,7 +103,9 @@ def get_cisco_data(red, ip):
 
             # ? Obtencion del estado del sensor ping en PRTG correspondiente al deviceIpAdress
             prtg_device_ip_url = os.getenv("URL_PRTG_IP").format(
-                ip=cisco_data["cisco_device_ip"]
+                ip=cisco_data["cisco_device_ip"],
+                username=PRTG_USERNAME,
+                password=PRTG_PASSWORD,
             )
             prtg_device_ip_response = requests.get(
                 prtg_device_ip_url, verify=False
@@ -104,7 +116,9 @@ def get_cisco_data(red, ip):
             else:
                 prtg_device_id = prtg_device_ip_response["devices"][0]["objid"]
                 prtg_device_id_url = os.getenv("URL_PRTG_ID").format(
-                    id_device=prtg_device_id
+                    id_device=prtg_device_id,
+                    username=PRTG_USERNAME,
+                    password=PRTG_PASSWORD,
                 )
                 prtg_device_status_response = requests.get(
                     prtg_device_id_url, verify=False
