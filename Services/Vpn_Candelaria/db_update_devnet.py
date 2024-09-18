@@ -6,7 +6,7 @@ from datetime import datetime
 
 def update_devnet_data(data):
     """
-    Actualiza los datos en la tabla `vpn_candelaria` de la base de datos `dcs`.
+    Actualiza los datos en la tabla `vpn_candelaria` de la base de datos `devnet`.
 
     Este método elimina todos los registros existentes en la tabla `vpn_candelaria` y
     luego inserta un nuevo conjunto de datos proporcionado por el usuario.
@@ -32,10 +32,10 @@ def update_devnet_data(data):
         - La tabla `vpn_candelaria` es vaciada antes de insertar los nuevos datos.
         - Los errores son registrados usando el módulo `logging`.
     """
-    delete_query = "DELETE FROM `dcs`.`vpn_candelaria`"
+    delete_query = "DELETE FROM `devnet`.`vpn_candelaria`"
 
     query = """
-    INSERT INTO `dcs`.`vpn_candelaria` (
+    INSERT INTO `devnet`.`vpn_candelaria` (
         `fw`,
         `email`,
         `ip_lan`,
@@ -107,7 +107,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE `dcs`.`datetime_systems` SET 
+    UPDATE `devnet`.`datetime_systems` SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

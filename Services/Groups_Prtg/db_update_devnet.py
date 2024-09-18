@@ -110,7 +110,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE `dcs`.`datetime_systems` SET 
+    UPDATE `devnet`.`datetime_systems` SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

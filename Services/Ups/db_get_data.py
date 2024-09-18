@@ -5,7 +5,7 @@ from db_connections import devnet_connection
 
 def get_data(table_name):
     """
-    Obtiene los datos actuales de una tabla específica en la base de datos `dcs`.
+    Obtiene los datos actuales de una tabla específica en la base de datos `devnet`.
 
     Proceso:
     - Establece una conexión con la base de datos de producción.

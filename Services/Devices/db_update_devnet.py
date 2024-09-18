@@ -31,7 +31,7 @@ def update_devnet_data(data):
     """
 
     query = (
-        "UPDATE `dcs`.devices SET prtg_name_device = %s, prtg_id = %s, prtg_sensorname = %s, prtg_status = %s, "
+        "UPDATE `devnet`.devices SET prtg_name_device = %s, prtg_id = %s, prtg_sensorname = %s, prtg_status = %s, "
         "prtg_lastup = %s, prtg_lastdown = %s, cisco_device_name = %s, cisco_port = %s, cisco_status = %s, cisco_status_device = %s, cisco_mac_address = %s, "
         "data_backup = %s, red = %s, cctv_enabled = %s, cctv_valid = %s, ups_status = %s, cisco_device_ip = %s WHERE host = %s"
     )
@@ -109,7 +109,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE `dcs`.`datetime_systems` SET 
+    UPDATE `devnet`.`datetime_systems` SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

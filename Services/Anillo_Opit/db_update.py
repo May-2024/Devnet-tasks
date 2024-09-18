@@ -26,7 +26,7 @@ def update_devnet_data(data):
     """
     # Consulta SQL para actualizar los datos donde el valor de la columna 'id_prtg' coincida
     query = """
-    UPDATE `dcs`.`anillo_opit` SET 
+    UPDATE `devnet`.`anillo_opit` SET 
         status = %s
     WHERE id_prtg = %s
     """

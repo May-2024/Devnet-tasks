@@ -5,7 +5,7 @@ from db_connections import devnet_connection, historic_connection
 
 def get_data(table_name):
     """
-    Obtiene los datos actuales de la tabla especificada en la base de datos `dcs`.
+    Obtiene los datos actuales de la tabla especificada en la base de datos `devnet`.
     
     Conecta a la base de datos, ejecuta una consulta para seleccionar todos los registros 
     de la tabla indicada, y convierte los resultados en una lista de diccionarios, donde 
@@ -39,7 +39,7 @@ def get_data(table_name):
         devnet_cursor = db_connector.cursor()
 
         # Realizar una consulta para leer información de la base de datos
-        query = f"SELECT * FROM `dcs`.`{table_name}`"
+        query = f"SELECT * FROM `devnet`.`{table_name}`"
         devnet_cursor.execute(query)
 
         # Obtener los nombres de las columnas
