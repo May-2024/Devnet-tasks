@@ -39,10 +39,9 @@ def main():
             switch["reachability"] = get_cisco_data(ip)
             
             final_data.append(switch)
-            
+              
         devnet_bd_response = update_devnet_data(final_data)
         historic_bd_response = save_historic_data(final_data)
-            
         if devnet_bd_response and historic_bd_response:
             datetime_register(system_name="switches", status="OK")
         else:

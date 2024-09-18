@@ -913,3 +913,1029 @@ AttributeError: 'NoneType' object has no attribute 'cursor'
 
 2024-09-13 16:44:39,702 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
 2024-09-13 16:44:39,702 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-17 17:37:25,141 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:25,141 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:25,147 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:25,147 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:25,147 - ERROR - Error detallado:
+2024-09-17 17:37:25,147 - ERROR: Error detallado:
+2024-09-17 17:37:25,147 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:25,147 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0fd9dd80>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:25,147 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:25,147 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:27,699 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,699 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,699 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,699 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,699 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,699 - ERROR - 'username'
+2024-09-17 17:37:27,699 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:27,700 - ERROR - 'username'
+2024-09-17 17:37:27,699 - ERROR: 'username'
+2024-09-17 17:37:27,700 - ERROR - 'username'
+2024-09-17 17:37:27,700 - ERROR: 'username'
+2024-09-17 17:37:27,700 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:37:27,700 - ERROR: 'username'
+2024-09-17 17:37:27,700 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:37:27,700 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:37:27,700 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:37:27,700 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:37:27,700 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:37:30,007 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,007 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,007 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,007 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,007 - ERROR - Error detallado:
+2024-09-17 17:37:30,007 - ERROR: Error detallado:
+2024-09-17 17:37:30,007 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,007 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f10c2c520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,007 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,007 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,007 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,007 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,008 - ERROR - 'username'
+2024-09-17 17:37:30,008 - ERROR: 'username'
+2024-09-17 17:37:30,008 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:37:30,008 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:37:30,040 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,040 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,040 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,040 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,040 - ERROR - Error detallado:
+2024-09-17 17:37:30,040 - ERROR: Error detallado:
+2024-09-17 17:37:30,040 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,040 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f1984f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,040 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,040 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,041 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,041 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,041 - ERROR - 'username'
+2024-09-17 17:37:30,041 - ERROR: 'username'
+2024-09-17 17:37:30,041 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:37:30,041 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:37:30,052 - ERROR - Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,052 - ERROR: Error al obtener la informacion de las UPS desde la API
+2024-09-17 17:37:30,053 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,053 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/ups.py", line 61, in get_api_ups_data
+    data_ups = requests.get(API_UPS, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-17 17:37:30,053 - ERROR - Error detallado:
+2024-09-17 17:37:30,053 - ERROR: Error detallado:
+2024-09-17 17:37:30,053 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,053 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/ups (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f0f199fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-17 17:37:30,053 - ERROR - Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,053 - ERROR: Hubo un error en la funcion `define_ups_status`: Error al obtener la información de la API
+2024-09-17 17:37:30,053 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,053 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:30,054 - ERROR - 'username'
+2024-09-17 17:37:30,054 - ERROR: 'username'
+2024-09-17 17:37:30,054 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:37:30,054 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:37:41,536 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:41,536 - ERROR - 'username'
+2024-09-17 17:37:41,537 - ERROR - 'username'
+2024-09-17 17:37:41,536 - ERROR: 'username'
+2024-09-17 17:37:41,537 - ERROR - 'username'
+2024-09-17 17:37:41,537 - ERROR: 'username'
+2024-09-17 17:37:41,537 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:37:41,537 - ERROR: 'username'
+2024-09-17 17:37:41,537 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:37:41,537 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:37:41,538 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:37:41,537 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:37:41,538 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:37:43,807 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,807 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,807 - ERROR - 'username'
+2024-09-17 17:37:43,807 - ERROR: 'username'
+2024-09-17 17:37:43,807 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:37:43,807 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:37:43,842 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,842 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,842 - ERROR - 'username'
+2024-09-17 17:37:43,842 - ERROR: 'username'
+2024-09-17 17:37:43,842 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:37:43,842 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:37:43,979 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,979 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:43,979 - ERROR - 'username'
+2024-09-17 17:37:43,979 - ERROR: 'username'
+2024-09-17 17:37:43,979 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:37:43,979 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:37:46,067 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,067 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,067 - ERROR - 'username'
+2024-09-17 17:37:46,067 - ERROR: 'username'
+2024-09-17 17:37:46,067 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.58
+2024-09-17 17:37:46,067 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.58
+2024-09-17 17:37:46,110 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,110 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,110 - ERROR - 'username'
+2024-09-17 17:37:46,110 - ERROR: 'username'
+2024-09-17 17:37:46,111 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.1.58
+2024-09-17 17:37:46,111 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.1.58
+2024-09-17 17:37:46,229 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,229 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:46,229 - ERROR - 'username'
+2024-09-17 17:37:46,229 - ERROR: 'username'
+2024-09-17 17:37:46,229 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.11
+2024-09-17 17:37:46,229 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.11
+2024-09-17 17:37:48,307 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:48,307 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:48,308 - ERROR - 'username'
+2024-09-17 17:37:48,308 - ERROR: 'username'
+2024-09-17 17:37:48,308 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.59
+2024-09-17 17:37:48,308 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.59
+2024-09-17 17:37:50,528 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:50,528 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:50,528 - ERROR - 'username'
+2024-09-17 17:37:50,528 - ERROR: 'username'
+2024-09-17 17:37:50,528 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.75.37
+2024-09-17 17:37:50,528 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.75.37
+2024-09-17 17:37:52,753 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:52,753 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 52, in get_prtg_data
+    URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+KeyError: 'username'
+
+2024-09-17 17:37:52,753 - ERROR - 'username'
+2024-09-17 17:37:52,753 - ERROR: 'username'
+2024-09-17 17:37:52,753 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.63
+2024-09-17 17:37:52,753 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.6.63
+2024-09-17 17:38:40,495 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,495 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,498 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,498 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,504 - ERROR - 'username'
+2024-09-17 17:38:40,504 - ERROR: 'username'
+2024-09-17 17:38:40,504 - ERROR - 'username'
+2024-09-17 17:38:40,504 - ERROR: 'username'
+2024-09-17 17:38:40,504 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:38:40,504 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.231.0.97
+2024-09-17 17:38:40,504 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:38:40,504 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.4.43
+2024-09-17 17:38:40,533 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,533 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:40,533 - ERROR - 'username'
+2024-09-17 17:38:40,533 - ERROR: 'username'
+2024-09-17 17:38:40,533 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:38:40,533 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.21.6
+2024-09-17 17:38:43,485 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,485 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,485 - ERROR - 'username'
+2024-09-17 17:38:43,485 - ERROR: 'username'
+2024-09-17 17:38:43,485 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:38:43,485 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.0.10
+2024-09-17 17:38:43,486 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,486 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,487 - ERROR - 'username'
+2024-09-17 17:38:43,487 - ERROR: 'username'
+2024-09-17 17:38:43,487 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:38:43,487 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.225.5.84
+2024-09-17 17:38:43,497 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,497 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Devices/api_prtg.py", line 62, in get_prtg_data
+    URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id)
+KeyError: 'username'
+
+2024-09-17 17:38:43,498 - ERROR - 'username'
+2024-09-17 17:38:43,498 - ERROR: 'username'
+2024-09-17 17:38:43,498 - ERROR - Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:38:43,498 - ERROR: Error en la funcion get_prtg_data en el archivo api_prtg10.224.1.138
+2024-09-17 17:56:02,947 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-17 17:56:02,947 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-17 17:56:02,948 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-17 17:56:02,948 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-17 17:56:02,948 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-17 17:56:02,948 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-17 17:56:02,948 - ERROR - Error en la funcion principal - Base RAP11
+2024-09-17 17:56:02,948 - ERROR - Error en la funcion principal - Base RAP11
+2024-09-17 17:56:02,948 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-17 17:56:02,948 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-17 17:56:02,948 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-17 17:56:02,948 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-17 17:56:12,959 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-17 17:56:12,959 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-17 17:56:12,959 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-17 17:56:12,959 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-17 17:56:12,959 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-17 17:56:12,959 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-17 17:56:12,960 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_update_devnet.py", line 46, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-17 17:56:12,960 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/main.py", line 49, in check_fim
+    update_status_base(base)
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/save_register.py", line 35, in update_status_base
+    cursor = mydb.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/FiM/db_update_devnet.py", line 46, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-17 17:56:12,960 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-17 17:56:12,960 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-17 17:56:12,960 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-17 17:56:12,960 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-17 18:38:20,098 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Incorrect integer value: '' for column 'clave' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Switches/db_insert_historic.py", line 98, in save_historic_data
+    historic_cursor.executemany(insert_query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: '' for column 'clave' at row 1
+
+2024-09-17 18:38:20,098 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-17 18:38:20,098 - ERROR - 1366 (HY000): Incorrect integer value: '' for column 'clave' at row 1
+2024-09-17 18:41:14,434 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'historic-devnet.candelaria_switches' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Switches/db_insert_historic.py", line 89, in save_historic_data
+    historic_cursor.execute(delete_query, (twelve_months_ago_str,))
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'historic-devnet.candelaria_switches' doesn't exist
+
+2024-09-17 18:41:14,435 - ERROR - Error en la función `save_historic_data` en el archivo `db_insert_historic`
+2024-09-17 18:41:14,435 - ERROR - 1146 (42S02): Table 'historic-devnet.candelaria_switches' doesn't exist

@@ -10,14 +10,14 @@ def update_devnet_data(data):
 
     Proceso:
     - Actualiza las filas correspondientes en la base de datos basándose en la dirección IP de cada UPS.
-    
+
     Parámetros:
     - data (list): Lista de diccionarios que contienen datos de los dispositivos UPS.
 
     Manejo de errores:
     - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
     """
-    
+
     # Consulta SQL para actualizar los datos donde el valor de la columna 'ip' coincida
     query = """
     UPDATE dcs.ups SET 
@@ -54,7 +54,7 @@ def update_devnet_data(data):
         db_connector.commit()
 
         db_connector.close()
-        
+
         return True
 
     except Exception as e:
@@ -64,6 +64,7 @@ def update_devnet_data(data):
         )
         logging.error(e)
         return False
+
 
 def datetime_register(system_name, status):
     """
@@ -79,7 +80,7 @@ def datetime_register(system_name, status):
     Manejo de errores:
     - Si ocurre un error durante la ejecución, se captura y se registra en los logs.
     """
-    
+
     now = datetime.now()
     now_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
     now_datetime = str(now_datetime)
@@ -107,3 +108,47 @@ def datetime_register(system_name, status):
             "Error en la función `datetime_register` en el archivo `db_update_devnet`"
         )
         logging.error(e)
+
+
+# print(
+#     update_devnet_data(
+#         [
+#             {
+#                 "id": 1,
+#                 "ip": "10.224.1.8",
+#                 "name": "CDBUSSWADM-PBODEGA-21-APC",
+#                 "status_prtg": "Up",
+#                 "status_ups": 2,
+#                 "batery": 1,
+#                 "id_ups": 7986,
+#                 "uptime": "100",
+#                 "ubication": "ADMINISTRACION",
+#                 "datetime": "2024-09-17 18:54:09",
+#             },
+#             {
+#                 "id": 2,
+#                 "ip": "10.224.1.144",
+#                 "name": "CDBUSSWADM-RMAPLTA-20-APC",
+#                 "status_prtg": "Up",
+#                 "status_ups": 2,
+#                 "batery": 1,
+#                 "id_ups": 8003,
+#                 "uptime": "100",
+#                 "ubication": "ADMINISTRACION",
+#                 "datetime": "2024-09-17 18:54:12",
+#             },
+#             {
+#                 "id": 3,
+#                 "ip": "10.224.1.29",
+#                 "name": "CDBUSSWADM-11-APC",
+#                 "status_prtg": "Up",
+#                 "status_ups": 2,
+#                 "batery": 1,
+#                 "id_ups": 9580,
+#                 "uptime": "100",
+#                 "ubication": "ADMINISTRACION",
+#                 "datetime": "2024-09-17 18:54:16",
+#             },
+#         ]
+#     )
+# )

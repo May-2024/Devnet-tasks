@@ -25,7 +25,7 @@ def devnet_connection():
         DB_USER = os.getenv(f"DB_{environment}_USER")
         DB_PASSWORD = os.getenv(f"DB_{environment}_PASSWORD")
         DB_DATABASE = os.getenv(f"DB_{environment}_DATABASE")
-        
+
         db_connector = mysql.connector.connect(
             host=DB_HOST,
             user=DB_USER,

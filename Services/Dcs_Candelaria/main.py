@@ -46,7 +46,7 @@ def main():
             client["datetime"] = now_datetime
             
             clients_updated.append(client)
-            
+
         devnet_bd_response = update_devnet_data(clients_updated)
         historic_bd_response = save_historic_data(clients_updated)
 
@@ -63,17 +63,12 @@ def main():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         datetime_register(system_name="candelaria_clients",status="ERROR")
-
-
                   
-# def bucle(scheduler):
-#     main()
-#     scheduler.enter(300, 1, bucle, (scheduler,))
+def bucle(scheduler):
+    main()
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
-# if __name__ == '__main__':
-#     s = sched.scheduler(time.time, time.sleep)
-#     s.enter(0, 1, bucle, (s,))
-#     s.run()
-
-main()
-    
+if __name__ == '__main__':
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(0, 1, bucle, (s,))
+    s.run()

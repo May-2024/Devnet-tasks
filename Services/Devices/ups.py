@@ -19,6 +19,8 @@ env = os.getenv("ENVIRONMENT")
 
 if env == "production":
     api_env = "10.224.116.14"
+if env == "development":
+    api_env = "10.224.116.78"
 else:
     api_env = "localhost"
 

@@ -10,6 +10,7 @@ load_dotenv()
 PRTG_USERNAME = os.getenv("PRTG_USERNAME")
 PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
 
+
 def get_prtg_data(ip):
     """
     Obtiene información de un dispositivo de la API de PRTG utilizando su dirección IP.
@@ -32,13 +33,13 @@ def get_prtg_data(ip):
               - 'prtg_lastdown' (str): Fecha y hora de la última vez que el dispositivo estuvo inactivo.
 
     Errores:
-        Si ocurre un error en la consulta a la API de PRTG o en la manipulación de los datos, 
+        Si ocurre un error en la consulta a la API de PRTG o en la manipulación de los datos,
         se devolverán mensajes de error en los campos correspondientes y se registrará el error.
 
     Raises:
         Registra los errores utilizando logging cuando no se pueden obtener los datos correctamente.
     """
-    
+
     prtg_data = {
         "prtg_name_device": "Not Found",
         "prtg_id": "Not Found",
@@ -49,16 +50,16 @@ def get_prtg_data(ip):
     }
     try:
 
-        URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(ip=ip)
+        URL_PRTG_GET_ID = os.getenv("URL_PRTG_IP").format(
+            ip=ip, username=PRTG_USERNAME, password=PRTG_PASSWORD
+        )
         response_prtg_get_id = requests.get(URL_PRTG_GET_ID, verify=False).json()
         if len(response_prtg_get_id["devices"]) == 0:
             return prtg_data
 
         else:
             prtg_id = response_prtg_get_id["devices"][0]["objid"]
-            URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(
-                id_device=prtg_id
-            )
+            URL_PRTG_GET_DATA = os.getenv("URL_PRTG_ID").format(id_device=prtg_id, username=PRTG_USERNAME, password=PRTG_PASSWORD)
             response_prtg_data = requests.get(URL_PRTG_GET_DATA, verify=False).json()
             try:
                 sensor = response_prtg_data["sensors"][0]
@@ -77,7 +78,7 @@ def get_prtg_data(ip):
             except:
                 prtg_data["prtg_id"] = prtg_id
                 return prtg_data
-            
+
     except Exception as e:
         prtg_data = {
             "prtg_id": "Error DevNet",
@@ -91,4 +92,3 @@ def get_prtg_data(ip):
         logging.error(e)
         logging.error(f"Error en la funcion get_prtg_data en el archivo api_prtg{ip}")
         return prtg_data
-    

@@ -57,7 +57,7 @@ def historic_connection():
             user=DB_USER_HISTORIC,
             password=DB_PASSWORD_HISTORIC,
             database=DB_DATABASE_HISTORIC,
-            port=33061,
+            port=3306,
         )
 
         return db_connector

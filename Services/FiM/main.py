@@ -8,8 +8,9 @@ import sched
 import logger_config
 from dotenv import load_dotenv
 from reset_base import reset_base
-from save_register import save_down_register, update_status_base, database_connection
+from save_register import save_down_register, update_status_base
 from db_update_devnet import datetime_register
+from db_connections import devnet_connection
 
 
 load_dotenv()

@@ -9,6 +9,7 @@ import re
 import logging
 import mysql.connector
 import paramiko
+import logger_config
 from dotenv import load_dotenv
 from config import database
 from mesh_data import get_mesh_process_data
@@ -16,47 +17,16 @@ from check_mac import check_mac
 from status_prtg import status_prtg
 from command_mac_detail import run_mac_detail
 from validate_status import validate_status
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s"
-)
-file_handler = logging.FileHandler("issues.log")
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s: %(message)s"))
-logging.getLogger().addHandler(file_handler)
+from db_connections import devnet_connection
 
 load_dotenv()
 env = os.getenv("ENVIRONMENT")
 
 
-def database_connection():
-    try:
-        if env == "local":
-            mydb = mysql.connector.connect(
-                host=database["local"]["DB_HOST"],
-                user=database["local"]["DB_USER"],
-                password=database["local"]["DB_PASSWORD"],
-                database=database["local"]["DB_DATABASE"],
-            )
-
-        else:
-            mydb = mysql.connector.connect(
-                host=database["production"]["DB_HOST"],
-                user=database["production"]["DB_USER"],
-                password=database["production"]["DB_PASSWORD"],
-                database=database["production"]["DB_DATABASE"],
-            )
-        return mydb
-
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos")
-        logging.error(traceback.format_exc())
-        logging.error(e)
-
 
 def main():
     try:
-        mydb = database_connection()
+        mydb = devnet_connection()
         cursor = mydb.cursor()
         query = "SELECT * FROM dcs.mesh_process"
         cursor.execute(query)
@@ -181,7 +151,7 @@ def main():
         # Funcion para validar si una mac se repite en otra ubicacion
         # check_mac()
         
-        mydb = database_connection()
+        mydb = devnet_connection()
         cursor = mydb.cursor()
         query = "SELECT * FROM dcs.mesh_process"
         cursor.execute(query)

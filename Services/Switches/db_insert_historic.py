@@ -35,56 +35,44 @@ def save_historic_data(data):
 
     # Consulta SQL para eliminar datos antiguos
     delete_query = """
-    DELETE FROM `historic-devnet`.`candelaria_clients`
+    DELETE FROM `historic-devnet`.`candelaria_switches`
     WHERE `datetime` < %s
     """
 
     # Consulta SQL para insertar datos
     insert_query = """
-    INSERT INTO `historic-devnet`.`candelaria_clients` (
-        `name`,
+    INSERT INTO `historic-devnet`.`candelaria_switches` (
+        `device`,
         `group`,
-        `description`,
         `ip`,
         `status_prtg`,
         `lastup_prtg`,
         `lastdown_prtg`,
-        `device_ip_cisco`,
-        `device_cisco`,
-        `port_cisco`,
-        `status_cisco`,
-        `reachability_cisco`,
-        `id_prtg`,
-        `importancia`,
-        `clave`,
-        `status_device_cisco`,
-        `data_backup`,
+        `reachability`,
+        `ups1`,
+        `ups2`,
+        `status_ups1`,
+        `status_ups2`,
         `datetime`
-    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
     data_tuple = [
         (
-            client.get('name', ''),
-            client.get('group', ''),
-            client.get('description', ''),
-            client.get('ip', ''),
-            client.get('status_prtg', ''),
-            client.get('lastup_prtg', ''),
-            client.get('lastdown_prtg', ''),
-            client.get('device_ip_cisco', ''),
-            client.get('device_cisco', ''),
-            client.get('port_cisco', ''),
-            client.get('status_cisco', ''),
-            client.get('reachability_cisco', ''),
-            client.get('id_prtg', ''),
-            client.get('importancia', ''),
-            client.get('clave', ''),
-            client.get('status_device_cisco', ''),
-            client.get('data_backup', ''),
-            client.get('datetime', '')
+            sw.get('device', ''),
+            sw.get('group', ''),
+            sw.get('ip', ''),
+            sw.get('status_prtg', ''),
+            sw.get('lastup_prtg', ''),
+            sw.get('lastdown_prtg', ''),
+            sw.get('reachability', ''),
+            sw.get('ups1', ''),
+            sw.get('ups2', ''),
+            sw.get('status_ups1', ''),
+            sw.get('status_ups2', ''),
+            datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         ) 
-        for client in data
+        for sw in data
     ]
 
     try:
