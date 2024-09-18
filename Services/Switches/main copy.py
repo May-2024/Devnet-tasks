@@ -36,7 +36,7 @@ def switches():
     cursor = mydb.cursor()
 
     # Realizar una consulta para leer información de la base de datos
-    query = "SELECT * FROM dcs.data_switches"
+    query = "SELECT * FROM devnet.data_switches"
     cursor.execute(query)
 
     # Obtener los nombres de las columnas

@@ -85,17 +85,17 @@ def getData():
                 id_prtg = sensor['objid']
                 lastvalue = sensor['lastvalue']
                 red_sensor = sensor['red']
-                query = "INSERT INTO dcs.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
+                query = "INSERT INTO devnet.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
                 cursor.execute(query, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor, name_sensor, status_sensor, lastvalue))
                 mydb.commit()
 
-                # query_historic = "INSERT INTO dcs.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                # query_historic = "INSERT INTO devnet.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 # cursor.execute(query_historic, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor))
                 # mydb.commit()
                 
 
             # Blanqueamos la tabla AP antes de rellenarla de nuevo
-            query = (f"DELETE FROM dcs.ap")
+            query = (f"DELETE FROM devnet.ap")
             cursor.execute(query)
             mydb.commit()
          
@@ -105,7 +105,7 @@ def getData():
                 ap['last_disconnect_reason'] = ap['last_disconnect_reason'].replace('Join', '').strip()
             
         # Guardamos en bloque en la BD en vez de linea por linea
-        query = "INSERT INTO dcs.ap (`name`, `ip`, `status`, `last_disconnect_reason`, `name_switch`) VALUES (%s, %s, %s, %s, %s)"
+        query = "INSERT INTO devnet.ap (`name`, `ip`, `status`, `last_disconnect_reason`, `name_switch`) VALUES (%s, %s, %s, %s, %s)"
         values = [(ap['name'], ap['ip'], ap['status'], ap['last_disconnect_reason'], ap['name_switch']) for ap in all_app_elements]
         cursor.executemany(query, values)
         mydb.commit()
@@ -118,14 +118,14 @@ def getData():
                 # ip_ap = neigh['ip']
                 # state = neigh['state']
                 # location = neigh['location']
-                # query = "INSERT INTO dcs.data_ap (`name`, `model`, `ip`, `state`, `location`) VALUES (%s, %s, %s, %s, %s)"
+                # query = "INSERT INTO devnet.data_ap (`name`, `model`, `ip`, `state`, `location`) VALUES (%s, %s, %s, %s, %s)"
                 # cursor.execute(query, (name, model, ip_ap, state, location))
                 # mydb.commit()
                 
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
+        cursor.execute(f"INSERT INTO devnet.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
         mydb.commit()
         cursor.close()
         logging.info("Terminado")
@@ -135,7 +135,7 @@ def getData():
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
+        cursor.execute(f"INSERT INTO devnet.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
         cursor.close()
 

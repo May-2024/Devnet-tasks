@@ -82,7 +82,7 @@ def prtg_data():
         top_limit = datetime.time(0, 30)
 
         if bot_limit <= current_hour <= top_limit:
-            cursor.execute("UPDATE dcs.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0")
+            cursor.execute("UPDATE devnet.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0")
             mydb.commit()
 
         for device in devices:
@@ -167,7 +167,7 @@ def prtg_data():
             # fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(ip_device, signal_strength, snr_level, current_data_mesh)
         
             query = f"""
-                INSERT INTO dcs.mesh (
+                INSERT INTO devnet.mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
                     `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
@@ -213,7 +213,7 @@ def prtg_data():
             
             # Este query se usa para insertar los datos en la tabla historic_mesh.
             query_historic = f"""
-                INSERT INTO dcs.historic_mesh (
+                INSERT INTO devnet.historic_mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
                     `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
@@ -226,7 +226,7 @@ def prtg_data():
             
             # Este query se usa para insertar los datos en la tabla historic_mesh.
             query_historic = f"""
-                INSERT INTO dcs.historic_mesh (
+                INSERT INTO devnet.historic_mesh (
                     `ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`,
                     `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`,
                     `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`,
@@ -249,7 +249,7 @@ def prtg_data():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(
-            f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')"
+            f"INSERT INTO devnet.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')"
         )
         mydb.commit()
         cursor.close()
@@ -258,7 +258,7 @@ def prtg_data():
     except Exception as e:
         logging.error(f"Error en la consulta {name_device}")
         cursor.execute(
-            f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'ERROR')"
+            f"INSERT INTO devnet.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'ERROR')"
         )
         mydb.commit()
         cursor.close()

@@ -83,7 +83,7 @@ def core1():
             red = switch['red']
             logging.info(f"{ip_switch} - {name_switch} - {red}")
             status_core, message_status_core = ping_host(ip_switch)
-            cursor.execute(f"UPDATE dcs.status_cores SET `status` = '{status_core}' WHERE `ip` = '{ip_switch}'")
+            cursor.execute(f"UPDATE devnet.status_cores SET `status` = '{status_core}' WHERE `ip` = '{ip_switch}'")
             id_prtg_switch = get_id_prtg(ip_switch)
             data_interfaces = get_data_interfaces(ip_switch, id_prtg_switch, red)
             data_systemhealth = system_health(ip_switch, id_prtg_switch, red)
@@ -108,7 +108,7 @@ def core1():
                 # red = neigh['red']
                 # neighbor_type = neigh['neighbor']
                 # interface = neigh['interface']
-                # query = "INSERT INTO dcs.data_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`) VALUES (%s, %s, %s, %s, %s, %s)"
+                # query = "INSERT INTO devnet.data_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`) VALUES (%s, %s, %s, %s, %s, %s)"
                 # cursor.execute(query, (ip_neighbor, neighbor_type, red, name, ip_switch, interface))
                 # mydb.commit()
             
@@ -122,13 +122,13 @@ def core1():
                 route_red = data_route['red']
                 route_ip_switch = data_route['ip_switch']
 
-                query = (f"UPDATE dcs.route_default SET via_bgp = '{route_via_bgp}' WHERE ip_switch = '{route_ip_switch}'")
+                query = (f"UPDATE devnet.route_default SET via_bgp = '{route_via_bgp}' WHERE ip_switch = '{route_ip_switch}'")
                 #! Query comentado para rellenar tabla de datos fijos
-                # query = (f"INSERT INTO dcs.route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
+                # query = (f"INSERT INTO devnet.route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
                 cursor.execute(query)
                 mydb.commit()
 
-                query_historic = (f"INSERT INTO dcs.historic_route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
+                query_historic = (f"INSERT INTO devnet.historic_route_default (`via_bgp`, `name_switch`, `red`, `ip_switch`) VALUES ('{route_via_bgp}','{route_name}','{route_red}','{route_ip_switch}')")
                 cursor.execute(query_historic)
                 mydb.commit()
 
@@ -139,11 +139,11 @@ def core1():
                 status_interface = interface['status']
                 id_prtg = interface['objid']
                 red_interface = interface["red"]
-                query = "INSERT INTO dcs.interfaces (id_prtg, name, status, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s"
+                query = "INSERT INTO devnet.interfaces (id_prtg, name, status, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s"
                 cursor.execute(query, (id_prtg, name_interface, status_interface, ip_switch, name_switch, red_interface, name_interface, status_interface))
                 mydb.commit()
 
-                query_historic = "INSERT INTO dcs.historic_interfaces (id_prtg, name, status, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s)"
+                query_historic = "INSERT INTO devnet.historic_interfaces (id_prtg, name, status, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s)"
                 cursor.execute(query_historic, (id_prtg, name_interface, status_interface, ip_switch, name_switch, red_interface))
                 mydb.commit()
 
@@ -155,11 +155,11 @@ def core1():
                 id_prtg = sensor['objid']
                 lastvalue = sensor['lastvalue']
                 red_sensor = sensor['red']
-                query = "INSERT INTO dcs.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
+                query = "INSERT INTO devnet.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
                 cursor.execute(query, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor, name_sensor, status_sensor, lastvalue))
                 mydb.commit()
 
-                query_historic = "INSERT INTO dcs.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                query_historic = "INSERT INTO devnet.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 cursor.execute(query_historic, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor))
                 mydb.commit()
         
@@ -191,20 +191,20 @@ def core1():
         #! TERMINA BLOQUE DESCRIPCION DE LAS INTERFACES
         
         # Blanqueamos la tabla neighbors antes de rellenarla de nuevo
-        query = (f"DELETE FROM dcs.neighbors")
+        query = (f"DELETE FROM devnet.neighbors")
         cursor.execute(query)
         mydb.commit()
         
         # # Guardamos en bloque en la BD en vez de linea por linea
-        # query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        # query_historic = "INSERT INTO dcs.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        # query = "INSERT INTO devnet.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        # query_historic = "INSERT INTO devnet.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
         # values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status']) for neigh in status_data_neighbors]
         # cursor.executemany(query, values)
         # cursor.executemany(query_historic, values)
         # mydb.commit()
         
         #! ACTUALIZAR EN VEZ DE INSERTAR
-        query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`, `interface_descrip`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO devnet.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`, `interface_descrip`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = [(neigh['ip_neighbor'], neigh['neighbor'], neigh['red'], neigh['name_switch'], neigh['ip_switch'],  neigh['interface'], neigh['status'], neigh['descrip']) for neigh in status_data_neighbors]
         cursor.executemany(query, values)
                 
@@ -217,18 +217,18 @@ def core1():
         #     interface = neighbor['interface']
         #     status = neighbor['status']
             
-        #     query = "INSERT INTO dcs.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        #     query = "INSERT INTO devnet.neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
         #     cursor.execute(query, (ip_neighbor, neighbor_type, red, name, ip_switch, interface, status))
         #     mydb.commit()
 
-        #     query_historic = "INSERT INTO dcs.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        #     query_historic = "INSERT INTO devnet.historic_neighbors (`ip_neighbor`, `neighbor`, `red`, `name_switch`, `ip_switch`, `interface`, `status`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
         #     cursor.execute(query_historic, (ip_neighbor, neighbor_type, red, name, ip_switch, interface, status))
         #     mydb.commit()
             
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
+        cursor.execute(f"INSERT INTO devnet.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
         mydb.commit()
         cursor.close()
         logging.info("Terminado")
@@ -238,7 +238,7 @@ def core1():
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
+        cursor.execute(f"INSERT INTO devnet.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
         cursor.close()
 

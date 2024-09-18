@@ -59,7 +59,7 @@ def get_data():
         
         # lista de id de los grupos de prtg
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.data_prtg_groups"
+        query = "SELECT * FROM devnet.data_prtg_groups"
         cursor.execute(query)
         
         column_names = [column[0] for column in cursor.description]
@@ -86,7 +86,7 @@ def get_data():
                 
         values = [(item["device"], item["group"], item["status"], item["objid"], item["sensor"], item["lastvalue"], item["rol"]) for item in prtg_data]
         query = """
-                INSERT INTO dcs.prtg_groups (`device`, `group`, `status`, `id_prtg`, `sensor`, `lastvalue`, `rol`)
+                INSERT INTO devnet.prtg_groups (`device`, `group`, `status`, `id_prtg`, `sensor`, `lastvalue`, `rol`)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE `status` = VALUES(`status`), `lastvalue` = VALUES(`lastvalue`)
                 """

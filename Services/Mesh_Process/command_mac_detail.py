@@ -48,7 +48,7 @@ def database_connection():
 def get_data_from_db(ubication):
     mydb = database_connection()
     cursor = mydb.cursor()
-    query = f"SELECT * FROM dcs.mesh_process WHERE ubication = '{ubication}' and note <> 'NAT'"
+    query = f"SELECT * FROM devnet.mesh_process WHERE ubication = '{ubication}' and note <> 'NAT'"
     cursor.execute(query)
     
     column_names = [column[0] for column in cursor.description]
@@ -70,7 +70,7 @@ def run_mac_detail(mesh_clients_list):
     try:
         # mydb = database_connection()
         # cursor = mydb.cursor()
-        # query = "SELECT * FROM dcs.mesh_process WHERE device = 'Cisco AP'"
+        # query = "SELECT * FROM devnet.mesh_process WHERE device = 'Cisco AP'"
         # cursor.execute(query)
 
         # column_names = [column[0] for column in cursor.description]

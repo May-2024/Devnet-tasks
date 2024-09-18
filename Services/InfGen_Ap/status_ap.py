@@ -1,7 +1,7 @@
 # Funcion empleada para darle estado UP o DOWN al AP
 def status_ap_function(mydb, current_aps):
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM dcs.data_ap")
+    cursor.execute("SELECT * FROM devnet.data_ap")
     
     column_names = [column[0] for column in cursor.description]
     dataAps = []

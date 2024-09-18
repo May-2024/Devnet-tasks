@@ -30,7 +30,7 @@ def get_actility_data(ap_name):
     try:
         db_connector = devnet_connection()
         devnet_cursor = db_connector.cursor()
-        query = f"SELECT * FROM dcs.data_mesh_actility WHERE name = '{ap_name}'"
+        query = f"SELECT * FROM devnet.data_mesh_actility WHERE name = '{ap_name}'"
         devnet_cursor.execute(query)
 
         # Lee todas las filas para asegurarse de que no queden resultados sin leer

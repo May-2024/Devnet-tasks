@@ -6,24 +6,24 @@ from datetime import datetime, time
 
 def update_devnet_data(data):
     """
-    Actualiza múltiples registros en la tabla `dcs.mesh` de la base de datos `devnet`.
+    Actualiza múltiples registros en la tabla `devnet.mesh` de la base de datos `devnet`.
 
     Esta función recibe una lista de diccionarios, donde cada diccionario contiene los datos 
-    necesarios para actualizar un registro en la tabla `dcs.mesh`. Se construye una consulta 
+    necesarios para actualizar un registro en la tabla `devnet.mesh`. Se construye una consulta 
     SQL de actualización y se ejecuta para cada conjunto de datos. Si la operación es 
     exitosa, se confirman los cambios en la base de datos. En caso de error, se registra la 
     excepción en los logs y se devuelve `False`.
 
     Args:
         data (list[dict]): Una lista de diccionarios, donde cada diccionario contiene las 
-        claves correspondientes a las columnas de la tabla `dcs.mesh`, y los valores a actualizar.
+        claves correspondientes a las columnas de la tabla `devnet.mesh`, y los valores a actualizar.
 
     Returns:
         bool: `True` si la actualización fue exitosa, `False` en caso de error.
     """
 
     query = """
-        UPDATE dcs.mesh
+        UPDATE devnet.mesh
         SET
             `device` = %s, 
             `eqmt` = %s, 
@@ -162,7 +162,7 @@ def update_db_fail_counters():
 
     Esta función se conecta a la base de datos `devnet`, y si se ejecuta entre las
     00:00 y 00:30 horas, resetea los contadores de fallas (`fail_senal`, `fail_time_senal`,
-    `fail_snr`, `fail_time_snr`) en la tabla `dcs.mesh` a cero. La función maneja errores
+    `fail_snr`, `fail_time_snr`) en la tabla `devnet.mesh` a cero. La función maneja errores
     y registra cualquier excepción en los logs.
 
     Raises:
@@ -179,7 +179,7 @@ def update_db_fail_counters():
             db_connector = devnet_connection()
             devnet_cursor = db_connector.cursor()
 
-            query = "UPDATE dcs.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0"
+            query = "UPDATE devnet.mesh SET fail_senal = 0, fail_time_senal = 0, fail_snr = 0, fail_time_snr = 0"
 
             devnet_cursor.execute(query)
             db_connector.commit()

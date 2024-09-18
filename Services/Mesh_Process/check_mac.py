@@ -52,7 +52,7 @@ def check_mac():
     try:
         mydb = database_connection()
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.mesh_process"
+        query = "SELECT * FROM devnet.mesh_process"
         cursor.execute(query)
 
         # Obtenemos la lista con los datos de los diccionarios actualizados
@@ -114,7 +114,7 @@ def check_mac():
         for data in data_updated:
             if data["client"] != "10.117.126.100":
                 status = data["status"]
-                query_mac = f"UPDATE dcs.mesh_process SET status = '{status}' WHERE client = '{data['client']}'"
+                query_mac = f"UPDATE devnet.mesh_process SET status = '{status}' WHERE client = '{data['client']}'"
                 cursor.execute(query_mac)
                 mydb.commit()
 

@@ -23,7 +23,7 @@ def save_down_register(data):
     fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
     fecha_y_hora = str(fecha_y_hora)
     
-    query_down = "INSERT INTO dcs.dates_down_fimbase (base_name, base_ip, date) VALUES (%s, %s, %s)"
+    query_down = "INSERT INTO devnet.dates_down_fimbase (base_name, base_ip, date) VALUES (%s, %s, %s)"
     value_down = (base_name, base_ip, fecha_y_hora)
     cursor.execute(query_down, value_down)
     mydb.commit()
@@ -37,7 +37,7 @@ def update_status_base(data):
     base_ip = data["ip"]
     base_status = data["base_status"]
     
-    query_update = (f"UPDATE dcs.fim_base SET status = '{base_status}', error = '{data['error']}' WHERE base_ip = '{base_ip}'")
+    query_update = (f"UPDATE devnet.fim_base SET status = '{base_status}', error = '{data['error']}' WHERE base_ip = '{base_ip}'")
 
     cursor.execute(query_update)
     mydb.commit()

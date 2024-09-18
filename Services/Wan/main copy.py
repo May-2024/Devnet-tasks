@@ -33,7 +33,7 @@ cursor = mydb.cursor()
 
 def get_uptime():
     
-    query = "SELECT * FROM dcs.data_wan"
+    query = "SELECT * FROM devnet.data_wan"
     cursor.execute(query)
     column_names = [column[0] for column in cursor.description]
 
@@ -219,7 +219,7 @@ def save_bd(data_wan):
     today_uptimepercent = data_wan['today_uptimepercent']
     status_device = data_wan['status']
     # print(last_uptimepercent)
-    query = f"INSERT INTO dcs.wan (`ip`, `sensor`, `last_uptime_days`, `last_uptime_percent`, `last_down_days`, `last_down_percent`, `current_uptime_percent`, `today_uptime_percent`, `status`)"
+    query = f"INSERT INTO devnet.wan (`ip`, `sensor`, `last_uptime_days`, `last_uptime_percent`, `last_down_days`, `last_down_percent`, `current_uptime_percent`, `today_uptime_percent`, `status`)"
     values = f"VALUES ('{ip}', '{sensor_name}', '{last_uptimedays}', '{last_uptimepercent}', '{last_downtimedays}', '{last_downtimepercent}', '{current_uptimepercent}', '{today_uptimepercent}', '{status_device}')"
     cursor.execute(query + values)
     mydb.commit()

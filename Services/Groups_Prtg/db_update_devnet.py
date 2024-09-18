@@ -30,10 +30,10 @@ def update_devnet_data(data):
                    o el cierre de la conexión.
     """
 
-    delete_query = "DELETE FROM dcs.prtg_groups"
+    delete_query = "DELETE FROM devnet.prtg_groups"
 
     query = """
-            INSERT INTO dcs.prtg_groups
+            INSERT INTO devnet.prtg_groups
             (`device`, 
             `group`, 
             `status`, 

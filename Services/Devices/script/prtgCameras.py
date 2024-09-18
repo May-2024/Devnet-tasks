@@ -38,7 +38,7 @@ def getCamerasFromPrtg():
     # load_dotenv()
     mydb = database_connection()
     cursor = mydb.cursor()
-    query = "SELECT * FROM dcs.data_devices"
+    query = "SELECT * FROM devnet.data_devices"
     cursor.execute(query)
     
     column_names = [column[0] for column in cursor.description]

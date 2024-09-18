@@ -30,7 +30,7 @@ def save_bd(data):
         cursor = mydb.cursor()
     
         query = """
-            UPDATE dcs.firewalls 
+            UPDATE devnet.firewalls 
             SET 
                 `num_users` = %s,
                 `state` = %s,
@@ -61,7 +61,7 @@ def save_bd(data):
         mydb.commit()
 
         query_historic = """
-            INSERT INTO dcs.historic_firewalls 
+            INSERT INTO devnet.historic_firewalls 
             (`fw`, `ip`, `canal`, `num_users`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """

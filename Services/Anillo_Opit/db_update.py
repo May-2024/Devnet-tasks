@@ -6,7 +6,7 @@ from db_connection import devnet_connection
 
 def update_devnet_data(data):
     """
-    Actualiza el estado de las interfaces en la base de datos `dcs.anillo_opit` utilizando los datos proporcionados.
+    Actualiza el estado de las interfaces en la base de datos `devnet.anillo_opit` utilizando los datos proporcionados.
 
     Esta función toma una lista de diccionarios que contienen el estado de la interfaz (`status`) y el 
     identificador de PRTG (`objid`). Actualiza la columna `status` en la tabla `anillo_opit` de la base de datos 
@@ -60,7 +60,7 @@ def datetime_register(system_name, status):
     Registra la fecha, hora y estado del último ciclo de actualización para un sistema específico en la base de datos.
 
     Proceso:
-    - Actualiza el registro de la última fecha, hora y estado de un sistema en la tabla `dcs.datetime_systems`.
+    - Actualiza el registro de la última fecha, hora y estado de un sistema en la tabla `devnet.datetime_systems`.
 
     Parámetros:
     - system_name (str): Nombre del sistema que se está registrando (por ejemplo, "ups").
@@ -75,7 +75,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE dcs.datetime_systems SET 
+    UPDATE devnet.datetime_systems SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

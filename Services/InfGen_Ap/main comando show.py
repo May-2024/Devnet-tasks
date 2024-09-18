@@ -81,11 +81,11 @@ def getData():
                 id_prtg = sensor['objid']
                 lastvalue = sensor['lastvalue']
                 red_sensor = sensor['red']
-                query = "INSERT INTO dcs.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
+                query = "INSERT INTO devnet.system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE name = %s, status = %s, lastvalue = %s"
                 cursor.execute(query, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor, name_sensor, status_sensor, lastvalue))
                 mydb.commit()
 
-                query_historic = "INSERT INTO dcs.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                query_historic = "INSERT INTO devnet.historic_system_health (name, status, id_prtg, lastvalue, ip_switch, name_switch, red) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 cursor.execute(query_historic, (name_sensor, status_sensor, id_prtg, lastvalue, ip_switch, name_switch, red_sensor))
                 mydb.commit()
 
@@ -93,13 +93,13 @@ def getData():
             print(f"Length con el estado: {len(status_ap)}")
 
             # Blanqueamos la tabla AP antes de rellenarla de nuevo
-            query = (f"DELETE FROM dcs.ap")
+            query = (f"DELETE FROM devnet.ap")
             cursor.execute(query)
             mydb.commit()
             
             # Guardamos en bloque en la BD en vez de linea por linea
-            query = "INSERT INTO dcs.ap (`name`, `model`, `ip`, `state`, `location`, `status`) VALUES (%s, %s, %s, %s, %s, %s)"
-            query_historic = "INSERT INTO dcs.historic_ap (`name`, `model`, `ip`, `state`, `location`, `status`) VALUES (%s, %s, %s, %s, %s, %s)"
+            query = "INSERT INTO devnet.ap (`name`, `model`, `ip`, `state`, `location`, `status`) VALUES (%s, %s, %s, %s, %s, %s)"
+            query_historic = "INSERT INTO devnet.historic_ap (`name`, `model`, `ip`, `state`, `location`, `status`) VALUES (%s, %s, %s, %s, %s, %s)"
             values = [(ap['name'], ap['model'], ap['ip'], ap['state'], ap['location'], ap['status']) for ap in status_ap]
             cursor.executemany(query, values)
             cursor.executemany(query_historic, values)
@@ -113,7 +113,7 @@ def getData():
                 # ip_ap = neigh['ip']
                 # state = neigh['state']
                 # location = neigh['location']
-                # query = "INSERT INTO dcs.data_ap (`name`, `model`, `ip`, `state`, `location`) VALUES (%s, %s, %s, %s, %s)"
+                # query = "INSERT INTO devnet.data_ap (`name`, `model`, `ip`, `state`, `location`) VALUES (%s, %s, %s, %s, %s)"
                 # cursor.execute(query, (name, model, ip_ap, state, location))
                 # mydb.commit()
                 
@@ -126,7 +126,7 @@ def getData():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(
-            f"INSERT INTO dcs.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')"
+            f"INSERT INTO devnet.fechas_consultas_ig (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')"
         )
         mydb.commit()
         cursor.close()

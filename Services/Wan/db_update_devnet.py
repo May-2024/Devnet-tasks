@@ -6,7 +6,7 @@ from datetime import datetime
 
 def update_devnet_data(data):
     """
-    Actualiza los datos de los dispositivos UPS en la base de datos de producción `dcs.ups`.
+    Actualiza los datos de los dispositivos UPS en la base de datos de producción `devnet.ups`.
 
     Proceso:
     - Actualiza las filas correspondientes en la base de datos basándose en la dirección IP de cada UPS.
@@ -20,7 +20,7 @@ def update_devnet_data(data):
 
     # Consulta SQL para actualizar los datos donde el valor de la columna 'ip' coincida
     query = """
-    UPDATE dcs.wan SET 
+    UPDATE devnet.wan SET 
         sensor = %s,
         last_uptime_days = %s,
         last_uptime_percent = %s,
@@ -73,7 +73,7 @@ def datetime_register(system_name, status):
     Registra la fecha, hora y estado del último ciclo de actualización para un sistema específico en la base de datos.
 
     Proceso:
-    - Actualiza el registro de la última fecha, hora y estado de un sistema en la tabla `dcs.datetime_systems`.
+    - Actualiza el registro de la última fecha, hora y estado de un sistema en la tabla `devnet.datetime_systems`.
 
     Parámetros:
     - system_name (str): Nombre del sistema que se está registrando (por ejemplo, "ups").
@@ -88,7 +88,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE dcs.datetime_systems SET 
+    UPDATE devnet.datetime_systems SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

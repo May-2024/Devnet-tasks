@@ -6,10 +6,10 @@ from db_insert_historic import save_historic_neighbors, save_historic_interfaces
 
 def update_interfaces(data):
 
-    delete_query = "DELETE FROM dcs.interfaces"
+    delete_query = "DELETE FROM devnet.interfaces"
 
     query = """
-            INSERT dcs.interfaces 
+            INSERT devnet.interfaces 
             (id_prtg, name, status, ip_switch, name_switch, red)
             VALUES (%s, %s, %s, %s, %s, %s)
         """
@@ -60,10 +60,10 @@ def update_interfaces(data):
 
 def update_sysHealth(data):
 
-    delete_query = "DELETE FROM dcs.system_health"
+    delete_query = "DELETE FROM devnet.system_health"
 
     query = """
-            INSERT dcs.system_health 
+            INSERT devnet.system_health 
             (id_prtg, name, lastvalue, status, ip_switch, name_switch, red)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
@@ -116,7 +116,7 @@ def update_sysHealth(data):
 def update_statusCores(data):
 
     query = """
-            UPDATE dcs.status_cores 
+            UPDATE devnet.status_cores 
             SET status = %s, message = %s
             WHERE ip = %s
         """
@@ -153,10 +153,10 @@ def update_statusCores(data):
 
 def update_neighbors(data):
 
-    delete_query = "DELETE FROM dcs.neighbors"
+    delete_query = "DELETE FROM devnet.neighbors"
 
     query = """
-            INSERT INTO dcs.neighbors 
+            INSERT INTO devnet.neighbors 
             (`ip_neighbor`, 
             `neighbor`, 
             `red`, 
@@ -213,7 +213,7 @@ def update_neighbors(data):
 def update_via_bgp(data):
 
     query = """
-            UPDATE dcs.route_default 
+            UPDATE devnet.route_default 
             SET via_bgp = %s
             WHERE ip_switch = %s
         """

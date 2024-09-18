@@ -51,7 +51,7 @@ def status_prtg():
     try:
         mydb = database_connection()
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.mesh_process"
+        query = "SELECT * FROM devnet.mesh_process"
         cursor.execute(query)
 
         # Obtenemos la lista con los datos de los diccionarios actualizados
@@ -118,7 +118,7 @@ def status_prtg():
                     None,
                 )
                 if pala == None or "2" not in pala["status_dispatch"]:
-                    query = f"UPDATE dcs.mesh_process SET prtg_status = 'No operando', prtg_id = 0 WHERE client = '{ip_client}'"
+                    query = f"UPDATE devnet.mesh_process SET prtg_status = 'No operando', prtg_id = 0 WHERE client = '{ip_client}'"
                     cursor.execute(query)
                     mydb.commit()
                     continue
@@ -128,7 +128,7 @@ def status_prtg():
             devices = response_api_getid.get("devices")
 
             if devices == []:
-                query = f"UPDATE dcs.mesh_process SET prtg_status = 'Not Found', prtg_id = 0 WHERE client = '{ip_client}'"
+                query = f"UPDATE devnet.mesh_process SET prtg_status = 'Not Found', prtg_id = 0 WHERE client = '{ip_client}'"
                 cursor.execute(query)
                 mydb.commit()
 
@@ -137,7 +137,7 @@ def status_prtg():
                 api_prtg_data = os.getenv("URL_GET_DATA").format(objid=objid)
                 response_api_data = requests.get(api_prtg_data, verify=False).json()
                 prtg_status = response_api_data["sensors"][0]["status"]
-                query = f"UPDATE dcs.mesh_process SET prtg_status = '{prtg_status}', prtg_id = '{objid}' WHERE client = '{ip_client}'"
+                query = f"UPDATE devnet.mesh_process SET prtg_status = '{prtg_status}', prtg_id = '{objid}' WHERE client = '{ip_client}'"
                 cursor.execute(query)
                 mydb.commit()
 

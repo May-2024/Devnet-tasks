@@ -7,7 +7,7 @@ from datetime import datetime
 def update_devnet_data(data):
 
     query = """
-            UPDATE dcs.firewalls 
+            UPDATE devnet.firewalls 
             SET 
                 num_users = %s,
                 state = %s,

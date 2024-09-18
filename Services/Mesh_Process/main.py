@@ -28,7 +28,7 @@ def main():
     try:
         mydb = devnet_connection()
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.mesh_process"
+        query = "SELECT * FROM devnet.mesh_process"
         cursor.execute(query)
 
         # Convertimos los datos Antiguos en una lista de diccionarios
@@ -101,14 +101,14 @@ def main():
                     and last["current_mac"] != current["mac"]
                 ):
 
-                    query_last_mac = f"UPDATE dcs.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
+                    query_last_mac = f"UPDATE devnet.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
                     cursor.execute(query_last_mac)
                     mydb.commit()
 
                     now = datetime.datetime.now()
                     fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
                     fecha_y_hora = str(fecha_y_hora)
-                    query_current_mac = f"UPDATE dcs.mesh_process SET current_mac = '{current['mac']}', last_change_date = '{fecha_y_hora}' WHERE client = '{current['ip']}'"
+                    query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = '{current['mac']}', last_change_date = '{fecha_y_hora}' WHERE client = '{current['ip']}'"
                     cursor.execute(query_current_mac)
                     mydb.commit()
                     break
@@ -133,11 +133,11 @@ def main():
                 and last["current_mac"] != "Not Found"
             ):
 
-                query_last_mac = f"UPDATE dcs.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
+                query_last_mac = f"UPDATE devnet.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
                 cursor.execute(query_last_mac)
                 mydb.commit()
                 
-                query_current_mac = f"UPDATE dcs.mesh_process SET current_mac = 'Not Found' WHERE client = '{last['client']}'"
+                query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = 'Not Found' WHERE client = '{last['client']}'"
                 cursor.execute(query_current_mac)
                 mydb.commit()
                 break
@@ -146,14 +146,14 @@ def main():
                 # fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
                 # fecha_y_hora = str(fecha_y_hora)
                 #! Se elimina el last_change_date = '{fecha_y_hora}'
-                # query_current_mac = f"UPDATE dcs.mesh_process SET current_mac = 'Not Found', last_change_date = '{fecha_y_hora}' WHERE client = '{last['client']}'"
+                # query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = 'Not Found', last_change_date = '{fecha_y_hora}' WHERE client = '{last['client']}'"
 
         # Funcion para validar si una mac se repite en otra ubicacion
         # check_mac()
         
         mydb = devnet_connection()
         cursor = mydb.cursor()
-        query = "SELECT * FROM dcs.mesh_process"
+        query = "SELECT * FROM devnet.mesh_process"
         cursor.execute(query)
 
         column_names = [column[0] for column in cursor.description]
@@ -174,7 +174,7 @@ def main():
                 client["status"] = "N/A"
                 client["status_num_clients"] = "N/A"
                 
-            query = f"UPDATE dcs.mesh_process SET status = '{client['status']}', status_num_clients = '{client['status_num_clients']}' WHERE client = '{client['client']}'"
+            query = f"UPDATE devnet.mesh_process SET status = '{client['status']}', status_num_clients = '{client['status_num_clients']}' WHERE client = '{client['client']}'"
             cursor.execute(query)
             mydb.commit()
 
@@ -186,7 +186,7 @@ def main():
         fecha_y_hora = str(fecha_y_hora)
 
         cursor.execute(
-            f"UPDATE dcs.datetime_systems SET `datetime` = '{fecha_y_hora}', `status` = 'OK' WHERE `system_name` = 'mesh_process'"
+            f"UPDATE devnet.datetime_systems SET `datetime` = '{fecha_y_hora}', `status` = 'OK' WHERE `system_name` = 'mesh_process'"
         )
         mydb.commit()
         cursor.close()
@@ -200,7 +200,7 @@ def main():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(
-            f"UPDATE dcs.datetime_systems SET `datetime` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `system_name` = 'mesh_process'"
+            f"UPDATE devnet.datetime_systems SET `datetime` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `system_name` = 'mesh_process'"
         )
         mydb.commit()
         cursor.close()
