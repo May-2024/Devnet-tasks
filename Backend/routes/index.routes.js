@@ -23,6 +23,7 @@ const actilityRoutes = require("./actility.routes");
 const meshProcessRoutes = require("./meshProcess.routes");
 const groupPrtgRoutes = require("./group_prtg.routes");
 const dateTimeRoutes = require("./datetimes.routes");
+const dockersRoutes = require("./dockers.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -51,6 +52,7 @@ const allRoutes = (app) => {
   router.use("/mesh-process", meshProcessRoutes);
   router.use("/group-prtg", groupPrtgRoutes);
   router.use("/datetimes", dateTimeRoutes);
+  router.use("/dockers", dockersRoutes);
 };
 
 module.exports = { allRoutes };

@@ -15,10 +15,10 @@ def save_down_register(data):
     # Guardar en una tabla las fechas en las que la base fim estuvo down
     mydb = devnet_connection()
     cursor = mydb.cursor()
-    
+
     base_name = data["name"]
     base_ip = data["ip"]
-    
+
     now = datetime.datetime.now()
     fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
     fecha_y_hora = str(fecha_y_hora)
@@ -29,6 +29,7 @@ def save_down_register(data):
     mydb.commit()
     cursor.close()
 
+
 def update_status_base(data):
     # Actualiza el estado de la base en la tabla fim_base sin escribir lineas nuevas
     mydb = devnet_connection()
@@ -36,8 +37,9 @@ def update_status_base(data):
 
     base_ip = data["ip"]
     base_status = data["base_status"]
-    
-    query_update = (f"UPDATE devnet.fim_base SET status = '{base_status}', error = '{data['error']}' WHERE base_ip = '{base_ip}'")
+    mssg = data["mssg"]
+
+    query_update = f"UPDATE dcs.fim_base SET status = '{base_status}', error = '{mssg}' WHERE base_ip = '{base_ip}'"
 
     cursor.execute(query_update)
     mydb.commit()

@@ -5,6 +5,7 @@ import {
   getDataBaseFim,
   getDataMeshProcess,
   getVpn,
+  getAnilloUgUpDown,
 } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
@@ -38,6 +39,7 @@ export function Home() {
   const [openPitLoading, setOpenPitLoading] = useState(true);
   const [dataMeshProcessUp, setDataMeshProcessUp] = useState([]);
   const [dataMeshProcessDown, setDataMeshProcessDown] = useState([]);
+  const [upDownAnilloUg, setUpDownAnilloUg] = useState([]);
 
   // Estados de spinners
   const [spinnerDcsCandelaria, setSpinnerDcsCandelaria] = useState(true);
@@ -62,7 +64,10 @@ export function Home() {
 
         const dataVpnCande = await getVpn();
         setVpnCandelaria(dataVpnCande.data);
+        const dataAnilloUg = await getAnilloUgUpDown();
+        setAnilloUp(dataUpAnillo);
         setAnilloDown(dataDownAnillo);
+        setUpDownAnilloUg(dataAnilloUg);
 
         // OPEN PIT
         const meshIndicators = await getMeshIndicators();
@@ -519,6 +524,48 @@ export function Home() {
               Detalles
             </Link>
           </div>
+        </section>
+
+        <section className="system-container">
+          {openPitLoading === true ? (
+            <div className="loader-openpit-container">
+              <PuffLoader color="red" />
+            </div>
+          ) : (
+            <div className="system-container-openpit">
+              <div className="name-system-container">
+                <h1>Redes Mina UG</h1>
+              </div>
+              <div className="home-kpi-container">
+                <table className="home-kpi-openpit">
+                  <thead>
+                    <tr>
+                      <th>Sistema</th>
+                      <th className="kpi-green">Up</th>
+                      <th className="kpi-red">Down</th>
+                      <th>Detalles</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Anillo UG</td>
+                      <td>{upDownAnilloUg.upElements.length}</td>
+                      <td>{upDownAnilloUg.downElements.length}</td>
+                      <td>
+                        <Link
+                          target="_blank"
+                          className="link-open-pit"
+                          to="/monitoreo/anillo/ug"
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </section>
       </div>
     </>
