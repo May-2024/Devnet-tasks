@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { NeighborsService } = require("../controllers/neighbors");
+const { AnilloOpitService } = require("../controllers/anillo_opit");
 
-const Neighbors = new NeighborsService();
+const AnilloOpit = new AnilloOpitService();
 
-// Obtener todos las Neighbors
 router.get("/", async (req, res, next) => {
   try {
-    const response = await Neighbors.getNeighbors();
+    const response = await AnilloOpit.getDataAnilloOpit();
     res.status(response.statusCode).json({
       message: response.message,
       data: response.data,

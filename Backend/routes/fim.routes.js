@@ -1,11 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { getFimBase } = require("../controllers/base_fim");
+const { FimService } = require("../controllers/base_fim");
+
+const FimBase = new FimService();
 
 router.get("/", async (req, res, next) => {
   try {
-    const data = await getFimBase();
-    res.json(data);
+    const response = await FimBase.getFim();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
     next(error);
   }

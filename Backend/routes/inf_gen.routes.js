@@ -4,22 +4,20 @@ const passport = require("passport");
 const { checkRoles } = require("../middlewares/auth.handler");
 const { createApSchema, editApSchema } = require("../schemas/ap.schema");
 const { validateData } = require("../middlewares/validator.handler");
-const {
-  getInfGenData,
-  getNumberApRegistered,
-  getApRegistered,
-  registerAp,
-  getOneAp,
-  editOneAp,
-  deleteAp,
-} = require("../controllers/inf_gen");
+const { DataInfGenService } = require("../controllers/inf_gen");
 
+
+const InfraGeneral = new DataInfGenService();
+
+// Obtener todos los SW de InfraGeneral
 router.get("/", async (req, res, next) => {
   try {
-    const data = await getInfGenData();
-    res.json(data);
+    const response = await InfraGeneral.getInfGenData();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
-    console.error(error);
     next(error);
   }
 });

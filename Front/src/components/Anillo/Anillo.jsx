@@ -13,7 +13,7 @@ export const Anillo = () => {
     const fetchData = async () => {
       try {
         const data = await getDataAnillo();
-        setAnilloData(data);
+        setAnilloData(data.data);
       } catch (error) {
         console.error(error);
       }

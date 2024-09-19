@@ -69,12 +69,8 @@ const columns = {
   data_backup: {
     type: DataTypes.STRING(10),
     allowNull: true,
-  },
+  }
 };
 
-const Candelaria_Clients = sequelize.define("Candelaria_Clients", columns, {
-  tableName: "candelaria_clients",
-  timestamps: false,
-});
 
-module.exports = { Candelaria_Clients };
+module.exports = {};

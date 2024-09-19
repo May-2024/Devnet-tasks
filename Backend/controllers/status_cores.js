@@ -9,4 +9,19 @@ async function getStatusCores() {
     }
 };
 
-module.exports = { getStatusCores };
+class StatusCoreService {
+    async getStatusCore() {
+      try {
+        const data = await StatusCores.findAll();
+        return {
+          statusCode: 200,
+          message: "Información del estado de los SW Core obtenida exitosamente",
+          data: data,
+        };
+      } catch (error) {
+        throw new Error("Error al obtener la información del estado de los SW Core");
+      }
+    }
+  }
+
+module.exports = { StatusCoreService };

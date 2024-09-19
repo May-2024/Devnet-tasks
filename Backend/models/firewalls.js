@@ -4,7 +4,11 @@ const { Sequelize, DataTypes } = require("sequelize");
 const Firewalls = sequelize.define(
   "Firewalls",
   {
-    fw: {
+    name: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
+    channel: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
@@ -12,8 +16,16 @@ const Firewalls = sequelize.define(
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    canal: {
-      type: DataTypes.STRING(100),
+    link: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    vdom: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    gateway: {
+      type: DataTypes.STRING(32),
       allowNull: true,
     },
     num_users: {
@@ -44,23 +56,11 @@ const Firewalls = sequelize.define(
       type: DataTypes.STRING(32),
       allowNull: true,
     },
-    link: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-    },
-    gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
     ubication: {
       type: DataTypes.STRING(32),
       allowNull: true,
     },
     status_gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    fail_datetime: {
       type: DataTypes.STRING(32),
       allowNull: true,
     }

@@ -203,7 +203,7 @@ export const getDataBaseFim = async () => {
 
 export const getDataAnillo = async () => {
   return axios
-    .get(`${BASE_API_URL}/anillo`)
+    .get(`${BASE_API_URL}/anillo-opit`)
     .then((response) => response.data)
     .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
 };
@@ -212,7 +212,7 @@ export const getDataActility = async () => {
   return axios
     .get(`${BASE_API_URL}/actility`)
     .then((response) => response.data)
-    .catch((error) => {throw new Error('ANILLO: Error del API REST Candealaria : ',error)});
+    .catch((error) => {throw new Error('ACTILITY: Error del API REST Candealaria : ',error)});
 };
 
 export const getDataMeshProcess = async () => {

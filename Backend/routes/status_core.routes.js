@@ -1,13 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const { getStatusCores } = require("../controllers/status_cores");
+const { StatusCoreService } = require("../controllers/status_cores");
 
+const StatusCore = new StatusCoreService();
+
+// Obtener todos las StatusCore
 router.get("/", async (req, res, next) => {
   try {
-    const data = await getStatusCores();
-    res.json(data);
+    const response = await StatusCore.getStatusCore();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
-    console.error(error)
     next(error);
   }
 });

@@ -15,7 +15,7 @@ export function TableClients() {
     const fetchData = async () => {
       try {
         const clientsList = await getClients();
-        setClients(clientsList);
+        setClients(clientsList.data);
         setShowSpinner(false);
       } catch (error) {
         console.error("Error al obtener el listado de Clientes:", error);

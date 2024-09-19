@@ -1,9 +1,12 @@
 const { getDevices } = require("../devices");
+const { DevicesService } = require("../devices");	
+
+const Devices = new DevicesService();
 
 const dashboardDevices = async () => {
   try {
-    let devices = await getDevices();
-    devices = devices.map((device) => device.toJSON());
+    let devices = await Devices.getDevices();
+    devices = devices.data.map((device) => device.toJSON());
 
     const numCamerasUp = devices.filter(
       (device) =>

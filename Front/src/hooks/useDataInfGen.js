@@ -20,11 +20,11 @@ export async function useDataInfGen() {
   const dataPrtgGroups = await getDataPrtgGroups();
 
   const allData = [
-    ...dataInterfaces,
-    ...dataDevicesHealth,
-    ...dataNeighbors,
-    ...dataRouteStatus,
-    ...dataPrtgGroups,
+    ...dataInterfaces.data,
+    ...dataDevicesHealth.data,
+    ...dataNeighbors.data,
+    ...dataRouteStatus.data,
+    ...dataPrtgGroups.data,
   ];
 
   const upElements = [];
@@ -143,7 +143,7 @@ export async function useDataInfGen() {
   };
 
   // Clasificacion de AP
-  dataPrtgGroups.forEach((element) => {
+  dataPrtgGroups.data.forEach((element) => {
     if (element.status.includes("Down")) {
       downElements.push(element);
     }

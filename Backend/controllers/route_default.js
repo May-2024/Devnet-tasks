@@ -1,8 +1,18 @@
 const { RouteDefault } = require("../models/route_default");
 
-async function getRouteDefault() {
-  const dataRouteDefault = await RouteDefault.findAll();
-  return dataRouteDefault;
+class RouteDefaultService {
+  async getRouteDefault() {
+    try {
+      const data = await RouteDefault.findAll();
+      return {
+        statusCode: 200,
+        message: "Información de las Route Default obtenida exitosamente",
+        data: data,
+      };
+    } catch (error) {
+      throw new Error("Error al obtener la información de las Route Default");
+    }
+  }
 }
 
-module.exports = { getRouteDefault };
+module.exports = { RouteDefaultService };

@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const Switches = sequelize.define(
   "Switches",
   {
-    dispositivo: {
+    device: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -13,10 +13,6 @@ const Switches = sequelize.define(
       allowNull: true,
     },
     group: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    tipo: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -54,7 +50,7 @@ const Switches = sequelize.define(
     },
   },
   {
-    tableName: "switches",
+    tableName: "candelaria_switches",
     timestamps: false,
   }
 );

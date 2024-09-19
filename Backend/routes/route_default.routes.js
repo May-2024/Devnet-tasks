@@ -1,16 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const { getRouteDefault } = require("../controllers/route_default");
+const { RouteDefaultService } = require("../controllers/route_default");
 
+const RouteDefault = new RouteDefaultService();
+
+// Obtener todos las RouteDefault
 router.get("/", async (req, res, next) => {
   try {
-    const routeDefault = await getRouteDefault();
-    res.json(routeDefault);
+    const response = await RouteDefault.getRouteDefault();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
-    console.error(error)
     next(error);
   }
 });
-
 
 module.exports = router;

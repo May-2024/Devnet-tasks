@@ -1,17 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { getDataAnillo } = require("../controllers/anillo");
+const { getFimBase } = require("../controllers/base_fim");
 
 router.get("/", async (req, res, next) => {
   try {
-    const data = await getDataAnillo();
+    const data = await getFimBase();
     res.json(data);
-    
   } catch (error) {
-    console.error(error)
     next(error);
   }
 });
-
 
 module.exports = router;

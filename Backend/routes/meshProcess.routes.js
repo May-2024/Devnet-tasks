@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { getMeshProcessData } = require("../controllers/mesh_process");
+const { MeshClientsService } = require("../controllers/mesh_process");
 
+const Ups = new MeshClientsService();
+
+// Obtener todos las Ups
 router.get("/", async (req, res, next) => {
   try {
-    const data = await getMeshProcessData();
-    res.json(data);
+    const response = await Ups.getMeshClients();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
     next(error);
   }

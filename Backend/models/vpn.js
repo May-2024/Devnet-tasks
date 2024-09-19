@@ -2,6 +2,10 @@ const sequelize = require("../db/conection");
 const { Sequelize, DataTypes } = require("sequelize");
 
 const columns = {
+  fw: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   email: {
     type: DataTypes.STRING(225),
     allowNull: true,
@@ -24,20 +28,9 @@ const columns = {
   }
 };
 
-const Vpn_1 = sequelize.define("Vpn_1", columns, {
-  tableName: "vpn_1",
+const VpnCandelaria = sequelize.define("VpnCandelaria", columns, {
+  tableName: "vpn_candelaria",
   timestamps: false,
 });
 
-const Vpn_2 = sequelize.define("Vpn_2", columns, {
-  tableName: "vpn_2",
-  timestamps: false,
-});
-
-const Vpn_3 = sequelize.define("Vpn_3", columns, {
-  tableName: "vpn_3",
-  timestamps: false,
-});
-
-
-module.exports = { Vpn_1, Vpn_2, Vpn_3 }
+module.exports = { VpnCandelaria }

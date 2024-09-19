@@ -4,6 +4,7 @@ import {
   getMeshIndicators,
   getDataBaseFim,
   getDataMeshProcess,
+  getVpn,
 } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
@@ -28,6 +29,7 @@ export function Home() {
   const [changeBatery, setChangeBatery] = useState(0);
   const [numberUps, setNumberUps] = useState(0);
   const { dataVpn1Users, dataVpn2Users, dataVpn3Users } = useVpnCounter();
+  const [vpnCandelaria, setVpnCandelaria] = useState({});
   const [homeMessage, setHomeMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [meshUpElem, setMeshUpElem] = useState(0);
@@ -53,12 +55,13 @@ export function Home() {
       try {
         const dcsCandelaria = await getDcsCandelariaIndicators();
         const dataAnillo = await getDataAnillo();
-        const dataUpAnillo = dataAnillo.filter((e) => e.status === "Up");
-        const dataDownAnillo = dataAnillo.filter((e) =>
+        const dataUpAnillo = dataAnillo.data.filter((e) => e.status === "Up");
+        const dataDownAnillo = dataAnillo.data.filter((e) =>
           e.status.includes("Down")
         );
 
-        setAnilloUp(dataUpAnillo);
+        const dataVpnCande = await getVpn();
+        setVpnCandelaria(dataVpnCande.data);
         setAnilloDown(dataDownAnillo);
 
         // OPEN PIT
@@ -70,10 +73,10 @@ export function Home() {
         meshElementsUp += meshIndicators.palasOk + meshIndicators.palasWarnings;
         meshElementsUp += meshIndicators.caexOk + meshIndicators.caexWarnings;
         const allDataMeshProcess = await getDataMeshProcess();
-        const allDataMeshProcessUp = allDataMeshProcess.filter(
+        const allDataMeshProcessUp = allDataMeshProcess.data.filter(
           (e) => e.status === "ok"
         );
-        const allDataMeshProcessDown = allDataMeshProcess.filter(
+        const allDataMeshProcessDown = allDataMeshProcess.data.filter(
           (e) => e.status === "fail"
         );
         setMeshUpElem(meshElementsUp);
@@ -82,8 +85,10 @@ export function Home() {
         setDataMeshProcessUp(allDataMeshProcessUp);
         setDataMeshProcessDown(allDataMeshProcessDown);
 
-        const { fimStatus } = await getDataBaseFim();
-        const downFim = fimStatus.filter((e) => e.status.includes("Down"));
+        const fimStatus = await getDataBaseFim();
+        const downFim = fimStatus.data.fimStatus.filter((e) =>
+          e.status.includes("Down")
+        );
         setFimhDownElem(downFim.length);
         const dates = useWanDates();
         const allUps = await getUps();
@@ -95,7 +100,7 @@ export function Home() {
         let changeBateryCounter = 0;
 
         allUps &&
-          allUps.forEach((ups) => {
+          allUps.data.forEach((ups) => {
             if (ups.status_ups === 2) {
               enLinea++;
             }
@@ -325,15 +330,15 @@ export function Home() {
               <tbody>
                 <tr>
                   <td>Administrativo</td>
-                  <td>{dataVpn1Users.number} users</td>
+                  <td>{vpnCandelaria.numUsersFw1} users</td>
                 </tr>
                 <tr>
                   <td>Concentradora</td>
-                  <td>{dataVpn2Users.number} users</td>
+                  <td>{vpnCandelaria.numUsersFw2} users</td>
                 </tr>
                 <tr>
                   <td>Ojos</td>
-                  <td>{dataVpn3Users.number} users</td>
+                  <td>{vpnCandelaria.numUsersFw3} users</td>
                 </tr>
               </tbody>
             </table>

@@ -1,8 +1,8 @@
 const sequelize = require("../db/conection");
 const { Sequelize, DataTypes } = require("sequelize");
 
-const MeshProcess = sequelize.define(
-  "MeshProcess",
+const MeshClients = sequelize.define(
+  "MeshClients",
   {
     ubication: {
       type: DataTypes.STRING(100),
@@ -55,4 +55,4 @@ const MeshProcess = sequelize.define(
   }
 );
 
-module.exports = { MeshProcess };
+module.exports = { MeshClients };

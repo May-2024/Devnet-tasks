@@ -1,0 +1,19 @@
+const { AnilloOpit } = require("../models/anillo_opit");
+
+class AnilloOpitService {
+  async getDataAnilloOpit() {
+    try {
+      const data = await AnilloOpit.findAll();
+      console.log(data)
+      return {
+        statusCode: 200,
+        message: "Información del ANILLO OPEN OPIT obtenida exitosamente",
+        data: data,
+      };
+    } catch (error) {
+      throw new Error("Error al obtener la información del ANILLO OPEN OPIT");
+    }
+  }
+}
+
+module.exports = { AnilloOpitService };

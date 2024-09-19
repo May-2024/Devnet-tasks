@@ -11,9 +11,9 @@ export function TableSwitches() {
     const fetchData = async () => {
       try {
         const switchesList = await getSwitches();
-        setSwitches(switchesList);
+        setSwitches(switchesList.data);
       } catch (error) {
-        console.error("Error al obtener el listado de Clientes: ", error);
+        console.error("Error al obtener el listado de Switches: ", error);
         return error;
       }
     };
@@ -96,8 +96,8 @@ export function TableSwitches() {
         Down / Paused
       </label>
 
-      <table >
-        <thead >
+      <table>
+        <thead>
           <tr className="table-switches">
             <th>DISPOSITIVO</th>
             <th>IP</th>

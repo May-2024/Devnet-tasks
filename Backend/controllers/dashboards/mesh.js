@@ -1,9 +1,12 @@
 const { getMesh } = require("../mesh");
+const { MeshService } = require("../mesh");
+
+const Mesh = new MeshService();
 
 const dashboardMesh = async () => {
   try {
-    const meshList = await getMesh();
-    const allMeshJSON = meshList.map((mesh) => mesh.toJSON());
+    const meshList = await Mesh.getMesh();
+    const allMeshJSON = meshList.data.map((mesh) => mesh.toJSON());
 
     let totalPalas = 0;
     const palasStatus2 = [];

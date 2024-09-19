@@ -10,6 +10,24 @@ async function getInfGenData() {
   return data;
 }
 
+class DataInfGenService {
+  async getInfGenData() {
+    try {
+      const data = await DataInfGen.findAll();
+      return {
+        statusCode: 200,
+        message:
+          "Información de los Switches de Infraestructura General obtenida exitosamente",
+        data: data,
+      };
+    } catch (error) {
+      throw new Error(
+        "Error al obtener la información de los Switches de Infraestructura General"
+      );
+    }
+  }
+}
+
 // async function getApRegistered() {
 //   const data = await Ap.findAll();
 //   return data;
@@ -152,14 +170,6 @@ async function getInfGenData() {
 //   }
 // }
 
-
-
 module.exports = {
-  getInfGenData,
-  // getNumberApRegistered,
-  // getApRegistered,
-  // registerAp,
-  // getOneAp,
-  // editOneAp,
-  // deleteAp,
+  DataInfGenService,
 };

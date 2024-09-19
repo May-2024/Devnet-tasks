@@ -1,5 +1,7 @@
 const { getFirewalls } = require("../firewalls");
+const { FirewallsService } = require("../firewalls");
 
+const Firewalls = new FirewallsService();
 
 async function dashboardFirewalls() {
   let numFwCorpAlive = 0;
@@ -7,8 +9,8 @@ async function dashboardFirewalls() {
   let numFwCommuniAlive = 0;
   let numFwCommuniDown = 0;
 
-  const firewalls = await getFirewalls();
-  firewalls.forEach((firewall) => {
+  const firewalls = await Firewalls.getFirewalls();
+  firewalls.data.forEach((firewall) => {
     if (firewall.state === "alive" && firewall.ubication === "corporate") {
       numFwCorpAlive += 1;
     };

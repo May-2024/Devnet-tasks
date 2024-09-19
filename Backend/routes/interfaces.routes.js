@@ -1,17 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const { getInterfaces } = require("../controllers/interfaces");
+const { InterfacesService } = require("../controllers/interfaces");
 
+const Interfaces = new InterfacesService();
+
+// Obtener todos las Interfaces
 router.get("/", async (req, res, next) => {
   try {
-    const interfaces = await getInterfaces();
-    res.json(interfaces);
-    
+    const response = await Interfaces.getInterfaces();
+    res.status(response.statusCode).json({
+      message: response.message,
+      data: response.data,
+    });
   } catch (error) {
-    console.error(error)
     next(error);
   }
 });
-
 
 module.exports = router;

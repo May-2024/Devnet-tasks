@@ -8,9 +8,10 @@ function logErrors(err, req, res, next) {
 function errorHandler(err, req, res, next) {
   console.error(err);
   res.status(500).json({
-    status: 500,
+    statusCode: 500,
     message: "Ocurrió un error en el servidor.",
     error: err.message,
+    data: null
   });
   next(err);
 }
