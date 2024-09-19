@@ -43,14 +43,14 @@ def main():
         devnet_bd_response = update_devnet_data(final_data)
         historic_bd_response = save_historic_data(final_data)
         if devnet_bd_response and historic_bd_response:
-            datetime_register(system_name="switches", status="OK")
+            datetime_register(system_name="candelaria_switches", status="OK")
         else:
-            datetime_register(system_name="switches", status="ERROR")
+            datetime_register(system_name="candelaria_switches", status="ERROR")
 
         logging.info('Ciclo finalizado con exito!')
             
     except Exception as e:
-        datetime_register(system_name="switches", status="ERROR")
+        datetime_register(system_name="candelaria_switches", status="ERROR")
         logging.error(traceback.format_exc())
         logging.error(e)
         logging.error(f"Error en la funcion `main` del archivo `main`")

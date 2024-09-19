@@ -6,6 +6,13 @@
     "password": "candelaria",
     "database": "dcs"
   },
+  "development": {
+    "dialect": "mysql",
+    "host": "10.224.116.78",
+    "username": "devnet",
+    "password": "devnet.1",
+    "database": "devnet"
+  },
   "production": {
     "dialect": "mysql",
     "host": "db",
