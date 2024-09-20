@@ -24,6 +24,7 @@ const meshProcessRoutes = require("./meshProcess.routes");
 const groupPrtgRoutes = require("./group_prtg.routes");
 const dateTimeRoutes = require("./datetimes.routes");
 const dockersRoutes = require("./dockers.routes");
+const anilloUgRoutes = require("./anillo_ug.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -53,6 +54,7 @@ const allRoutes = (app) => {
   router.use("/group-prtg", groupPrtgRoutes);
   router.use("/datetimes", dateTimeRoutes);
   router.use("/dockers", dockersRoutes);
+  router.use("/anillo-ug", anilloUgRoutes);
 };
 
 module.exports = { allRoutes };

@@ -35,7 +35,7 @@ const AnilloUg = sequelize.define(
     },
   },
   {
-    tableName: "anillo-ug",
+    tableName: "anillo_ug",
     timestamps: false,
   }
 );

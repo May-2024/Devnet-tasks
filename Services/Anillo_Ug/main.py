@@ -23,7 +23,7 @@ PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
 
 def main():
     try:
-        db_devnet_data = get_devnet_data(table_name="anillo-ug")
+        db_devnet_data = get_devnet_data(table_name="anillo_ug")
         
         # Crear un set para eliminar duplicados
         id_device_set = {item['id_device'] for item in db_devnet_data}
@@ -39,14 +39,14 @@ def main():
 
         # Actualizamos registro datetime del sistema
         if result is True:
-            datetime_register(system_name="anillo-ug", status="OK")
+            datetime_register(system_name="anillo_ug", status="OK")
         else:
-            datetime_register(system_name="anillo-ug", status="ERROR")
+            datetime_register(system_name="anillo_ug", status="ERROR")
             
         logging.info("Ciclo finalizado con exito!")
 
     except Exception as e:
-        datetime_register(system_name="anillo-ug", status="ERROR")
+        datetime_register(system_name="anillo_ug", status="ERROR")
         logging.error(traceback.format_exc())
         logging.error(e)
         logging.error(f"Error en la funcion `main` del archivo `main`")

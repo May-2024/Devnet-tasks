@@ -67,7 +67,7 @@ export function Home() {
         const dataAnilloUg = await getAnilloUgUpDown();
         setAnilloUp(dataUpAnillo);
         setAnilloDown(dataDownAnillo);
-        setUpDownAnilloUg(dataAnilloUg);
+        setUpDownAnilloUg(dataAnilloUg.data);
 
         // OPEN PIT
         const meshIndicators = await getMeshIndicators();

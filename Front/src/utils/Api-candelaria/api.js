@@ -35,7 +35,7 @@ export const getDatetimeModules = async () => {
 
 export const getAnilloUgUpDown = async () => {
   return axios
-    .get(`${BASE_API_URL}/anillo/ug/updown`)
+    .get(`${BASE_API_URL}/anillo-ug/updown`)
     .then((response) => response.data)
     .catch((error) => {throw new Error('getAnilloUgUpDown (ANILLO UG):Error del API REST Candealaria : ',error)});
 };
@@ -252,7 +252,7 @@ export const getDataPrtgGroupsUpDown= async () => {
 
 export const getDataAnilloUg = async () => {
   return axios
-    .get(`${BASE_API_URL}/anillo/ug`)
+    .get(`${BASE_API_URL}/anillo-ug`)
     .then((response) => response.data)
     .catch((error) => {throw new Error('ANILLO UG: Error del API REST Candealaria : ',error)});
 };

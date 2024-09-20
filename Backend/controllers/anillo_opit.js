@@ -7,11 +7,11 @@ class AnilloOpitService {
       console.log(data)
       return {
         statusCode: 200,
-        message: "Información del ANILLO OPEN OPIT obtenida exitosamente",
+        message: "Información del Anillo UG obtenida exitosamente",
         data: data,
       };
     } catch (error) {
-      throw new Error("Error al obtener la información del ANILLO OPEN OPIT");
+      throw new Error("Error al obtener la información del Anillo UG");
     }
   }
 }
