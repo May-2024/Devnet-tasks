@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getMesh } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
 import { DashMesh } from "./DashMesh/DashMesh";
 import { PRTG_URL } from "../../utils/Api-candelaria/api";
 import { Spinner } from "../Spinner/Spinner";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./mesh.css";
 
 export function Mesh() {
@@ -19,7 +19,7 @@ export function Mesh() {
     const fetchData = async () => {
       try {
         const meshData = await getMesh();
-        setDataMesh(meshData);
+        setDataMesh(meshData.data);
         setShowSpinner(false);
       } catch (error) {
         console.error(
@@ -59,7 +59,7 @@ export function Mesh() {
   return (
     <div>
       <Navbar title={"Equipos Mesh Críticos"} />
-      <Status_System tableToShow={tableToShow} />
+      <DatetimeModules module={"mesh"} name={"mesh"} />
       <DashMesh />
       <div>
         <div className="filter-mesh-container">

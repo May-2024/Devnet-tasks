@@ -10,8 +10,8 @@ export function TableGroupPrtg({ name, show }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let data = await getDataPrtgGroups();
-        data = data.filter((e) => e.device === name);
+        let response = await getDataPrtgGroups();
+        let data = response.data.filter((e) => e.device === name);
         setPrtgGroup(data);
       } catch (error) {
         console.error(

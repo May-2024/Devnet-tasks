@@ -1,8 +1,8 @@
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { TableClients } from "./TableClients/TableClients";
 import { Button } from "../Button/Button";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 
 export function CandelariaClients() {
   const clientsTable = "dcs";
@@ -10,8 +10,8 @@ export function CandelariaClients() {
   return (
     <>
       <Navbar title={"DCS Candelaria - Clientes"} />
-      <Status_System tableToShow={clientsTable} />
-      <Button interfaz={'switches'} buttonTag={'Switches'}/>
+      <DatetimeModules module={"candelaria_clients"} name={"DCS CLIENTES"} />
+      <Button interfaz={"switches"} buttonTag={"Switches"} />
       <Dashboard />
       <TableClients />
     </>

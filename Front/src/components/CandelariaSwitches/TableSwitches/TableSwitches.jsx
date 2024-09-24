@@ -26,7 +26,7 @@ export function TableSwitches() {
 
   const filteredSwitches = switches.filter((switch_) => {
     const searchValues = Object.values(switch_)
-      .map((value) => value.toString().toLowerCase())
+      .map((value) => (value != null ? value.toString().toLowerCase() : ""))
       .join(" ");
     const hasDownPaused =
       searchValues.includes("down") || searchValues.includes("paused");
@@ -35,6 +35,7 @@ export function TableSwitches() {
 
   const filteredSearchSwitches = filteredSwitches.filter((switch_) =>
     Object.values(switch_)
+      .map((value) => (value != null ? value.toString() : ""))
       .join(" ")
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
@@ -54,15 +55,15 @@ export function TableSwitches() {
     return filteredSearchSwitches.map((switch_) => (
       <tr key={switch_.id}>
         <td>
-          {switch_.dispositivo} {switch_.group}
+          {switch_.device} {switch_.group}
         </td>
         <td>{switch_.ip}</td>
         <td>{switch_.status_prtg}</td>
         <td>{switch_.reachability}</td>
-        <td>{switch_.ups1}</td>
-        <td>{switch_.ups2}</td>
-        <td>{switch_.status_ups1}</td>
-        <td>{switch_.status_ups2}</td>
+        {/* <td>{switch_.ups1 || "N/A"}</td> */}
+        {/* <td>{switch_.ups2 || "N/A"}</td>
+        <td>{switch_.status_ups1 || "N/A"}</td>
+        <td>{switch_.status_ups2 || "N/A"}</td> */}
       </tr>
     ));
   };

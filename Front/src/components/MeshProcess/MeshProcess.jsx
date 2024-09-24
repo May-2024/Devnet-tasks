@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { getDataMeshProcess } from "../../utils/Api-candelaria/api";
-import { Status_System } from "../Status_System/Status_System";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./MeshProcess.css";
 
 export function MeshProcess() {
@@ -12,7 +12,8 @@ export function MeshProcess() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const meshData = await getDataMeshProcess();
+        const response = await getDataMeshProcess();
+        const meshData = await response.data;
         meshData.sort((a, b) => {
           if (a.status === "fail" && b.status !== "fail") {
             return -1; // a debe ir antes que b
@@ -55,7 +56,7 @@ export function MeshProcess() {
   return (
     <div>
       <Navbar title={"Proceso Mesh"} />
-      <Status_System tableToShow={"mesh_process"} />
+      <DatetimeModules module={"mesh_process"} name={"Clientes Mesh"} />
       <div className="filtres-processmesh-container">
         <input
           className="input-mesh-process"

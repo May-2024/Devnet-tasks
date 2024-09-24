@@ -24,6 +24,25 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post(
+  "/history-fail",
+  // passport.authenticate("jwt", { session: false }),
+  // checkRoles("admin", "staff"),
+  async (req, res, next) => {
+    try {
+      const { name, channel } = req.body;
+      const data = await Firewalls.getHistoryFail(name, channel);
+      res.status(data.statusCode).json({
+        message: data.message,
+        data: data.data,
+      });
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
+
 // router.get("/", async (req, res, next) => {
 //   try {
 //     const allFirewalls = await getFirewalls();
@@ -116,25 +135,6 @@ router.get("/", async (req, res, next) => {
 //   }
 // );
 
-// router.post(
-//   "/history-fail",
-//   // passport.authenticate("jwt", { session: false }),
-//   // checkRoles("admin", "staff"),
-//   async (req, res, next) => {
-//     try {
-//       const { fw, canal } = req.body;
-//       const data = await getHistoryFail(fw, canal);
-//       res.status(data.status).json({
-//         status: data.status,
-//         message: data.message,
-//         error: data.error,
-//         data: data.data,
-//       });
-//     } catch (error) {
-//       console.error(error);
-//       next(error);
-//     }
-//   }
-// );
+
 
 module.exports = router;

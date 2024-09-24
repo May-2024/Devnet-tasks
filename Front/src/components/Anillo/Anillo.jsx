@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import { Link } from "react-router-dom";
 import { getDataAnillo, PRTG_URL } from "../../utils/Api-candelaria/api";
 import "./Anillo.css";
@@ -43,7 +43,7 @@ export const Anillo = () => {
 
     // Busca la interfaz en anilloData
     const interfaceData = anilloData.find(
-      (data) => data.prtg_id === idInterface
+      (data) => data.id_prtg === idInterface
     );
 
     // Verifica si se encontró la interfaz y si su estado incluye "Up" o "Down"
@@ -74,22 +74,22 @@ export const Anillo = () => {
 
     // Busca la interfaz en anilloData
     const interfaceData = anilloData.find(
-      (data) => data.prtg_id === idInterface
+      (data) => data.id_prtg === idInterface
     );
 
     // Verifica si se encontró la interfaz y si su estado incluye "Up" o "Down"
     if (interfaceData && interfaceData.status) {
       if (interfaceData.status.includes("Up")) {
-        return "Up";
+        return interfaceData.status;
       }
       if (interfaceData.status.includes("Down")) {
-        return "Down";
+        return interfaceData.status;
       }
       if (interfaceData.status.includes("Unusual")) {
-        return "Unusual";
+        return interfaceData.status;
       }
       if (interfaceData.status.includes("Paused")) {
-        return "Paused";
+        return interfaceData.status;
       }
     }
 
@@ -100,7 +100,7 @@ export const Anillo = () => {
   return (
     <>
       <Navbar title={"Anillo Candelaria"} />
-      <Status_System tableToShow={"anillo"} />
+      <DatetimeModules module={"anillo_opit"} name={"anillo opit"} />
       <div className="button-zoom-container">
         <button className="button-zoom zoom-in" onClick={handleZoomIn}>
           +

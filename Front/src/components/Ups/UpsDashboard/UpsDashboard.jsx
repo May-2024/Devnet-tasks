@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Status_System } from "../../Status_System/Status_System";
 import PropTypes from "prop-types";
 import "./upsdashboard.css";
 
@@ -19,51 +18,57 @@ export function UpsDashboard({ allUps }) {
     allUps.forEach((ups) => {
       if (ups.status_ups === 2) {
         enLinea++;
-      } if (ups.status_ups === 3) {
+      }
+      if (ups.status_ups === 3) {
         usandoBateria++;
-      } if (ups.status_ups !== 3 && ups.status_ups !== 2 ){
+      }
+      if (ups.status_ups !== 3 && ups.status_ups !== 2) {
         otro++;
-      } if (ups.batery === 2) {
+      }
+      if (ups.batery === 2) {
         changeBateria++;
       }
-    }
-    );
-  
+    });
 
     setEnLineaCount(enLinea);
     setUsandoBateriaCount(usandoBateria);
     setOtroCount(otro);
     setBateryChange(changeBateria);
-
-    
   }, [allUps]);
 
   return (
     <>
-      <Status_System tableToShow={tableToShow} />
       <div className="ups-section">
         <main className="main-section">
-            <h2>Estados</h2>
-            <table className="kpi-table ups-table">
-              <tbody>
-                <tr>
-                  <td><p className="light-indicator green-light"></p>En línea</td>
-                  <td>{enLineaCount}</td>
-                </tr>
-                <tr>
-                  <td><p className="light-indicator yellow-light"></p>Usando batería</td>
-                  <td>{usandoBateriaCount}</td>
-                </tr>
-                <tr>
-                  <td><p className="light-indicator red-light"></p>Otro</td>
-                  <td>{otroCount}</td>
-                </tr>
-                <tr>
-                  <td><p className="warning-light">🪫</p>Cambio Bateria</td>
-                  <td>{bateryChange}</td>
-                </tr>
-              </tbody>
-            </table>
+          <h2>Estados</h2>
+          <table className="kpi-table ups-table">
+            <tbody>
+              <tr>
+                <td>
+                  <p className="light-indicator green-light"></p>En línea
+                </td>
+                <td>{enLineaCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <p className="light-indicator yellow-light"></p>Usando batería
+                </td>
+                <td>{usandoBateriaCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <p className="light-indicator red-light"></p>Otro
+                </td>
+                <td>{otroCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <p className="warning-light">🪫</p>Cambio Bateria
+                </td>
+                <td>{bateryChange}</td>
+              </tr>
+            </tbody>
+          </table>
         </main>
       </div>
     </>

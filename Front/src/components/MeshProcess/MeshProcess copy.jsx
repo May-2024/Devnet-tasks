@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { getDataMeshProcess } from "../../utils/Api-candelaria/api";
-import { Status_System } from "../Status_System/Status_System";
 import "./MeshProcess.css";
 
 export function MeshProcess() {
@@ -45,7 +44,6 @@ export function MeshProcess() {
   return (
     <div>
       <Navbar title={"Proceso Mesh"} />
-      <Status_System tableToShow={"mesh_process"} />
 
       <div className="container-process-mesh-table">
         <input

@@ -18,6 +18,45 @@ class FirewallsService {
       );
     }
   }
+
+  async getHistoryFail(name, channel) {
+    try {
+      const now = new Date(); // Obtén la hora actual en la zona horaria local
+      let twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000); // Resta 24 horas a la hora actual
+      // Obtenemos los componentes de la fecha y hora
+      let year = twentyFourHoursAgo.getFullYear();
+      let month = String(twentyFourHoursAgo.getMonth() + 1).padStart(2, "0"); // Sumamos 1 al mes porque los meses van de 0 a 11
+      let day = String(twentyFourHoursAgo.getDate()).padStart(2, "0");
+      let hours = String(twentyFourHoursAgo.getHours()).padStart(2, "0");
+      let minutes = String(twentyFourHoursAgo.getMinutes()).padStart(2, "0");
+      let seconds = String(twentyFourHoursAgo.getSeconds()).padStart(2, "0");
+
+      // Concatenamos los componentes en el formato deseado
+      let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      const historyFail = await HistoricFirewalls.findAll({
+        where: {
+          name: name,
+          channel: channel,
+          state: "dead",
+          datetime: {
+            [Op.gte]: formattedDate, // Obtener registros en los últimos 24 horas
+          },
+        },
+        order: [["id", "DESC"]],
+      });
+
+      return {
+        statusCode: 200,
+        message: "Historial de fallas recuperado exitosamente",
+        data: historyFail,
+      };
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        "Error al obtener la información del HISTORICO DE FALLAS los Canales de Internet (Firewalls)"
+      );
+    }
+  }
 }
 
 // async function getOneFirewall(ip, ubication) {
@@ -118,48 +157,6 @@ class FirewallsService {
 //   } catch (error) {
 //     console.error(error);
 //     throw error;
-//   }
-// }
-
-// async function getHistoryFail(fw, canal) {
-//   try {
-//     const now = new Date(); // Obtén la hora actual en la zona horaria local
-//     let twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000); // Resta 24 horas a la hora actual
-//     // Obtenemos los componentes de la fecha y hora
-//     let year = twentyFourHoursAgo.getFullYear();
-//     let month = String(twentyFourHoursAgo.getMonth() + 1).padStart(2, "0"); // Sumamos 1 al mes porque los meses van de 0 a 11
-//     let day = String(twentyFourHoursAgo.getDate()).padStart(2, "0");
-//     let hours = String(twentyFourHoursAgo.getHours()).padStart(2, "0");
-//     let minutes = String(twentyFourHoursAgo.getMinutes()).padStart(2, "0");
-//     let seconds = String(twentyFourHoursAgo.getSeconds()).padStart(2, "0");
-
-//     // Concatenamos los componentes en el formato deseado
-//     let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-//     const historyFail = await HistoricFirewalls.findAll({
-//       where: {
-//         fw: fw,
-//         canal: canal,
-//         state: "dead",
-//         datetime: {
-//           [Op.gte]: formattedDate, // Obtener registros en los últimos 24 horas
-//         },
-//       },
-//       order: [["id", "DESC"]],
-//     });
-
-//     return {
-//       status: 200,
-//       message: "Historial de fallas recuperado exitosamente",
-//       data: historyFail,
-//     };
-//   } catch (error) {
-//     console.error(error);
-//     return {
-//       status: 200,
-//       message: "Error al recuperar el historial de fallas",
-//       error: error,
-//       data: [],
-//     };
 //   }
 // }
 

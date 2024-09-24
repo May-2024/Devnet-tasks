@@ -26,6 +26,7 @@ export async function useDataInfGen() {
     ...dataNeighbors.data,
     ...dataRouteStatus.data,
     ...dataPrtgGroups.data,
+    ...dataDockers.dataContainers
   ];
 
   const upElements = [];

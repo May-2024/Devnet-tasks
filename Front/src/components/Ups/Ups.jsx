@@ -4,6 +4,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { UpsCard } from "./UpsCard/UpsCard";
 import { UpsDashboard } from "./UpsDashboard/UpsDashboard";
 import { Spinner } from "../Spinner/Spinner";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./ups.css";
 
 export function Ups() {
@@ -14,7 +15,7 @@ export function Ups() {
     const fetchData = async () => {
       try {
         const upsList = await getUps();
-        setUps(upsList);
+        setUps(upsList.data);
         setShowSpinner(false);
       } catch (error) {
         console.error("Error al obtener el listado de Ups:", error);
@@ -36,6 +37,7 @@ export function Ups() {
   return (
     <>
       <Navbar title={"Dashboard UPS"} />
+      <DatetimeModules module={"ups"} name={"ups"} />
       <UpsDashboard allUps={allUps} />
       <div className="ups-cards-container">
         {allUps.map((ups) => (

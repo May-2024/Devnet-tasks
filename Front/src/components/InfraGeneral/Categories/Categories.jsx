@@ -1,18 +1,10 @@
 import { Navbar } from "../../Navbar/Navbar";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Asegúrate de importar Link desde react-router-dom
-import {
-  getInterfaces,
-  getSystemHealth,
-  getNeighbors,
-  getDefaultRoute,
-  getDataInfGen,
-  getAp,
-} from "../../../utils/Api-candelaria/api";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDataInfGen } from "../../../hooks/useDataInfGen";
-import { DataCore } from "../DataCore/DataCore";
-import { Status_System } from "../../Status_System/Status_System";
 import { Spinner } from "../../Spinner/Spinner";
+import { DatetimeModules } from "../../DatetimeModules/DatetimeModules";
+import { InfGenDatetime } from "../../DatetimeModules/InfGenDatetime";
 import "./Categories.css";
 
 export function Categories() {
@@ -211,7 +203,16 @@ export function Categories() {
   return (
     <div>
       <Navbar title={"Categorias Inf. Gen."} />
-      <Status_System tableToShow={"ig"} />
+      {/* <div className="datetimes_inf_gen_container">
+        <DatetimeModules module={"inf_gen_interfaces"} name={"interfaces"} />
+        <DatetimeModules module={"inf_gen_sysHealth"} name={"system health"} />
+        <DatetimeModules module={"inf_gen_neighbors"} name={"neighbors"} />
+        <DatetimeModules
+          module={"inf_gen_routeDefault"}
+          name={"route default"}
+        />
+      </div> */}
+      <InfGenDatetime />
       {isLoading ? (
         <Spinner />
       ) : (

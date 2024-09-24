@@ -29,9 +29,9 @@ export const Map = () => {
         const dataInfGen = await useDataInfGen();
         const dataCoreStatus = await useCoreStatus();
 
-        setFirewalls(dataFirewalls);
-        setWan(dataWan);
-        setCores(dataCores);
+        setFirewalls(dataFirewalls.data);
+        setWan(dataWan.data);
+        setCores(dataCores.data);
         setInfraGeneral(dataInfGen);
         setShowSpinner(false);
         setCoreStatus(dataCoreStatus);

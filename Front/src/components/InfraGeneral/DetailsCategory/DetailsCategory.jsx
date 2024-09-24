@@ -6,13 +6,14 @@ import {
 } from "../../../utils/Api-candelaria/api";
 import { Navbar } from "../../Navbar/Navbar";
 import { useDataInfGen } from "../../../hooks/useDataInfGen";
-import { Status_System } from "../../Status_System/Status_System";
 import { Spinner } from "../../Spinner/Spinner";
 import { Link } from "react-router-dom";
 import { TableGroupPrtg } from "../TableGroupPrtg/TableGroupPrtg";
-import "./MainTopology.css";
+import { DatetimeModules } from "../../DatetimeModules/DatetimeModules";
+import { InfGenDatetime } from "../../DatetimeModules/InfGenDatetime";
+import "./DetailsCategory.css";
 
-export function MainTopology() {
+export function DetailsCategory() {
   const location = useLocation();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,10 +27,11 @@ export function MainTopology() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        let dataInfraGeneral = await getDataInfGen();
+        const response = await getDataInfGen();
+        let dataInfraGeneral = response.data;
         const dataStatusInfGen = await useDataInfGen();
         const dataPrtgGroups = await getDataPrtgGroupsUpDown();
-        setGroupPrtg(dataPrtgGroups);
+        setGroupPrtg(dataPrtgGroups.data);
 
         function sameNameSwitch(sw) {
           sw.downElem = [];
@@ -108,8 +110,7 @@ export function MainTopology() {
   return (
     <div>
       <Navbar title={"Infraestructura General"} />
-      <Status_System tableToShow={"ig"} />
-
+      <InfGenDatetime />
       {loading ? (
         <Spinner />
       ) : (

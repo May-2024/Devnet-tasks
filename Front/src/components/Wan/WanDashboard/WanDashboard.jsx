@@ -24,6 +24,16 @@ export function WanDashboard({ previousMonthName }) {
   const kpiRemoteSites = wanKpi.kpiOtherWans || "Cargando...";
   const kpiCandelaria = wanKpi.kpiAdminWans || "Cargando...";
 
+  const currentTab = document.title;
+  const containerClassName =
+    currentTab === "DevNet Home"
+      ? "wan-kpi-container-home"
+      : "wan-kpi-container";
+  const tableClassName =
+    currentTab === "DevNet Home"
+      ? "table-dashboard-wan-home"
+      : "table-dashboard-wan";
+
   if (spinnerWan) {
     return (
       <div>
@@ -33,11 +43,13 @@ export function WanDashboard({ previousMonthName }) {
   }
 
   return (
-    <div className="wan-kpi-container">
-      <table className="table-dashboard-wan">
+    <div className={containerClassName}>
+      <table className={tableClassName}>
         <tbody>
           <tr>
-            <td className="left-td-wan-dash">KPI {previousMonthName} Sitios remotos:</td>
+            <td className="left-td-wan-dash">
+              KPI {previousMonthName} Sitios remotos:
+            </td>
             <td
               className={
                 kpiRemoteSites >= 99.85
@@ -49,7 +61,9 @@ export function WanDashboard({ previousMonthName }) {
             </td>
           </tr>
           <tr>
-            <td className="left-td-wan-dash">KPI {previousMonthName} Candelaria:</td>
+            <td className="left-td-wan-dash">
+              KPI {previousMonthName} Candelaria:
+            </td>
             <td
               className={
                 kpiCandelaria >= 99.85

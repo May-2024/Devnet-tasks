@@ -1,4 +1,4 @@
-const sequelize = require("../db/conection");
+const {sequelize} = require("../db/conection");
 const { Sequelize, DataTypes } = require("sequelize");
 
 const DateTimeSystems= sequelize.define(

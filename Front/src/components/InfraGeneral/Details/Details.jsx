@@ -5,14 +5,13 @@ import {
   getSystemHealth,
   getNeighbors,
   getDefaultRoute,
-  getAp,
 } from "../../../utils/Api-candelaria/api";
-import { Status_System } from "../../Status_System/Status_System";
 import { useLocation } from "react-router-dom";
 import { Spinner } from "../../Spinner/Spinner";
-import "./DetailsCore.css";
+import { InfGenDatetime } from "../../DatetimeModules/InfGenDatetime";
+import "./Details.css";
 
-export const DetailsCore = () => {
+export const Details = () => {
   const [devicesInterfaces, setDevicesInterfaces] = useState([]);
   const [devicesHealth, setDevicesHealth] = useState([]);
   const [neighbors, setNeighbors] = useState([]);
@@ -28,13 +27,15 @@ export const DetailsCore = () => {
     const fetchData = async () => {
       try {
         let dataInterfaces = await getInterfaces();
+        dataInterfaces = dataInterfaces.data;
         dataInterfaces.sort((a, b) => (a.status === "Up" ? 1 : -1));
 
         let dataDevicesHealth = await getSystemHealth();
-        console.log(dataDevicesHealth);
+        dataDevicesHealth = dataDevicesHealth.data;
         dataDevicesHealth.sort((a, b) => (a.status === "Up" ? 1 : -1));
 
         let dataNeighbors = await getNeighbors();
+        dataNeighbors = dataNeighbors.data;
         dataNeighbors.sort((a, b) => (a.status === "Up" ? 1 : -1));
 
         const dataRouteStatus = await getDefaultRoute();
@@ -160,8 +161,7 @@ export const DetailsCore = () => {
   return (
     <div>
       <Navbar title={"Detalles Inf. Gen."} />
-      <Status_System tableToShow={"ig"} />
-
+      <InfGenDatetime />
       <div className="search-container-details-ig">
         <label htmlFor="search">Buscar por palabre clave</label>
         <input

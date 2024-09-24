@@ -5,6 +5,7 @@ const config = require("../config/config");
 const environment = process.env.NODE_ENV || 'local';
 const dbConfig = config[environment];
 
+// Primera conexión (base de datos 1)
 const sequelize = new Sequelize(
   dbConfig.database,
   dbConfig.username,
@@ -16,16 +17,36 @@ const sequelize = new Sequelize(
   }
 );
 
-// Función para verificar la conexión a la base de datos
-async function checkDatabaseConnection() {
+// Segunda conexión (base de datos 2)
+const dbHistoric = config.historic;  // Configuración para la segunda base de datos
+const sequelizeDB2 = new Sequelize(
+  dbHistoric.database,
+  dbHistoric.username,
+  dbHistoric.password,
+  {
+    host: dbHistoric.host,
+    dialect: 'mysql',
+    logging: false,
+  }
+);
+
+// Función para verificar ambas conexiones a las bases de datos
+async function checkDatabaseConnections() {
   try {
     await sequelize.authenticate();
-    console.log("The connection to the database has been established successfully.");
+    console.log("Conexión a la base de datos del entorno exitosa.");
+    
+    await sequelizeDB2.authenticate();
+    console.log("Conexión a la base de datos historicos exitosa");
   } catch (error) {
-    console.error("Could not connect to database:", error);
+    console.error("Error al conectarse a alguna de las base de datos:", error);
   }
 }
 
-checkDatabaseConnection();
+checkDatabaseConnections();
 
-module.exports = sequelize;
+// Exportar ambas conexiones
+module.exports = {
+  sequelize,
+  sequelizeDB2
+};

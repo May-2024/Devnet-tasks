@@ -30,23 +30,23 @@ import { AdminAp } from "./components/AdminPanel/AdminViews/AdminAp";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import { Actility } from "./components/AdminPanel/AdminForms/Actility/Actility";
 import { Login } from "./components/Login/Logins";
-import { DetailsCore } from "./components/InfraGeneral/DetailsCore/DetailsCore";
+import { Details } from "./components/InfraGeneral/Details/Details";
 import { Map } from "./components/InfraGeneral/Map/Map";
-import { MainTopology } from "./components/InfraGeneral/MainTopology/MainTopology";
+import { DetailsCategory } from "./components/InfraGeneral/DetailsCategory/DetailsCategory";
 import { Categories } from "./components/InfraGeneral/Categories/Categories";
-import { ApNegocio } from "./components/InfraGeneral/Ap/ApNegocio";
-import { ApMesh } from "./components/InfraGeneral/Ap/ApMesh";
+// import { ApNegocio } from "./components/InfraGeneral/Ap/ApNegocio";
+// import { ApMesh } from "./components/InfraGeneral/Ap/ApMesh";
 import { DcsPac } from "./components/DcsPac/DcsPac";
 import { DcsOjos } from "./components/DcsOjos/DcsOjos";
 import { BaseFim } from "./components/BaseFim/BaseFim";
 import { Anillo } from "./components/Anillo/Anillo";
 import { MeshProcess } from "./components/MeshProcess/MeshProcess";
-import { Certificates } from "./components/InfraGeneral/Group_Prtg/Certificates";
-import { Voice } from "./components/InfraGeneral/Group_Prtg/Voice";
-import { Ise } from "./components/InfraGeneral/Group_Prtg/Ise";
-import { Wireless } from "./components/InfraGeneral/Group_Prtg/Wireless";
-import { Lte } from "./components/InfraGeneral/Group_Prtg/Lte";
-import { Cctv } from "./components/InfraGeneral/Group_Prtg/Cctv";
+// import { Certificates } from "./components/InfraGeneral/Group_PrtgXX/Certificates";
+// import { Voice } from "./components/InfraGeneral/Group_PrtgXX/Voice";
+// import { Ise } from "./components/InfraGeneral/Group_PrtgXX/Ise";
+// import { Wireless } from "./components/InfraGeneral/Group_PrtgXX/Wireless";
+// import { Lte } from "./components/InfraGeneral/Group_PrtgXX/Lte";
+// import { Cctv } from "./components/InfraGeneral/Group_PrtgXX/Cctv";
 import { AnilloUg } from "./components/AnilloUg/AnilloUg";
 import { Dockers } from "./components/InfraGeneral/Dockers/Dockers";
 import "./app.css";
@@ -106,23 +106,23 @@ function App() {
         <Route path="/monitoreo/ojos/clientes" element={<DcsOjos />} />
         <Route
           path="/monitoreo/infraestrucura-general"
-          element={<MainTopology />}
+          element={<DetailsCategory />}
         />
         <Route
           path="/monitoreo/infraestrucura-general/categorias"
           element={<Categories />}
         />
-        <Route
+        {/* <Route
           path="/monitoreo/infraestrucura-general/detalles/ap/negocio"
           element={<ApNegocio />}
         />
         <Route
           path="/monitoreo/infraestrucura-general/detalles/ap/mesh"
           element={<ApMesh />}
-        />
+        /> */}
         <Route
           path="/monitoreo/infraestrucura-general/detalles"
-          element={<DetailsCore />}
+          element={<Details />}
         />
         <Route path="/monitoreo/infraestrucura-general/map" element={<Map />} />
         <Route path="/monitoreo/candelaria/fim" element={<BaseFim />} />
@@ -131,7 +131,7 @@ function App() {
           path="/monitoreo/candelaria/proceso-mesh"
           element={<MeshProcess />}
         />
-        <Route
+        {/* <Route
           path="/monitoreo/infraestrucura-general/certificados"
           element={<Certificates />}
         />
@@ -151,7 +151,7 @@ function App() {
         <Route
           path="/monitoreo/infraestrucura-general/cctv"
           element={<Cctv />}
-        />
+        /> */}
         <Route path="/monitoreo/anillo/ug" element={<AnilloUg />} />
         <Route
           path="/monitoreo/infraestrucura-general/procesos-devnet"

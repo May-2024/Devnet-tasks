@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
 import { DevicesDash } from "./DevicesDash/DevicesDash";
 import { getDevices } from "../../utils/Api-candelaria/api";
 import {
@@ -11,7 +10,7 @@ import {
 import { Spinner } from "../Spinner/Spinner";
 import { MdOutlineInfo } from "react-icons/md";
 import { useDeviceIcons } from "../../hooks/useDeviceIcons";
-
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./devices.css";
 
 export function Devices() {
@@ -27,7 +26,7 @@ export function Devices() {
     const fetchData = async () => {
       try {
         const devicesList = await getDevices();
-        setDevices(devicesList);
+        setDevices(devicesList.data);
         setLoading(false);
       } catch (error) {
         console.error("Error al obtener el listado de Devices:", error);
@@ -234,7 +233,7 @@ export function Devices() {
   return (
     <>
       <Navbar title={"Dispositivos"} />
-      <Status_System tableToShow={"devices"} />
+      <DatetimeModules module={"devices"} name={"Dispositivos Cande"} />
       <DevicesDash />
       <input
         className="filtro filtro-devices"

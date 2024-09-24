@@ -67,7 +67,7 @@ export const useCoreStatus = async () => {
 
       return acc;
     }, {});
-    console.log(results)
+    
     return results;
   } catch (error) {
     console.error(error);

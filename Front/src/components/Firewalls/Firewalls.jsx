@@ -1,11 +1,11 @@
 import { getFirewalls } from "../../utils/Api-candelaria/api";
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
 import { DashFirewalls } from "./DashFirewalls/DashFirewalls";
 import { Spinner } from "../Spinner/Spinner";
 import { BASE_API_URL } from "../../utils/Api-candelaria/api";
 import { FailHistoryFw } from "./FailHistoryFw";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import BeatLoader from "react-spinners/BeatLoader";
 import axios from "axios";
 import "./firewalls.css";
@@ -28,13 +28,13 @@ export function Firewalls() {
     const fetchData = async () => {
       try {
         const firewallsList = await getFirewalls();
-        setFirewalls(firewallsList);
+        setFirewalls(firewallsList.data);
 
         // Filtrar los arreglos después de obtener los datos
-        const corporateFirewalls = firewallsList.filter(
+        const corporateFirewalls = firewallsList.data.filter(
           (fw) => fw.ubication === "corporate"
         );
-        const communityFirewalls = firewallsList.filter(
+        const communityFirewalls = firewallsList.data.filter(
           (fw) => fw.ubication === "community"
         );
         setFwCorporate(corporateFirewalls);
@@ -72,10 +72,10 @@ export function Firewalls() {
 
     return firewallsArray.map((fw) => (
       <tr key={fw.id}>
-        <td>{fw.fw}</td>
+        <td>{fw.name}</td>
         <td>{fw.ip}</td>
         <td>{fw.num_users}</td>
-        <td>{fw.canal}</td>
+        <td>{fw.channel}</td>
         <td>{fw.link}</td>
         <td
           title={
@@ -179,9 +179,9 @@ export function Firewalls() {
 
     return firewallsArray.map((fw) => (
       <tr key={fw.id}>
-        <td>{fw.fw}</td>
+        <td>{fw.name}</td>
         <td>{fw.ip}</td>
-        <td>{fw.canal}</td>
+        <td>{fw.channel}</td>
         <td>{fw.link}</td>
         <td
           title={
@@ -274,8 +274,8 @@ export function Firewalls() {
     setShowHistoryButton(false);
     setShowLoadingButton(true);
     setFwHistory({
-      name: dataFw.fw,
-      canal: dataFw.canal,
+      name: dataFw.name,
+      channel: dataFw.channel,
       ubication: dataFw.ubication,
     });
     try {
@@ -319,7 +319,7 @@ export function Firewalls() {
           Historial de Fallas
         </button>
       )} */}
-      <Status_System tableToShow={"fw"} />
+      <DatetimeModules module={"firewalls"} name={"firewalls"} />
       <DashFirewalls />
       <div className="firewalls-container">
         <h2>FW - Canales Corporativos</h2>

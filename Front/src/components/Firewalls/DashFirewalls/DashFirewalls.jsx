@@ -28,7 +28,7 @@ export function DashFirewalls() {
 
   const currentTab = document.title;
   const tableClassName =
-    currentTab === "Home" ? "fw-dash-table-home" : "fw-dash-table";
+    currentTab === "DevNet Home" ? "fw-dash-table-home" : "fw-dash-table";
 
   if (spinnerFw) {
     return (

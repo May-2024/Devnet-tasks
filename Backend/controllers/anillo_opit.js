@@ -4,7 +4,6 @@ class AnilloOpitService {
   async getDataAnilloOpit() {
     try {
       const data = await AnilloOpit.findAll();
-      console.log(data)
       return {
         statusCode: 200,
         message: "Información del Anillo UG obtenida exitosamente",

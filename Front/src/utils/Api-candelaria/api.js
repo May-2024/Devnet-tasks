@@ -19,13 +19,6 @@ export const PRTG_URL = 'https://10.224.241.25/device.htm?id='
 export const CISCO_URL = 'https://10.224.241.14/webacs/loginAction.do?action=login&product=wcs&selectedCategory=en#pageId=full_search_pageId&query='
 export const CISCO_URL_IT = 'https://10.224.116.90/webacs/loginAction.do?action=login&product=wcs&selectedCategory=en#pageId=full_search_pageId&query='
 
-export const getStatusSystem = async () => {
-  return axios
-    .get(`${BASE_API_URL}/status`)
-    .then((response) => response.data)
-    .catch((error) => {throw new Error('STATUS SYSTEM:Error del API REST Candealaria : ',error)});
-};
-
 export const getDatetimeModules = async () => {
   return axios
     .get(`${BASE_API_URL}/status/modules`)

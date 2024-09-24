@@ -1,138 +1,83 @@
-const sequelize = require("../db/conection");
+const {sequelize, sequelizeDB2} = require("../db/conection");
 const { Sequelize, DataTypes } = require("sequelize");
+
+const columns = {
+  name: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
+  },
+  channel: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
+  },
+  ip: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
+  },
+  link: {
+    type: DataTypes.STRING(50),
+    allowNull: true,
+  },
+  vdom: {
+    type: DataTypes.STRING(50),
+    allowNull: true,
+  },
+  gateway: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  num_users: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  state: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
+  },
+  packet_loss: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  latency: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  jitter: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  failed_before: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
+  },
+  datetime: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  ubication: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  },
+  status_gateway: {
+    type: DataTypes.STRING(32),
+    allowNull: true,
+  }
+}
 
 const Firewalls = sequelize.define(
   "Firewalls",
-  {
-    name: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    channel: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    ip: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    link: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-    },
-    vdom: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-    },
-    gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    num_users: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    state: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    packet_loss: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    latency: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    jitter: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    failed_before: {
-      type: DataTypes.STRING(10),
-      allowNull: true,
-    },
-    datetime: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    ubication: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    status_gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    }
-  },
+  columns,
   {
     tableName: "firewalls",
     timestamps: false,
   }
 );
 
-const HistoricFirewalls = sequelize.define(
+const HistoricFirewalls = sequelizeDB2.define(
   "HistoricFirewalls",
+  columns,
   {
-    fw: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    ip: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    canal: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    num_users: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    state: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    packet_loss: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    latency: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    jitter: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    failed_before: {
-      type: DataTypes.STRING(10),
-      allowNull: true,
-    },
-    datetime: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    link: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-    },
-    gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    ubication: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-    status_gateway: {
-      type: DataTypes.STRING(32),
-      allowNull: true,
-    },
-  },
-  {
-    tableName: "historic_firewalls",
+    tableName: "firewalls",
     timestamps: false,
   }
 );

@@ -1,10 +1,10 @@
 import { getWan } from "../../utils/Api-candelaria/api";
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
 import { WanDashboard } from "./WanDashboard/WanDashboard";
 import { useWanDates } from "../../hooks/useWanDates";
 import { Spinner } from "../Spinner/Spinner";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./wan.css";
 
 export function Wan() {
@@ -20,10 +20,10 @@ export function Wan() {
         const wanList = await getWan();
         const dates = useWanDates();
 
-        const ipWanAdmin = wanList.filter((wanItem) =>
+        const ipWanAdmin = wanList.data.filter((wanItem) =>
           wanItem.ip.startsWith("10.224.126")
         );
-        const otherIpWan = wanList.filter(
+        const otherIpWan = wanList.data.filter(
           (wanItem) => !wanItem.ip.startsWith("10.224.126")
         );
 
@@ -53,14 +53,26 @@ export function Wan() {
   let adminUptimePorcentToday = 0;
 
   if (wanAdmin.length > 0) {
-    const toNumberUptimePorcentLastMonth = wanAdmin.map((e) => parseFloat(e.last_uptime_percent));
-    const toNumberDowntimePorcentLastMonth = wanAdmin.map((e) => parseFloat(e.last_down_percent));
-    const toNumberUptimePorcentCurrentMonth = wanAdmin.map((e) => parseFloat(e.current_uptime_percent));
-    const toNumberUptimePorcentToday = wanAdmin.map((e) => parseFloat(e.today_uptime_percent));
+    const toNumberUptimePorcentLastMonth = wanAdmin.map((e) =>
+      parseFloat(e.last_uptime_percent)
+    );
+    const toNumberDowntimePorcentLastMonth = wanAdmin.map((e) =>
+      parseFloat(e.last_down_percent)
+    );
+    const toNumberUptimePorcentCurrentMonth = wanAdmin.map((e) =>
+      parseFloat(e.current_uptime_percent)
+    );
+    const toNumberUptimePorcentToday = wanAdmin.map((e) =>
+      parseFloat(e.today_uptime_percent)
+    );
 
     adminUptimePorcentLastMonth = Math.max(...toNumberUptimePorcentLastMonth);
-    adminDowntimePorcentLastMonth = Math.min(...toNumberDowntimePorcentLastMonth);
-    adminUptimePorcentCurrentMonth = Math.max(...toNumberUptimePorcentCurrentMonth);
+    adminDowntimePorcentLastMonth = Math.min(
+      ...toNumberDowntimePorcentLastMonth
+    );
+    adminUptimePorcentCurrentMonth = Math.max(
+      ...toNumberUptimePorcentCurrentMonth
+    );
     adminUptimePorcentToday = Math.max(...toNumberUptimePorcentToday);
   }
   if (showSpinner) {
@@ -75,7 +87,7 @@ export function Wan() {
   return (
     <>
       <Navbar title={"WAN"} />
-      <Status_System tableToShow={"wan"} />
+      <DatetimeModules module={"wan"} name={"wan"} />
       <WanDashboard previousMonthName={previousMonthName} />
       <table className="wan-table">
         <thead>
@@ -143,10 +155,7 @@ export function Wan() {
             <td>Candelaria</td>
             <td
               className={
-                
-                adminUptimePorcentLastMonth >= 99.85
-                  ? "kpi-green"
-                  : "kpi-red"
+                adminUptimePorcentLastMonth >= 99.85 ? "kpi-green" : "kpi-red"
               }
             >
               {adminUptimePorcentLastMonth} %

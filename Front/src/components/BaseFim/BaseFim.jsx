@@ -3,7 +3,7 @@ import { getDataBaseFim } from "../../utils/Api-candelaria/api";
 import { DatesReset } from "./DatesReset";
 import { Spinner } from "../Spinner/Spinner";
 import { Navbar } from "../Navbar/Navbar";
-import { Status_System } from "../Status_System/Status_System";
+import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import "./BaseFim.css";
 
 export function BaseFim() {
@@ -16,7 +16,9 @@ export function BaseFim() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { fimStatus, datesResets } = await getDataBaseFim();
+        const response = await getDataBaseFim();
+        const fimStatus = response.data.fimStatus;
+        const datesResets = response.data.datesResets;
         fimStatus.forEach((e) => {
           e.showDetails = false; // Agregar una propiedad showDetails a cada elemento de baseFim
           e.listDown = datesResets
@@ -54,7 +56,7 @@ export function BaseFim() {
   return (
     <div>
       <Navbar title={"Estaciones Base FiM"} />
-      <Status_System tableToShow={"fim"} />
+      <DatetimeModules module={"base_fim"} name={"bases fim"} />
       <div className="main-container-basefim">
         <table>
           <thead>
