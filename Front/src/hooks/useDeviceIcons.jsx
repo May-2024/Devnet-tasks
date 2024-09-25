@@ -10,8 +10,8 @@ const iconConditions = [
     condition: (device) =>
       device.cctv_enabled !== "N/A" &&
       device.type === "Camara" &&
-      device.cctv_enabled === "True" &&
-      device.cctv_valid === "True",
+      device.cctv_enabled === "1" &&
+      device.cctv_valid === "1",
     icon: (
       <BsFillCameraVideoFill
         title={"CCTV ENABLED: True & CCTV VALID: True"}
@@ -24,8 +24,8 @@ const iconConditions = [
     condition: (device) =>
       device.cctv_enabled !== "N/A" &&
       device.type === "Camara" &&
-      device.cctv_enabled === "True" &&
-      device.cctv_valid === "False",
+      device.cctv_enabled === "1" &&
+      device.cctv_valid === "0",
     icon: (
       <BsFillCameraVideoFill
         title={"CCTV ENABLED: True & CCTV VALID: False"}
@@ -51,7 +51,7 @@ const iconConditions = [
     condition: (device) =>
       device.cctv_enabled !== "N/A" &&
       device.type === "Camara" &&
-      device.cctv_enabled === "False",
+      device.cctv_enabled === "0",
     icon: (
       <BsFillCameraVideoFill
         title={"CCTV ENABLED: False"}

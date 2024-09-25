@@ -10,9 +10,9 @@ export function AnilloUg() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getDataAnilloUg();
+        const response = await getDataAnilloUg();
 
-        setAnilloData(data);
+        setAnilloData(response.data);
       } catch (error) {
         console.error(error);
       }

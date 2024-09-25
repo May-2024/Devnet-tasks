@@ -52,6 +52,7 @@ def define_ups_status(sw_name):
         return ups_status
 
     except Exception as e:
+        logging.error(traceback.format_exc())
         logging.error(f"Hubo un error en la funcion `define_ups_status`: {e}")
         return None
 
@@ -60,7 +61,8 @@ def get_api_ups_data():
     # * Realiza la peticion a la API DevNet para obtener informacion de las UPS
     try:
         API_UPS = os.getenv("API_UPS").format(env=api_env)
-        data_ups = requests.get(API_UPS, verify=False).json()
+        response = requests.get(API_UPS, verify=False).json()
+        data_ups = response["data"]
         return data_ups
     
     except Exception as e:
@@ -87,4 +89,4 @@ def get_api_devices_data():
         return None
 
 
-define_ups_status("CDBUSSWADM-11")
+# define_ups_status("CDBUSSWADM-11")
