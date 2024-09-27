@@ -26,7 +26,7 @@ def update_devnet_data(data):
     """
     # Consulta SQL para actualizar los datos donde el valor de la columna 'id_prtg' coincida
     query = """
-    UPDATE `dcs`.`anillo_ug` SET 
+    UPDATE devnet`anillo_ug` SET 
         status = %s
     WHERE id_prtg = %s
     """
@@ -75,7 +75,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE dcs.datetime_systems SET 
+    UPDATE devnet.datetime_systems SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'

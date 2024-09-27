@@ -30,10 +30,10 @@ def update_devnet_data(data):
                    o el cierre de la conexión.
     """
 
-    delete_query = "DELETE FROM dcs.docker_containers"
+    delete_query = "DELETE FROM devnet.docker_containers"
 
     query = """
-    INSERT INTO `dcs`.`docker_containers` 
+    INSERT INTO devnet`docker_containers` 
         (`name`,
         `status`,
         `cpu_usage_percent`,
@@ -103,7 +103,7 @@ def datetime_register(system_name, status):
     now_datetime = str(now_datetime)
 
     query = f"""
-    UPDATE `dcs`.`datetime_systems` SET 
+    UPDATE `devnet`.`datetime_systems` SET 
     status = '{status}', 
     datetime = '{now_datetime}' 
     WHERE system_name = '{system_name}'
