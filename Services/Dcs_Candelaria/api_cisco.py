@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 from db_get_data import get_historic_cisco_data
 
 load_dotenv()
-CISCO_API_USERNAME=os.getenv("CISCO_API_USERNAME")
+CISCO_API_USERNAME_1=os.getenv("CISCO_DEVICES_API_USERNAME_1")
+CISCO_API_USERNAME_2=os.getenv("CISCO_DEVICES_API_USERNAME_2")
 CISCO_API_PASSWORD=os.getenv("CISCO_API_PASSWORD")
 PRTG_USERNAME = os.getenv("PRTG_USERNAME")
 PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
@@ -39,7 +40,7 @@ def get_cisco_id(client):
         print(updated_client["cisco_id"])
     """
     try:
-        url_cisco_id = os.getenv('URL_CISCO_IP').format(ip=client["ip"], username=CISCO_API_USERNAME, password=CISCO_API_PASSWORD)
+        url_cisco_id = os.getenv('URL_CISCO_IP').format(ip=client["ip"], username=CISCO_API_USERNAME_1, password=CISCO_API_PASSWORD)
         cisco_response = requests.get(url_cisco_id, verify=False).json()
         
         # Verifica si 'queryResponse' está en la respuesta
@@ -95,9 +96,8 @@ def get_cisco_data(client):
             return client_data_backup
         
         else:
-            url_cisco_id = os.getenv('URL_CISCO_ID').format(cisco_id=client["cisco_id"], username=CISCO_API_USERNAME, password=CISCO_API_PASSWORD)
+            url_cisco_id = os.getenv('URL_CISCO_ID').format(cisco_id=client["cisco_id"], username=CISCO_API_USERNAME_2, password=CISCO_API_PASSWORD)
             cisco_client_response = requests.get(url_cisco_id, verify=False).json()
-            
             cisco_client_data = cisco_client_response.get('queryResponse', {}).get('entity', [{}])[0].get('clientsDTO', {})
             client["port_cisco"] = cisco_client_data.get('clientInterface', 'Not Found')
             client["status_cisco"] = cisco_client_data.get('status', 'Not Found')
@@ -113,7 +113,7 @@ def get_cisco_data(client):
             prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
             client["status_device_cisco"] = prtg_device_status_response.get('sensors', [{}])[0].get('status', 'Not Found')
             
-            cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=client["device_ip_cisco"], username=PRTG_USERNAME, password=PRTG_PASSWORD)
+            cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=client["device_ip_cisco"], username=CISCO_API_USERNAME_2, password=CISCO_API_PASSWORD)
             cisco_device_ip_response = requests.get(cisco_device_ip_url, verify=False).json()
             count = cisco_device_ip_response.get('queryResponse', {}).get('@count', 0)
 
@@ -121,7 +121,7 @@ def get_cisco_data(client):
                 client["reachability_cisco"] = 'Not Found'
             else:
                 cisco_device_id = cisco_device_ip_response.get('queryResponse', {}).get('entityId', [{}])[0].get('$', 'Not Found')
-                cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
+                cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id, username=CISCO_API_USERNAME_1, password=CISCO_API_PASSWORD)
                 cisco_device_id_response = requests.get(cisco_device_id_url, verify=False).json()
                 client["reachability_cisco"] = cisco_device_id_response.get('queryResponse', {}).get('entity', [{}])[0].get('devicesDTO', {}).get('reachability', 'Not Found')
             client["data_backup"] = "false"

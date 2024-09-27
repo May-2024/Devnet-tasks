@@ -175,6 +175,7 @@ function App() {
             <FontAwesomeIcon icon={faPlay} /> // Icono de Play
           )}
         </button>
+        <span>Version 2.0.0</span>
       </div>
     </div>
   );

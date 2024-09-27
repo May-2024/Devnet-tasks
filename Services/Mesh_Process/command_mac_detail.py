@@ -5,7 +5,6 @@ import logging
 import paramiko
 import re
 import mysql.connector
-from config import database
 from dotenv import load_dotenv
 
 logging.basicConfig(
@@ -20,49 +19,49 @@ load_dotenv()
 env = os.getenv("ENVIRONMENT")
 
 
-def database_connection():
-    try:
-        if env == "local":
-            mydb = mysql.connector.connect(
-                host=database["local"]["DB_HOST"],
-                user=database["local"]["DB_USER"],
-                password=database["local"]["DB_PASSWORD"],
-                database=database["local"]["DB_DATABASE"],
-            )
+# def database_connection():
+#     try:
+#         if env == "local":
+#             mydb = mysql.connector.connect(
+#                 host=database["local"]["DB_HOST"],
+#                 user=database["local"]["DB_USER"],
+#                 password=database["local"]["DB_PASSWORD"],
+#                 database=database["local"]["DB_DATABASE"],
+#             )
 
-        else:
-            mydb = mysql.connector.connect(
-                host=database["production"]["DB_HOST"],
-                user=database["production"]["DB_USER"],
-                password=database["production"]["DB_PASSWORD"],
-                database=database["production"]["DB_DATABASE"],
-            )
-        return mydb
+#         else:
+#             mydb = mysql.connector.connect(
+#                 host=database["production"]["DB_HOST"],
+#                 user=database["production"]["DB_USER"],
+#                 password=database["production"]["DB_PASSWORD"],
+#                 database=database["production"]["DB_DATABASE"],
+#             )
+#         return mydb
 
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos")
-        logging.error(traceback.format_exc())
-        logging.error(e)
+#     except Exception as e:
+#         logging.error("Error al conectarse a la base de datos")
+#         logging.error(traceback.format_exc())
+#         logging.error(e)
         
 
-def get_data_from_db(ubication):
-    mydb = database_connection()
-    cursor = mydb.cursor()
-    query = f"SELECT * FROM devnet.mesh_process WHERE ubication = '{ubication}' and note <> 'NAT'"
-    cursor.execute(query)
+# def get_data_from_db(ubication):
+#     mydb = database_connection()
+#     cursor = mydb.cursor()
+#     query = f"SELECT * FROM devnet.mesh_process WHERE ubication = '{ubication}' and note <> 'NAT'"
+#     cursor.execute(query)
     
-    column_names = [column[0] for column in cursor.description]
-    data = []
-    for row in cursor:
-        row_dict = {}
-        for i in range(len(column_names)):
-            row_dict[column_names[i]] = row[i]
-        data.append(row_dict)
+#     column_names = [column[0] for column in cursor.description]
+#     data = []
+#     for row in cursor:
+#         row_dict = {}
+#         for i in range(len(column_names)):
+#             row_dict[column_names[i]] = row[i]
+#         data.append(row_dict)
         
-    if len(data) > 12:
-        return "fail"
-    else:
-        return "ok"
+#     if len(data) > 12:
+#         return "fail"
+#     else:
+#         return "ok"
 
 
 
@@ -145,34 +144,34 @@ def run_mac_detail(mesh_clients_list):
         
         
 
-data_test = [
-    {
-        "id": 353,
-        "ubication": "Pala 10",
-        "device": "Cisco AP",
-        "client": "10.117.115.110",
-        "last_mac": "f01d.2d55.7512",
-        "current_mac": "f01d.2d55.dace",
-        "note": "No data",
-        "last_change_date": "2024-06-05 11:20:45",
-        "status": "ok",
-        "prtg_status": "Unusual",
-        "prtg_id": 13588,
-    },
-    {
-        "id": 354,
-        "ubication": "Pala 11",
-        "device": "Cisco AP",
-        "client": "10.117.115.110",
-        "last_mac": "f01d.2d55.7512",
-        "current_mac": "f80b.cbd8.8ce4",
-        "note": "No data",
-        "last_change_date": "2024-06-05 11:20:45",
-        "status": "ok",
-        "prtg_status": "Unusual",
-        "prtg_id": 13589,
-    }
-]
+# data_test = [
+#     {
+#         "id": 353,
+#         "ubication": "Pala 10",
+#         "device": "Cisco AP",
+#         "client": "10.117.115.110",
+#         "last_mac": "f01d.2d55.7512",
+#         "current_mac": "f01d.2d55.dace",
+#         "note": "No data",
+#         "last_change_date": "2024-06-05 11:20:45",
+#         "status": "ok",
+#         "prtg_status": "Unusual",
+#         "prtg_id": 13588,
+#     },
+#     {
+#         "id": 354,
+#         "ubication": "Pala 11",
+#         "device": "Cisco AP",
+#         "client": "10.117.115.110",
+#         "last_mac": "f01d.2d55.7512",
+#         "current_mac": "9cd5.7dd4.1e48",
+#         "note": "No data",
+#         "last_change_date": "2024-06-05 11:20:45",
+#         "status": "ok",
+#         "prtg_status": "Unusual",
+#         "prtg_id": 13589,
+#     }
+# ]
 
 # mac_data = run_mac_detail(data_test)
 # print(mac_data)

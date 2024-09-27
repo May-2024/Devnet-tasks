@@ -3392,3 +3392,609 @@ AttributeError: 'NoneType' object has no attribute 'cursor'
     cursor = mydb.cursor()
 AttributeError: 'NoneType' object has no attribute 'cursor'
 
+2024-09-26 12:15:15,156 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_connections.py", line 31, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-26 12:15:15,156 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Unknown MySQL server host 'db' (-3)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_connections.py", line 31, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+
+2024-09-26 12:15:15,156 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-26 12:15:15,156 - ERROR: Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-26 12:15:15,156 - ERROR - 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-26 12:15:15,156 - ERROR: 2005 (HY000): Unknown MySQL server host 'db' (-3)
+2024-09-26 12:15:15,157 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_get_data.py", line 37, in get_data
+    raise ValueError("No se pudo establecer la conexión con la base de datos: el conector es None.")
+ValueError: No se pudo establecer la conexión con la base de datos: el conector es None.
+
+2024-09-26 12:15:15,157 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_get_data.py", line 37, in get_data
+    raise ValueError("No se pudo establecer la conexión con la base de datos: el conector es None.")
+ValueError: No se pudo establecer la conexión con la base de datos: el conector es None.
+
+2024-09-26 12:15:15,157 - ERROR - No se pudo establecer la conexión con la base de datos: el conector es None.
+2024-09-26 12:15:15,157 - ERROR: No se pudo establecer la conexión con la base de datos: el conector es None.
+2024-09-26 12:15:15,157 - ERROR - Error al obtener datos de la base de datos
+2024-09-26 12:15:15,157 - ERROR: Error al obtener datos de la base de datos
+2024-09-27 11:54:16,375 - ERROR - status_prtg() missing 1 required positional argument: 'data'
+2024-09-27 11:54:16,375 - ERROR: status_prtg() missing 1 required positional argument: 'data'
+2024-09-27 11:54:16,384 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 70, in main
+    final_updated_data = status_prtg()
+TypeError: status_prtg() missing 1 required positional argument: 'data'
+
+2024-09-27 11:54:16,384 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/main.py", line 70, in main
+    final_updated_data = status_prtg()
+TypeError: status_prtg() missing 1 required positional argument: 'data'
+
+2024-09-27 11:54:16,384 - ERROR - Error en funcion Main
+2024-09-27 11:54:16,384 - ERROR: Error en funcion Main
+2024-09-27 11:55:40,388 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 31, in status_prtg
+    response_api_candelaria = requests.get(
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-27 11:55:40,388 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 200, in _new_conn
+    sock = connection.create_connection(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 388, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connection.py", line 215, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/donkami/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 31, in status_prtg
+    response_api_candelaria = requests.get(
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2024-09-27 11:55:40,388 - ERROR - HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-27 11:55:40,388 - ERROR: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /api/v1/candelaria/mesh (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f31e743ce20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2024-09-27 11:55:40,388 - ERROR - Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 11:55:40,388 - ERROR: Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 11:56:46,636 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 34, in status_prtg
+    pala = next(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 38, in <genexpr>
+    if mesh_pala["ip"] == ip_client
+TypeError: string indices must be integers
+
+2024-09-27 11:56:46,636 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 34, in status_prtg
+    pala = next(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 38, in <genexpr>
+    if mesh_pala["ip"] == ip_client
+TypeError: string indices must be integers
+
+2024-09-27 11:56:46,636 - ERROR - string indices must be integers
+2024-09-27 11:56:46,636 - ERROR: string indices must be integers
+2024-09-27 11:56:46,636 - ERROR - Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 11:56:46,636 - ERROR: Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 12:12:37,436 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 34, in status_prtg
+    pala = next(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 38, in <genexpr>
+    if mesh_pala["ip"] == ip_client
+TypeError: string indices must be integers
+
+2024-09-27 12:12:37,436 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 34, in status_prtg
+    pala = next(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/status_prtg.py", line 38, in <genexpr>
+    if mesh_pala["ip"] == ip_client
+TypeError: string indices must be integers
+
+2024-09-27 12:12:37,436 - ERROR - string indices must be integers
+2024-09-27 12:12:37,436 - ERROR: string indices must be integers
+2024-09-27 12:12:37,436 - ERROR - Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 12:12:37,436 - ERROR: Error en la funcion `status_prtg` en el archivo `status_prtg`
+2024-09-27 12:14:40,211 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'status' at row 2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_update_devnet.py", line 44, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'status' at row 2
+
+2024-09-27 12:14:40,211 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data too long for column 'status' at row 2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh_Process/db_update_devnet.py", line 44, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'status' at row 2
+
+2024-09-27 12:14:40,211 - ERROR - 1406 (22001): Data too long for column 'status' at row 2
+2024-09-27 12:14:40,211 - ERROR: 1406 (22001): Data too long for column 'status' at row 2
+2024-09-27 12:14:40,211 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-27 12:14:40,211 - ERROR: Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-27 12:38:56,629 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:38:56,631 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 99, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:38:56,632 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:38:56,632 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:38:59,071 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:38:59,072 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 99, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:38:59,072 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:38:59,072 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:40:25,871 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:40:25,871 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 99, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:40:25,871 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:40:25,871 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:40:28,001 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:40:28,002 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 99, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:40:28,002 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:40:28,002 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:40:49,330 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:40:49,340 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 100, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:40:49,340 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:40:49,340 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:40:51,361 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:40:51,361 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 100, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:40:51,361 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:40:51,361 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:45:55,058 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:45:55,067 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 100, in get_cisco_data
+    print(url_cisco_id)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:45:55,068 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:45:55,068 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:45:57,297 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:45:57,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 100, in get_cisco_data
+    print(url_cisco_id)
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:45:57,297 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:45:57,297 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:46:16,754 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:46:16,765 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 44, in get_cisco_id
+    cisco_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:46:16,765 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:46:16,765 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`
+2024-09-27 12:46:16,765 - ERROR - 'cisco_id'
+2024-09-27 12:46:16,765 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 94, in get_cisco_data
+    if client["cisco_id"] == "Not Found" or client["cisco_id"] == "Error CISCO":
+KeyError: 'cisco_id'
+
+2024-09-27 12:46:16,765 - ERROR - Error con el Cliente 10.224.196.21
+2024-09-27 12:46:16,766 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:46:18,379 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:46:18,379 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 44, in get_cisco_id
+    cisco_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:46:18,379 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:46:18,380 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`
+2024-09-27 12:46:18,380 - ERROR - 'cisco_id'
+2024-09-27 12:46:18,380 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 94, in get_cisco_data
+    if client["cisco_id"] == "Not Found" or client["cisco_id"] == "Error CISCO":
+KeyError: 'cisco_id'
+
+2024-09-27 12:46:18,380 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:46:18,380 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:49:22,476 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:49:22,487 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 102, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:49:22,487 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:49:22,487 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:50:02,339 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:50:02,341 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 102, in get_cisco_data
+    cisco_client_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:50:02,341 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:50:02,341 - ERROR - Error en la funcion `get_cisco_data` del archivo `api_cisco`
+2024-09-27 12:50:35,581 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:50:35,582 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 45, in get_cisco_id
+    cisco_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:50:35,582 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:50:35,582 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`
+2024-09-27 12:51:23,490 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-27 12:51:23,501 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Dcs_Candelaria/api_cisco.py", line 45, in get_cisco_id
+    cisco_response = requests.get(url_cisco_id, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-27 12:51:23,501 - ERROR - Error con el Cliente 10.225.196.21
+2024-09-27 12:51:23,501 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`

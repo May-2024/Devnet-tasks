@@ -3,19 +3,13 @@ import time
 import traceback
 import re
 import logging
+import logger_config
 import paramiko
 from dotenv import load_dotenv
-
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s")
-file_handler = logging.FileHandler("issues.log")
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s: %(message)s"))
-logging.getLogger().addHandler(file_handler)
 
 load_dotenv()
 env = os.getenv('ENVIRONMENT')
 
-        
 def get_mesh_process_data():
     try:
         client = paramiko.SSHClient()
@@ -49,7 +43,6 @@ def get_mesh_process_data():
                 mac = match.group(2)
                 resultado.append({'ip': ip, 'mac': mac})
 
-        logging.info("MESH_DATA: Valores MAC Actualizados")
         return resultado
             
 

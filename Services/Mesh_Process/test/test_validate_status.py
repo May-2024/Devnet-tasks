@@ -1,4 +1,8 @@
 import unittest
+import sys
+import os
+src_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(src_folder)
 from validate_status import validate_status
 
 

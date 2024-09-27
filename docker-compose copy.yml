@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   container_name: phpmyadmin
-  #   environment:
-  #     PMA_HOST: "10.224.126.78"  # Dirección para conectar al MySQL de tu host local
-  #     PMA_USER: devnet                  # Usuario root de MySQL
-  #     PMA_PASSWORD: devnet.1           # Contraseña del usuario root
-  #   ports:
-  #     - "8080:80"
-
   # vpn-forticlient:
   #   container_name: vpn_candelaria
   #   build:
@@ -49,26 +39,26 @@ services:
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
         
-  dcs-candelaria_clients:
-    container_name: dcs_candelaria
-    build:
-      context: Services/Dcs_Candelaria
-    restart: always
-    environment:
-      - ENVIRONMENT=${ENVIRONMENT}
-      - PRTG_USERNAME=${PRTG_USERNAME}
-      - PRTG_PASSWORD=${PRTG_PASSWORD}
-      - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-      - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-      - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-      - DB_DEV_HOST=${DB_DEV_HOST}
-      - DB_DEV_USER=${DB_DEV_USER}
-      - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-      - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-      - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-      - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-      - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-      - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # dcs-candelaria_clients:
+  #   container_name: dcs_candelaria
+  #   build:
+  #     context: Services/Dcs_Candelaria
+  #   restart: always
+  #   environment:
+  #     - ENVIRONMENT=${ENVIRONMENT}
+  #     - PRTG_USERNAME=${PRTG_USERNAME}
+  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
+  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
+  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
+  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
+  #     - DB_DEV_HOST=${DB_DEV_HOST}
+  #     - DB_DEV_USER=${DB_DEV_USER}
+  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
+  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
+  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
+  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
+  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
+  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
       
   # ups:
   #   container_name: ups
@@ -112,27 +102,53 @@ services:
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
       
-  # devices:
-  #   container_name: devices_candelaria
-  #   build:
-  #     context: Services/Devices
-  #   restart: always
-  #   environment:
-  #     - ENVIRONMENT=${ENVIRONMENT}
-  #     - PRTG_USERNAME=${PRTG_USERNAME}
-  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
-  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-  #     - DB_DEV_HOST=${DB_DEV_HOST}
-  #     - DB_DEV_USER=${DB_DEV_USER}
-  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # # devices:
+  # #   container_name: devices_candelaria
+  # #   build:
+  # #     context: Services/Devices
+  # #   restart: always
+  # #   environment:
+  # #     - ENVIRONMENT=${ENVIRONMENT}
+  # #     - PRTG_USERNAME=${PRTG_USERNAME}
+  # #     - PRTG_PASSWORD=${PRTG_PASSWORD}
+  # #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
+  # #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
+  # #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
+  # #     - DB_DEV_HOST=${DB_DEV_HOST}
+  # #     - DB_DEV_USER=${DB_DEV_USER}
+  # #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
+  # #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
+  # #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
+  # #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
+  # #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
+  # #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
     
+  # # backend-api-rest:
+  # #   build:
+  # #     context: Backend
+  # #   ports:
+  # #     - '3001:3001'
+  # #   restart: always
+  # #   environment:
+  # #     - NODE_ENV=production
+  #   # command: sh -c "npx sequelize-cli db:migrate && node index.js"
+      
+  # frontend-react:
+  #   build:
+  #     context: Front
+  #   ports:
+  #     - '4000:80'
+  #   restart: always
+  # #   environment: Este se define en el archivo .env
+
+  # # wan:
+  # #   build:
+  # #     context: Front
+  # #   ports:
+  # #     - '4000:80'
+  # #   restart: always
+  # #   environment: Este se define en el archivo .env
+
   # wan:
   #   container_name: wan
   #   build:
@@ -176,81 +192,75 @@ services:
   #   build:
   #     context: Services/InfraGeneral
   #   restart: always
+  #   depends_on:
+  #     - db
   #   environment:
-  #     - ENVIRONMENT=${ENVIRONMENT}
-  #     - PRTG_USERNAME=${PRTG_USERNAME}
-  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
-  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-  #     - DB_DEV_HOST=${DB_DEV_HOST}
-  #     - DB_DEV_USER=${DB_DEV_USER}
-  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  #     - ENVIRONMENT=production
 
-  # base_fim:
-  #   build:
-  #     context: Services/FiM
-  #   restart: always
-  #   environment:
-  #     - ENVIRONMENT=${ENVIRONMENT}
-  #     - PRTG_USERNAME=${PRTG_USERNAME}
-  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
-  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-  #     - DB_DEV_HOST=${DB_DEV_HOST}
-  #     - DB_DEV_USER=${DB_DEV_USER}
-  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # # dcs-pac:
+  # #   build:
+  # #     context: Services/DcsPac
+  # #   restart: always
+  # #   depends_on:
+  # #     - db
+  # #   environment:
+  # #     - ENVIRONMENT=production
 
-  # anillo_candelaria:
-  #   build:
-  #     context: Services/Anillo_Opit
-  #   restart: always
-  #   environment:
-  #     - ENVIRONMENT=${ENVIRONMENT}
-  #     - PRTG_USERNAME=${PRTG_USERNAME}
-  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
-  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-  #     - DB_DEV_HOST=${DB_DEV_HOST}
-  #     - DB_DEV_USER=${DB_DEV_USER}
-  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # # dcs-ojos:
+  # #   build:
+  # #     context: Services/DcsOjos
+  # #   restart: always
+  # #   depends_on:
+  # #     - db
+  # #   environment:
+  # #     - ENVIRONMENT=production
 
-  mesh_process:
-    build:
-      context: Services/Mesh_Process
-    restart: always
-    environment:
-      - ENVIRONMENT=${ENVIRONMENT}
-      - PRTG_USERNAME=${PRTG_USERNAME}
-      - PRTG_PASSWORD=${PRTG_PASSWORD}
-      - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-      - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-      - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-      - DB_DEV_HOST=${DB_DEV_HOST}
-      - DB_DEV_USER=${DB_DEV_USER}
-      - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-      - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-      - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-      - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-      - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-      - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # # ap:
+  # #   build:
+  # #     context: Services/InfGen_Ap
+  # #   restart: always
+  # #   depends_on:
+  # #     - db
+  # #   environment:
+  # #     - ENVIRONMENT=production
+
+  # # base_fim:
+  # #   build:
+  # #     context: Services/FiM
+  # #   restart: always
+  # #   depends_on:
+  # #     - db
+  # #   environment:
+  # #     - ENVIRONMENT=production
+
+  # # anillo_candelaria:
+  # #   build:
+  # #     context: Services/Anillo
+  # #   restart: always
+  # #   depends_on:
+  # #     - db
+  # #   environment:
+  # #     - ENVIRONMENT=production
+
+  # # mesh_process:
+  # #   build:
+  # #     context: Services/Mesh_Process
+  # #   restart: always
+  # #   environment:
+  # #     - ENVIRONMENT=${ENVIRONMENT}
+  # #     - PRTG_USERNAME=${PRTG_USERNAME}
+  # #     - PRTG_PASSWORD=${PRTG_PASSWORD}
+  # #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
+  # #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
+  # #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
+  # #     - DB_DEV_HOST=${DB_DEV_HOST}
+  # #     - DB_DEV_USER=${DB_DEV_USER}
+  # #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
+  # #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
+  # #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
+  # #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
+  # #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
+  # #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
   # groups_prtg:
   #   container_name: inf_gen_groups_prtg
@@ -273,23 +283,10 @@ services:
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
-  # anillo_ug:
-  #   container_name: anillo_ug
-  #   build:
-  #     context: Services/Anillo_Ug
-  #   restart: always
-  #   environment:
-  #     - ENVIRONMENT=${ENVIRONMENT}
-  #     - PRTG_USERNAME=${PRTG_USERNAME}
-  #     - PRTG_PASSWORD=${PRTG_PASSWORD}
-  #     - CISCO_DEVICES_API_USERNAME_1=${CISCO_DEVICES_API_USERNAME_1}
-  #     - CISCO_DEVICES_API_USERNAME_2=${CISCO_DEVICES_API_USERNAME_2}
-  #     - CISCO_API_PASSWORD=${CISCO_API_PASSWORD}
-  #     - DB_DEV_HOST=${DB_DEV_HOST}
-  #     - DB_DEV_USER=${DB_DEV_USER}
-  #     - DB_DEV_PASSWORD=${DB_DEV_PASSWORD}
-  #     - DB_DEV_DATABASE=${DB_DEV_DATABASE}
-  #     - DB_HOST_HISTORIC=${DB_HOST_HISTORIC}
-  #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
-  #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
-  #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+  # # anillo_ug:
+  # #   container_name: anillo_ug
+  # #   build:
+  # #     context: Services/Anillo_Ug
+  # #   restart: always
+  # #   environment:
+  # #     - ENVIRONMENT=production

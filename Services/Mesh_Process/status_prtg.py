@@ -1,96 +1,20 @@
 import logging
-import mysql.connector
+import logger_config
 import traceback
 import os
 import requests
-import warnings
 from dotenv import load_dotenv
-from config import database
 
-
-"""
-    Funcion encargada de actualizar el estado PRTG de cada Cliente Mesh
-"""
-
-# Configuración básica de logging
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s"
-)
-
-warnings.filterwarnings("ignore", message="Unverified HTTPS request")
 
 load_dotenv()
 env = os.getenv("ENVIRONMENT")
 
+PRTG_USERNAME = os.getenv("PRTG_USERNAME")
+PRTG_PASSWORD = os.getenv("PRTG_PASSWORD")
 
-def database_connection():
+
+def status_prtg(data):
     try:
-        if env == "local":
-            mydb = mysql.connector.connect(
-                host=database["local"]["DB_HOST"],
-                user=database["local"]["DB_USER"],
-                password=database["local"]["DB_PASSWORD"],
-                database=database["local"]["DB_DATABASE"],
-            )
-
-        else:
-            mydb = mysql.connector.connect(
-                host=database["production"]["DB_HOST"],
-                user=database["production"]["DB_USER"],
-                password=database["production"]["DB_PASSWORD"],
-                database=database["production"]["DB_DATABASE"],
-            )
-        return mydb
-
-    except Exception as e:
-        logging.error("Error al conectarse a la base de datos en la funcion CHECK_MAC")
-        logging.error(traceback.format_exc())
-        logging.error(e)
-
-def status_prtg():
-    try:
-        mydb = database_connection()
-        cursor = mydb.cursor()
-        query = "SELECT * FROM devnet.mesh_process"
-        cursor.execute(query)
-
-        # Obtenemos la lista con los datos de los diccionarios actualizados
-        column_names = [column[0] for column in cursor.description]
-        data = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names)):
-                row_dict[column_names[i]] = row[i]
-            data.append(row_dict)
-
-        #! Data Test
-        # data = [
-        #     {
-        #         "id": 353,
-        #         "ubication": "Pala 10",
-        #         "device": "Cisco AP",
-        #         "client": "10.117.115.110",
-        #         "last_mac": "f01d.2d55.7512",
-        #         "current_mac": "f01d.2d55.7512",
-        #         "note": "No data",
-        #         "last_change_date": "No data",
-        #         "status": "ok",
-        #     },
-        #     {
-        #         "id": 349,
-        #         "ubication": "Camion 318",
-        #         "device": "UMAN",
-        #         "client": "10.117.126.118",
-        #         "last_mac": "No data",
-        #         "current_mac": "No data",
-        #         "note": "No data",
-        #         "last_change_date": "No data",
-        #         "status": "ok",
-        #     },
-        # ]
-
-        # Obtiene Id del PRTG
-        logging.info("STATUS_PRTG: Actualizando estados PRTG")
 
         env_map = {
             "local": "localhost",
@@ -100,11 +24,12 @@ def status_prtg():
 
         api_env = env_map.get(env, None)
 
-        for sensor in data:
-            ip_client = sensor["client"]
-            if "pala" in sensor["ubication"].lower() and "cisco ap" in sensor["device"].lower():
-                # Si se encuentra el estado 2 entonces que haga la peticion API y valide status dispatch
-                # Si no definir, prtg_status = 'No operando', prtg_id = 0 en la DB
+        for client in data:
+            ip_client = client["client"]
+            if (
+                "pala" in client["ubication"].lower()
+                and "cisco ap" in client["device"].lower()
+            ):
                 api_candelaria = os.getenv("API_STATUS_PALA").format(env=api_env)
                 response_api_candelaria = requests.get(
                     api_candelaria, verify=False
@@ -112,42 +37,40 @@ def status_prtg():
                 pala = next(
                     (
                         mesh_pala
-                        for mesh_pala in response_api_candelaria
+                        for mesh_pala in response_api_candelaria["data"]
                         if mesh_pala["ip"] == ip_client
                     ),
                     None,
                 )
                 if pala == None or "2" not in pala["status_dispatch"]:
-                    query = f"UPDATE devnet.mesh_process SET prtg_status = 'No operando', prtg_id = 0 WHERE client = '{ip_client}'"
-                    cursor.execute(query)
-                    mydb.commit()
+                    client["status"] = "No operando"
+                    client["prtg_id"] = 0
                     continue
 
-            api_prtg_getid = os.getenv("URL_GET_ID_PING").format(ip=ip_client)
+            api_prtg_getid = os.getenv("URL_GET_ID_PING").format(
+                ip=ip_client, username=PRTG_USERNAME, password=PRTG_PASSWORD
+            )
             response_api_getid = requests.get(api_prtg_getid, verify=False).json()
             devices = response_api_getid.get("devices")
 
             if devices == []:
-                query = f"UPDATE devnet.mesh_process SET prtg_status = 'Not Found', prtg_id = 0 WHERE client = '{ip_client}'"
-                cursor.execute(query)
-                mydb.commit()
+                client["status"] = "Not Found"
+                client["prtg_id"] = 0
 
             if devices != []:
                 objid = devices[0]["objid"]
-                api_prtg_data = os.getenv("URL_GET_DATA").format(objid=objid)
+                api_prtg_data = os.getenv("URL_GET_DATA").format(
+                    objid=objid, username=PRTG_USERNAME, password=PRTG_PASSWORD
+                )
                 response_api_data = requests.get(api_prtg_data, verify=False).json()
                 prtg_status = response_api_data["sensors"][0]["status"]
-                query = f"UPDATE devnet.mesh_process SET prtg_status = '{prtg_status}', prtg_id = '{objid}' WHERE client = '{ip_client}'"
-                cursor.execute(query)
-                mydb.commit()
+                client["status"] = prtg_status
+                client["prtg_id"] = objid
 
-        logging.info("STATUS_PRTG: Estados de los clientes Actualizado Exitosamente")
-        cursor.close()
+        return data
 
     except Exception as e:
-        logging.error("Error en la funcion STATUS_PRTG")
-        logging.error(e)
         logging.error(traceback.format_exc())
-
-
-# status_prtg()
+        logging.error(e)
+        logging.error("Error en la funcion `status_prtg` en el archivo `status_prtg`")
+        return data

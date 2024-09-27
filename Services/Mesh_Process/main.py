@@ -1,23 +1,19 @@
-import warnings
-import requests
 import os
 import time
 import traceback
-import datetime
 import sched
-import re
 import logging
-import mysql.connector
-import paramiko
 import logger_config
+
 from dotenv import load_dotenv
-from config import database
 from mesh_data import get_mesh_process_data
-from check_mac import check_mac
 from status_prtg import status_prtg
 from command_mac_detail import run_mac_detail
 from validate_status import validate_status
-from db_connections import devnet_connection
+
+from db_get_data import get_data
+from update_current_mac import update_mac, check_ip_in_output
+from db_update_devnet import update_devnet_data, datetime_register
 
 load_dotenv()
 env = os.getenv("ENVIRONMENT")
@@ -26,147 +22,34 @@ env = os.getenv("ENVIRONMENT")
 
 def main():
     try:
-        mydb = devnet_connection()
-        cursor = mydb.cursor()
-        query = "SELECT * FROM devnet.mesh_process"
-        cursor.execute(query)
-
-        # Convertimos los datos Antiguos en una lista de diccionarios
-        column_names = [column[0] for column in cursor.description]
-        last_data = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names)):
-                row_dict[column_names[i]] = row[i]
-            last_data.append(row_dict)
+        logging.info("##### Iniciando ciclo")
+        
+        # Obtenemos los datos actuales de la BD
+        last_data = get_data(table_name="mesh_process")
 
         # Obtenemos los datos actuales de la controladora
-        # Obtenemos los datos actuales de la controladora
+        logging.info("##### Obteniendo informacion del comando show ip arp | in Vlan112")
         current_data = get_mesh_process_data()
-
-        # #! db_data_test
-        # last_data = [
-        #     {
-        #         "id": 1,
-        #         "ubication": "Camion 201",
-        #         "device": "Cisco AP",
-        #         "client": "10.117.115.111",
-        #         "last_mac": "B",
-        #         "current_mac": "C",
-        #         "note": "No data",
-        #         "last_change_date": "No data",
-        #         "status": "ok",
-        #     },
-        #     {
-        #         "id": 2,
-        #         "ubication": "Camion 201",
-        #         "device": "Cisco RO",
-        #         "client": "10.117.116.201",
-        #         "last_mac": "B",
-        #         "current_mac": "C",
-        #         "note": "No data",
-        #         "last_change_date": "No data",
-        #         "status": "ok",
-        #     },
-        #     {
-        #         "id": 3,
-        #         "ubication": "Camion 201",
-        #         "device": "Dispatch",
-        #         "client": "10.117.123.201",
-        #         "last_mac": "B",
-        #         "current_mac": "Not Found",
-        #         "note": "No data",
-        #         "last_change_date": "No data",
-        #         "status": "ok",
-        #     },
-        # ]
-
-        # #! controladora_data_test
-        # current_data = [
-        #     {"ip": "10.117.115.201", "mac": "C"},
-        #     {"ip": "10.117.116.201", "mac": "B"},
-        #     {"ip": "10.117.123.2199", "mac": "B"},
-        # ]
 
         # Si no hay datos desde la maquina manejamos esto como un error
         if current_data == []:
-            return "a"  #! Manejar el caso en que no lleguen datos
+            raise ValueError("##### No se obtuvieron datos del comando `show ip arp | in Vlan112`")
 
-        # Actualizamos el Mac Anterior con el valor del Mac Actual solo si
-        # la Mac actual de la ultima consulta y la mac actual de la consulta mas reciente son diferentes
-        for last in last_data:
-            for current in current_data:
-                if (
-                    last["client"] == current["ip"]
-                    and last["current_mac"] != current["mac"]
-                ):
+        # Actualizamos los valores de la MAC si es necesario
+        logging.info("##### Actualizando valores de MAC actual y pasado")
+        data_updated = update_mac(last_data, current_data)
 
-                    query_last_mac = f"UPDATE devnet.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
-                    cursor.execute(query_last_mac)
-                    mydb.commit()
+        # Validamos si la ip del cliente esta en el output del comando
+        logging.info("##### Asignando estado Not Found a aquellas IP que no esten en el comando show up arp")
+        notFound_data_updated = check_ip_in_output(data_updated, current_data)
 
-                    now = datetime.datetime.now()
-                    fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-                    fecha_y_hora = str(fecha_y_hora)
-                    query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = '{current['mac']}', last_change_date = '{fecha_y_hora}' WHERE client = '{current['ip']}'"
-                    cursor.execute(query_current_mac)
-                    mydb.commit()
-                    break
-
-        """
-        Definir si en la salida del comando se encuentra la IP o no,
-        En caso de no encontrar la IP la mac actual sera Not Found
-        La mac anterior tendra el valor de la mac actual si esta es distinta de not found
-        """
-        ips = [data["ip"] for data in current_data]
-
-        # Validar si hay coincidencias entre las listas
-        for data in last_data:
-            if data["client"] in ips:
-                data["is_currently"] = "Found"
-            else:
-                data["is_currently"] = "Not Found"
-
-        for last in last_data:
-            if (
-                last["is_currently"] == "Not Found"
-                and last["current_mac"] != "Not Found"
-            ):
-
-                query_last_mac = f"UPDATE devnet.mesh_process SET last_mac = '{last['current_mac']}' WHERE client = '{last['client']}'"
-                cursor.execute(query_last_mac)
-                mydb.commit()
-                
-                query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = 'Not Found' WHERE client = '{last['client']}'"
-                cursor.execute(query_current_mac)
-                mydb.commit()
-                break
-            
-                # now = datetime.datetime.now()
-                # fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-                # fecha_y_hora = str(fecha_y_hora)
-                #! Se elimina el last_change_date = '{fecha_y_hora}'
-                # query_current_mac = f"UPDATE devnet.mesh_process SET current_mac = 'Not Found', last_change_date = '{fecha_y_hora}' WHERE client = '{last['client']}'"
-
-        # Funcion para validar si una mac se repite en otra ubicacion
-        # check_mac()
-        
-        mydb = devnet_connection()
-        cursor = mydb.cursor()
-        query = "SELECT * FROM devnet.mesh_process"
-        cursor.execute(query)
-
-        column_names = [column[0] for column in cursor.description]
-        
-        mesh_clients_updated = []
-        for row in cursor:
-            row_dict = {}
-            for i in range(len(column_names)):
-                row_dict[column_names[i]] = row[i]
-            mesh_clients_updated.append(row_dict)
-            
-        cisco_ap_list = [ e for e in mesh_clients_updated if e["device"] == "Cisco AP"]    
+        mesh_clients_updated = notFound_data_updated
+  
+        cisco_ap_list = [ e for e in mesh_clients_updated if e["device"] == "Cisco AP"]
+        logging.info("##### Extrayendo listado de MAC de cada cliente para cada Cisco AP")   
         data_command_mac_detail = run_mac_detail(cisco_ap_list)
+        
+        logging.info("##### Validando si algun cliente esta asignado en un AP incorrecto")
         status_clients_list = validate_status(mesh_clients_updated, data_command_mac_detail)
         
         for client in status_clients_list:
@@ -174,37 +57,25 @@ def main():
                 client["status"] = "N/A"
                 client["status_num_clients"] = "N/A"
                 
-            query = f"UPDATE devnet.mesh_process SET status = '{client['status']}', status_num_clients = '{client['status_num_clients']}' WHERE client = '{client['client']}'"
-            cursor.execute(query)
-            mydb.commit()
 
         # Funcion para actualizar el estado y id de PRTG
-        status_prtg()
+        logging.info("##### Obteniendo estados PRTG y Operativo de cada Pala")
+        final_updated_data = status_prtg(status_clients_list)
 
-        now = datetime.datetime.now()
-        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-        fecha_y_hora = str(fecha_y_hora)
-
-        cursor.execute(
-            f"UPDATE devnet.datetime_systems SET `datetime` = '{fecha_y_hora}', `status` = 'OK' WHERE `system_name` = 'mesh_process'"
-        )
-        mydb.commit()
-        cursor.close()
-        logging.info("Ciclo Terminado")
+        db_response = update_devnet_data(final_updated_data)
+        
+        if db_response:
+            datetime_register(status="OK", system_name="mesh_process")
+        else:
+            datetime_register(status="ERROR", system_name="mesh_process")
+        
+        logging.info("##### Ciclo Terminado")
 
     except Exception as e:
-        logging.error("Error en funcion Main")
         logging.error(e)
         logging.error(traceback.format_exc())
-        now = datetime.datetime.now()
-        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-        fecha_y_hora = str(fecha_y_hora)
-        cursor.execute(
-            f"UPDATE devnet.datetime_systems SET `datetime` = '{fecha_y_hora}', `estado` = 'ERROR' WHERE `system_name` = 'mesh_process'"
-        )
-        mydb.commit()
-        cursor.close()
-        return "Error"
+        logging.error("Error en funcion Main")
+        datetime_register(status="ERROR", system_name="mesh_process")
 
 
 def bucle(scheduler):
