@@ -33,7 +33,7 @@ def update_devnet_data(data):
     delete_query = "DELETE FROM devnet.docker_containers"
 
     query = """
-    INSERT INTO devnet`docker_containers` 
+    INSERT INTO devnet.`docker_containers` 
         (`name`,
         `status`,
         `cpu_usage_percent`,

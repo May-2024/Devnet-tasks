@@ -33,7 +33,7 @@ def get_devnet_data(table_name):
         devnet_cursor = db_connector.cursor()
 
         # Realizar una consulta para leer información de la base de datos
-        query = f"SELECT * FROM devnet`{table_name}`"
+        query = f"SELECT * FROM devnet.`{table_name}`"
         devnet_cursor.execute(query)
 
         # Obtener los nombres de las columnas

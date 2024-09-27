@@ -16,6 +16,8 @@ app.use(express.json());
 app.use(cors({
   origin: [
   'http://localhost:4000',
+  'http://10.224.116.78',
+  'http://10.224.116.14',
   'http://10.224.116.78:4000',
   'http://10.224.116.14:4000',
 ],

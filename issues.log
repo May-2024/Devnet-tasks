@@ -3998,3 +3998,412 @@ requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 2024-09-27 12:51:23,501 - ERROR - Error con el Cliente 10.225.196.21
 2024-09-27 12:51:23,501 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`
+2024-09-27 15:33:29,292 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:33:29,293 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:33:29,293 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:33:29,293 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:33:29,293 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:33:29,293 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-27 15:33:29,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:33:29,297 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:33:29,297 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:33:29,297 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 115, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:33:29,297 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-27 15:33:29,297 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:33:29,301 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:33:29,301 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:33:29,301 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:33:29,301 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 115, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:33:29,301 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-27 15:33:29,301 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:34:08,088 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:34:08,089 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:34:08,089 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:34:08,089 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:34:08,089 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:34:08,089 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+2024-09-27 15:34:08,093 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:34:08,093 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:34:08,093 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:34:08,094 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 58, in update_devnet_data
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 115, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:34:08,094 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-27 15:34:08,094 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:34:08,097 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_connections.py", line 29, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-27 15:34:08,097 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-27 15:34:08,098 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-27 15:34:08,098 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 115, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-27 15:34:08,098 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-27 15:34:08,098 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-27 15:35:16,787 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`docker_containers` 
+        (`name`,
+        `status`,
+        `cpu_usage_perce' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Docker_Monitoring/db_update_devnet.py", line 62, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 455, in executemany
+    return self.execute(stmt)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`docker_containers` 
+        (`name`,
+        `status`,
+        `cpu_usage_perce' at line 1
+
+2024-09-27 15:35:16,787 - ERROR - 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`docker_containers` 
+        (`name`,
+        `status`,
+        `cpu_usage_perce' at line 1
+2024-09-27 15:35:16,787 - ERROR - Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/db_connection.py", line 21, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+Error en la función `devnet_connection` en el archivo `db_connections`
+1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+No se pudo establecer la conexión con la base de datos: el conector es None.
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/get_data.py", line 31, in get_devnet_data
+    raise ValueError("No se pudo establecer la conexión con la base de datos: el conector es None.")
+ValueError: No se pudo establecer la conexión con la base de datos: el conector es None.
+
+Error al obtener datos de la base de datos
+Error en la funcion `get_data` en el archivo `get_data`
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/db_connection.py", line 21, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+Error en la función `devnet_connection` en el archivo `db_connections`
+1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/db_update.py", line 87, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+Error en la función `datetime_register` en el archivo `db_update_devnet`
+'NoneType' object has no attribute 'cursor'
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+'NoneType' object is not iterable
+Error en la funcion `main` del archivo `main`
+1146 (42S02): Table 'dcs.devnet' doesn't exist
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'dcs.devnet' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/get_data.py", line 37, in get_devnet_data
+    devnet_cursor.execute(query)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'dcs.devnet' doesn't exist
+
+Error al obtener datos de la base de datos
+Error en la funcion `get_data` en el archivo `get_data`
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+'NoneType' object is not iterable
+Error en la funcion `main` del archivo `main`
+1146 (42S02): Table 'devnet.devnet' doesn't exist
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'devnet.devnet' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/get_data.py", line 37, in get_devnet_data
+    devnet_cursor.execute(query)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'devnet.devnet' doesn't exist
+
+Error al obtener datos de la base de datos
+Error en la funcion `get_data` en el archivo `get_data`
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+'NoneType' object is not iterable
+Error en la funcion `main` del archivo `main`
+1146 (42S02): Table 'devnet.anillo_ug' doesn't exist
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'devnet.anillo_ug' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/get_data.py", line 37, in get_devnet_data
+    devnet_cursor.execute(query)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'devnet.anillo_ug' doesn't exist
+
+Error al obtener datos de la base de datos
+Error en la funcion `get_data` en el archivo `get_data`
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/main.py", line 29, in main
+    id_device_set = {item['id_device'] for item in db_devnet_data}
+TypeError: 'NoneType' object is not iterable
+
+'NoneType' object is not iterable
+Error en la funcion `main` del archivo `main`
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'devnet.devnet' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Anillo_Ug/db_update.py", line 42, in update_devnet_data
+    devnet_cursor.executemany(query, data_tuple)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 465, in executemany
+    self.execute(operation, params)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'devnet.devnet' doesn't exist
+
+Error en la función `update_devnet_data` en el archivo `db_update_devnet`
+1146 (42S02): Table 'devnet.devnet' doesn't exist
