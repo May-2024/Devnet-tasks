@@ -224,9 +224,7 @@ export function Devices() {
   const renderRowCount = () => {
     const rowCount = filteredSearchDevices.length;
     return (
-      <div className="row-count" style={{ fontSize: "0.8rem" }}>
-        Total de elementos: {rowCount}
-      </div>
+      <div className="row-count-devices">Total de elementos: {rowCount}</div>
     );
   };
 
@@ -286,8 +284,8 @@ export function Devices() {
           </thead>
           <tbody className="data-table-devices">{renderTableBody()}</tbody>
         </table>
-        {renderRowCount()}
       </div>
+      {renderRowCount()}
     </>
   );
 }

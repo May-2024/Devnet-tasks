@@ -13,6 +13,14 @@
   height: 1.5rem;
 }
 
+.refresh-button-container-2 {
+  position: fixed;
+  bottom: 5px;
+  right: 30px;
+  font-size: 0.7rem;
+  color: gray;
+}
+
 .refresh-button {
   background-color: #505151;
   color: white;

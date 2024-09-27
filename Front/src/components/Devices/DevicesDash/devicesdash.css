@@ -3,13 +3,18 @@
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   text-align: center;
-  height: 10rem;
+  /* height: 10rem; */
+  height: 8rem;
 }
 
 .devices-dash-table th,
 .devices-dash-table td {
   border: 1px solid black;
-  padding: 8px;
+  padding: 2px;
+}
+
+.devices-dash-table td {
+  padding: 0px;
 }
 
 .devices-dash-table {

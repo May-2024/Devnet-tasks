@@ -3,15 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 7rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  text-align: center;
 }
 
+.wan-kpi-container-home {
+  width: 90%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
 
 .table-dashboard-wan {
-  width: 50%;
   border-collapse: collapse;
   border: 1px solid #ccc;
 }
@@ -20,6 +22,7 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid black;
+  text-align: center;
 }
 
 .table-dashboard-wan td {
@@ -30,19 +33,19 @@
 .table-dashboard-wan-home td {
   font-size: 1.2rem;
   border: 1px solid #000000;
-  padding: 4px;
+  padding: 15px;
 }
 
 .table-dashboard-wan td:first-child {
   font-weight: bold;
 }
 
-.td-wan-dash {
+/* .td-wan-dash {
   font-size: 1.5rem;
   text-align: center;
-}
+} */
 
-.left-td-wan-dash {
+/* .left-td-wan-dash {
   font-size: 1.2rem;
   text-align: center;
-}
+} */
