@@ -28,10 +28,9 @@ export function TableClients() {
   const handleCheckboxChange = (e) => {
     setFilterDownPaused(e.target.checked);
   };
-
   const filteredClients = clients.filter((client) => {
     const searchValues = Object.values(client)
-      .map((value) => value.toString().toLowerCase())
+      .map((value) => (value != null ? value.toString().toLowerCase() : "")) // Validación de null o undefined
       .join(" ");
     const hasDownPaused =
       searchValues.includes("down") || searchValues.includes("paused");
@@ -88,18 +87,19 @@ export function TableClients() {
           )}
         </td>
         <td
-          title={useColorTitle(
-            client.status_device_cisco,
-            client.device_ip_cisco
-          )}
+          title={
+            client.status_device_cisco &&
+            useColorTitle(client.status_device_cisco, client.device_ip_cisco)
+          }
           className={
+            client.status_device_cisco &&
             client.status_device_cisco.includes("Up")
               ? "kpi-green"
-              : client.status_device_cisco.includes("Down")
+              : client.status_device_cisco?.includes("Down")
               ? "kpi-red"
-              : client.status_device_cisco.includes("Paused")
+              : client.status_device_cisco?.includes("Paused")
               ? "kpi-blue"
-              : client.status_device_cisco.includes("Not Found") &&
+              : client.status_device_cisco?.includes("Not Found") &&
                 client.device_ip_cisco !== "Not Found"
               ? "kpi-grey"
               : ""

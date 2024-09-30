@@ -20,16 +20,22 @@ def main():
         containers = client.containers.list(all=True)
         
 
+        
         # Lista para almacenar la información de los contenedores
         containers_info = []
 
         # Obtener estadísticas para cada contenedor
         for container in containers:
+            
+            # El contenedor de phpmyadmin tiene conflictos
+            if "php" in container.name:
+                continue
+                
             # Obtener estadísticas
             stats = container.stats(stream=False)
             
             # Calcular el porcentaje de uso de la CPU
-            cpu_usage_percent = calculate_cpu_percent(stats)
+            cpu_usage_percent = calculate_cpu_percent(stats, container.name)
             
             # Crear un diccionario para el contenedor con valores formateados
             container_dict = {

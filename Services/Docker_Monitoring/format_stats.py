@@ -37,9 +37,9 @@ def bytes_to_gb(bytes_value):
 #         return "Error DevNet"
 
 
-def calculate_cpu_percent(stats):
+def calculate_cpu_percent(stats, name):
     """Calcular el porcentaje de uso de la CPU a partir de las estadísticas."""
-    try:
+    try:    
         cpu_delta = (
             stats["cpu_stats"]["cpu_usage"]["total_usage"]
             - stats["precpu_stats"]["cpu_usage"]["total_usage"]
@@ -56,5 +56,5 @@ def calculate_cpu_percent(stats):
             cpu_percent = 0.0
         return cpu_percent
     except Exception as e:
-        logging.error(f"Error al calcular el porcentaje de CPU: {e}")
+        logging.error(f"Error al calcular el porcentaje de CPU del contenedor {name}: {e}")
         return "Error DevNet"

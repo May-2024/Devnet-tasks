@@ -79,7 +79,7 @@ def diagnose_fw_vdom(host, vdom, channelFw, ssh_timeout=45):
         # Cerrar el canal y la conexión
         channel.close()
         client.close()
-
+        print(output)
         # Analizar la salida con regex
         pattern = r"Seq\(\d+ ([^\)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\)(?: latency\(([^)]+)\), jitter\(([^)]+)\))?.*"
         matches = re.findall(pattern, output)
@@ -129,7 +129,7 @@ def diagnose_fw_vdom(host, vdom, channelFw, ssh_timeout=45):
         logging.error(e)
         logging.error(traceback.format_exc())
         logging.error("Error en el archivo VDOM funcion vdom_connection")
-        logging.error(host, vdom, channel)
+        logging.error(host, vdom, channelFw)
         return errData
 
 

@@ -74,7 +74,9 @@ export function Firewalls() {
       <tr key={fw.id}>
         <td>{fw.name}</td>
         <td>{fw.ip}</td>
-        <td>{fw.num_users}</td>
+        <td className={fw.num_users.includes("Not Found") ? "kpi-red" : ""}>
+          {fw.num_users}
+        </td>
         <td>{fw.channel}</td>
         <td>{fw.link}</td>
         <td
@@ -86,14 +88,20 @@ export function Firewalls() {
           style={{
             cursor: fw.fail_datetime !== "No fail reported" ? "help" : "",
           }}
-          className={fw.state === "dead" ? "kpi-red" : "kpi-green"}
+          className={
+            fw.state === "dead"
+              ? "kpi-red"
+              : fw.state.toLowerCase().includes("error")
+              ? "kpi-red"
+              : "kpi-green"
+          }
         >
           {fw.state.toUpperCase()}
         </td>
         <td
           className={
-            fw.packet_loss === "Not Found"
-              ? ""
+            !fw.packet_loss.includes(".")
+              ? "kpi-red"
               : parseFloat(fw.packet_loss) > 5
               ? "kpi-red"
               : parseFloat(fw.packet_loss) >= 2 &&
@@ -102,12 +110,14 @@ export function Firewalls() {
               : ""
           }
         >
-          {fw.packet_loss === "Not Found" ? "Not Found" : fw.packet_loss + "%"}
+          {!fw.packet_loss.includes(".")
+            ? fw.packet_loss
+            : fw.packet_loss + "%"}
         </td>
         <td
           className={
-            fw.latency === "Not Found"
-              ? ""
+            !fw.latency.includes(".")
+              ? "kpi-red"
               : parseFloat(fw.latency) > 100
               ? "kpi-red"
               : parseFloat(fw.latency) >= 50 && parseFloat(fw.latency) <= 100
@@ -115,12 +125,12 @@ export function Firewalls() {
               : ""
           }
         >
-          {fw.latency === "Not Found" ? "Not Found" : fw.latency + " ms"}
+          {!fw.latency.includes(".") ? fw.latency : fw.latency + " ms"}
         </td>
         <td
           className={
-            fw.jitter === "Not Found"
-              ? ""
+            !fw.jitter.includes(".")
+              ? "kpi-red"
               : parseFloat(fw.jitter) > 30
               ? "kpi-red"
               : parseFloat(fw.jitter) >= 10 && parseFloat(fw.jitter) <= 30
@@ -128,7 +138,7 @@ export function Firewalls() {
               : ""
           }
         >
-          {fw.jitter === "Not Found" ? "Not Found" : fw.jitter + " ms"}
+          {!fw.jitter.includes(".") ? fw.jitter : fw.jitter + " ms"}
         </td>
         <td
           title={
