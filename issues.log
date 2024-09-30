@@ -4512,3 +4512,113 @@ requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 2024-09-30 09:33:35,578 - ERROR - Error con el Cliente 192.168.1.91
 2024-09-30 09:33:35,578 - ERROR - Error en la funcion `get_cisco_id` del archivo `api_cisco`
+2024-09-30 10:55:05,779 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-30 10:55:05,779 - ERROR - Error con el Cliente 10.117.115.181
+2024-09-30 10:55:05,779 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-30 10:55:05,779 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`
+2024-09-30 10:55:16,473 - ERROR - Error Controladora Device 10.117.115.181
+2024-09-30 10:55:16,473 - ERROR - list index out of range
+2024-09-30 10:55:16,474 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 57, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2024-09-30 10:55:16,474 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-09-30 10:55:21,598 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/main.py", line 73, in main
+    fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/counter.py", line 65, in counter_function
+    fail_senal = mesh_element["fail_senal"]
+KeyError: 'fail_senal'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 291, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/db_connections.py", line 31, in devnet_connection
+    db_connector = mysql.connector.connect(
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 120, in __init__
+    self.connect(**kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/abstracts.py", line 1181, in connect
+    self._open_connection()
+  File "/home/donkami/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 296, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+
+2024-09-30 10:55:21,599 - ERROR - Error en la función `devnet_connection` en el archivo `db_connections`
+2024-09-30 10:55:21,599 - ERROR - 1045 (28000): Access denied for user 'donkami'@'172.18.0.1' (using password: NO)
+2024-09-30 10:55:21,599 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/main.py", line 73, in main
+    fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/counter.py", line 65, in counter_function
+    fail_senal = mesh_element["fail_senal"]
+KeyError: 'fail_senal'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/db_update_devnet.py", line 143, in datetime_register
+    devnet_cursor = db_connector.cursor()
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-09-30 10:55:21,599 - ERROR - Error en la función `datetime_register` en el archivo `db_update_devnet`
+2024-09-30 10:55:21,599 - ERROR - 'NoneType' object has no attribute 'cursor'
+2024-09-30 10:55:21,599 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/main.py", line 73, in main
+    fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/counter.py", line 65, in counter_function
+    fail_senal = mesh_element["fail_senal"]
+KeyError: 'fail_senal'
+
+2024-09-30 10:55:21,599 - ERROR - 'fail_senal'
+2024-09-30 10:55:21,599 - ERROR - Error en main
+2024-09-30 10:57:09,543 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-30 10:57:09,544 - ERROR - Error con el Cliente 10.117.115.110
+2024-09-30 10:57:09,544 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-30 10:57:09,544 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`

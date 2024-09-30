@@ -70,7 +70,15 @@ export function TableClients() {
         </td>
         <td>{client.description}</td>
         <td>{client.ip}</td>
-        <td>
+        <td
+          className={
+            client.status_prtg.toLowerCase().includes("down")
+              ? "kpi-red"
+              : client.status_prtg.toLowerCase().includes("paused")
+              ? "kpi-blue"
+              : ""
+          }
+        >
           <a href={`${PRTG_URL}${client.id_prtg}`} target="_blank">
             {client.status_prtg}
           </a>

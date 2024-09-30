@@ -21,8 +21,8 @@ def main():
     try:
 
         load_dotenv()
-        data_mesh = get_data(table_name="mesh")
-        # data_mesh = [{'ip':'10.117.115.181', 'device': 'Pala 19', 'eqmt': 'P19'}]
+        # data_mesh = get_data(table_name="mesh")
+        data_mesh = [{'ip':'10.117.115.181', 'device': 'Pala 19', 'eqmt': 'P19'}]
 
         # Actualizamos de ser necesario los contadores de FAILS
         update_db_fail_counters()
