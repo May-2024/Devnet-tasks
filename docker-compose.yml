@@ -1,15 +1,6 @@
 version: '3.8'
 
 services:
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   container_name: phpmyadmin
-  #   environment:
-  #     PMA_HOST: "10.224.126.78"  # Dirección para conectar al MySQL de tu host local
-  #     PMA_USER: devnet                  # Usuario root de MySQL
-  #     PMA_PASSWORD: devnet.1           # Contraseña del usuario root
-  #   ports:
-  #     - "8080:80"
 
   # vpn-forticlient:
   #   container_name: vpn_candelaria
@@ -48,7 +39,7 @@ services:
   #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
-        
+
   dcs-candelaria_clients:
     container_name: dcs_candelaria
     build:
@@ -69,7 +60,6 @@ services:
       - DB_USER_HISTORIC=${DB_USER_HISTORIC}
       - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
       - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
-      
   # ups:
   #   container_name: ups
   #   build:
@@ -90,7 +80,7 @@ services:
   #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
-      
+
   # mesh:
   #   container_name: mesh
   #   build:
@@ -111,7 +101,7 @@ services:
   #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
-      
+
   # devices:
   #   container_name: devices_candelaria
   #   build:
@@ -132,7 +122,7 @@ services:
   #     - DB_USER_HISTORIC=${DB_USER_HISTORIC}
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
-    
+
   # wan:
   #   container_name: wan
   #   build:
@@ -173,6 +163,7 @@ services:
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
   # infraestructura-general:
+  #   container_name: infra_general_main
   #   build:
   #     context: Services/InfraGeneral
   #   restart: always
@@ -193,6 +184,7 @@ services:
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
   # base_fim:
+  #   container_name: bases_fim
   #   build:
   #     context: Services/FiM
   #   restart: always
@@ -212,7 +204,8 @@ services:
   #     - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
-  # anillo_candelaria:
+  # anillo_opit:
+  #   container_name: anillo_opit
   #   build:
   #     context: Services/Anillo_Opit
   #   restart: always
@@ -233,6 +226,7 @@ services:
   #     - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
 
   # mesh_process:
+  #   container_name: clientes_mesh
   #   build:
   #     context: Services/Mesh_Process
   #   restart: always

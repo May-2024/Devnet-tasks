@@ -39,11 +39,7 @@ def main():
             client = get_prtg_data(client) # Consultamos la data de la API PRTG
             client = get_cisco_id(client) # Obtenemos Id de la API CISCO
             client = get_cisco_data(client) # Consultamos la data de la API CISCO
-            
-            now = datetime.datetime.now()
-            now_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
-            now_datetime = str(now_datetime)
-            client["datetime"] = now_datetime
+            client["datetime"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             
             clients_updated.append(client)
 

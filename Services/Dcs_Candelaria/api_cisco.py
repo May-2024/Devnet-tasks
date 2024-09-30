@@ -141,3 +141,6 @@ def get_cisco_data(client):
         logging.error(f'Error con el Cliente {client["ip"]}')
         logging.error("Error en la funcion `get_cisco_data` del archivo `api_cisco`")
         return client
+
+# print(get_cisco_id({"ip": "10.225.196.121"}))
+# print(get_cisco_data({"ip": "10.225.196.121", "cisco_id":"Not Found"}))

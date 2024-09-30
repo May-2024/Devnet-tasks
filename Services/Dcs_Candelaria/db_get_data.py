@@ -110,32 +110,32 @@ def get_historic_cisco_data(client):
         if results:
             data_backup = [dict(zip(historic_db_cursor.column_names, row)) for row in results][0]
             
-            client["cisco_client_port"] = data_backup['port_cisco']
-            client["cisco_client_status"] = data_backup['status_cisco']
-            client["cisco_device_name"] = data_backup['device_cisco']
-            client["cisco_device_ip_adrress"] = data_backup['device_ip_cisco']
-            client["cisco_device_reachability"] = data_backup['reachability_cisco']
-            client["prtg_device_status"] = data_backup['status_device_cisco']
+            client["port_cisco"] = data_backup['port_cisco']
+            client["status_cisco"] = data_backup['status_cisco']
+            client["device_cisco"] = data_backup['device_cisco']
+            client["device_ip_cisco"] = data_backup['device_ip_cisco']
+            client["reachability_cisco"] = data_backup['reachability_cisco']
+            client["status_device_cisco"] = data_backup['status_device_cisco']
             client["data_backup"] = 'true'
             return client
         else:
-            client["cisco_client_port"] = 'Not Found'
-            client["cisco_client_status"] = 'Not Found'
-            client["cisco_device_name"] = 'Not Found'
-            client["cisco_device_ip_adrress"] = 'Not Found'
-            client["cisco_device_reachability"] = 'Not Found'
-            client["prtg_device_status"] = 'Not Found'
+            client["port_cisco"] = 'Not Found'
+            client["status_cisco"] = 'Not Found'
+            client["device_cisco"] = 'Not Found'
+            client["device_ip_cisco"] = 'Not Found'
+            client["reachability_cisco"] = 'Not Found'
+            client["status_device_cisco"] = 'Not Found'
             client["data_backup"] = 'false'
             return client
             
     except Exception as e:
         # En caso de error, se asignan valores por defecto y se registra el error
-        client["cisco_client_port"] = 'Error DevNet'
-        client["cisco_client_status"] = 'Error DevNet'
-        client["cisco_device_name"] = 'Error DevNet'
-        client["cisco_device_ip_adrress"] = 'Error DevNet'
-        client["cisco_device_reachability"] = 'Error DevNet'
-        client["prtg_device_status"] = 'Error DevNet'
+        client["port_cisco"] = 'Error DevNet'
+        client["status_cisco"] = 'Error DevNet'
+        client["device_cisco"] = 'Error DevNet'
+        client["device_ip_cisco"] = 'Error DevNet'
+        client["reachability_cisco"] = 'Error DevNet'
+        client["status_device_cisco"] = 'Error DevNet'
         client["data_backup"] = 'false'
         
         logging.error(e)
