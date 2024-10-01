@@ -29,7 +29,8 @@ def main():
         final_data = []
 
         for device in data_mesh:
-            ip_device = device["ip"]
+            ip_device = "10.117.115.110"
+            # ip_device = device["ip"]
             name_device = device["device"]
             eqmt = device["eqmt"]
             logging.info(f"Consultando informacion: {name_device}")
@@ -58,7 +59,6 @@ def main():
                 avg_ping, min_ping, max_ping, packet_loss = get_pingData(sensorId)
 
             netmiko_data = get_data_controladora(ip_device)
-            print(netmiko_data)
             signal_strength = netmiko_data["signal_strength"]
             signal_noise = netmiko_data["signal_noise"]
             connected_for = netmiko_data["connected_for"]

@@ -5893,3 +5893,330 @@ KeyError: 'fail_senal'
 
 2024-09-30 22:47:42,974 - ERROR - 'fail_senal'
 2024-09-30 22:47:42,974 - ERROR - Error en main
+2024-09-30 23:16:10,367 - ERROR - 'histdata'
+2024-09-30 23:16:10,367 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 146, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:16:10,367 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:16:18,794 - ERROR - 'histdata'
+2024-09-30 23:16:18,795 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 146, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:16:18,795 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:17:39,595 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-30 23:17:39,596 - ERROR - Error con el Cliente 10.117.115.122
+2024-09-30 23:17:39,596 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-30 23:17:39,596 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`
+2024-09-30 23:17:39,941 - ERROR - 'histdata'
+2024-09-30 23:17:39,941 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 147, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:17:39,941 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:17:52,927 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-30 23:17:52,927 - ERROR - Error con el Cliente 10.117.115.122
+2024-09-30 23:17:52,927 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-30 23:17:52,927 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`
+2024-09-30 23:17:53,279 - ERROR - 'histdata'
+2024-09-30 23:17:53,279 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 147, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:17:53,279 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:18:19,298 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-09-30 23:18:19,298 - ERROR - Error con el Cliente 10.117.115.122
+2024-09-30 23:18:19,299 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-09-30 23:18:19,299 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`
+2024-09-30 23:18:41,624 - ERROR - 'histdata'
+2024-09-30 23:18:41,624 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 147, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:18:41,624 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:18:52,576 - ERROR - 'histdata'
+2024-09-30 23:18:52,576 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 147, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:18:52,576 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:21:57,028 - ERROR - 'histdata'
+2024-09-30 23:21:57,028 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 148, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:21:57,029 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:25:51,893 - ERROR - 'histdata'
+2024-09-30 23:25:51,893 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 148, in get_pingData
+    data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0]
+KeyError: 'histdata'
+
+2024-09-30 23:25:51,893 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:26:55,196 - ERROR - 'prtg'
+2024-09-30 23:26:55,196 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 148, in get_pingData
+    if data_ping["prtg"]["error"]:
+KeyError: 'prtg'
+
+2024-09-30 23:26:55,205 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:29:43,375 - ERROR - '#text'
+2024-09-30 23:29:43,375 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 158, in get_pingData
+    avg_ping = data_ping[0]["#text"]
+KeyError: '#text'
+
+2024-09-30 23:29:43,375 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-09-30 23:34:41,531 - ERROR - Error Controladora Device 10.117.115.110
+2024-09-30 23:34:41,539 - ERROR - 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-09-30 23:34:41,541 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 54, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-09-30 23:34:41,541 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-09-30 23:43:04,777 - ERROR - Error Controladora Device 10.117.115.110
+2024-09-30 23:43:04,778 - ERROR - 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-09-30 23:43:04,778 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 54, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-09-30 23:43:04,779 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-10-01 00:04:42,443 - ERROR - Error Controladora Device 10.117.115.110
+2024-10-01 00:04:42,452 - ERROR - 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-10-01 00:04:42,453 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 54, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-10-01 00:04:42,454 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-10-01 00:08:28,881 - ERROR - Error Controladora Device 10.117.115.110
+2024-10-01 00:08:28,882 - ERROR - 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-10-01 00:14:13,478 - ERROR - Error Controladora Device 10.117.115.110 en el intento 1: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-10-01 00:14:13,479 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 43, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}")  # IP Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-10-01 00:14:13,479 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-10-01 00:15:30,295 - ERROR - Error Controladora Device 10.117.115.110 en el intento 1: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-10-01 00:15:30,296 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 44, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}")  # IP Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-10-01 00:15:30,296 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-10-01 00:17:51,652 - ERROR - Error Controladora Device 10.117.115.110 en el intento 1: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+2024-10-01 00:17:51,654 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/controladora.py", line 44, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}")  # IP Pala
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-10-01 00:17:51,654 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
