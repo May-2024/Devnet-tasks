@@ -139,10 +139,10 @@ def get_pingData(sensorId):
             username=PRTG_USERNAME,
             password=PRTG_PASSWORD,
         )
-        # print(URL_GET_DATA_PING)
+
         data_ping = requests.get(URL_GET_DATA_PING, verify=False)
         data_ping = xmltodict.parse(data_ping.text)
-        # print(data_ping)
+        print(data_ping)
         prtg_error = data_ping.get("prtg", None)
         if prtg_error and "error" in prtg_error:
             avg_ping = "Not Found"
@@ -153,10 +153,10 @@ def get_pingData(sensorId):
         
         data_ping = data_ping["histdata"]["item"]["value"]  #! Se agrega la posicion [0] para la version 1 de PRTG
 
-        avg_ping = data_ping[0]["#text"]
-        min_ping = data_ping[1]["#text"]
-        max_ping = data_ping[2]["#text"]
-        packet_loss = data_ping[3]["#text"]
+        avg_ping = data_ping[0].get("#text", "Not Found")
+        min_ping = data_ping[1].get("#text", "Not Found")
+        max_ping = data_ping[2].get("#text", "Not Found")
+        packet_loss = data_ping[3].get("#text", "Not Found")
         
         return avg_ping, min_ping, max_ping, packet_loss
 
@@ -169,3 +169,9 @@ def get_pingData(sensorId):
         logging.error(traceback.format_exc())
         logging.error("Error en la funcion `get_pingData` del archivo `api_prtg`")
         return avg_ping, min_ping, max_ping, packet_loss
+    
+    
+    
+# print(get_pingData("13591"))
+# print(get_pingData("13605"))
+# print(get_prtg_ValueLastUpDown("13604"))

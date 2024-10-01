@@ -6220,3 +6220,62 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 2024-10-01 00:17:51,654 - ERROR - Error en la funcion `get_data_controladora` del archivo `controladora`
+2024-10-01 00:28:29,608 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-01 00:28:29,610 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 78, in get_prtg_ValueLastUpDown
+    ).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-10-01 00:28:29,610 - ERROR - Error en la funcion `get_prtg_ValueLastUpDown` del archivo `api_prtg`
+2024-10-01 00:28:41,962 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 37, in get_prtg_id
+    prtg_response = requests.get(url_prtg_ip, verify=False).json()
+  File "/home/donkami/.local/lib/python3.10/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2024-10-01 00:28:41,962 - ERROR - Error con el Cliente 10.117.115.181
+2024-10-01 00:28:41,962 - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-01 00:28:41,963 - ERROR - Error en la funcion `get_prtg_id` del archivo `api_prtg`
+2024-10-01 00:29:19,461 - ERROR - '#text'
+2024-10-01 00:29:19,462 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 156, in get_pingData
+    avg_ping = data_ping[0]["#text"]
+KeyError: '#text'
+
+2024-10-01 00:29:19,462 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`
+2024-10-01 00:29:37,007 - ERROR - '#text'
+2024-10-01 00:29:37,008 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/devnet-candelaria/Services/Mesh/api_prtg.py", line 156, in get_pingData
+    avg_ping = data_ping[0]["#text"]
+KeyError: '#text'
+
+2024-10-01 00:29:37,008 - ERROR - Error en la funcion `get_pingData` del archivo `api_prtg`

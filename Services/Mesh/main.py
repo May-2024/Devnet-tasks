@@ -29,8 +29,7 @@ def main():
         final_data = []
 
         for device in data_mesh:
-            ip_device = "10.117.115.110"
-            # ip_device = device["ip"]
+            ip_device = device["ip"]
             name_device = device["device"]
             eqmt = device["eqmt"]
             logging.info(f"Consultando informacion: {name_device}")
@@ -65,10 +64,10 @@ def main():
             ap_name = netmiko_data["ap_name"]
             snr_level = netmiko_data["snr_level"]
 
-            # ap_longitude, ap_latitude = get_actility_data(ap_name) #! Descomentar
-            # elem_longitude, elem_latitud = get_cande_data(eqmt) #! Descomentar
-            # distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
-            distance = 0.0  #! Borrar, en local no se puede acceder a lat y longt de los equipos
+            ap_longitude, ap_latitude = get_actility_data(ap_name) #! Descomentar
+            elem_longitude, elem_latitud = get_cande_data(eqmt) #! Descomentar
+            distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
+            # distance = 0.0  #! Borrar, en local no se puede acceder a lat y longt de los equipos
             status_dispatch, operador = get_data_dispatch(eqmt)
             fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(
                 ip_device, signal_strength, snr_level, data_mesh

@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require("sequelize");
 const config = require("../config/config");
 
-const environment = process.env.NODE_ENV || 'local';
+const environment = process.env.ENVIRONMENT || 'local';
 const dbConfig = config[environment];
 
 // Primera conexión (base de datos 1)
