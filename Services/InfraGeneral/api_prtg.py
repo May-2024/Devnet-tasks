@@ -98,7 +98,7 @@ def get_data_interfaces(ip_switch, id_switch, red, name_switch):
     interfaces_notFound = [
         {
             "name": "No Devices Found",
-            "status": "Down",
+            "status": "Not Found",
             "objid": "Not Found",
             "ip_switch": ip_switch,
             "name_switch": name_switch,
@@ -114,7 +114,7 @@ def get_data_interfaces(ip_switch, id_switch, red, name_switch):
         interfaces = response_interfaces.get("sensors", interfaces_notFound)
 
         if interfaces == []:
-            return interfaces_notFound
+            return []
 
         for interface in interfaces:
             interface["ip_switch"] = ip_switch
@@ -156,7 +156,7 @@ def system_health(ip_switch, id_switch, red, name_switch):
         )
 
         if devices_systemhealth == []:
-            return devices_systemhealth_notFound
+            return []
 
         for device in devices_systemhealth:
             device["ip_switch"] = ip_switch
