@@ -60,6 +60,7 @@ services:
       - DB_USER_HISTORIC=${DB_USER_HISTORIC}
       - DB_PASSWORD_HISTORIC=${DB_PASSWORD_HISTORIC}
       - DB_DATABASE_HISTORIC=${DB_DATABASE_HISTORIC}
+      
   ups:
     container_name: ups
     build:

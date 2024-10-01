@@ -58,12 +58,25 @@ export function TableSwitches() {
           {switch_.device} {switch_.group}
         </td>
         <td>{switch_.ip}</td>
-        <td>{switch_.status_prtg}</td>
+        <td
+          className={
+            switch_.status_prtg.toLowerCase().includes("up")
+              ? "kpi-green"
+              : switch_.status_prtg.toLowerCase().includes("down")
+              ? "kpi-red"
+              : switch_.status_prtg.toLowerCase().includes("paused")
+              ? "kpi-blue"
+              : ""
+          }
+        >
+          {" "}
+          {switch_.status_prtg}
+        </td>
         <td>{switch_.reachability}</td>
-        {/* <td>{switch_.ups1 || "N/A"}</td> */}
-        {/* <td>{switch_.ups2 || "N/A"}</td>
+        <td>{switch_.ups1 || "N/A"}</td>
+        <td>{switch_.ups2 || "N/A"}</td>
         <td>{switch_.status_ups1 || "N/A"}</td>
-        <td>{switch_.status_ups2 || "N/A"}</td> */}
+        <td>{switch_.status_ups2 || "N/A"}</td>
       </tr>
     ));
   };

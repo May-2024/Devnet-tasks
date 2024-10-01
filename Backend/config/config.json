@@ -15,10 +15,10 @@
   },
   "production": {
     "dialect": "mysql",
-    "host": "db",
-    "username": "candelaria",
-    "password": "candelaria",
-    "database": "dcs"
+    "host": "10.224.116.14",
+    "username": "devnet",
+    "password": "devnet.2",
+    "database": "devnet"
   },
   "historic": {
     "dialect": "mysql",

@@ -1,16 +1,9 @@
-import requests
-import warnings
 import os
-import datetime
 import time
-import calendar
-import mysql.connector
 import logging
 import traceback
 import sched
-from config import database
 from dotenv import load_dotenv
-from db_connection import devnet_connection
 from get_data import get_devnet_data
 from api_prtg import get_status_prtg
 from db_update import update_devnet_data, datetime_register

@@ -1,3 +1,4 @@
+id,name,channel,ip,link,vdom,gateway,ubication
 1,FW-Copiapo,wan2,10.224.21.1,MOVISTAR / SN VPF1880276,root,181.212.121.9,corporate
 2,FW-Ralun,wan1,10.224.113.161,MOVISTAR / SN VPF2296108,root,181.212.118.225,corporate
 3,FW-Chamonate,port5,10.224.113.129,STARLINK,root,100.64.0.1,corporate

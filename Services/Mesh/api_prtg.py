@@ -160,3 +160,5 @@ def get_pingData(sensorId):
         logging.error(traceback.format_exc())
         logging.error("Error en la funcion `get_pingData` del archivo `api_prtg`")
         return avg_ping, min_ping, max_ping, packet_loss
+
+# print(get_pingData(13589))

@@ -54,6 +54,8 @@ def counter_function(ip_device, signal_strength, snr_level, data):
             - fail_snr: Contador de fallos de SNR.
             - fail_time_snr: Tiempo acumulado de fallos de SNR en minutos.
     """
+    
+    
     # Inicializamos variables
     fail_senal = 999
     fail_time_senal = 999

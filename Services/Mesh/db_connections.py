@@ -19,7 +19,7 @@ def devnet_connection():
         environment = "DEV"
     else:
         environment = "LOCAL"
-        
+    
     try:
 
         DB_HOST = os.getenv(f"DB_{environment}_HOST")

@@ -21,8 +21,7 @@ def main():
     try:
 
         load_dotenv()
-        # data_mesh = get_data(table_name="mesh")
-        data_mesh = [{'ip':'10.117.115.181', 'device': 'Pala 19', 'eqmt': 'P19'}]
+        data_mesh = get_data(table_name="mesh")
 
         # Actualizamos de ser necesario los contadores de FAILS
         update_db_fail_counters()
@@ -59,16 +58,17 @@ def main():
                 avg_ping, min_ping, max_ping, packet_loss = get_pingData(sensorId)
 
             netmiko_data = get_data_controladora(ip_device)
+            print(netmiko_data)
             signal_strength = netmiko_data["signal_strength"]
             signal_noise = netmiko_data["signal_noise"]
             connected_for = netmiko_data["connected_for"]
             ap_name = netmiko_data["ap_name"]
             snr_level = netmiko_data["snr_level"]
 
-            ap_longitude, ap_latitude = get_actility_data(ap_name) #! Descomentar
-            elem_longitude, elem_latitud = get_cande_data(eqmt) #! Descomentar
-            distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
-            # distance = 0.0  #! Borrar, en local no se puede acceder a lat y longt de los equipos
+            # ap_longitude, ap_latitude = get_actility_data(ap_name) #! Descomentar
+            # elem_longitude, elem_latitud = get_cande_data(eqmt) #! Descomentar
+            # distance = get_distance(ap_longitude, ap_latitude, elem_longitude, elem_latitud) #! Descomentar
+            distance = 0.0  #! Borrar, en local no se puede acceder a lat y longt de los equipos
             status_dispatch, operador = get_data_dispatch(eqmt)
             fail_senal, fail_time_senal, fail_snr, fail_time_snr = counter_function(
                 ip_device, signal_strength, snr_level, data_mesh

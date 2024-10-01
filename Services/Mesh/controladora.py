@@ -44,18 +44,19 @@ def get_data_controladora(device_ip):
         "username": UserName,
         "password": Password,
         "device_type": "cisco_wlc_ssh",
-        "timeout": 1960,
-        "timeout": 1960,
+        "timeout": 4960,
     }
 
     net_connect = ConnectHandler(**network_device_list)
     
     try:
+        
         data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
         # logging.info(f"OUTPUT: sh wireless client summary detail ipv4 | inc {device_ip}: {data_pala}")
         
         output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
-        # logging.info(f"OUTPUT: sh wireless client mac-address {data_pala.split()[0]} detail: {output}")
+        # logging.info(f"OUTPUT: sh wireless client mac-address {data_pala.split()[0]}")
+        # logging.info(f"detail: {output}")
 
         signal_strength_pattern = r"Radio Signal Strength Indicator\s*:\s*(-?\d+)\s+dBm"
         signal_noise_pattern = r"Signal to Noise Ratio\s*:\s*(-?\d+)\s+dB"
@@ -109,4 +110,4 @@ def get_data_controladora(device_ip):
 
         return netmiko_data
 
-# get_data_controladora('10.117.115.111')
+# print(get_data_controladora('10.117.115.181'))
