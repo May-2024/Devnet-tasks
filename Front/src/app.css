@@ -9,26 +9,48 @@
   position: fixed;
   bottom: 2px;
   right: 2px;
-  width: 1.5rem;
+  width: 100%;
   height: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pause-and-icons-container {
+  display: flex;
+  align-items: center;
+  width: 7rem;
+  height: 100%;
 }
 
 .refresh-button-container-2 {
-  position: fixed;
-  bottom: 5px;
-  right: 30px;
+  /* position: fixed; */
+  /* bottom: 5px;
+  right: 30px; */
   font-size: 0.7rem;
   color: gray;
+  
+}
+
+.cisco-prtg-icons {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  /* align-items: center; */
+  /* position: fixed; */
+  width: 5rem;
+  /* height: 1.2rem; */
+  /* bottom: 0; */
 }
 
 .refresh-button {
   background-color: #505151;
   color: white;
   border: none;
-  border-radius: 80%;
+  border-radius: 100px;
   cursor: pointer;
-  width: 100%;
-  height: 100%;
+  width: 24px;
+  height: 24px;
   display: flex;
   text-align: center;
   justify-content: center;
