@@ -4,6 +4,7 @@ const config = require("../config/config");
 
 const environment = process.env.ENVIRONMENT || 'local';
 const dbConfig = config[environment];
+console.log(dbConfig)
 
 // Primera conexión (base de datos 1)
 const sequelize = new Sequelize(
