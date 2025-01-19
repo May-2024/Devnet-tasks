@@ -6,6 +6,7 @@ import {
   PRTG_URL,
   CISCO_URL_IT,
   CISCO_URL,
+  BASE_API_URL
 } from "../../utils/Api-candelaria/api";
 import { Spinner } from "../Spinner/Spinner";
 import { MdOutlineInfo } from "react-icons/md";
@@ -14,6 +15,7 @@ import { DatetimeModules } from "../DatetimeModules/DatetimeModules";
 import { MdOutlineDownloadForOffline } from "react-icons/md";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import "./devices.css";
+import axios from "axios";
 
 export function Devices() {
   const [devices, setDevices] = useState([]);
@@ -224,11 +226,43 @@ export function Devices() {
     ));
   };
 
+
+
   const renderRowCount = () => {
     const rowCount = filteredSearchDevices.length;
     return (
       <div className="row-count-devices">Total de elementos: {rowCount}</div>
     );
+  };
+
+
+  const downloadCsvRequest = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URL}/devices/camaras/csv`,
+        {},
+        {
+          responseType: 'blob', // Importante para manejar archivos binarios
+        }
+      );
+  
+      // Crear un enlace temporal para descargar el archivo
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+  
+      // Asignar un nombre al archivo descargado
+      link.setAttribute('download', 'data_camaras.csv');
+  
+      // Añadir el enlace al documento y simular un clic para iniciar la descarga
+      document.body.appendChild(link);
+      link.click();
+  
+      // Eliminar el enlace después de la descarga
+      link.parentNode.removeChild(link);
+    } catch (error) {
+      console.error('Error al descargar el archivo:', error);
+    }
   };
 
   return (
@@ -279,7 +313,8 @@ export function Devices() {
         </div>
 
 
-        <button 
+        <button
+        onClick={downloadCsvRequest}
         title={"Descargar reporte csv de camaras"}
         className="csv-button">
           <BsFillCameraVideoFill

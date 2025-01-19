@@ -1,4 +1,7 @@
 const { Devices } = require("../models/devices");
+const axios = require("axios");
+const { createObjectCsvWriter, createObjectCsvStringifier  } = require('csv-writer');
+
 
 class DevicesService {
   async getDevices() {
@@ -122,8 +125,53 @@ class DevicesService {
       throw new Error("Error al eliminar el dispositivo");
     }
   }
-}
 
+
+  async getCamarasCsv() {
+    try {
+      console.log("Entro añ service")
+      const cctv_list_servers = [
+        "10.225.0.253",
+        // Agrega más IPs aquí si es necesario
+      ];
+  
+      const username = "roiss";
+      const password = "MNuqYXiugdfsY1NvKYdr";
+      const dataCamaras = [
+        {
+          cctvServer: '192.168.1.2',
+          integrator: 'Integrator2',
+          name: 'Camera2',
+          server: 'Server2',
+          enabled: false,
+          valid: true,
+          url: 'http://camera2-url',
+        },
+      ];
+  
+      // Generar el archivo CSV en memoria con separador ;
+      const csvStringifier = createObjectCsvStringifier({
+        header: [
+          { id: 'cctvServer', title: 'CCTV Server' },
+          { id: 'integrator', title: 'Integrator' },
+          { id: 'name', title: 'Name' },
+          { id: 'server', title: 'Server' },
+          { id: 'enabled', title: 'Enabled' },
+          { id: 'valid', title: 'Valid' },
+          { id: 'url', title: 'URL' },
+        ],
+        fieldDelimiter: ';', // Aquí configuramos el separador
+      });
+  
+      const csvContent = csvStringifier.getHeaderString() + csvStringifier.stringifyRecords(dataCamaras);
+  
+      return csvContent; // Retornamos el contenido del CSV
+    } catch (error) {
+      console.error('Error al obtener las cámaras:', error);
+      throw new Error("Error al obtener la información del dispositivo");
+    }
+  }
+}
 // async function editOneDevice(id, changes) {
 //   try {
 //     const device = await DataDevices.findByPk(id);
